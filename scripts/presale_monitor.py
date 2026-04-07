@@ -25,7 +25,13 @@ from utils import WATCHLIST_PATH, CST, ensure_dir, load_json, save_json
 
 
 def _load_watchlist() -> dict:
-    return load_json(WATCHLIST_PATH, {"resorts": [], "last_check": None})
+    data = load_json(WATCHLIST_PATH, {"resorts": [], "last_check": None})
+    # 结构校验：确保必须字段存在（防止空文件或字段缺失）
+    if "resorts" not in data or not isinstance(data["resorts"], list):
+        data["resorts"] = []
+    if "last_check" not in data:
+        data["last_check"] = None
+    return data
 
 
 def _save_watchlist(data: dict):
@@ -35,24 +41,25 @@ def _save_watchlist(data: dict):
 def watch(params: dict) -> str:
     """
     添加或更新监听项。
-    参数示例:
-    {
-        "resorts": [
-            {
-                "name": "万龙滑雪场",
-                "keywords": ["万龙 早鸟票", "万龙 季卡 预售", "万龙 住滑套餐"],
-                "sources": ["雪场官网", "微信公众号", "飞猪", "小红书"],
-                "notify_channels": ["qoderwork", "dingtalk"]
-            },
-            {
-                "name": "北大湖滑雪场",
-                "keywords": ["北大湖 早鸟票", "北大湖 住滑套餐 预售"],
-                "sources": ["雪场官网", "微信公众号"],
-                "notify_channels": ["qoderwork"]
-            }
-        ]
-    }
+    支持两种格式:
+    1. 批量: {"resorts": [{"name": "万龙滑雪场", "keywords": [...], ...}]}
+    2. 单个: {"resort": "万龙滑雪场", "product": "早鸟季卡", "keywords": [...]}
     """
+    # 兼容扁平格式：自动转为 resorts 数组
+    if "resort" in params and "resorts" not in params:
+        name = params["resort"].strip()
+        if not name:
+            return "⚠️ 请提供雪场名称。示例：watch '{\"resort\": \"万龙滑雪场\", \"product\": \"早鸟季卡\"}'"
+        product = params.get("product", "")
+        flat_entry = {
+            "name": f"{name}" if not product else f"{name}",
+            "keywords": params.get("keywords", [f"{name} {product}" if product else f"{name} 早鸟票", f"{name} 预售"]),
+            "sources": params.get("sources", ["雪场官网", "微信公众号", "飞猪"]),
+        }
+        if "notify_channels" in params:
+            flat_entry["notify_channels"] = params["notify_channels"]
+        params = {"resorts": [flat_entry]}
+
     wl = _load_watchlist()
     existing_names = {r["name"] for r in wl["resorts"]}
 
@@ -67,7 +74,7 @@ def watch(params: dict) -> str:
             "name": name,
             "keywords": resort.get("keywords", [f"{name} 早鸟票", f"{name} 预售"]),
             "sources": resort.get("sources", ["雪场官网", "微信公众号", "飞猪"]),
-            "notify_channels": resort.get("notify_channels", ["qoderwork"]),
+            "notify_channels": resort.get("notify_channels", ["im", "console"]),
             "added_at": datetime.now(CST).isoformat(),
             "last_status": "未开始",
             "last_found": None,
@@ -174,7 +181,7 @@ def check(search_results: dict) -> str:
                     "url": result.get("url", ""),
                     "price_info": result.get("price_info", ""),
                     "deadline": result.get("deadline", ""),
-                    "channels": resort.get("notify_channels", ["qoderwork"]),
+                    "channels": resort.get("notify_channels", ["im", "console"]),
                 }
                 notifications.append(notif)
 
@@ -220,7 +227,16 @@ def check(search_results: dict) -> str:
 
 
 def remove(params: dict) -> str:
-    """移除监听项。参数: {"resorts": ["万龙滑雪场"]}"""
+    """
+    移除监听项。
+    支持两种格式:
+    1. 批量: {"resorts": ["万龙滑雪场"]}
+    2. 单个: {"resort": "万龙滑雪场"} 或 {"resort": "万龙滑雪场", "product": "早鸟季卡"}
+    """
+    # 兼容扁平格式
+    if "resort" in params and "resorts" not in params:
+        params = {"resorts": [params["resort"]]}
+
     wl = _load_watchlist()
     to_remove = set(params.get("resorts", []))
     before = len(wl["resorts"])
@@ -270,10 +286,10 @@ if __name__ == "__main__":
     elif cmd == "list":
         print(list_watchlist())
     elif cmd == "check":
-        params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else json.load(sys.stdin)
+        params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else {"results": []}
         print(check(params))
     elif cmd == "remove":
-        params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else json.load(sys.stdin)
+        params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else {"resorts": []}
         print(remove(params))
     elif cmd == "status":
         print(status())

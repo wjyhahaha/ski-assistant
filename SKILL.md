@@ -1,21 +1,20 @@
 ---
 name: ski-assistant
-description: 全球滑雪综合服务助手，提供残票/低价票查找、早鸟票预售体系分析、全球滑雪出行攻略推荐、AI电子教练姿态分析与雪季进步追踪、智能雪场推荐（含专业高山天气/费用估算）。当用户提到滑雪、雪票、雪场、购票、滑雪旅行、外滑、早鸟票、残票、低价票、滑雪攻略、雪季规划、滑雪动作分析、姿态打分、滑雪教练、滑雪进步、雪季总结、推荐雪场、雪场对比、雪场天气、滑雪预算时使用。
+description: 滑雪综合服务助手，提供残票/低价票查找、早鸟票预售体系分析、全球滑雪出行攻略推荐、AI电子教练姿态分析与雪季进步追踪、智能雪场推荐（含专业高山天气/费用估算）、联网实时查价（机票/酒店/雪票）。当用户提到滑雪、雪票、雪场、购票、滑雪旅行、外滑、早鸟票、残票、低价票、滑雪攻略、雪季规划、滑雪动作分析、姿态打分、滑雪教练、滑雪进步、雪季总结、推荐雪场、雪场对比、雪场天气、滑雪预算、实时价格、机票价格、酒店价格、查价时使用。
 ---
 
 # Ski Assistant - 全球滑雪综合服务助手 v2.0
 
-五大模块：残票/低价票查找、早鸟票预售体系、滑雪出行攻略、AI电子教练、智能雪场推荐。数据策略：内置知识库 + 联网搜索 + Open-Meteo 高山天气 API。电子教练支持用户自选视觉模型。智能推荐引擎根据用户画像自动匹配最优雪场。覆盖：中国（崇礼/东北/新疆/北京周边）、日本、韩国、欧洲、北美、南半球、室内雪场。
+六大模块：残票/低价票查找、早鸟票预售体系、滑雪出行攻略、AI电子教练、智能雪场推荐、联网实时查价。数据策略：内置知识库 + 联网搜索 + Open-Meteo 高山天气 API。电子教练支持用户自选视觉模型。智能推荐引擎根据用户画像自动匹配最优雪场。联网查价自动生成搜索策略，Agent 搜索后生成结构化预算。覆盖：中国（崇礼/东北/新疆/北京周边）、日本、韩国、欧洲、北美、南半球、室内雪场。
 
 ## 架构概述
 
 ### 数据存储（通用化）
 
-所有用户数据统一由 `scripts/utils.py` 管理，**不绑定 QoderWork**，任何平台都能用。
 
 存储路径优先级：
 1. 环境变量 `SKI_ASSISTANT_DATA_DIR`（用户自定义）
-2. `~/.qoderwork/ski-coach/`（QoderWork 向后兼容）
+2. `~/.qoderwork/ski-coach/`（旧版兼容）
 3. `~/.ski-assistant/`（通用默认路径）
 
 文件清单：
@@ -70,10 +69,10 @@ description: 全球滑雪综合服务助手，提供残票/低价票查找、早
 **流程**：
 1. 确认监听雪场、产品类型、通知渠道
 2. 调用 `python scripts/presale_monitor.py watch '<json>'` 注册监听
-3. 通过 QoderWork 定时任务创建每日检查（每天9:00），定时任务 payload 需包含：读取 watchlist → WebSearch 搜索关键词 → 判断预售状态 → 调用 `presale_monitor.py check` → 如有变化通过 IM 发送通知
+3. 通过定时任务（cron / 系统调度器 / Agent 定时能力）创建每日检查（建议每天9:00），任务需包含：读取 watchlist → 联网搜索关键词 → 判断预售状态 → 调用 `presale_monitor.py check` → 如有变化发送通知
 4. 管理：`list` 查看、`status` 摘要、`remove` 移除
 
-监听数据存储在数据目录下的 `watchlist.json`，仅状态变化时通知。通知渠道：qoderwork（IM会话）、dingtalk、feishu，通过 `qoder_list_channel_conversations` + `qoder_delegate_to_im` 发送。
+监听数据存储在数据目录下的 `watchlist.json`，仅状态变化时通知。默认通知渠道：`im`（Agent 平台 IM 会话）、`console`（控制台输出）。可选渠道还包括 `email`、`webhook` 等，具体支持取决于 Agent 平台能力。用户可在 watch 时通过 `notify_channels` 字段自定义。
 
 ---
 
@@ -103,7 +102,17 @@ description: 全球滑雪综合服务助手，提供残票/低价票查找、早
 
 ### 单次分析流程
 
-1. 用户上传照片/视频 → 2. `show-config` 读取模型配置 → 3. 视觉分析打分 → 4. `history '{"last_n":3}'` 获取近期记录对比 → 5. `record '<json>'` 记录结果
+统一入口：`python scripts/ski_coach.py analyze '{"image":"/path/to/photo.jpg","resort":"万龙滑雪场","run":"银龙道","difficulty":"blue"}'`
+
+**自动降级策略**：
+1. 如果用户配置了外部视觉模型 API Key（如 OPENAI_API_KEY），脚本直接调用对应 API 分析并自动记录
+2. 如果未配置任何 API Key（默认情况），脚本返回 `agent_vision` 模式的 JSON 输出，包含分析提示词和记录模板。Agent 应按照输出中的 `instruction` 指引完成：
+   - 用自身视觉能力查看并分析图片
+   - 按 `analysis_prompt` 中的格式生成评分 JSON
+   - 将 `scores`/`highlights`/`issues`/`advice`/`coach_note` 合并到 `record_template`
+   - 调用 `python scripts/ski_coach.py record '<合并后的JSON>'` 完成记录
+
+可选配置外部 API Key：`export OPENAI_API_KEY=sk-xxx`（或其他提供商对应的环境变量）
 
 ### 评分体系（满分10分）
 
@@ -119,6 +128,7 @@ description: 全球滑雪综合服务助手，提供残票/低价票查找、早
 ### 命令参考
 
 ```bash
+python scripts/ski_coach.py analyze '{"image":"/path/to/photo.jpg","resort":"万龙","run":"银龙道","difficulty":"blue"}'  # 视觉分析
 python scripts/ski_coach.py history                    # 全部记录
 python scripts/ski_coach.py progress                   # 进步报告
 python scripts/ski_coach.py season                     # 雪季总结
@@ -158,6 +168,8 @@ python scripts/ski_coach.py export /path/to/file.json  # 导出
 
 室内雪场标记 `indoor: true`，全年可滑，推荐算法在非雪季（4-10月）自动加权室内雪场。
 
+**联网更新**：运行 `python scripts/resort_recommender.py update-db` 从 GitHub 拉取最新雪场数据，自动备份旧版本并比对版本号。
+
 **用户可自定义**：将 `custom_resorts.json` 放入数据目录，格式与 `resorts_db.json` 相同，会自动合并并覆盖同名条目。
 
 ### 交通费用说明
@@ -184,11 +196,56 @@ python scripts/resort_recommender.py compare '{"resorts":["万龙滑雪场","北
 
 # 费用估算（已合并 budget_calculator 功能）
 python scripts/resort_recommender.py costs '{"resort":"北大湖滑雪场","days":4,"people":2,"from_city":"上海","rental_per_day":200}'
+
+# 更新雪场数据库（从 GitHub 拉取最新版本）
+python scripts/resort_recommender.py update-db
 ```
 
 画像字段：city、level(beginner/intermediate/advanced/expert)、sport_type(ski/snowboard/both)、preferences(偏好标签数组)、budget_per_trip_cny、available_days、travel_dates、must_have、avoid、region_preference(中国/日本/韩国/欧洲/北美/南半球/不限)。
 
 天气特色：按雪场山顶海拔获取、滑雪条件评分1-10（新雪+2/降雨-3/强风-3/过暖-2）、全球覆盖、免费无限调用。
+
+---
+
+## 模块六：联网实时查价
+
+**触发**：查一下去XX滑雪多少钱、实时价格、机票多少钱、酒店价格、帮我估算费用（实时）。
+
+### 设计理念
+
+脚本负责"搜什么 + 怎么算"，Agent 负责"怎么搜"。不依赖任何第三方 API Key，所有 Agent 平台均可使用。
+
+### 工作流
+
+1. Agent 调用 `price_fetcher.py live-costs` → 获取搜索策略（含关键词、OTA 链接、数据库参考价）
+2. Agent 用自身 WebSearch 能力依次搜索交通、住宿、雪票价格
+3. Agent 将搜索到的价格填入模板，调用 `price_fetcher.py parse-results` → 生成结构化预算报告
+4. 如某项搜索无结果，脚本自动使用数据库参考价作为备选
+
+### 智能特性
+
+- **交通方式自动判断**：根据出发城市和雪场距离/位置自动选择搜索 机票/高铁/自驾 关键词（如北京→崇礼自动推荐高铁，上海→北大湖自动推荐机票）
+- **雪场名称模糊匹配**：支持简称（如"二世谷"匹配"二世谷（Niseko）"）、中英文混合
+- **到达接驳信息**：内置全球 40+ 雪场的到达城市、机场/车站、接驳方式和时间
+- **OTA 平台推荐**：根据国内/国际自动推荐对应 OTA（国内：携程/飞猪/美团/12306；日本：WAmazing/KLOOK；国际：Skyscanner/Booking/Liftopia）
+- **数据库价格对比**：实时查到的价格自动与数据库参考价比较，标注偏差百分比
+- **结果缓存**：24 小时缓存，避免重复搜索
+- **省钱建议**：自动根据费用结构生成针对性省钱建议
+
+### 命令参考
+
+```bash
+# 第一步：获取搜索策略
+python scripts/price_fetcher.py live-costs '{"resort":"北大湖滑雪场","from_city":"上海","date_start":"2026-01-15","date_end":"2026-01-18","people":2}'
+
+# 也可仅获取搜索关键词（JSON格式，供程序使用）
+python scripts/price_fetcher.py search-queries '{"resort":"北大湖滑雪场","from_city":"上海","date_start":"2026-01-15","date_end":"2026-01-18","people":2}'
+
+# 第二步：Agent 搜索后，传入实际价格生成报告
+python scripts/price_fetcher.py parse-results '{"resort":"北大湖滑雪场","from_city":"上海","dates":{"start":"2026-01-15","end":"2026-01-18","days":3},"people":2,"prices":{"flight_per_person":1180,"hotel_per_night":480,"ticket_per_day":580,"rental_per_day":200,"local_transport_per_person":120,"sources":{"flight_source":"携程","hotel_source":"美团","ticket_source":"去哪儿"}}}'
+```
+
+参数说明：`resort`（雪场名，支持模糊匹配）、`from_city`（出发城市）、`date_start/date_end`（日期）、`people`（人数）、`hotel_type`（经济型/中档/高档，可选）。prices 中所有字段均可选，未提供的自动使用数据库参考值。
 
 ---
 
@@ -212,4 +269,5 @@ python scripts/resort_recommender.py costs '{"resort":"北大湖滑雪场","days
 - **预售监听**：[scripts/presale_monitor.py](scripts/presale_monitor.py)
 - **电子教练**：[scripts/ski_coach.py](scripts/ski_coach.py)
 - **智能推荐**：[scripts/resort_recommender.py](scripts/resort_recommender.py) — 推荐/天气/对比/费用估算
+- **联网查价**：[scripts/price_fetcher.py](scripts/price_fetcher.py) — 实时机票/酒店/雪票查价
 - **手动预算**（仅用于用户提供具体费用明细时）：[scripts/budget_calculator.py](scripts/budget_calculator.py)

@@ -8,29 +8,108 @@
 """
 
 import json
+import os
 import sys
+
+# ─── 导入共享工具 ───
+_SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, _SCRIPT_DIR)
+from utils import load_resorts_db
+
+
+def _auto_fill_from_db(params: dict) -> dict:
+    """如果传了 resort 名称但缺少费用明细，自动从数据库填充默认值。"""
+    resort_name = params.get("resort", "")
+    if not resort_name:
+        return params
+
+    db = load_resorts_db()
+    resort = db.get(resort_name)
+    if not resort or not isinstance(resort, dict) or "lat" not in resort:
+        return params
+
+    days = params.get("days", 1)
+    ski_days = params.get("ski_days", days)
+    people = params.get("people", 1)
+
+    # 雪票：取区间中值
+    ticket_range = resort.get("ticket_range_cny", [0, 0])
+    if "lift_ticket_per_day" not in params and ticket_range:
+        params["lift_ticket_per_day"] = sum(ticket_range) / len(ticket_range)
+
+    # 住宿：取区间低值
+    hotel_range = resort.get("hotel_range_cny", [0, 0])
+    if "hotel_per_night" not in params and hotel_range:
+        params["hotel_per_night"] = hotel_range[0]
+
+    # 交通：从 transport_ref 取均值
+    transport = resort.get("transport_ref", {})
+    if "flight_per_person" not in params and transport:
+        cost_range = transport.get("cost_cny", [0, 0])
+        if cost_range:
+            params["flight_per_person"] = sum(cost_range) / len(cost_range)
+
+    # 保险默认值
+    if "insurance_per_person" not in params:
+        params["insurance_per_person"] = 25
+
+    return params
 
 
 def calculate_budget(params: dict) -> dict:
     """
-    参数示例:
+    支持两种输入模式：
+    模式1（推荐 - 明细项）:
     {
-        "people": 2,
-        "days": 5,
-        "ski_days": 4,
-        "flight_per_person": 2500,
-        "hotel_per_night": 400,
-        "hotel_nights": 4,
-        "lift_ticket_per_day": 550,
-        "rental_per_day": 200,      # 0 = 自带装备
-        "food_per_day": 150,
-        "transport_local": 300,
-        "insurance_per_person": 50,
-        "extras_per_person": 100,
-        "currency": "CNY"
+        "people": 2, "days": 5, "ski_days": 4,
+        "items": [
+            {"name": "雪票", "unit_price": 500, "quantity": 3},
+            {"name": "住宿", "unit_price": 400, "quantity": 4, "split": true},
+            {"name": "高铁", "unit_price": 550, "quantity": 1},
+            {"name": "装备租赁", "unit_price": 200, "quantity": 3}
+        ]
+    }
+    模式2（flat 参数，自动填充）:
+    {
+        "people": 2, "days": 5, "ski_days": 4,
+        "flight_per_person": 2500, "hotel_per_night": 400,
+        "lift_ticket_per_day": 550, "rental_per_day": 200,
+        "food_per_day": 150, "insurance_per_person": 50
     }
     """
-    p = params
+    people = params.get("people", 1)
+    days = params.get("days", 1)
+    ski_days = params.get("ski_days", days)
+    currency = params.get("currency", "CNY")
+    symbol = "¥" if currency == "CNY" else currency + " "
+
+    user_items = params.get("items")
+    if user_items and isinstance(user_items, list) and len(user_items) > 0:
+        # 模式1：用户提供了明细项，直接计算
+        # quantity 视为总数量（用户自行按需乘以人数），total = unit_price * quantity
+        output_items = []
+        grand_total = 0
+        for item in user_items:
+            name = item.get("name", "未命名")
+            unit_price = item.get("unit_price", 0)
+            quantity = item.get("quantity", 1)
+            total = unit_price * quantity
+            pp = total / people if people > 0 else total
+            grand_total += total
+            output_items.append({"name": name, "total": total, "per_person": pp})
+
+        return {
+            "summary": {
+                "people": people, "days": days, "ski_days": ski_days,
+                "grand_total": grand_total,
+                "per_person": grand_total / people if people > 0 else 0,
+                "currency": currency, "symbol": symbol,
+            },
+            "items": output_items,
+        }
+
+    # 模式2：flat 参数，支持数据库自动填充
+    p = _auto_fill_from_db(dict(params))
     people = p.get("people", 1)
     days = p.get("days", 1)
     ski_days = p.get("ski_days", days)

@@ -26,12 +26,26 @@ def compare_tickets(params: dict) -> str:
         ]
     }
     """
-    resort = params.get("resort", "未知雪场")
-    date = params.get("date", "未知日期")
+    resort = params.get("resort", "")
+    date = params.get("date", "")
     base = params.get("base_price", 0)
     currency = params.get("currency", "CNY")
     symbol = "¥" if currency == "CNY" else currency + " "
-    tickets = params.get("tickets", [])
+    tickets = params.get("tickets", params.get("results", []))
+
+    # 如果顶层没有 resort/date，尝试从票信息中提取
+    if not resort and tickets:
+        resort = tickets[0].get("resort", "未知雪场")
+    if not date and tickets:
+        date = tickets[0].get("date", "未知日期")
+    if not base and tickets:
+        # 尝试从 original_price 推断基准价
+        originals = [t.get("original_price", 0) for t in tickets if t.get("original_price")]
+        if originals:
+            base = max(originals)
+
+    resort = resort or "未知雪场"
+    date = date or "未知日期"
 
     # Sort by price ascending
     tickets.sort(key=lambda t: t.get("price", 0))
@@ -45,27 +59,35 @@ def compare_tickets(params: dict) -> str:
     best = None
     for t in tickets:
         price = t.get("price", 0)
+        source = t.get("source") or t.get("platform", "")
+        ttype = t.get("type") or t.get("ticket_type", "")
         discount = f"{(1 - price / base) * 100:.0f}% off" if base > 0 else "-"
         refund = "✅" if t.get("refundable") else "❌"
         trust = t.get("trust", "未知")
 
         lines.append(
-            f"| {t.get('source', '')} | {t.get('type', '')} "
+            f"| {source} | {ttype} "
             f"| {symbol}{price} | {discount} | {refund} | {trust} |"
         )
 
         if best is None and trust in ("高", "中"):
-            best = t
+            best = {**t, "_source": source, "_type": ttype}
 
     lines.append("")
 
     # Generate recommendation
     if best:
         saving = base - best["price"]
-        lines.append(
-            f"💡 推荐：{best['source']}的{best['type']}，"
-            f"{symbol}{best['price']}，较门市价节省 {symbol}{saving}。"
-        )
+        if saving > 0:
+            lines.append(
+                f"💡 推荐：{best['_source']}的{best['_type']}，"
+                f"{symbol}{best['price']}，较门市价节省 {symbol}{saving}。"
+            )
+        else:
+            lines.append(
+                f"💡 推荐：{best['_source']}的{best['_type']}，"
+                f"{symbol}{best['price']}。"
+            )
         if not best.get("refundable"):
             lines.append("⚠️ 注意：该票源不可退改，请确认行程后再购买。")
     else:

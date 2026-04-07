@@ -10,6 +10,7 @@
   weather  '<json>'   获取指定雪场的专业高山天气预报
   compare  '<json>'   多雪场综合对比（天气+票价+交通+住宿）
   costs    '<json>'   估算前往某雪场的交通+住宿费用
+  update-db           从 GitHub 拉取最新雪场数据库
 
 数据存储：通过 utils.py 统一管理，默认 ~/.ski-assistant/
 天气数据来源：Open-Meteo API（专业高山天气，按雪场海拔获取）
@@ -109,13 +110,20 @@ def fetch_mountain_weather(lat: float, lon: float, elevation: int, days: int = 7
         # 滑雪条件评分 (1-10)
         score = 10
         if day["temp_max"] is not None:
-            if day["temp_max"] > 5: score -= 2
+            if day["temp_max"] > 10: score -= 4       # 山顶超10°C，雪面融化严重
+            elif day["temp_max"] > 5: score -= 2      # 偏暖，雪质变差
             if day["temp_min"] is not None and day["temp_min"] < -25: score -= 1
         if day["wind_max_kmh"] is not None:
-            if day["wind_max_kmh"] > 60: score -= 3
-            elif day["wind_max_kmh"] > 40: score -= 1
+            if day["wind_max_kmh"] > 50: score -= 4    # 持续风速>50km/h，缆车可能停运
+            elif day["wind_max_kmh"] > 35: score -= 2  # 强风，体感差、影响平衡
+        if day["gust_max_kmh"] is not None:
+            if day["gust_max_kmh"] > 70: score -= 2    # 阵风>70km/h，极端危险
+            elif day["gust_max_kmh"] > 55: score -= 1  # 阵风强，阵性影响体验
         if day["snowfall_cm"] and day["snowfall_cm"] > 5: score += 2
-        if day["rain_mm"] and day["rain_mm"] > 5: score -= 3
+        if day["rain_mm"] and day["rain_mm"] > 0:     # 降雨分级惩罚
+            if day["rain_mm"] > 5: score -= 4         # 大雨
+            elif day["rain_mm"] > 2: score -= 3       # 中雨
+            else: score -= 2                          # 小雨也严重影响体验
         if wcode in (71, 73, 85): score += 1
         day["ski_condition_score"] = max(1, min(10, score))
 
@@ -150,7 +158,11 @@ def set_profile(params: dict) -> str:
     _save_profile(profile)
 
     lines = ["🎿 用户画像已更新\n"]
-    if params.get("city"): lines.append(f"📍 出发城市：{params['city']}")
+    if params.get("city"):
+        lines.append(f"📍 出发城市：{params['city']}")
+        if params["city"] not in CITY_COORDS:
+            lines.append(f"  ⚠️ 「{params['city']}」不在内置城市坐标库中，距离计算和交通推荐可能不准确。")
+            lines.append(f"  💡 支持的城市：{'、'.join(list(CITY_COORDS.keys())[:10])} 等 {len(CITY_COORDS)} 个城市")
     if params.get("level"): lines.append(f"🏔️ 滑雪水平：{level_label(params['level'])}")
     if params.get("sport_type"):
         lines.append(f"🎿 运动类型：{sport_label(params['sport_type'])}")
@@ -213,8 +225,16 @@ def recommend(params: dict = None) -> str:
     city_coord = CITY_COORDS.get(city)
 
     # 判断是否为非雪季（北半球 4-10 月视为非雪季）
-    now_month = datetime.now(CST).month
-    off_season = 4 <= now_month <= 10
+    # 优先使用用户的出行日期，否则用当前月份
+    travel_dates = profile.get("travel_dates", "")
+    if travel_dates:
+        try:
+            travel_month = int(travel_dates.split("-")[1]) if "-" in travel_dates else datetime.now(CST).month
+        except (ValueError, IndexError):
+            travel_month = datetime.now(CST).month
+    else:
+        travel_month = datetime.now(CST).month
+    off_season = 4 <= travel_month <= 10
 
     scored = []
     for name, r in resorts_db.items():
@@ -228,7 +248,10 @@ def recommend(params: dict = None) -> str:
 
         # 基础过滤
         if level not in r.get("suited_for", []): continue
-        if region_pref != "不限" and region_pref not in r.get("region", ""): continue
+        if region_pref != "不限":
+            # 同时匹配 region 和 province 字段（如 "新疆" 匹配 province "新疆·阿勒泰"）
+            region_match = region_pref in r.get("region", "") or region_pref in r.get("province", "") or region_pref in r.get("country", "")
+            if not region_match: continue
         if sport_type == "snowboard" and not r.get("board_friendly"): continue
         if must_have:
             resort_features = set(r.get("features", []))
@@ -285,14 +308,18 @@ def recommend(params: dict = None) -> str:
         # 公园偏好
         if sport_type == "snowboard" and r.get("park"): score += 8
 
-        # 非雪季：室内雪场加分，室外雪场如不在雪季则扣分
+        # 非雪季：室内雪场加分，室外雪场如不在雪季则大幅扣分
         if off_season:
             if is_indoor:
                 score += 15
             else:
                 season_str = r.get("season", "")
-                if "全年" not in season_str and "6月" not in season_str:
-                    score -= 15
+                # 南半球(6-10月)在北半球非雪季时正当季
+                is_southern = r.get("country", "") in ("新西兰", "澳大利亚") or "南半球" in r.get("region", "")
+                if is_southern:
+                    score += 10  # 反季加分
+                elif "全年" not in season_str:
+                    score -= 30  # 已过季大幅扣分
 
         # 避免项扣分
         for a in avoid:
@@ -345,6 +372,15 @@ def recommend(params: dict = None) -> str:
         # 匹配的偏好
         if item["matched_preferences"]:
             lines.append(f"❤️ 匹配偏好：{'、'.join(item['matched_preferences'])}")
+
+        # 雪季状态警告
+        if not is_indoor and off_season:
+            season_str = r.get("season", "")
+            is_southern = r.get("country", "") in ("新西兰", "澳大利亚") or "南半球" in r.get("region", "")
+            if is_southern:
+                lines.append(f"🌏 反季雪场，雪季 {season_str}")
+            elif "全年" not in season_str:
+                lines.append(f"⚠️ 当前非雪季（雪季 {season_str}），雪场可能已关闭")
 
         # 费用估算（显示用户出发城市，不再固定显示北京）
         lines.append(f"\n💰 **费用估算**")
@@ -420,10 +456,38 @@ def get_weather(params: dict) -> str:
     if not lat or not lon:
         return "⚠️ 请提供雪场名称或经纬度坐标。"
 
-    wx = fetch_mountain_weather(lat, lon, elev, days)
+    try:
+        wx = fetch_mountain_weather(lat, lon, elev, days)
+    except Exception as e:
+        return f"⚠️ 天气数据获取失败：{e}\n\n请稍后重试，或检查网络连接。"
 
     lines = [f"🌨️ {resort_name} 高山天气预报\n"]
     lines.append(f"📍 海拔 {elev}m  |  坐标 ({lat}, {lon})")
+
+    # 雪场运营状态提示
+    if resort_name in resorts_db:
+        r = resorts_db[resort_name]
+        season_str = r.get("season", "")
+        if season_str and not r.get("indoor"):
+            import re
+            from datetime import datetime as _dt
+            now_month = _dt.now().month
+            # 提取所有月份数字
+            month_nums = [int(x) for x in re.findall(r'(\d{1,2})月', season_str)]
+            if len(month_nums) >= 2:
+                start_m, end_m = month_nums[0], month_nums[-1]
+                if start_m > end_m:  # 跨年（如11月-4月）
+                    _season_months = list(range(start_m, 13)) + list(range(1, end_m + 1))
+                else:  # 同年（如6月-10月）
+                    _season_months = list(range(start_m, end_m + 1))
+            elif r.get("lat", 0) < 0:
+                _season_months = [6, 7, 8, 9, 10]
+            else:
+                _season_months = [11, 12, 1, 2, 3, 4]
+
+            if now_month not in _season_months:
+                lines.append(f"⚠️ **该雪场当前不在运营期**（雪季：{season_str}），天气数据仅供参考。")
+
     lines.append(f"📅 未来 {wx['forecast_days']} 天预报\n")
 
     lines.append("| 日期 | 天气 | 温度范围 | 体感温度 | 降雪 | 降雨 | 最大风速 | 阵风 | 滑雪指数 |")
@@ -544,13 +608,15 @@ def compare_resorts(params: dict) -> str:
         lines.append("| " + " | ".join(["---"] * len(wx_header)) + " |")
 
         weather_data = {}
+        weather_errors = {}
         for name in names:
             r = resorts_db.get(name)
             if r and not r.get("indoor"):
                 try:
                     weather_data[name] = fetch_mountain_weather(r["lat"], r["lon"], r["elevation_top"], 7)
-                except:
+                except Exception as e:
                     weather_data[name] = None
+                    weather_errors[name] = str(e)[:80]
 
         wx_rows = [
             ("监测海拔", lambda n: "室内恒温" if resorts_db.get(n, {}).get("indoor") else f"{resorts_db.get(n, {}).get('elevation_top', '?')}m"),
@@ -562,6 +628,11 @@ def compare_resorts(params: dict) -> str:
         for label, fn in wx_rows:
             vals = [fn(name) for name in names]
             lines.append("| " + label + " | " + " | ".join(vals) + " |")
+
+        if weather_errors:
+            lines.append(f"\n⚠️ 天气数据获取失败：")
+            for n, err in weather_errors.items():
+                lines.append(f"  · {n}：{err}")
 
     return "\n".join(lines)
 
@@ -637,6 +708,67 @@ def estimate_costs(params: dict) -> str:
     return "\n".join(lines)
 
 
+# ─── 数据库更新 ───
+
+_GITHUB_RAW_URL = "https://raw.githubusercontent.com/wjyhahaha/ski-assistant/main/scripts/resorts_db.json"
+
+def update_db() -> str:
+    """从 GitHub 拉取最新 resorts_db.json 并覆盖本地内置数据库。"""
+    import shutil
+    local_path = os.path.join(_SCRIPT_DIR, "resorts_db.json")
+
+    # 备份当前文件
+    backup_path = local_path + ".bak"
+    if os.path.exists(local_path):
+        shutil.copy2(local_path, backup_path)
+
+    try:
+        data = _fetch_json(_GITHUB_RAW_URL)
+    except Exception as e:
+        return f"❌ 拉取失败：{e}\n\n本地数据库未受影响。"
+
+    if not isinstance(data, dict) or "_meta" not in data:
+        return "❌ 远程文件格式异常（缺少 _meta 字段），已跳过更新。"
+
+    # 对比版本
+    try:
+        with open(local_path, "r", encoding="utf-8") as f:
+            local_data = json.load(f)
+        local_ver = local_data.get("_meta", {}).get("version", "0.0.0")
+        local_updated = local_data.get("_meta", {}).get("updated", "")
+        local_count = sum(1 for k, v in local_data.items() if k != "_meta" and isinstance(v, dict) and "lat" in v)
+    except Exception:
+        local_ver, local_updated, local_count = "0.0.0", "", 0
+
+    remote_ver = data.get("_meta", {}).get("version", "0.0.0")
+    remote_updated = data.get("_meta", {}).get("updated", "")
+    remote_count = sum(1 for k, v in data.items() if k != "_meta" and isinstance(v, dict) and "lat" in v)
+
+    # 写入
+    with open(local_path, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+
+    lines = ["🔄 雪场数据库已更新\n"]
+    if local_ver != remote_ver:
+        lines.append(f"版本：{local_ver} → {remote_ver}")
+    else:
+        lines.append(f"版本：{remote_ver}（与本地一致）")
+    lines.append(f"日期：{local_updated or '未知'} → {remote_updated}")
+    lines.append(f"雪场数量：{local_count} → {remote_count}")
+
+    new_resorts = set(k for k, v in data.items() if k != "_meta" and isinstance(v, dict) and "lat" in v)
+    old_resorts = set(k for k, v in local_data.items() if k != "_meta" and isinstance(v, dict) and "lat" in v) if local_count > 0 else set()
+    added = new_resorts - old_resorts
+    removed = old_resorts - new_resorts
+    if added:
+        lines.append(f"新增雪场：{', '.join(sorted(added))}")
+    if removed:
+        lines.append(f"移除雪场：{', '.join(sorted(removed))}")
+
+    lines.append(f"\n备份：{backup_path}")
+    return "\n".join(lines)
+
+
 # ─── 主入口 ───
 
 if __name__ == "__main__":
@@ -663,6 +795,8 @@ if __name__ == "__main__":
     elif cmd == "costs":
         params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else json.load(sys.stdin)
         print(estimate_costs(params))
+    elif cmd == "update-db":
+        print(update_db())
     else:
         print(f"未知命令: {cmd}")
         print(__doc__)
