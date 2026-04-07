@@ -84,16 +84,32 @@ def calculate_budget(params: dict) -> dict:
     symbol = "¥" if currency == "CNY" else currency + " "
 
     user_items = params.get("items")
+    # 兼容 dict 格式的 items（如 {"transport": {...}, "hotel": {...}}）
+    if user_items and isinstance(user_items, dict):
+        user_items = list(user_items.values()) if all(isinstance(v, dict) for v in user_items.values()) else None
     if user_items and isinstance(user_items, list) and len(user_items) > 0:
         # 模式1：用户提供了明细项，直接计算
-        # quantity 视为总数量（用户自行按需乘以人数），total = unit_price * quantity
+        # 支持多种字段名：unit_price/price, quantity/days/nights/people（自动组合）
         output_items = []
         grand_total = 0
         for item in user_items:
             name = item.get("name", "未命名")
-            unit_price = item.get("unit_price", 0)
-            quantity = item.get("quantity", 1)
-            total = unit_price * quantity
+            unit_price = item.get("unit_price", 0) or item.get("price", 0)
+            # 灵活计算数量：优先用 quantity，否则组合 days/nights × people
+            quantity = item.get("quantity", 0)
+            if not quantity:
+                days_or_nights = item.get("days", 0) or item.get("nights", 0)
+                item_people = item.get("people", 0)
+                if days_or_nights and item_people:
+                    quantity = days_or_nights * item_people
+                elif days_or_nights:
+                    quantity = days_or_nights
+                elif item_people:
+                    quantity = item_people
+                else:
+                    quantity = 1
+            # 也支持直接给 total
+            total = item.get("total", 0) or (unit_price * quantity)
             pp = total / people if people > 0 else total
             grand_total += total
             output_items.append({"name": name, "total": total, "per_person": pp})

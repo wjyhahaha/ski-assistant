@@ -3,9 +3,9 @@ name: ski-assistant
 description: 滑雪综合服务助手，提供残票/低价票查找、早鸟票预售体系分析、全球滑雪出行攻略推荐、AI电子教练姿态分析与雪季进步追踪、智能雪场推荐（含专业高山天气/费用估算）、联网实时查价（机票/酒店/雪票）。当用户提到滑雪、雪票、雪场、购票、滑雪旅行、外滑、早鸟票、残票、低价票、滑雪攻略、雪季规划、滑雪动作分析、姿态打分、滑雪教练、滑雪进步、雪季总结、推荐雪场、雪场对比、雪场天气、滑雪预算、实时价格、机票价格、酒店价格、查价时使用。
 ---
 
-# Ski Assistant - 全球滑雪综合服务助手 v2.0
+# Ski Assistant - 全球滑雪综合服务助手 v2.1
 
-六大模块：残票/低价票查找、早鸟票预售体系、滑雪出行攻略、AI电子教练、智能雪场推荐、联网实时查价。数据策略：内置知识库 + 联网搜索 + Open-Meteo 高山天气 API。电子教练支持用户自选视觉模型。智能推荐引擎根据用户画像自动匹配最优雪场。联网查价自动生成搜索策略，Agent 搜索后生成结构化预算。覆盖：中国（崇礼/东北/新疆/北京周边）、日本、韩国、欧洲、北美、南半球、室内雪场。
+六大模块：残票/低价票查找、早鸟票预售体系、滑雪出行攻略、AI电子教练、智能雪场推荐、联网实时查价。数据策略：内置知识库 + 联网搜索 + Open-Meteo 高山天气 API + OpenStreetMap 全球雪场发现 + flyai 飞猪直连查价（机票/酒店/景点）。电子教练支持用户自选视觉模型。智能推荐引擎根据用户画像自动匹配最优雪场。联网查价支持 flyai 直连（首选）和 WebSearch（备选）两种模式，自动生成结构化预算。联网发现通过 OSM Overpass API 自动搜索新雪场并补充海拔数据。覆盖：中国（崇礼/东北/新疆/北京周边）、日本、韩国、欧洲、北美、南半球、室内雪场。
 
 ## 架构概述
 
@@ -26,7 +26,7 @@ description: 滑雪综合服务助手，提供残票/低价票查找、早鸟票
 
 ### 雪场数据库（可动态更新）
 
-- 内置数据：`scripts/resorts_db.json`（42+ 全球雪场，含室内）
+- 内置数据：`scripts/resorts_db.json`（49+ 全球雪场，含室内）
 - 用户扩展：`~/.ski-assistant/custom_resorts.json`（自定义新增或覆盖内置数据）
 - 加载策略：内置 + 用户自定义合并，用户数据优先
 
@@ -152,7 +152,7 @@ python scripts/ski_coach.py export /path/to/file.json  # 导出
 
 ### 雪场数据库
 
-内置 42+ 全球雪场（含室内），外置 JSON 可动态更新：
+内置 49+ 全球雪场（含室内），外置 JSON 可动态更新：
 
 - **中国·崇礼**：万龙、太舞、云顶、富龙
 - **中国·东北**：北大湖、松花湖、亚布力、长白山
@@ -169,6 +169,8 @@ python scripts/ski_coach.py export /path/to/file.json  # 导出
 室内雪场标记 `indoor: true`，全年可滑，推荐算法在非雪季（4-10月）自动加权室内雪场。
 
 **联网更新**：运行 `python scripts/resort_recommender.py update-db` 从 GitHub 拉取最新雪场数据，自动备份旧版本并比对版本号。
+
+**联网发现新雪场**：运行 `python scripts/resort_recommender.py discover '<json>'` 从 OpenStreetMap 全球开放地图数据库自动搜索新雪场。支持按区域搜索（中国/日本/欧洲/北美等），自动与本地数据库对比去重，可选海拔数据补充和自动合并入库。新发现的雪场标记 `_needs_review: true`，建议人工校验票价和雪道信息后再使用。
 
 **用户可自定义**：将 `custom_resorts.json` 放入数据目录，格式与 `resorts_db.json` 相同，会自动合并并覆盖同名条目。
 
@@ -199,11 +201,19 @@ python scripts/resort_recommender.py costs '{"resort":"北大湖滑雪场","days
 
 # 更新雪场数据库（从 GitHub 拉取最新版本）
 python scripts/resort_recommender.py update-db
+
+# 联网发现新雪场（基于 OpenStreetMap）
+python scripts/resort_recommender.py discover '{"region":"中国"}'              # 搜索中国所有子区域
+python scripts/resort_recommender.py discover '{"region":"中国-崇礼"}'         # 搜索崇礼区域
+python scripts/resort_recommender.py discover '{"region":"日本","enrich":true}' # 搜索日本并补充海拔
+python scripts/resort_recommender.py discover '{"region":"全部","merge":true}'  # 搜索全球并自动合并入库
 ```
 
 画像字段：city、level(beginner/intermediate/advanced/expert)、sport_type(ski/snowboard/both)、preferences(偏好标签数组)、budget_per_trip_cny、available_days、travel_dates、must_have、avoid、region_preference(中国/日本/韩国/欧洲/北美/南半球/不限)。
 
 天气特色：按雪场山顶海拔获取、滑雪条件评分1-10（新雪+2/降雨-3/强风-3/过暖-2）、全球覆盖、免费无限调用。
+
+discover参数：region（搜索区域，支持"中国"/"日本"/"欧洲"/"北美"/"全部"，或具体子区域名如"中国-崇礼"/"奥地利-蒂罗尔"）、enrich（是否联网获取海拔数据，默认true）、merge（是否自动合并到本地数据库，默认false仅预览）、limit（单区域最大返回数量，默认50）。数据源：Overpass API（OpenStreetMap，首选），查询 `landuse=winter_sports` 和 `site=piste` 标签。
 
 ---
 
@@ -213,14 +223,39 @@ python scripts/resort_recommender.py update-db
 
 ### 设计理念
 
-脚本负责"搜什么 + 怎么算"，Agent 负责"怎么搜"。不依赖任何第三方 API Key，所有 Agent 平台均可使用。
+脚本负责"搜什么 + 怎么算"，Agent 负责"怎么搜"。不依赖任何第三方 API Key，所有 Agent 平台均可使用。接入 flyai（飞猪 MCP CLI）后，可直接获取机票/酒店/景点的真实报价，无需 Agent 手动搜索。
 
 ### 工作流
 
+**首选方案（flyai 直连）**：
+1. Agent 调用 `price_fetcher.py flyai-live` → 脚本自动调用 flyai CLI 查询飞猪实时机票、酒店、景点报价
+2. 自动生成包含航班表格、酒店列表、雪票价格、预算汇总的完整报告
+3. 附带飞猪预订链接，用户可直接跳转购买
+4. 如 flyai 某项查询无结果，自动用数据库参考价兜底
+
+**备选方案（WebSearch）**：
 1. Agent 调用 `price_fetcher.py live-costs` → 获取搜索策略（含关键词、OTA 链接、数据库参考价）
 2. Agent 用自身 WebSearch 能力依次搜索交通、住宿、雪票价格
 3. Agent 将搜索到的价格填入模板，调用 `price_fetcher.py parse-results` → 生成结构化预算报告
 4. 如某项搜索无结果，脚本自动使用数据库参考价作为备选
+
+### flyai 集成说明
+
+flyai 是飞猪 MCP CLI 工具，提供机票、酒店、景点门票的实时搜索能力。
+
+**安装**：`npm install -g @fly-ai/flyai-cli`
+
+**可用查询**：
+- 国内机票搜索（自动按价格排序，返回航班号、航司、时刻、价格、预订链接）
+- 酒店搜索（按目的地/景点搜索，返回价格、评分、星级、预订链接）
+- 景点/雪场门票（按城市+类别搜索，返回门票价格、预订链接）
+
+**限制**：
+- 暂不支持火车票查询（使用数据库参考价）
+- 国际航线/酒店覆盖有限（建议备选 WebSearch）
+- 酒店搜索范围基于城市级别，部分偏远雪场附近结果较少
+
+**降级策略**：flyai 未安装时自动提示使用 `live-costs` 命令走 WebSearch 方案。
 
 ### 智能特性
 
@@ -235,13 +270,16 @@ python scripts/resort_recommender.py update-db
 ### 命令参考
 
 ```bash
-# 第一步：获取搜索策略
+# 首选：flyai 直连查价（自动调用飞猪搜索机票+酒店+雪票）
+python scripts/price_fetcher.py flyai-live '{"resort":"北大湖滑雪场","from_city":"上海","date_start":"2026-01-15","date_end":"2026-01-18","people":2}'
+
+# 备选第一步：获取搜索策略（供 Agent WebSearch）
 python scripts/price_fetcher.py live-costs '{"resort":"北大湖滑雪场","from_city":"上海","date_start":"2026-01-15","date_end":"2026-01-18","people":2}'
 
 # 也可仅获取搜索关键词（JSON格式，供程序使用）
 python scripts/price_fetcher.py search-queries '{"resort":"北大湖滑雪场","from_city":"上海","date_start":"2026-01-15","date_end":"2026-01-18","people":2}'
 
-# 第二步：Agent 搜索后，传入实际价格生成报告
+# 备选第二步：Agent 搜索后，传入实际价格生成报告
 python scripts/price_fetcher.py parse-results '{"resort":"北大湖滑雪场","from_city":"上海","dates":{"start":"2026-01-15","end":"2026-01-18","days":3},"people":2,"prices":{"flight_per_person":1180,"hotel_per_night":480,"ticket_per_day":580,"rental_per_day":200,"local_transport_per_person":120,"sources":{"flight_source":"携程","hotel_source":"美团","ticket_source":"去哪儿"}}}'
 ```
 
@@ -261,13 +299,13 @@ python scripts/price_fetcher.py parse-results '{"resort":"北大湖滑雪场","f
 ## 附加资源
 
 - **共享工具层**：[scripts/utils.py](scripts/utils.py) — 统一路径/IO/工具函数
-- **雪场数据库**：[scripts/resorts_db.json](scripts/resorts_db.json) — 42+ 全球雪场 JSON
+- **雪场数据库**：[scripts/resorts_db.json](scripts/resorts_db.json) — 49+ 全球雪场 JSON
 - **雪场参考**：[resorts-reference.md](resorts-reference.md) — 详细雪场信息（攻略/早鸟规律/联票）
 - **攻略模板**：[travel-guide.md](travel-guide.md)
 - **汇率换算**：[scripts/currency_converter.py](scripts/currency_converter.py)
 - **票价比价**：[scripts/ticket_comparator.py](scripts/ticket_comparator.py)
 - **预售监听**：[scripts/presale_monitor.py](scripts/presale_monitor.py)
 - **电子教练**：[scripts/ski_coach.py](scripts/ski_coach.py)
-- **智能推荐**：[scripts/resort_recommender.py](scripts/resort_recommender.py) — 推荐/天气/对比/费用估算
-- **联网查价**：[scripts/price_fetcher.py](scripts/price_fetcher.py) — 实时机票/酒店/雪票查价
+- **智能推荐**：[scripts/resort_recommender.py](scripts/resort_recommender.py) — 推荐/天气/对比/费用估算/联网发现新雪场
+- **联网查价**：[scripts/price_fetcher.py](scripts/price_fetcher.py) — 实时机票/酒店/雪票查价（支持 flyai 飞猪直连 + WebSearch 双模式）
 - **手动预算**（仅用于用户提供具体费用明细时）：[scripts/budget_calculator.py](scripts/budget_calculator.py)

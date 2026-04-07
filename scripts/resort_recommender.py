@@ -11,6 +11,7 @@
   compare  '<json>'   多雪场综合对比（天气+票价+交通+住宿）
   costs    '<json>'   估算前往某雪场的交通+住宿费用
   update-db           从 GitHub 拉取最新雪场数据库
+  discover '<json>'   联网发现新雪场（基于 OpenStreetMap）
 
 数据存储：通过 utils.py 统一管理，默认 ~/.ski-assistant/
 天气数据来源：Open-Meteo API（专业高山天气，按雪场海拔获取）
@@ -22,6 +23,7 @@ import os
 import sys
 import urllib.request
 import urllib.parse
+import time
 from datetime import datetime
 
 # ─── 导入共享工具 ───
@@ -120,10 +122,14 @@ def fetch_mountain_weather(lat: float, lon: float, elevation: int, days: int = 7
             if day["gust_max_kmh"] > 70: score -= 2    # 阵风>70km/h，极端危险
             elif day["gust_max_kmh"] > 55: score -= 1  # 阵风强，阵性影响体验
         if day["snowfall_cm"] and day["snowfall_cm"] > 5: score += 2
-        if day["rain_mm"] and day["rain_mm"] > 0:     # 降雨分级惩罚
-            if day["rain_mm"] > 5: score -= 4         # 大雨
-            elif day["rain_mm"] > 2: score -= 3       # 中雨
-            else: score -= 2                          # 小雨也严重影响体验
+        if day["rain_mm"] and day["rain_mm"] > 0:     # 降雨分级惩罚（滑雪遇雨体验极差）
+            if day["rain_mm"] > 10: score -= 6        # 暴雨，不宜上山
+            elif day["rain_mm"] > 5: score -= 5       # 大雨，强烈不建议
+            elif day["rain_mm"] > 2: score -= 4       # 中雨，体验很差
+            else: score -= 3                          # 小雨，也严重影响体验
+        # 降雨天气码额外惩罚（阵雨/雷暴即使雨量不大也影响安全）
+        if wcode in (80, 81, 82): score -= 1          # 阵雨不稳定，影响计划
+        if wcode in (95, 96, 99): score -= 2          # 雷暴，安全风险高
         if wcode in (71, 73, 85): score += 1
         day["ski_condition_score"] = max(1, min(10, score))
 
@@ -712,6 +718,423 @@ def estimate_costs(params: dict) -> str:
 
 _GITHUB_RAW_URL = "https://raw.githubusercontent.com/wjyhahaha/ski-assistant/main/scripts/resorts_db.json"
 
+# ─── OpenStreetMap Overpass API 联网发现 ───
+
+_OVERPASS_URL = "https://overpass-api.de/api/interpreter"
+
+# Overpass 备用节点
+_OVERPASS_MIRRORS = [
+    "https://overpass-api.de/api/interpreter",
+    "https://overpass.kumi.systems/api/interpreter",
+]
+
+# Nominatim 搜索 API（OSM 的地理编码服务，作为备选数据源）
+_NOMINATIM_URL = "https://nominatim.openstreetmap.org/search"
+
+# 预定义的全球滑雪区域，拆分为小块（经纬度跨度≤3°）避免 Overpass 超时
+_DISCOVERY_REGIONS = {
+    "中国-崇礼": {"bbox": (40.5, 115.0, 41.2, 116.0), "country": "CN", "region_hint": "河北·崇礼"},
+    "中国-北京延庆": {"bbox": (40.3, 115.7, 40.8, 116.8), "country": "CN", "region_hint": "北京"},
+    "中国-张家口北": {"bbox": (41.0, 114.5, 42.0, 116.0), "country": "CN", "region_hint": "河北"},
+    "中国-吉林": {"bbox": (42.5, 126.0, 44.5, 128.5), "country": "CN", "region_hint": "吉林"},
+    "中国-黑龙江": {"bbox": (44.0, 126.5, 46.5, 129.0), "country": "CN", "region_hint": "黑龙江"},
+    "中国-辽宁": {"bbox": (40.5, 123.0, 42.5, 125.5), "country": "CN", "region_hint": "辽宁"},
+    "中国-新疆阿勒泰": {"bbox": (47.0, 86.5, 48.5, 89.0), "country": "CN", "region_hint": "新疆"},
+    "中国-四川": {"bbox": (28.0, 101.0, 32.0, 104.5), "country": "CN", "region_hint": "四川"},
+    "中国-云南": {"bbox": (26.0, 100.0, 28.5, 103.0), "country": "CN", "region_hint": "云南"},
+    "日本-北海道西": {"bbox": (42.5, 139.5, 44.0, 142.0), "country": "JP", "region_hint": "北海道"},
+    "日本-北海道东": {"bbox": (42.5, 142.0, 44.0, 145.0), "country": "JP", "region_hint": "北海道"},
+    "日本-东北": {"bbox": (38.5, 139.0, 40.5, 141.0), "country": "JP", "region_hint": "本州东北"},
+    "日本-中部北": {"bbox": (36.0, 137.5, 38.0, 140.0), "country": "JP", "region_hint": "本州中部"},
+    "日本-中部南": {"bbox": (35.5, 136.0, 37.0, 138.5), "country": "JP", "region_hint": "本州中部"},
+    "韩国": {"bbox": (36.5, 127.5, 38.0, 129.0), "country": "KR", "region_hint": "韩国"},
+    "法国-萨瓦": {"bbox": (45.0, 6.0, 46.0, 7.2), "country": "FR", "region_hint": "法国阿尔卑斯"},
+    "法国-上萨瓦": {"bbox": (45.7, 6.2, 46.5, 7.0), "country": "FR", "region_hint": "法国阿尔卑斯"},
+    "瑞士-瓦莱": {"bbox": (46.0, 7.0, 46.5, 8.5), "country": "CH", "region_hint": "瑞士"},
+    "瑞士-格劳宾登": {"bbox": (46.5, 9.5, 47.0, 10.5), "country": "CH", "region_hint": "瑞士"},
+    "奥地利-蒂罗尔": {"bbox": (46.8, 10.5, 47.5, 12.5), "country": "AT", "region_hint": "奥地利"},
+    "奥地利-萨尔茨堡": {"bbox": (47.0, 12.5, 47.8, 14.0), "country": "AT", "region_hint": "奥地利"},
+    "意大利-多洛米蒂": {"bbox": (46.2, 11.0, 47.0, 12.5), "country": "IT", "region_hint": "意大利北部"},
+    "美国-科罗拉多北": {"bbox": (39.3, -107.0, 40.0, -105.5), "country": "US", "region_hint": "科罗拉多"},
+    "美国-科罗拉多南": {"bbox": (38.5, -107.0, 39.3, -105.5), "country": "US", "region_hint": "科罗拉多"},
+    "美国-犹他": {"bbox": (40.2, -112.0, 41.2, -111.0), "country": "US", "region_hint": "犹他"},
+    "美国-太浩湖": {"bbox": (38.7, -120.3, 39.4, -119.7), "country": "US", "region_hint": "加州"},
+    "加拿大-惠斯勒": {"bbox": (49.5, -123.5, 50.5, -121.5), "country": "CA", "region_hint": "BC省"},
+    "挪威": {"bbox": (60.0, 7.5, 62.0, 10.5), "country": "NO", "region_hint": "挪威"},
+    "新西兰-南岛": {"bbox": (-44.5, 168.5, -43.0, 171.5), "country": "NZ", "region_hint": "南岛"},
+}
+
+
+def _query_overpass(bbox: tuple, timeout: int = 25) -> list:
+    """通过 Overpass API 查询指定区域内的滑雪场，自动重试多个节点。"""
+    south, west, north, east = bbox
+    query = f"""
+[out:json][timeout:{timeout}];
+(
+  way["landuse"="winter_sports"]({south},{west},{north},{east});
+  relation["landuse"="winter_sports"]({south},{west},{north},{east});
+  relation["site"="piste"]({south},{west},{north},{east});
+);
+out center tags;
+"""
+    data = f"data={query}".encode("utf-8")
+    last_err = None
+
+    for attempt, mirror in enumerate(_OVERPASS_MIRRORS):
+        try:
+            req = urllib.request.Request(mirror, data=data, method="POST",
+                                        headers={"User-Agent": "ski-assistant/2.0"})
+            with urllib.request.urlopen(req, timeout=timeout + 10) as resp:
+                result = json.loads(resp.read().decode("utf-8"))
+            return result.get("elements", [])
+        except Exception as e:
+            last_err = e
+            # 等待后重试，避免速率限制
+            if attempt < len(_OVERPASS_MIRRORS) - 1:
+                time.sleep(3)
+
+    # 所有节点失败，第二轮重试（间隔更长）
+    time.sleep(8)
+    try:
+        req = urllib.request.Request(_OVERPASS_MIRRORS[0], data=data, method="POST",
+                                    headers={"User-Agent": "ski-assistant/2.0"})
+        with urllib.request.urlopen(req, timeout=timeout + 15) as resp:
+            result = json.loads(resp.read().decode("utf-8"))
+        return result.get("elements", [])
+    except Exception as e:
+        raise e
+
+
+def _query_nominatim_fallback(bbox: tuple, overpass_err) -> list:
+    """Overpass 不可用时，使用 Nominatim 搜索 ski resort 作为降级方案。"""
+    south, west, north, east = bbox
+    # 多语言搜索关键词，提高覆盖率
+    all_elements = []
+    seen_ids = set()
+    for keyword in ["ski resort", "ski area", "滑雪场", "スキー場"]:
+        params = {
+            "q": keyword,
+            "format": "json",
+            "viewbox": f"{west},{north},{east},{south}",
+            "bounded": 1,
+            "limit": 30,
+            "addressdetails": 1,
+        }
+        url = _NOMINATIM_URL + "?" + urllib.parse.urlencode(params)
+        req = urllib.request.Request(url, headers={"User-Agent": "ski-assistant/2.0"})
+
+        try:
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                results = json.loads(resp.read().decode("utf-8"))
+
+            for r in results:
+                osm_id = r.get("osm_id", 0)
+                if osm_id in seen_ids:
+                    continue
+                seen_ids.add(osm_id)
+                elem = {
+                    "type": "nominatim",
+                    "id": osm_id,
+                    "lat": float(r.get("lat", 0)),
+                    "lon": float(r.get("lon", 0)),
+                    "tags": {
+                        "name": r.get("display_name", "").split(",")[0].strip(),
+                        "source": "nominatim",
+                    },
+                }
+                addr = r.get("address", {})
+                if addr.get("country_code"):
+                    elem["tags"]["country_code"] = addr["country_code"].upper()
+                all_elements.append(elem)
+            time.sleep(1.1)  # Nominatim 要求 1 请求/秒
+        except Exception:
+            continue
+
+    if all_elements:
+        return all_elements
+    # 两个数据源都失败，抛出原始 Overpass 错误
+    if overpass_err:
+        raise overpass_err
+    return []
+
+
+def _fetch_elevation(lat: float, lon: float):
+    """通过 Open-Meteo API 获取指定坐标的海拔高度。"""
+    url = f"https://api.open-meteo.com/v1/elevation?latitude={lat}&longitude={lon}"
+    try:
+        data = _fetch_json(url)
+        elevations = data.get("elevation", [])
+        if elevations:
+            return int(elevations[0])
+    except Exception:
+        pass
+    return None
+
+
+def _deduplicate_osm_results(elements: list) -> list:
+    """对 OSM 结果按名称去重，优先保留 relation 类型（数据更完整）。"""
+    seen = {}
+    for e in elements:
+        name = e.get("tags", {}).get("name", "").strip()
+        if not name:
+            continue
+        key = name.lower()
+        existing = seen.get(key)
+        if existing is None:
+            seen[key] = e
+        elif e.get("type") == "relation" and existing.get("type") != "relation":
+            seen[key] = e  # relation 通常数据更完整
+    return list(seen.values())
+
+
+def _osm_element_to_resort(element: dict, country: str, region_hint: str) -> tuple:
+    """将 OSM 元素转换为我们的雪场数据格式。"""
+    tags = element.get("tags", {})
+    center = element.get("center", {})
+    lat = center.get("lat") or element.get("lat")
+    lon = center.get("lon") or element.get("lon")
+
+    name = tags.get("name", "")
+    name_en = tags.get("name:en", "")
+    website = tags.get("website") or tags.get("url") or tags.get("contact:website", "")
+    is_nominatim = element.get("type") == "nominatim"
+
+    resort = {
+        "region": region_hint.split("/")[0] if "/" in region_hint else region_hint,
+        "country": country,
+        "lat": round(lat, 4) if lat else None,
+        "lon": round(lon, 4) if lon else None,
+        "source": "Nominatim" if is_nominatim else "OpenStreetMap-Overpass",
+        "osm_id": f"{element.get('type', '?')}/{element.get('id', '?')}",
+        "auto_discovered": True,
+        "_needs_review": True,
+    }
+    if not is_nominatim:
+        resort["osm_tags"] = {k: v for k, v in tags.items()
+                              if k not in ("name", "name:en", "name:zh", "landuse", "type", "source")}
+    if name_en:
+        resort["name_en"] = name_en
+    if website:
+        resort["website"] = website
+
+    return name, resort
+
+
+def discover_resorts(params: dict) -> str:
+    """
+    联网发现新雪场：通过 OpenStreetMap Overpass API 搜索全球滑雪场数据，
+    与本地数据库对比找出新雪场，并可选择性合并。
+
+    参数:
+      region   - 搜索区域，可选值: "中国", "日本", "欧洲", "北美", "全部"，或具体区域名如"中国-东北"
+      enrich   - 是否联网获取海拔数据 (默认 true)
+      merge    - 是否自动合并到本地数据库 (默认 false，仅预览)
+      limit    - 单区域最大返回数量 (默认 50)
+    """
+    region_filter = params.get("region", "全部").strip()
+    enrich = params.get("enrich", True)
+    auto_merge = params.get("merge", False)
+    limit = params.get("limit", 50)
+
+    # 匹配要搜索的区域
+    target_regions = {}
+    if region_filter == "全部":
+        target_regions = _DISCOVERY_REGIONS
+    else:
+        for name, info in _DISCOVERY_REGIONS.items():
+            # 支持 "中国" 匹配所有 "中国-*"、"日本" 匹配所有 "日本-*"、国家代码匹配等
+            region_prefix = region_filter.rstrip("-")
+            if (name == region_filter
+                or name.startswith(region_prefix + "-")
+                or region_filter in name
+                or region_filter == info["country"]):
+                target_regions[name] = info
+    if not target_regions:
+        return f"❌ 未知区域: {region_filter}\n可选区域: {', '.join(sorted(_DISCOVERY_REGIONS.keys()))}"
+
+    # 加载本地数据库
+    all_resorts = load_resorts_db()
+    existing_names = set()
+    existing_coords = []
+    for k, v in all_resorts.items():
+        if k == "_meta" or not isinstance(v, dict):
+            continue
+        existing_names.add(k.lower())
+        if "lat" in v and "lon" in v:
+            existing_coords.append((v["lat"], v["lon"], k))
+
+    lines = ["🌐 **OpenStreetMap 雪场发现报告**\n"]
+    lines.append(f"搜索区域：{', '.join(target_regions.keys())}")
+    lines.append(f"数据源：Overpass API（首选） → Nominatim 搜索（备选）")
+    lines.append(f"本地数据库现有：{len(existing_names)} 个雪场\n")
+
+    all_discovered = []
+    all_new = []
+    all_matched = []
+    errors = []
+    data_sources_used = set()
+
+    for region_name, region_info in sorted(target_regions.items()):
+        lines.append(f"### 🔍 {region_name}")
+        try:
+            elements = _query_overpass(region_info["bbox"])
+            elements = _deduplicate_osm_results(elements)
+            # 识别实际使用的数据源
+            src = "Nominatim" if any(e.get("type") == "nominatim" for e in elements) else "Overpass"
+            data_sources_used.add(src)
+            lines.append(f"  {src} 返回：{len(elements)} 个滑雪区域")
+
+            region_new = []
+            region_matched = []
+
+            for elem in elements[:limit]:
+                name, resort_data = _osm_element_to_resort(
+                    elem, region_info["country"], region_info["region_hint"])
+                if not name or resort_data["lat"] is None:
+                    continue
+
+                all_discovered.append(name)
+
+                # 检查是否已存在（按名称模糊匹配 + 坐标距离匹配）
+                is_existing = False
+                matched_name = None
+
+                # 名称匹配（精确匹配或高度相似）
+                name_lower = name.lower()
+                name_zh = elem.get("tags", {}).get("name:zh", "").lower()
+                for ek, ev in all_resorts.items():
+                    if ek == "_meta" or not isinstance(ev, dict):
+                        continue
+                    existing = ek.lower()
+                    existing_en = str(ev.get("name_en", "")).lower()
+                    # 提取括号内的英文名（如 "帕克城（Park City）" → "park city"）
+                    paren_name = ""
+                    if "（" in existing and "）" in existing:
+                        paren_name = existing.split("（")[1].split("）")[0].strip()
+                    elif "(" in existing and ")" in existing:
+                        paren_name = existing.split("(")[1].split(")")[0].strip()
+                    # 精确匹配
+                    if name_lower == existing or name_lower == existing_en:
+                        is_existing = True
+                        matched_name = ek
+                        break
+                    # 包含关系（至少4字符）
+                    candidates = [existing, existing_en, paren_name]
+                    for a in [name_lower, name_zh]:
+                        for b in candidates:
+                            if a and b and len(a) >= 4 and len(b) >= 4 and (a in b or b in a):
+                                is_existing = True
+                                matched_name = ek
+                                break
+                        if is_existing:
+                            break
+                    if is_existing:
+                        break
+
+                # 坐标匹配（1.5km 内视为同一雪场，缩小范围避免相邻雪场误匹配）
+                if not is_existing and resort_data["lat"] and resort_data["lon"]:
+                    for elat, elon, ename in existing_coords:
+                        dist = haversine(resort_data["lat"], resort_data["lon"], elat, elon)
+                        if dist < 1.5:
+                            is_existing = True
+                            matched_name = ename
+                            break
+
+                if is_existing:
+                    region_matched.append((name, matched_name))
+                    all_matched.append(name)
+                else:
+                    region_new.append((name, resort_data))
+                    all_new.append((name, resort_data))
+
+            if region_new:
+                lines.append(f"  🆕 发现新雪场 ({len(region_new)}):")
+                for rname, _ in region_new:
+                    lines.append(f"    • {rname}")
+            if region_matched:
+                lines.append(f"  ✅ 已有匹配 ({len(region_matched)}):")
+                for rname, mname in region_matched[:5]:
+                    lines.append(f"    • {rname} → {mname}")
+                if len(region_matched) > 5:
+                    lines.append(f"    …… 及其他 {len(region_matched)-5} 个")
+            if not region_new and not region_matched:
+                lines.append(f"  （未发现新雪场）")
+            lines.append("")
+
+            # 避免触发 Overpass API 速率限制
+            time.sleep(1)
+
+        except Exception as ex:
+            errors.append(f"{region_name}: {ex}")
+            lines.append(f"  ⚠️ 查询失败: {ex}\n")
+
+    # 海拔数据补充
+    if enrich and all_new:
+        lines.append("### 🏔️ 海拔数据补充")
+        enriched_count = 0
+        for name, resort_data in all_new:
+            if resort_data["lat"] and resort_data["lon"]:
+                elev = _fetch_elevation(resort_data["lat"], resort_data["lon"])
+                if elev is not None:
+                    resort_data["elevation_base"] = elev
+                    resort_data["elevation_top"] = elev + 300  # 粗估，需人工校准
+                    enriched_count += 1
+                time.sleep(0.3)  # 避免 API 速率限制
+        lines.append(f"  成功获取 {enriched_count}/{len(all_new)} 个雪场的海拔数据\n")
+
+    # 合并到本地数据库
+    merged_count = 0
+    if auto_merge and all_new:
+        local_path = os.path.join(_SCRIPT_DIR, "resorts_db.json")
+        try:
+            with open(local_path, "r", encoding="utf-8") as f:
+                db = json.load(f)
+        except Exception:
+            db = {"_meta": {"version": "2.0.0", "updated": "", "source": ""}}
+
+        for name, resort_data in all_new:
+            if name not in db:
+                db[name] = resort_data
+                merged_count += 1
+
+        # 更新 meta
+        db["_meta"]["updated"] = datetime.now().strftime("%Y-%m-%d")
+        db["_meta"]["source"] = db["_meta"].get("source", "") + " + OSM auto-discover"
+
+        with open(local_path, "w", encoding="utf-8") as f:
+            json.dump(db, f, ensure_ascii=False, indent=2)
+
+        lines.append(f"### ✅ 合并结果")
+        lines.append(f"  已将 {merged_count} 个新雪场写入本地数据库")
+        lines.append(f"  ⚠️ 新雪场标记为 `_needs_review: true`，建议人工校验票价、雪道数等信息\n")
+
+    # 汇总
+    lines.append("---")
+    lines.append("### 📊 汇总")
+    lines.append(f"| 指标 | 数量 |")
+    lines.append(f"|------|------|")
+    lines.append(f"| OSM 搜索到 | {len(all_discovered)} |")
+    lines.append(f"| 与本地匹配 | {len(all_matched)} |")
+    lines.append(f"| 🆕 新发现 | {len(all_new)} |")
+    if auto_merge:
+        lines.append(f"| 已合并入库 | {merged_count} |")
+    if errors:
+        lines.append(f"| ⚠️ 查询失败区域 | {len(errors)} |")
+    lines.append("")
+
+    if all_new and not auto_merge:
+        lines.append("> 💡 **提示**：以上新雪场尚未合并到数据库。")
+        lines.append("> 如需合并，请使用 `discover '{\"region\":\"...\", \"merge\":true}'`")
+        lines.append("> 合并后建议人工补充票价、雪道数量、适合人群等详细信息。")
+
+    lines.append(f"\n**数据来源说明**：")
+    lines.append(f"• 实际使用数据源 → {', '.join(sorted(data_sources_used)) or '无'}")
+    lines.append(f"• 地理信息 → OpenStreetMap（社区维护的全球开放地图数据库）")
+    lines.append(f"• 海拔数据 → Open-Meteo Elevation API")
+    lines.append(f"• 票价/雪道/特色 → 需人工维护（OSM 不含此类商业数据）")
+
+    return "\n".join(lines)
+
 def update_db() -> str:
     """从 GitHub 拉取最新 resorts_db.json 并覆盖本地内置数据库。"""
     import shutil
@@ -797,6 +1220,9 @@ if __name__ == "__main__":
         print(estimate_costs(params))
     elif cmd == "update-db":
         print(update_db())
+    elif cmd == "discover":
+        params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else {}
+        print(discover_resorts(params))
     else:
         print(f"未知命令: {cmd}")
         print(__doc__)
