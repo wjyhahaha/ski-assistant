@@ -333,12 +333,12 @@ def generate_search_queries(params: dict) -> str:
     province = resort.get("province", "")
     nearby_city = resort.get("nearby_city", "")
 
-    # 计算天数
+    # 计算天数（当日往返至少算 1 天）
     if date_start and date_end:
         try:
             d1 = datetime.strptime(date_start, "%Y-%m-%d")
             d2 = datetime.strptime(date_end, "%Y-%m-%d")
-            days = (d2 - d1).days
+            days = max((d2 - d1).days, 1)
         except ValueError:
             days = 4
         year = date_start[:4]
@@ -997,12 +997,12 @@ def flyai_live_costs(params: dict) -> str:
     province = resort.get("province", "")
     nearby_city = resort.get("nearby_city", "")
 
-    # 计算天数
+    # 计算天数（当日往返至少算 1 天）
     if date_start and date_end:
         try:
             d1 = datetime.strptime(date_start, "%Y-%m-%d")
             d2 = datetime.strptime(date_end, "%Y-%m-%d")
-            days = (d2 - d1).days
+            days = max((d2 - d1).days, 1)
         except ValueError:
             days = 4
     else:

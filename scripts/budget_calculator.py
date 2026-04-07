@@ -84,9 +84,33 @@ def calculate_budget(params: dict) -> dict:
     symbol = "¥" if currency == "CNY" else currency + " "
 
     user_items = params.get("items")
-    # 兼容 dict 格式的 items（如 {"transport": {...}, "hotel": {...}}）
+    # 兼容嵌套 dict 格式的 items（如 {"transport": {...}, "hotel": {...}, "ticket": {...}}）
     if user_items and isinstance(user_items, dict):
-        user_items = list(user_items.values()) if all(isinstance(v, dict) for v in user_items.values()) else None
+        # 检测是否是嵌套的配置对象（transport/hotel/ticket 等）
+        known_keys = {"transport", "hotel", "ticket", "food", "rental", "insurance", "other"}
+        if any(k in known_keys for k in user_items.keys()):
+            # 转换为标准 items 列表格式
+            converted_items = []
+            for key, val in user_items.items():
+                if not isinstance(val, dict):
+                    continue
+                name_map = {
+                    "transport": "交通", "hotel": "住宿", "ticket": "雪票",
+                    "food": "餐饮", "rental": "装备租赁", "insurance": "保险", "other": "其他"
+                }
+                item_name = name_map.get(key, key)
+                # 支持 cost_per_person / per_person / price 等字段
+                cost = (val.get("cost_per_person", 0) or val.get("per_person", 0)
+                        or val.get("price", 0) or val.get("total", 0))
+                if cost > 0:
+                    converted_items.append({"name": item_name, "price": cost})
+            if converted_items:
+                user_items = converted_items
+        elif all(isinstance(v, dict) for v in user_items.values()):
+            # 旧的兼容逻辑：纯 dict 值列表
+            user_items = list(user_items.values())
+        else:
+            user_items = None
     if user_items and isinstance(user_items, list) and len(user_items) > 0:
         # 模式1：用户提供了明细项，直接计算
         # 支持多种字段名：unit_price/price, quantity/days/nights/people（自动组合）
