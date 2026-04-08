@@ -20,6 +20,7 @@
 
 import json
 import os
+import re
 import sys
 import urllib.request
 import urllib.parse
@@ -57,10 +58,17 @@ def _load_profile() -> dict:
 def _save_profile(p: dict):
     save_json(PROFILE_PATH, p)
 
-def _fetch_json(url: str) -> dict:
+def _fetch_json(url: str, retries: int = 2) -> dict:
     req = urllib.request.Request(url, headers={"User-Agent": "ski-assistant/2.0"})
-    with urllib.request.urlopen(req, timeout=15) as resp:
-        return json.loads(resp.read().decode("utf-8"))
+    for attempt in range(retries + 1):
+        try:
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                return json.loads(resp.read().decode("utf-8"))
+        except Exception:
+            if attempt < retries:
+                time.sleep(1 * (attempt + 1))
+            else:
+                raise
 
 def _transport_field(resort: dict) -> dict:
     """兼容旧版 transport_from_beijing 和新版 transport_ref"""
@@ -559,7 +567,6 @@ def get_weather(params: dict) -> str:
         r = resorts_db[resort_name]
         season_str = r.get("season", "")
         if season_str and not r.get("indoor"):
-            import re
             from datetime import datetime as _dt
             now_month = _dt.now().month
             # 提取所有月份数字
@@ -741,7 +748,7 @@ def estimate_costs(params: dict) -> str:
 
     days = params.get("days", 4)
     people = params.get("people", 1)
-    ski_days = min(days, params.get("ski_days", days - 1))
+    ski_days = max(1, min(days, params.get("ski_days", days - 1)))
     from_city = params.get("from_city", "")
 
     ticket_lo = r["ticket_range_cny"][0] * ski_days * people
@@ -1182,7 +1189,7 @@ def discover_resorts(params: dict) -> str:
                 merged_count += 1
 
         # 更新 meta
-        db["_meta"]["updated"] = datetime.now().strftime("%Y-%m-%d")
+        db["_meta"]["updated"] = datetime.now(CST).strftime("%Y-%m-%d")
         db["_meta"]["source"] = db["_meta"].get("source", "") + " + OSM auto-discover"
 
         with open(local_path, "w", encoding="utf-8") as f:

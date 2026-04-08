@@ -28,18 +28,19 @@ FALLBACK_RATES_TO_CNY = {
 
 def get_live_rate(from_currency: str, to_currency: str):
     """尝试获取实时汇率，返回 (rate, is_live)"""
-    try:
-        url = (
-            f"https://api.exchangerate-api.com/v4/latest/{from_currency}"
-        )
-        req = urllib.request.Request(url, headers={"User-Agent": "ski-assistant/1.0"})
-        with urllib.request.urlopen(req, timeout=5) as resp:
-            data = json.loads(resp.read().decode())
-            rates = data.get("rates", {})
-            if to_currency in rates:
-                return rates[to_currency], True
-    except Exception:
-        pass
+    import time as _time
+    url = f"https://api.exchangerate-api.com/v4/latest/{from_currency}"
+    for attempt in range(3):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "ski-assistant/1.0"})
+            with urllib.request.urlopen(req, timeout=5) as resp:
+                data = json.loads(resp.read().decode())
+                rates = data.get("rates", {})
+                if to_currency in rates:
+                    return rates[to_currency], True
+        except Exception:
+            if attempt < 2:
+                _time.sleep(0.5 * (attempt + 1))
     return None, False
 
 

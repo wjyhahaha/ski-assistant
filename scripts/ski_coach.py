@@ -274,7 +274,10 @@ def _call_qwen_vision(api_key: str, model: str, image_b64: str, media_type: str,
 def _call_doubao_vision(api_key: str, model: str, image_b64: str, media_type: str, prompt: str) -> str:
     """调用豆包视觉模型（火山引擎 ARK，OpenAI 兼容格式）"""
     old_base = os.environ.get("OPENAI_API_BASE")
-    os.environ["OPENAI_API_BASE"] = os.environ.get("DOUBAO_API_BASE", "https://ark.cn-beijing.volces.com/api/v3").rstrip("/v1/chat/completions")
+    base = os.environ.get("DOUBAO_API_BASE", "https://ark.cn-beijing.volces.com/api/v3")
+    if base.endswith("/v1/chat/completions"):
+        base = base[:-len("/v1/chat/completions")]
+    os.environ["OPENAI_API_BASE"] = base
     try:
         return _call_openai_vision(api_key, model or "doubao-vision-pro", image_b64, media_type, prompt)
     finally:
@@ -675,7 +678,7 @@ def analyze_batch(params: dict) -> str:
 
         if provider == "auto":
             for p, (env_key, _) in _VISION_CALLERS.items():
-                if os.environ.get(env_key):
+                if os.environ.get(env_key) or os.environ.get(model_cfg.get("api_key_env", "")):
                     provider = p
                     break
             if provider == "auto":

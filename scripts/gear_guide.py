@@ -21,7 +21,14 @@
 """
 
 import json
+import os
+import re
 import sys
+
+# ─── 导入共享工具 ───
+_SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, _SCRIPT_DIR)
+from utils import level_label, sport_label
 
 # ─── 装备数据库 ───
 
@@ -459,7 +466,6 @@ def _suggest(gear, level, days, budget_tier):
 
 def _calc_rent_cost(rent_str, days):
     """从 "¥50-100/天" 格式计算总费用。"""
-    import re
     m = re.search(r'¥(\d+)', rent_str)
     if m:
         return int(m.group(1)) * days
@@ -468,7 +474,6 @@ def _calc_rent_cost(rent_str, days):
 
 def _parse_price(price_str):
     """从 "¥300-600" 格式解析价格范围。"""
-    import re
     m = re.search(r'¥(\d+)[-~](\d+)', price_str)
     if m:
         return int(m.group(1)), int(m.group(2))
@@ -476,13 +481,6 @@ def _parse_price(price_str):
     if m:
         return int(m.group(1)), int(m.group(1))
     return 0, 0
-
-
-def level_label(level):
-    return {"beginner": "初学者", "intermediate": "中级", "advanced": "高级", "expert": "发烧友"}.get(level, level)
-
-def sport_label(sport_type):
-    return {"ski": "双板", "snowboard": "单板", "both": "双板+单板"}.get(sport_type, sport_type)
 
 
 if __name__ == "__main__":

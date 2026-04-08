@@ -45,7 +45,7 @@ _CACHE_TTL_HOURS = 24
 def _cache_key(params: dict) -> str:
     """生成缓存键"""
     key_str = json.dumps(params, sort_keys=True, ensure_ascii=False)
-    return hashlib.md5(key_str.encode()).hexdigest()[:12]
+    return hashlib.sha256(key_str.encode()).hexdigest()[:12]
 
 
 def _get_cached(key: str) -> Optional[dict]:

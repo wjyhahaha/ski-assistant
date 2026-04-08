@@ -43,10 +43,13 @@ def ensure_dir():
 
 
 def load_json(path: str, default=None):
-    """安全加载 JSON 文件"""
+    """安全加载 JSON 文件，损坏时返回默认值"""
     if os.path.exists(path):
-        with open(path, "r", encoding="utf-8") as f:
-            return json.load(f)
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except (json.JSONDecodeError, ValueError):
+            pass
     return default if default is not None else {}
 
 
@@ -133,5 +136,5 @@ CITY_COORDS = {
     "潍坊": (36.70, 119.16), "南通": (32.01, 120.89), "无锡": (31.49, 120.31),
     "苏州": (31.30, 120.58), "宁波": (29.87, 121.55), "温州": (28.00, 120.67),
     "南昌": (28.68, 115.86), "桂林": (25.27, 110.29), "南宁": (22.82, 108.33),
-    "札幌": (43.06, 141.35), "东京": (35.68, 139.69), "新千岁": (42.78, 141.68),
+    "札幌": (43.06, 141.35), "新千岁": (42.78, 141.68),
 }

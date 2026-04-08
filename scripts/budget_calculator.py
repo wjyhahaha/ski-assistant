@@ -83,7 +83,14 @@ def calculate_budget(params: dict) -> dict:
     currency = params.get("currency", "CNY")
     symbol = "¥" if currency == "CNY" else currency + " "
 
+    # 兼容嵌套 dict 格式的 items（如 {"transport": {...}, "hotel": {...}, "ticket": {...}}）
+    # 支持两种输入位置：params["items"] 或直接在 params 顶层
     user_items = params.get("items")
+    if user_items is None:
+        # 检查 params 顶层是否有已知 key
+        known_keys = {"transport", "hotel", "ticket", "food", "rental", "insurance", "other"}
+        if any(k in known_keys for k in params.keys()):
+            user_items = {k: v for k, v in params.items() if k in known_keys}
     # 兼容嵌套 dict 格式的 items（如 {"transport": {...}, "hotel": {...}, "ticket": {...}}）
     if user_items and isinstance(user_items, dict):
         # 检测是否是嵌套的配置对象（transport/hotel/ticket 等）
@@ -99,9 +106,11 @@ def calculate_budget(params: dict) -> dict:
                     "food": "餐饮", "rental": "装备租赁", "insurance": "保险", "other": "其他"
                 }
                 item_name = name_map.get(key, key)
-                # 支持 cost_per_person / per_person / price 等字段
+                # 支持多种字段
                 cost = (val.get("cost_per_person", 0) or val.get("per_person", 0)
-                        or val.get("price", 0) or val.get("total", 0))
+                        or val.get("price", 0) or val.get("total", 0)
+                        or val.get("per_night", 0) or val.get("per_day", 0)
+                        or val.get("per_day_per_person", 0))
                 if cost > 0:
                     converted_items.append({"name": item_name, "price": cost})
             if converted_items:

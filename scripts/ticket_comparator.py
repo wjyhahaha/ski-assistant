@@ -148,7 +148,7 @@ def generate_search_keywords(params: dict) -> str:
                 season = f"{year-1}-{year}雪季"
             else:
                 season = f"{year}-{year+1}雪季"
-        except:
+        except (ValueError, IndexError):
             pass
 
     keywords = []
