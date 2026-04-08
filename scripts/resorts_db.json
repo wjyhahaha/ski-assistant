@@ -1,10 +1,10 @@
 {
  "_meta": {
-  "version": "3.1.0",
+  "version": "4.0.0",
   "updated": "2026-04-08",
-  "source": "resorts-reference.md (2024-25雪季) + 实地/官网校验",
+  "source": "resorts-reference.md + WebSearch 2026-04 global expansion",
   "note": "transport_ref 仅为参考估算，实际费用应根据用户出发城市动态计算",
-  "resort_count": 60
+  "resort_count": 155
  },
  "万龙滑雪场": {
   "region": "中国",
@@ -2482,7 +2482,20 @@
    "初学者",
    "中级",
    "家庭"
-  ]
+  ],
+  "country": "CN",
+  "trails": {
+   "green": 5,
+   "blue": 8,
+   "black": 4,
+   "double_black": 1
+  },
+  "suited_for": [
+   "beginner",
+   "intermediate"
+  ],
+  "nearby_city": "北京",
+  "board_friendly": true
  },
  "多乐美地滑雪场": {
   "lat": 40.95,
@@ -2528,7 +2541,20 @@
    "初学者",
    "中级",
    "预算"
-  ]
+  ],
+  "country": "CN",
+  "trails": {
+   "green": 6,
+   "blue": 6,
+   "black": 3,
+   "double_black": 0
+  },
+  "suited_for": [
+   "beginner",
+   "intermediate"
+  ],
+  "nearby_city": "北京",
+  "board_friendly": false
  },
  "长城岭滑雪场": {
   "lat": 40.98,
@@ -2574,7 +2600,20 @@
    "初学者",
    "中级",
    "预算"
-  ]
+  ],
+  "country": "CN",
+  "trails": {
+   "green": 4,
+   "blue": 4,
+   "black": 2,
+   "double_black": 0
+  },
+  "suited_for": [
+   "beginner",
+   "intermediate"
+  ],
+  "nearby_city": "北京",
+  "board_friendly": true
  },
  "长春莲花山滑雪场": {
   "lat": 43.87,
@@ -2620,7 +2659,20 @@
    "中级",
    "高级",
    "公园"
-  ]
+  ],
+  "country": "CN",
+  "trails": {
+   "green": 3,
+   "blue": 6,
+   "black": 3,
+   "double_black": 0
+  },
+  "suited_for": [
+   "intermediate",
+   "advanced"
+  ],
+  "nearby_city": "长春",
+  "board_friendly": true
  },
  "长春天定山滑雪场": {
   "lat": 43.82,
@@ -2666,7 +2718,20 @@
    "初学者",
    "中级",
    "家庭"
-  ]
+  ],
+  "country": "CN",
+  "trails": {
+   "green": 4,
+   "blue": 4,
+   "black": 2,
+   "double_black": 0
+  },
+  "suited_for": [
+   "beginner",
+   "intermediate"
+  ],
+  "nearby_city": "长春",
+  "board_friendly": true
  },
  "帽儿山滑雪场": {
   "lat": 45.32,
@@ -2711,7 +2776,20 @@
   "best_for": [
    "中级",
    "高级"
-  ]
+  ],
+  "country": "CN",
+  "trails": {
+   "green": 3,
+   "blue": 5,
+   "black": 3,
+   "double_black": 0
+  },
+  "suited_for": [
+   "intermediate",
+   "advanced"
+  ],
+  "nearby_city": "哈尔滨",
+  "board_friendly": true
  },
  "乌鲁木齐白云滑雪场": {
   "lat": 43.45,
@@ -2757,7 +2835,20 @@
    "初学者",
    "中级",
    "预算"
-  ]
+  ],
+  "country": "CN",
+  "trails": {
+   "green": 3,
+   "blue": 5,
+   "black": 2,
+   "double_black": 0
+  },
+  "suited_for": [
+   "beginner",
+   "intermediate"
+  ],
+  "nearby_city": "乌鲁木齐",
+  "board_friendly": true
  },
  "海陀山谷滑雪场": {
   "lat": 40.58,
@@ -2803,7 +2894,20 @@
    "中级",
    "高级",
    "风景"
-  ]
+  ],
+  "country": "CN",
+  "trails": {
+   "green": 4,
+   "blue": 7,
+   "black": 4,
+   "double_black": 0
+  },
+  "suited_for": [
+   "intermediate",
+   "advanced"
+  ],
+  "nearby_city": "北京",
+  "board_friendly": true
  },
  "金象山滑雪场": {
   "lat": 36.42,
@@ -2848,7 +2952,19 @@
   "best_for": [
    "初学者",
    "家庭"
-  ]
+  ],
+  "country": "CN",
+  "trails": {
+   "green": 3,
+   "blue": 4,
+   "black": 1,
+   "double_black": 0
+  },
+  "suited_for": [
+   "beginner"
+  ],
+  "nearby_city": "济南",
+  "board_friendly": true
  },
  "鹧鸪山滑雪场": {
   "lat": 31.85,
@@ -2894,7 +3010,20 @@
    "初学者",
    "中级",
    "风景"
-  ]
+  ],
+  "country": "CN",
+  "trails": {
+   "green": 3,
+   "blue": 4,
+   "black": 1,
+   "double_black": 0
+  },
+  "suited_for": [
+   "beginner",
+   "intermediate"
+  ],
+  "nearby_city": "成都",
+  "board_friendly": true
  },
  "神农架国际滑雪场": {
   "lat": 31.55,
@@ -2940,6 +3069,4689 @@
    "初学者",
    "中级",
    "风景"
+  ],
+  "country": "CN",
+  "trails": {
+   "green": 3,
+   "blue": 6,
+   "black": 3,
+   "double_black": 0
+  },
+  "suited_for": [
+   "beginner",
+   "intermediate"
+  ],
+  "nearby_city": "武汉",
+  "board_friendly": true
+ },
+ "松鸣岩国际滑雪场": {
+  "region": "中国",
+  "province": "甘肃",
+  "country": "CN",
+  "lat": 35.37,
+  "lon": 103.22,
+  "elevation_top": 2600,
+  "elevation_base": 2300,
+  "trails": {
+   "green": 1,
+   "blue": 1,
+   "black": 1,
+   "double_black": 0
+  },
+  "vertical_drop": 300,
+  "area_km2": 0.5,
+  "features": [
+   "亲子",
+   "休闲",
+   "冰雪旅游专线"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate"
+  ],
+  "board_friendly": true,
+  "park": false,
+  "ticket_range_cny": [
+   128,
+   198
+  ],
+  "season": "12月-次年3月",
+  "nearby_city": "兰州",
+  "transport_ref": {
+   "from": "兰州",
+   "method": "大巴/自驾",
+   "hours": 2.0,
+   "cost_cny": [
+    45,
+    90
+   ]
+  },
+  "hotel_range_cny": [
+   150,
+   500
+  ]
+ },
+ "乌鞘岭国际滑雪场": {
+  "region": "中国",
+  "province": "甘肃",
+  "country": "CN",
+  "lat": 37.2,
+  "lon": 102.86,
+  "elevation_top": 3050,
+  "elevation_base": 2800,
+  "trails": {
+   "green": 2,
+   "blue": 2,
+   "black": 1,
+   "double_black": 0
+  },
+  "vertical_drop": 250,
+  "area_km2": 0.9,
+  "features": [
+   "高海拔",
+   "藏族特色",
+   "粉雪"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate"
+  ],
+  "board_friendly": true,
+  "park": false,
+  "ticket_range_cny": [
+   100,
+   180
+  ],
+  "season": "12月-次年3月",
+  "nearby_city": "武威",
+  "transport_ref": {
+   "from": "兰州",
+   "method": "自驾/G30高速",
+   "hours": 2.5,
+   "cost_cny": [
+    80,
+    150
+   ]
+  },
+  "hotel_range_cny": [
+   120,
+   400
+  ]
+ },
+ "美林谷滑雪场": {
+  "region": "中国",
+  "province": "内蒙古",
+  "country": "CN",
+  "lat": 41.53,
+  "lon": 118.39,
+  "elevation_top": 1800,
+  "elevation_base": 1300,
+  "trails": {
+   "green": 2,
+   "blue": 1,
+   "black": 2,
+   "double_black": 1
+  },
+  "vertical_drop": 500,
+  "area_km2": 33.8,
+  "features": [
+   "粉雪",
+   "野雪",
+   "欧式风情",
+   "十四冬赛场"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   158,
+   298
+  ],
+  "season": "11月中-次年3月中",
+  "nearby_city": "承德",
+  "transport_ref": {
+   "from": "北京",
+   "method": "自驾/京承高速",
+   "hours": 4.5,
+   "cost_cny": [
+    150,
+    300
+   ]
+  },
+  "hotel_range_cny": [
+   200,
+   800
+  ]
+ },
+ "岱海国际滑雪场": {
+  "region": "中国",
+  "province": "内蒙古",
+  "country": "CN",
+  "lat": 40.55,
+  "lon": 112.65,
+  "elevation_top": 2100,
+  "elevation_base": 1700,
+  "trails": {
+   "green": 3,
+   "blue": 4,
+   "black": 2,
+   "double_black": 0
+  },
+  "vertical_drop": 397,
+  "area_km2": 5.85,
+  "features": [
+   "大规模",
+   "景色壮美",
+   "雪质优良"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced"
+  ],
+  "board_friendly": true,
+  "park": false,
+  "ticket_range_cny": [
+   128,
+   258
+  ],
+  "season": "11月下-次年3月",
+  "nearby_city": "呼和浩特",
+  "transport_ref": {
+   "from": "呼和浩特",
+   "method": "自驾",
+   "hours": 1.5,
+   "cost_cny": [
+    60,
+    120
+   ]
+  },
+  "hotel_range_cny": [
+   150,
+   500
+  ]
+ },
+ "阿尔山滑雪场": {
+  "region": "中国",
+  "province": "内蒙古",
+  "country": "CN",
+  "lat": 47.18,
+  "lon": 119.94,
+  "elevation_top": 1500,
+  "elevation_base": 1200,
+  "trails": {
+   "green": 2,
+   "blue": 2,
+   "black": 1,
+   "double_black": 0
+  },
+  "vertical_drop": 300,
+  "area_km2": 9.5,
+  "features": [
+   "温泉",
+   "粉雪",
+   "超长雪季",
+   "边城风光"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced"
+  ],
+  "board_friendly": true,
+  "park": false,
+  "ticket_range_cny": [
+   80,
+   180
+  ],
+  "season": "11月-次年4月",
+  "nearby_city": "阿尔山",
+  "transport_ref": {
+   "from": "呼和浩特",
+   "method": "飞机+自驾",
+   "hours": 4.0,
+   "cost_cny": [
+    500,
+    1200
+   ]
+  },
+  "hotel_range_cny": [
+   200,
+   800
+  ]
+ },
+ "玉龙雪山滑雪场": {
+  "region": "中国",
+  "province": "云南",
+  "country": "CN",
+  "lat": 27.1,
+  "lon": 100.23,
+  "elevation_top": 4700,
+  "elevation_base": 4500,
+  "trails": {
+   "green": 1,
+   "blue": 1,
+   "black": 0,
+   "double_black": 0
+  },
+  "vertical_drop": 200,
+  "area_km2": 0.6,
+  "features": [
+   "高海拔",
+   "四季积雪",
+   "天然雪场",
+   "景观壮丽"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate"
+  ],
+  "board_friendly": true,
+  "park": false,
+  "ticket_range_cny": [
+   300,
+   680
+  ],
+  "season": "全年(11月-次年5月最佳)",
+  "nearby_city": "丽江",
+  "transport_ref": {
+   "from": "丽江",
+   "method": "旅游大巴/自驾+索道",
+   "hours": 1.5,
+   "cost_cny": [
+    100,
+    200
+   ]
+  },
+  "hotel_range_cny": [
+   200,
+   1500
+  ]
+ },
+ "天桥沟滑雪场": {
+  "region": "中国",
+  "province": "辽宁",
+  "country": "CN",
+  "lat": 41.05,
+  "lon": 125.35,
+  "elevation_top": 1040,
+  "elevation_base": 520,
+  "trails": {
+   "green": 1,
+   "blue": 1,
+   "black": 2,
+   "double_black": 0
+  },
+  "vertical_drop": 520,
+  "area_km2": 26.9,
+  "features": [
+   "粉雪",
+   "国家级滑雪度假地",
+   "长雪季",
+   "雪质优良"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced"
+  ],
+  "board_friendly": true,
+  "park": false,
+  "ticket_range_cny": [
+   148,
+   298
+  ],
+  "season": "11月下-次年3月",
+  "nearby_city": "丹东",
+  "transport_ref": {
+   "from": "沈阳",
+   "method": "自驾",
+   "hours": 4.5,
+   "cost_cny": [
+    200,
+    400
+   ]
+  },
+  "hotel_range_cny": [
+   200,
+   800
+  ]
+ },
+ "怪坡国际滑雪场": {
+  "region": "中国",
+  "province": "辽宁",
+  "country": "CN",
+  "lat": 42.05,
+  "lon": 123.53,
+  "elevation_top": 350,
+  "elevation_base": 200,
+  "trails": {
+   "green": 2,
+   "blue": 2,
+   "black": 2,
+   "double_black": 0
+  },
+  "vertical_drop": 150,
+  "area_km2": 0.33,
+  "features": [
+   "夜滑",
+   "公园",
+   "亲子",
+   "城市近郊"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   68,
+   198
+  ],
+  "season": "11月下-次年3月",
+  "nearby_city": "沈阳",
+  "transport_ref": {
+   "from": "沈阳",
+   "method": "自驾/公交",
+   "hours": 0.7,
+   "cost_cny": [
+    10,
+    50
+   ]
+  },
+  "hotel_range_cny": [
+   100,
+   400
+  ]
+ },
+ "东北亚滑雪场": {
+  "region": "中国",
+  "province": "辽宁",
+  "country": "CN",
+  "lat": 42.07,
+  "lon": 123.58,
+  "elevation_top": 441,
+  "elevation_base": 200,
+  "trails": {
+   "green": 4,
+   "blue": 4,
+   "black": 4,
+   "double_black": 0
+  },
+  "vertical_drop": 241,
+  "area_km2": 0.24,
+  "features": [
+   "夜滑",
+   "城市近郊",
+   "森林公园"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   90,
+   188
+  ],
+  "season": "11月下-次年3月",
+  "nearby_city": "沈阳",
+  "transport_ref": {
+   "from": "沈阳",
+   "method": "自驾/公交",
+   "hours": 0.7,
+   "cost_cny": [
+    10,
+    50
+   ]
+  },
+  "hotel_range_cny": [
+   100,
+   400
+  ]
+ },
+ "弓长岭温泉滑雪场": {
+  "region": "中国",
+  "province": "辽宁",
+  "country": "CN",
+  "lat": 41.33,
+  "lon": 123.43,
+  "elevation_top": 520,
+  "elevation_base": 302,
+  "trails": {
+   "green": 1,
+   "blue": 1,
+   "black": 1,
+   "double_black": 0
+  },
+  "vertical_drop": 218,
+  "area_km2": 0.65,
+  "features": [
+   "温泉",
+   "夜滑",
+   "亲子"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate"
+  ],
+  "board_friendly": true,
+  "park": false,
+  "ticket_range_cny": [
+   80,
+   180
+  ],
+  "season": "11月下-次年3月",
+  "nearby_city": "辽阳",
+  "transport_ref": {
+   "from": "沈阳",
+   "method": "自驾",
+   "hours": 1.5,
+   "cost_cny": [
+    60,
+    120
+   ]
+  },
+  "hotel_range_cny": [
+   150,
+   500
+  ]
+ },
+ "伏牛山滑雪度假乐园": {
+  "region": "中国",
+  "province": "河南",
+  "country": "CN",
+  "lat": 33.72,
+  "lon": 111.48,
+  "elevation_top": 2100,
+  "elevation_base": 1750,
+  "trails": {
+   "green": 1,
+   "blue": 1,
+   "black": 1,
+   "double_black": 0
+  },
+  "vertical_drop": 350,
+  "area_km2": 21.0,
+  "features": [
+   "高海拔",
+   "中原最大",
+   "四季度假"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced"
+  ],
+  "board_friendly": true,
+  "park": false,
+  "ticket_range_cny": [
+   120,
+   280
+  ],
+  "season": "12月-次年3月",
+  "nearby_city": "洛阳",
+  "transport_ref": {
+   "from": "洛阳",
+   "method": "自驾/旅游大巴",
+   "hours": 2.5,
+   "cost_cny": [
+    30,
+    100
+   ]
+  },
+  "hotel_range_cny": [
+   150,
+   600
+  ]
+ },
+ "大明山万松岭滑雪场": {
+  "region": "中国",
+  "province": "浙江",
+  "country": "CN",
+  "lat": 30.1,
+  "lon": 118.95,
+  "elevation_top": 1300,
+  "elevation_base": 1200,
+  "trails": {
+   "green": 1,
+   "blue": 1,
+   "black": 1,
+   "double_black": 0
+  },
+  "vertical_drop": 100,
+  "area_km2": 0.05,
+  "features": [
+   "华东最高",
+   "亲子",
+   "赏雪观雾凇"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate"
+  ],
+  "board_friendly": true,
+  "park": false,
+  "ticket_range_cny": [
+   200,
+   460
+  ],
+  "season": "12月-次年3月",
+  "nearby_city": "杭州",
+  "transport_ref": {
+   "from": "杭州",
+   "method": "自驾/旅游大巴",
+   "hours": 2.5,
+   "cost_cny": [
+    50,
+    150
+   ]
+  },
+  "hotel_range_cny": [
+   200,
+   800
+  ]
+ },
+ "绍兴乔波冰雪世界": {
+  "region": "中国",
+  "province": "浙江",
+  "country": "CN",
+  "lat": 30.02,
+  "lon": 120.45,
+  "elevation_top": 30,
+  "elevation_base": 10,
+  "trails": {
+   "green": 1,
+   "blue": 1,
+   "black": 0,
+   "double_black": 0
+  },
+  "vertical_drop": 20,
+  "area_km2": 0.04,
+  "features": [
+   "室内",
+   "四季滑雪",
+   "亲子",
+   "真冰溜冰"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate"
+  ],
+  "board_friendly": true,
+  "park": false,
+  "ticket_range_cny": [
+   148,
+   320
+  ],
+  "season": "全年",
+  "nearby_city": "绍兴",
+  "transport_ref": {
+   "from": "杭州",
+   "method": "自驾/地铁+公交",
+   "hours": 1.0,
+   "cost_cny": [
+    20,
+    80
+   ]
+  },
+  "hotel_range_cny": [
+   200,
+   600
+  ]
+ },
+ "鳌山滑雪度假区": {
+  "region": "中国",
+  "province": "陕西",
+  "country": "CN",
+  "lat": 34.02,
+  "lon": 107.32,
+  "elevation_top": 2595,
+  "elevation_base": 1785,
+  "trails": {
+   "green": 2,
+   "blue": 5,
+   "black": 3,
+   "double_black": 0
+  },
+  "vertical_drop": 810,
+  "area_km2": 3.5,
+  "features": [
+   "大落差",
+   "国家级滑雪度假地",
+   "粉雪",
+   "秦岭"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced",
+   "expert"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   169,
+   398
+  ],
+  "season": "11月中-次年3月",
+  "nearby_city": "宝鸡",
+  "transport_ref": {
+   "from": "西安",
+   "method": "自驾/大巴",
+   "hours": 3.0,
+   "cost_cny": [
+    80,
+    200
+   ]
+  },
+  "hotel_range_cny": [
+   200,
+   1000
+  ]
+ },
+ "翠华山滑雪场": {
+  "region": "中国",
+  "province": "陕西",
+  "country": "CN",
+  "lat": 33.95,
+  "lon": 108.95,
+  "elevation_top": 1300,
+  "elevation_base": 1200,
+  "trails": {
+   "green": 1,
+   "blue": 1,
+   "black": 1,
+   "double_black": 0
+  },
+  "vertical_drop": 100,
+  "area_km2": 0.06,
+  "features": [
+   "城市近郊",
+   "亲子",
+   "地质公园"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate"
+  ],
+  "board_friendly": true,
+  "park": false,
+  "ticket_range_cny": [
+   80,
+   198
+  ],
+  "season": "12月-次年2月",
+  "nearby_city": "西安",
+  "transport_ref": {
+   "from": "西安",
+   "method": "自驾/公交",
+   "hours": 1.0,
+   "cost_cny": [
+    10,
+    50
+   ]
+  },
+  "hotel_range_cny": [
+   100,
+   400
+  ]
+ },
+ "庙香山滑雪场": {
+  "region": "中国",
+  "province": "吉林",
+  "country": "CN",
+  "lat": 44.05,
+  "lon": 125.98,
+  "elevation_top": 479,
+  "elevation_base": 231,
+  "trails": {
+   "green": 4,
+   "blue": 5,
+   "black": 5,
+   "double_black": 2
+  },
+  "vertical_drop": 248,
+  "area_km2": 8.0,
+  "features": [
+   "夜滑",
+   "性价比高",
+   "城市近郊",
+   "赛事级"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   168,
+   260
+  ],
+  "season": "11月中-次年3月",
+  "nearby_city": "长春",
+  "transport_ref": {
+   "from": "长春",
+   "method": "自驾",
+   "hours": 1.0,
+   "cost_cny": [
+    30,
+    80
+   ]
+  },
+  "hotel_range_cny": [
+   150,
+   500
+  ]
+ },
+ "万峰通化滑雪度假区": {
+  "region": "中国",
+  "province": "吉林",
+  "country": "CN",
+  "lat": 41.72,
+  "lon": 126.02,
+  "elevation_top": 960,
+  "elevation_base": 400,
+  "trails": {
+   "green": 11,
+   "blue": 7,
+   "black": 10,
+   "double_black": 5
+  },
+  "vertical_drop": 560,
+  "area_km2": 4.0,
+  "features": [
+   "粉雪",
+   "大落差",
+   "新中国首座滑雪场",
+   "温泉"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced",
+   "expert"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   180,
+   380
+  ],
+  "season": "11月中-次年3月",
+  "nearby_city": "通化",
+  "transport_ref": {
+   "from": "长春",
+   "method": "自驾/高铁+接驳",
+   "hours": 3.5,
+   "cost_cny": [
+    100,
+    300
+   ]
+  },
+  "hotel_range_cny": [
+   200,
+   1200
+  ]
+ },
+ "长白山华美胜地滑雪场": {
+  "region": "中国",
+  "province": "吉林",
+  "country": "CN",
+  "lat": 42.08,
+  "lon": 127.35,
+  "elevation_top": 1050,
+  "elevation_base": 720,
+  "trails": {
+   "green": 6,
+   "blue": 3,
+   "black": 0,
+   "double_black": 0
+  },
+  "vertical_drop": 330,
+  "area_km2": 0.3,
+  "features": [
+   "亲子",
+   "度假",
+   "初中级友好",
+   "长白山景区"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate"
+  ],
+  "board_friendly": true,
+  "park": false,
+  "ticket_range_cny": [
+   198,
+   398
+  ],
+  "season": "11月中-次年3月",
+  "nearby_city": "白山",
+  "transport_ref": {
+   "from": "长春",
+   "method": "飞机/自驾",
+   "hours": 4.0,
+   "cost_cny": [
+    200,
+    800
+   ]
+  },
+  "hotel_range_cny": [
+   300,
+   1500
+  ]
+ },
+ "平山神鹿滑雪场": {
+  "region": "中国",
+  "province": "黑龙江",
+  "country": "CN",
+  "lat": 45.44,
+  "lon": 127.38,
+  "elevation_top": 600,
+  "elevation_base": 300,
+  "trails": {
+   "green": 2,
+   "blue": 3,
+   "black": 2,
+   "double_black": 0
+  },
+  "vertical_drop": 300,
+  "area_km2": 27.49,
+  "features": [
+   "森林",
+   "亲子",
+   "性价比高"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced"
+  ],
+  "board_friendly": true,
+  "park": false,
+  "ticket_range_cny": [
+   45,
+   120
+  ],
+  "season": "11月中-次年3月",
+  "nearby_city": "哈尔滨",
+  "transport_ref": {
+   "from": "哈尔滨",
+   "method": "自驾/大巴",
+   "hours": 1.5,
+   "cost_cny": [
+    30,
+    80
+   ]
+  },
+  "hotel_range_cny": [
+   100,
+   400
+  ]
+ },
+ "天山天池国际滑雪场": {
+  "region": "中国",
+  "province": "新疆",
+  "country": "CN",
+  "lat": 43.88,
+  "lon": 87.97,
+  "elevation_top": 2000,
+  "elevation_base": 1500,
+  "trails": {
+   "green": 2,
+   "blue": 3,
+   "black": 2,
+   "double_black": 0
+  },
+  "vertical_drop": 500,
+  "area_km2": 1.5,
+  "features": [
+   "天山风光",
+   "U型槽",
+   "长雪季",
+   "5A景区"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   60,
+   200
+  ],
+  "season": "11月-次年4月",
+  "nearby_city": "乌鲁木齐",
+  "transport_ref": {
+   "from": "乌鲁木齐",
+   "method": "自驾/直通车",
+   "hours": 1.5,
+   "cost_cny": [
+    10,
+    80
+   ]
+  },
+  "hotel_range_cny": [
+   150,
+   600
+  ]
+ },
+ "狼牙山滑雪场": {
+  "region": "中国",
+  "province": "河北",
+  "country": "CN",
+  "lat": 39.23,
+  "lon": 115.18,
+  "elevation_top": 600,
+  "elevation_base": 300,
+  "trails": {
+   "green": 5,
+   "blue": 3,
+   "black": 3,
+   "double_black": 2
+  },
+  "vertical_drop": 300,
+  "area_km2": 0.25,
+  "features": [
+   "夜滑",
+   "亲子",
+   "京津冀近郊",
+   "单板公园"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   88,
+   228
+  ],
+  "season": "11月下-次年3月",
+  "nearby_city": "保定",
+  "transport_ref": {
+   "from": "北京",
+   "method": "自驾",
+   "hours": 2.0,
+   "cost_cny": [
+    80,
+    150
+   ]
+  },
+  "hotel_range_cny": [
+   100,
+   500
+  ]
+ },
+ "绿葱坡滑雪场": {
+  "region": "中国",
+  "province": "湖北",
+  "country": "CN",
+  "lat": 30.85,
+  "lon": 110.28,
+  "elevation_top": 1822,
+  "elevation_base": 1672,
+  "trails": {
+   "green": 3,
+   "blue": 3,
+   "black": 3,
+   "double_black": 0
+  },
+  "vertical_drop": 150,
+  "area_km2": 0.15,
+  "features": [
+   "华中最大",
+   "鄂西屋脊",
+   "夜滑",
+   "亲子"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced"
+  ],
+  "board_friendly": true,
+  "park": false,
+  "ticket_range_cny": [
+   96,
+   280
+  ],
+  "season": "12月-次年3月",
+  "nearby_city": "宜昌",
+  "transport_ref": {
+   "from": "武汉",
+   "method": "自驾/大巴",
+   "hours": 5.0,
+   "cost_cny": [
+    100,
+    250
+   ]
+  },
+  "hotel_range_cny": [
+   150,
+   600
+  ]
+ },
+ "梅花山国际滑雪场": {
+  "region": "中国",
+  "province": "贵州",
+  "country": "CN",
+  "lat": 26.58,
+  "lon": 104.83,
+  "elevation_top": 2200,
+  "elevation_base": 2050,
+  "trails": {
+   "green": 1,
+   "blue": 1,
+   "black": 1,
+   "double_black": 0
+  },
+  "vertical_drop": 150,
+  "area_km2": 0.09,
+  "features": [
+   "低纬度高海拔",
+   "西南最大",
+   "冰雪童话",
+   "城市近郊"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate"
+  ],
+  "board_friendly": true,
+  "park": false,
+  "ticket_range_cny": [
+   150,
+   280
+  ],
+  "season": "1月-次年2月(视天气)",
+  "nearby_city": "六盘水",
+  "transport_ref": {
+   "from": "六盘水",
+   "method": "自驾/公交",
+   "hours": 0.3,
+   "cost_cny": [
+    5,
+    30
+   ]
+  },
+  "hotel_range_cny": [
+   100,
+   400
+  ]
+ },
+ "玉舍雪山滑雪场": {
+  "region": "中国",
+  "province": "贵州",
+  "country": "CN",
+  "lat": 26.42,
+  "lon": 104.75,
+  "elevation_top": 2503,
+  "elevation_base": 2198,
+  "trails": {
+   "green": 1,
+   "blue": 1,
+   "black": 1,
+   "double_black": 0
+  },
+  "vertical_drop": 70,
+  "area_km2": 0.03,
+  "features": [
+   "纬度最低",
+   "高海拔",
+   "国家森林公园"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate"
+  ],
+  "board_friendly": true,
+  "park": false,
+  "ticket_range_cny": [
+   100,
+   198
+  ],
+  "season": "12月下-次年2月",
+  "nearby_city": "六盘水",
+  "transport_ref": {
+   "from": "六盘水",
+   "method": "自驾",
+   "hours": 1.0,
+   "cost_cny": [
+    30,
+    80
+   ]
+  },
+  "hotel_range_cny": [
+   100,
+   400
+  ]
+ },
+ "万龙白登山滑雪场": {
+  "region": "中国",
+  "province": "山西",
+  "country": "CN",
+  "lat": 40.12,
+  "lon": 113.35,
+  "elevation_top": 1240,
+  "elevation_base": 1118,
+  "trails": {
+   "green": 5,
+   "blue": 8,
+   "black": 5,
+   "double_black": 0
+  },
+  "vertical_drop": 122,
+  "area_km2": 0.4,
+  "features": [
+   "亚洲最大雪具大厅",
+   "城市近郊",
+   "夜滑"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   108,
+   228
+  ],
+  "season": "11月中-次年3月中",
+  "nearby_city": "大同",
+  "transport_ref": {
+   "from": "大同",
+   "method": "自驾/公交",
+   "hours": 0.5,
+   "cost_cny": [
+    10,
+    40
+   ]
+  },
+  "hotel_range_cny": [
+   150,
+   600
+  ]
+ },
+ "九龙国际滑雪场": {
+  "region": "中国",
+  "province": "山西",
+  "country": "CN",
+  "lat": 37.75,
+  "lon": 112.75,
+  "elevation_top": 1000,
+  "elevation_base": 900,
+  "trails": {
+   "green": 3,
+   "blue": 2,
+   "black": 0,
+   "double_black": 0
+  },
+  "vertical_drop": 100,
+  "area_km2": 0.12,
+  "features": [
+   "城市近郊",
+   "亲子",
+   "夜滑"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate"
+  ],
+  "board_friendly": true,
+  "park": false,
+  "ticket_range_cny": [
+   68,
+   178
+  ],
+  "season": "12月-次年2月",
+  "nearby_city": "太原",
+  "transport_ref": {
+   "from": "太原",
+   "method": "自驾/公交",
+   "hours": 0.5,
+   "cost_cny": [
+    10,
+    30
+   ]
+  },
+  "hotel_range_cny": [
+   100,
+   400
+  ]
+ },
+ "紫云山滑雪场": {
+  "region": "中国",
+  "province": "河北",
+  "country": "CN",
+  "lat": 39.98,
+  "lon": 119.55,
+  "elevation_top": 280,
+  "elevation_base": 200,
+  "trails": {
+   "green": 3,
+   "blue": 2,
+   "black": 1,
+   "double_black": 1
+  },
+  "vertical_drop": 80,
+  "area_km2": 0.1,
+  "features": [
+   "城市近郊",
+   "亲子",
+   "公园"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   58,
+   168
+  ],
+  "season": "12月-次年2月",
+  "nearby_city": "秦皇岛",
+  "transport_ref": {
+   "from": "秦皇岛",
+   "method": "自驾/公交",
+   "hours": 0.3,
+   "cost_cny": [
+    5,
+    20
+   ]
+  },
+  "hotel_range_cny": [
+   100,
+   400
+  ]
+ },
+ "星野トマム（Hoshino Resorts Tomamu）": {
+  "region": "日本",
+  "province": "北海道",
+  "country": "JP",
+  "lat": 43.065,
+  "lon": 142.61,
+  "elevation_top": 1239,
+  "elevation_base": 699,
+  "trails": {
+   "green": 9,
+   "blue": 12,
+   "black": 6,
+   "double_black": 2
+  },
+  "vertical_drop": 540,
+  "area_km2": 1.45,
+  "features": [
+   "粉雪",
+   "树林",
+   "夜滑",
+   "地形公园",
+   "家庭友好",
+   "缆车"
+  ],
+  "suited_for": [
+   "初学者",
+   "中级",
+   "高级"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   300,
+   400
+  ],
+  "season": "12月上旬~4月上旬",
+  "nearby_city": "带广/札幌",
+  "transport_ref": {
+   "from": "新千岁机场",
+   "method": "巴士/自驾",
+   "hours": 2.0,
+   "cost_cny": [
+    200,
+    350
+   ]
+  },
+  "hotel_range_cny": [
+   800,
+   2500
+  ]
+ },
+ "喜乐乐（Kiroro Snow World）": {
+  "region": "日本",
+  "province": "北海道",
+  "country": "JP",
+  "lat": 43.075,
+  "lon": 140.985,
+  "elevation_top": 1180,
+  "elevation_base": 570,
+  "trails": {
+   "green": 5,
+   "blue": 9,
+   "black": 5,
+   "double_black": 2
+  },
+  "vertical_drop": 610,
+  "area_km2": 1.52,
+  "features": [
+   "粉雪",
+   "树林",
+   "长雪季",
+   "缆车"
+  ],
+  "suited_for": [
+   "初学者",
+   "中级",
+   "高级"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   320,
+   420
+  ],
+  "season": "11月下旬~5月上旬",
+  "nearby_city": "札幌/小樽",
+  "transport_ref": {
+   "from": "札幌",
+   "method": "巴士/自驾",
+   "hours": 1.5,
+   "cost_cny": [
+    100,
+    200
+   ]
+  },
+  "hotel_range_cny": [
+   600,
+   2000
+  ]
+ },
+ "佐幌（Sahoro Resort）": {
+  "region": "日本",
+  "province": "北海道",
+  "country": "JP",
+  "lat": 43.103,
+  "lon": 142.748,
+  "elevation_top": 1030,
+  "elevation_base": 420,
+  "trails": {
+   "green": 8,
+   "blue": 7,
+   "black": 5,
+   "double_black": 1
+  },
+  "vertical_drop": 610,
+  "area_km2": 1.0,
+  "features": [
+   "粉雪",
+   "树林",
+   "Club Med",
+   "家庭友好"
+  ],
+  "suited_for": [
+   "初学者",
+   "中级",
+   "高级"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   240,
+   330
+  ],
+  "season": "12月上旬~4月上旬",
+  "nearby_city": "带广",
+  "transport_ref": {
+   "from": "带广机场",
+   "method": "巴士/自驾",
+   "hours": 1.0,
+   "cost_cny": [
+    80,
+    150
+   ]
+  },
+  "hotel_range_cny": [
+   500,
+   1800
+  ]
+ },
+ "旭岳（Asahidake Ropeway）": {
+  "region": "日本",
+  "province": "北海道",
+  "country": "JP",
+  "lat": 43.66,
+  "lon": 142.85,
+  "elevation_top": 1600,
+  "elevation_base": 1100,
+  "trails": {
+   "green": 0,
+   "blue": 1,
+   "black": 2,
+   "double_black": 1
+  },
+  "vertical_drop": 500,
+  "area_km2": 0.5,
+  "features": [
+   "粉雪",
+   "野雪",
+   "火山景观",
+   "长雪季",
+   "最深积雪"
+  ],
+  "suited_for": [
+   "高级",
+   "专家"
+  ],
+  "board_friendly": true,
+  "park": false,
+  "ticket_range_cny": [
+   120,
+   180
+  ],
+  "season": "11月中旬~5月下旬",
+  "nearby_city": "旭川",
+  "transport_ref": {
+   "from": "旭川机场",
+   "method": "巴士/自驾",
+   "hours": 1.5,
+   "cost_cny": [
+    80,
+    150
+   ]
+  },
+  "hotel_range_cny": [
+   300,
+   800
+  ]
+ },
+ "札幌手稻（Sapporo Teine）": {
+  "region": "日本",
+  "province": "北海道",
+  "country": "JP",
+  "lat": 43.098,
+  "lon": 141.187,
+  "elevation_top": 1023,
+  "elevation_base": 340,
+  "trails": {
+   "green": 6,
+   "blue": 5,
+   "black": 3,
+   "double_black": 1
+  },
+  "vertical_drop": 683,
+  "area_km2": 0.76,
+  "features": [
+   "粉雪",
+   "夜滑",
+   "城市近郊",
+   "奥运场地"
+  ],
+  "suited_for": [
+   "初学者",
+   "中级",
+   "高级"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   280,
+   380
+  ],
+  "season": "11月下旬~4月上旬",
+  "nearby_city": "札幌",
+  "transport_ref": {
+   "from": "札幌市中心",
+   "method": "自驾/巴士",
+   "hours": 0.7,
+   "cost_cny": [
+    30,
+    60
+   ]
+  },
+  "hotel_range_cny": [
+   400,
+   1200
+  ]
+ },
+ "蔵王温泉（Zao Onsen）": {
+  "region": "日本",
+  "province": "山形县",
+  "country": "JP",
+  "lat": 38.168,
+  "lon": 140.398,
+  "elevation_top": 1661,
+  "elevation_base": 780,
+  "trails": {
+   "green": 10,
+   "blue": 10,
+   "black": 5,
+   "double_black": 1
+  },
+  "vertical_drop": 881,
+  "area_km2": 3.05,
+  "features": [
+   "树冰",
+   "温泉",
+   "夜滑",
+   "粉雪",
+   "树林",
+   "大型雪场"
+  ],
+  "suited_for": [
+   "初学者",
+   "中级",
+   "高级"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   260,
+   360
+  ],
+  "season": "12月上旬~5月上旬",
+  "nearby_city": "山形/仙台",
+  "transport_ref": {
+   "from": "山形站",
+   "method": "巴士",
+   "hours": 0.5,
+   "cost_cny": [
+    30,
+    50
+   ]
+  },
+  "hotel_range_cny": [
+   300,
+   1000
+  ]
+ },
+ "田泽湖（Tazawako Ski Resort）": {
+  "region": "日本",
+  "province": "秋田县",
+  "country": "JP",
+  "lat": 39.74,
+  "lon": 140.69,
+  "elevation_top": 1186,
+  "elevation_base": 580,
+  "trails": {
+   "green": 4,
+   "blue": 5,
+   "black": 3,
+   "double_black": 1
+  },
+  "vertical_drop": 606,
+  "area_km2": 1.0,
+  "features": [
+   "粉雪",
+   "湖景",
+   "温泉",
+   "树林"
+  ],
+  "suited_for": [
+   "初学者",
+   "中级",
+   "高级"
+  ],
+  "board_friendly": true,
+  "park": false,
+  "ticket_range_cny": [
+   180,
+   260
+  ],
+  "season": "12月上旬~4月上旬",
+  "nearby_city": "角馆/盛冈",
+  "transport_ref": {
+   "from": "田泽湖站(秋田新干线)",
+   "method": "巴士/出租车",
+   "hours": 0.5,
+   "cost_cny": [
+    20,
+    50
+   ]
+  },
+  "hotel_range_cny": [
+   300,
+   800
+  ]
+ },
+ "雫石（Shizukuishi Ski Resort）": {
+  "region": "日本",
+  "province": "岩手县",
+  "country": "JP",
+  "lat": 39.768,
+  "lon": 140.87,
+  "elevation_top": 1146,
+  "elevation_base": 426,
+  "trails": {
+   "green": 3,
+   "blue": 5,
+   "black": 2,
+   "double_black": 1
+  },
+  "vertical_drop": 720,
+  "area_km2": 0.8,
+  "features": [
+   "粉雪",
+   "树林",
+   "FIS认证赛道",
+   "缆车"
+  ],
+  "suited_for": [
+   "中级",
+   "高级"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   220,
+   310
+  ],
+  "season": "12月中旬~4月上旬",
+  "nearby_city": "盛冈",
+  "transport_ref": {
+   "from": "盛冈站",
+   "method": "巴士/自驾",
+   "hours": 0.7,
+   "cost_cny": [
+    30,
+    60
+   ]
+  },
+  "hotel_range_cny": [
+   300,
+   900
+  ]
+ },
+ "八甲田（Hakkoda）": {
+  "region": "日本",
+  "province": "青森县",
+  "country": "JP",
+  "lat": 40.66,
+  "lon": 140.853,
+  "elevation_top": 1324,
+  "elevation_base": 660,
+  "trails": {
+   "green": 0,
+   "blue": 2,
+   "black": 2,
+   "double_black": 1
+  },
+  "vertical_drop": 664,
+  "area_km2": 0.4,
+  "features": [
+   "粉雪",
+   "野雪",
+   "树林",
+   "温泉",
+   "豪雪",
+   "树冰"
+  ],
+  "suited_for": [
+   "中级",
+   "高级",
+   "专家"
+  ],
+  "board_friendly": true,
+  "park": false,
+  "ticket_range_cny": [
+   100,
+   160
+  ],
+  "season": "12月上旬~5月中旬",
+  "nearby_city": "青森",
+  "transport_ref": {
+   "from": "青森站",
+   "method": "巴士/自驾",
+   "hours": 1.0,
+   "cost_cny": [
+    50,
+    100
+   ]
+  },
+  "hotel_range_cny": [
+   300,
+   800
+  ]
+ },
+ "夏油高原（Geto Kogen）": {
+  "region": "日本",
+  "province": "岩手县",
+  "country": "JP",
+  "lat": 39.17,
+  "lon": 140.63,
+  "elevation_top": 1070,
+  "elevation_base": 443,
+  "trails": {
+   "green": 4,
+   "blue": 5,
+   "black": 4,
+   "double_black": 1
+  },
+  "vertical_drop": 627,
+  "area_km2": 1.2,
+  "features": [
+   "豪雪",
+   "粉雪",
+   "树林",
+   "野雪",
+   "本州最深积雪"
+  ],
+  "suited_for": [
+   "中级",
+   "高级",
+   "专家"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   230,
+   320
+  ],
+  "season": "12月上旬~5月上旬",
+  "nearby_city": "北上",
+  "transport_ref": {
+   "from": "北上站(东北新干线)",
+   "method": "巴士/自驾",
+   "hours": 0.7,
+   "cost_cny": [
+    30,
+    60
+   ]
+  },
+  "hotel_range_cny": [
+   200,
+   600
+  ]
+ },
+ "苗场（Naeba Ski Resort）": {
+  "region": "日本",
+  "province": "新潟县",
+  "country": "JP",
+  "lat": 36.855,
+  "lon": 138.762,
+  "elevation_top": 1789,
+  "elevation_base": 900,
+  "trails": {
+   "green": 10,
+   "blue": 7,
+   "black": 5,
+   "double_black": 2
+  },
+  "vertical_drop": 889,
+  "area_km2": 1.34,
+  "features": [
+   "夜滑",
+   "地形公园",
+   "缆车连接神乐",
+   "大型度假村"
+  ],
+  "suited_for": [
+   "初学者",
+   "中级",
+   "高级"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   290,
+   400
+  ],
+  "season": "12月上旬~5月下旬",
+  "nearby_city": "越后汤泽",
+  "transport_ref": {
+   "from": "越后汤泽站(上越新干线)",
+   "method": "巴士",
+   "hours": 0.7,
+   "cost_cny": [
+    30,
+    60
+   ]
+  },
+  "hotel_range_cny": [
+   400,
+   1500
+  ]
+ },
+ "GALA汤泽（GALA Yuzawa Snow Resort）": {
+  "region": "日本",
+  "province": "新潟县",
+  "country": "JP",
+  "lat": 36.933,
+  "lon": 138.818,
+  "elevation_top": 1181,
+  "elevation_base": 358,
+  "trails": {
+   "green": 6,
+   "blue": 7,
+   "black": 3,
+   "double_black": 1
+  },
+  "vertical_drop": 823,
+  "area_km2": 0.53,
+  "features": [
+   "新干线直达",
+   "温泉",
+   "夜滑",
+   "东京当日往返"
+  ],
+  "suited_for": [
+   "初学者",
+   "中级"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   260,
+   360
+  ],
+  "season": "12月中旬~5月上旬",
+  "nearby_city": "东京",
+  "transport_ref": {
+   "from": "东京站",
+   "method": "上越新干线直达",
+   "hours": 1.3,
+   "cost_cny": [
+    300,
+    400
+   ]
+  },
+  "hotel_range_cny": [
+   400,
+   1200
+  ]
+ },
+ "野泽温泉（Nozawa Onsen Snow Resort）": {
+  "region": "日本",
+  "province": "长野县",
+  "country": "JP",
+  "lat": 36.928,
+  "lon": 138.62,
+  "elevation_top": 1650,
+  "elevation_base": 565,
+  "trails": {
+   "green": 14,
+   "blue": 11,
+   "black": 8,
+   "double_black": 3
+  },
+  "vertical_drop": 1085,
+  "area_km2": 2.97,
+  "features": [
+   "温泉",
+   "粉雪",
+   "传统村落",
+   "大型雪场",
+   "树林",
+   "夜滑"
+  ],
+  "suited_for": [
+   "初学者",
+   "中级",
+   "高级"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   260,
+   370
+  ],
+  "season": "11月下旬~5月上旬",
+  "nearby_city": "饭山/长野",
+  "transport_ref": {
+   "from": "饭山站(北陆新干线)",
+   "method": "直达巴士",
+   "hours": 0.4,
+   "cost_cny": [
+    30,
+    50
+   ]
+  },
+  "hotel_range_cny": [
+   300,
+   1200
+  ]
+ },
+ "斑尾高原（Madarao Kogen）": {
+  "region": "日本",
+  "province": "长野县",
+  "country": "JP",
+  "lat": 36.878,
+  "lon": 138.5,
+  "elevation_top": 1382,
+  "elevation_base": 910,
+  "trails": {
+   "green": 10,
+   "blue": 11,
+   "black": 8,
+   "double_black": 3
+  },
+  "vertical_drop": 472,
+  "area_km2": 0.85,
+  "features": [
+   "树林",
+   "粉雪",
+   "Madapow",
+   "野雪",
+   "13条树林雪道"
+  ],
+  "suited_for": [
+   "中级",
+   "高级",
+   "专家"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   240,
+   330
+  ],
+  "season": "12月中旬~4月上旬",
+  "nearby_city": "饭山/长野",
+  "transport_ref": {
+   "from": "饭山站(北陆新干线)",
+   "method": "巴士/出租车",
+   "hours": 0.5,
+   "cost_cny": [
+    20,
+    50
+   ]
+  },
+  "hotel_range_cny": [
+   300,
+   800
+  ]
+ },
+ "赤仓温泉（Akakura Onsen Ski Area）": {
+  "region": "日本",
+  "province": "新潟县",
+  "country": "JP",
+  "lat": 36.88,
+  "lon": 138.19,
+  "elevation_top": 1500,
+  "elevation_base": 650,
+  "trails": {
+   "green": 8,
+   "blue": 5,
+   "black": 3,
+   "double_black": 1
+  },
+  "vertical_drop": 740,
+  "area_km2": 1.0,
+  "features": [
+   "温泉",
+   "豪雪",
+   "夜滑",
+   "粉雪",
+   "妙高地区"
+  ],
+  "suited_for": [
+   "初学者",
+   "中级"
+  ],
+  "board_friendly": true,
+  "park": false,
+  "ticket_range_cny": [
+   200,
+   300
+  ],
+  "season": "12月中旬~4月上旬",
+  "nearby_city": "妙高/上越妙高",
+  "transport_ref": {
+   "from": "上越妙高站(北陆新干线)",
+   "method": "巴士/出租车",
+   "hours": 0.5,
+   "cost_cny": [
+    20,
+    50
+   ]
+  },
+  "hotel_range_cny": [
+   300,
+   800
+  ]
+ },
+ "八方尾根（Hakuba Happo-one）": {
+  "region": "日本",
+  "province": "长野县",
+  "country": "JP",
+  "lat": 36.7,
+  "lon": 137.8,
+  "elevation_top": 1831,
+  "elevation_base": 760,
+  "trails": {
+   "green": 5,
+   "blue": 5,
+   "black": 4,
+   "double_black": 2
+  },
+  "vertical_drop": 1071,
+  "area_km2": 2.2,
+  "features": [
+   "奥运场地",
+   "阿尔卑斯山景",
+   "粉雪",
+   "野雪入口",
+   "大型雪场"
+  ],
+  "suited_for": [
+   "中级",
+   "高级",
+   "专家"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   300,
+   420
+  ],
+  "season": "12月上旬~5月上旬",
+  "nearby_city": "白马村/长野",
+  "transport_ref": {
+   "from": "长野站(北陆新干线)",
+   "method": "巴士",
+   "hours": 1.0,
+   "cost_cny": [
+    50,
+    100
+   ]
+  },
+  "hotel_range_cny": [
+   400,
+   1500
+  ]
+ },
+ "栂池高原（Tsugaike Kogen）": {
+  "region": "日本",
+  "province": "长野县",
+  "country": "JP",
+  "lat": 36.783,
+  "lon": 137.84,
+  "elevation_top": 1704,
+  "elevation_base": 800,
+  "trails": {
+   "green": 7,
+   "blue": 4,
+   "black": 2,
+   "double_black": 1
+  },
+  "vertical_drop": 904,
+  "area_km2": 1.96,
+  "features": [
+   "初学者天堂",
+   "宽阔雪道",
+   "粉雪",
+   "野雪入口"
+  ],
+  "suited_for": [
+   "初学者",
+   "中级"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   250,
+   360
+  ],
+  "season": "12月上旬~5月上旬",
+  "nearby_city": "白马村/长野",
+  "transport_ref": {
+   "from": "长野站(北陆新干线)",
+   "method": "巴士",
+   "hours": 1.2,
+   "cost_cny": [
+    50,
+    100
+   ]
+  },
+  "hotel_range_cny": [
+   300,
+   1000
+  ]
+ },
+ "白马乗鞍（Hakuba Norikura Onsen）": {
+  "region": "日本",
+  "province": "长野县",
+  "country": "JP",
+  "lat": 36.773,
+  "lon": 137.833,
+  "elevation_top": 1326,
+  "elevation_base": 750,
+  "trails": {
+   "green": 6,
+   "blue": 5,
+   "black": 2,
+   "double_black": 1
+  },
+  "vertical_drop": 576,
+  "area_km2": 0.5,
+  "features": [
+   "温泉",
+   "家庭友好",
+   "粉雪",
+   "宽阔缓坡"
+  ],
+  "suited_for": [
+   "初学者",
+   "中级"
+  ],
+  "board_friendly": true,
+  "park": false,
+  "ticket_range_cny": [
+   210,
+   300
+  ],
+  "season": "12月中旬~3月下旬",
+  "nearby_city": "白马村/长野",
+  "transport_ref": {
+   "from": "长野站(北陆新干线)",
+   "method": "巴士",
+   "hours": 1.3,
+   "cost_cny": [
+    50,
+    100
+   ]
+  },
+  "hotel_range_cny": [
+   300,
+   800
+  ]
+ },
+ "草津温泉（Kusatsu Onsen Ski Resort）": {
+  "region": "日本",
+  "province": "群马县",
+  "country": "JP",
+  "lat": 36.63,
+  "lon": 138.6,
+  "elevation_top": 1600,
+  "elevation_base": 1245,
+  "trails": {
+   "green": 5,
+   "blue": 3,
+   "black": 1,
+   "double_black": 0
+  },
+  "vertical_drop": 355,
+  "area_km2": 0.4,
+  "features": [
+   "温泉",
+   "高海拔",
+   "天然雪质",
+   "日本三大名泉"
+  ],
+  "suited_for": [
+   "初学者",
+   "中级"
+  ],
+  "board_friendly": true,
+  "park": false,
+  "ticket_range_cny": [
+   240,
+   340
+  ],
+  "season": "12月中旬~4月上旬",
+  "nearby_city": "轻井泽/东京",
+  "transport_ref": {
+   "from": "轻井泽站(北陆新干线)",
+   "method": "巴士",
+   "hours": 1.2,
+   "cost_cny": [
+    50,
+    80
+   ]
+  },
+  "hotel_range_cny": [
+   300,
+   1200
+  ]
+ },
+ "丸沼高原（Marunuma Kogen）": {
+  "region": "日本",
+  "province": "群马县",
+  "country": "JP",
+  "lat": 36.84,
+  "lon": 139.345,
+  "elevation_top": 2000,
+  "elevation_base": 1400,
+  "trails": {
+   "green": 4,
+   "blue": 6,
+   "black": 2,
+   "double_black": 1
+  },
+  "vertical_drop": 600,
+  "area_km2": 0.45,
+  "features": [
+   "高海拔",
+   "长雪季",
+   "天然雪",
+   "缆车",
+   "4km长滑道"
+  ],
+  "suited_for": [
+   "初学者",
+   "中级",
+   "高级"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   240,
+   330
+  ],
+  "season": "11月下旬~5月上旬",
+  "nearby_city": "沼田/东京",
+  "transport_ref": {
+   "from": "沼田站(上越新干线)",
+   "method": "巴士/自驾",
+   "hours": 1.0,
+   "cost_cny": [
+    50,
+    100
+   ]
+  },
+  "hotel_range_cny": [
+   300,
+   800
+  ]
+ },
+ "茂朱德裕山（Muju Deogyusan Resort）": {
+  "region": "韩国",
+  "province": "全罗北道",
+  "country": "KR",
+  "lat": 35.875,
+  "lon": 127.748,
+  "elevation_top": 1520,
+  "elevation_base": 640,
+  "trails": {
+   "green": 10,
+   "blue": 14,
+   "black": 8,
+   "double_black": 2
+  },
+  "vertical_drop": 880,
+  "area_km2": 1.2,
+  "features": [
+   "韩国最大落差",
+   "夜滑",
+   "缆车",
+   "自然雪",
+   "四季度假村"
+  ],
+  "suited_for": [
+   "初学者",
+   "中级",
+   "高级"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   380,
+   500
+  ],
+  "season": "11月下旬~3月中旬",
+  "nearby_city": "大田/首尔",
+  "transport_ref": {
+   "from": "首尔",
+   "method": "巴士/自驾",
+   "hours": 3.0,
+   "cost_cny": [
+    100,
+    200
+   ]
+  },
+  "hotel_range_cny": [
+   400,
+   1200
+  ]
+ },
+ "维瓦尔第公园（Vivaldi Park Ski World）": {
+  "region": "韩国",
+  "province": "江原道",
+  "country": "KR",
+  "lat": 37.755,
+  "lon": 127.693,
+  "elevation_top": 576,
+  "elevation_base": 340,
+  "trails": {
+   "green": 5,
+   "blue": 4,
+   "black": 3,
+   "double_black": 1
+  },
+  "vertical_drop": 236,
+  "area_km2": 0.4,
+  "features": [
+   "夜滑",
+   "首尔近郊",
+   "水上乐园",
+   "家庭度假村"
+  ],
+  "suited_for": [
+   "初学者",
+   "中级"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   330,
+   480
+  ],
+  "season": "11月下旬~3月上旬",
+  "nearby_city": "首尔",
+  "transport_ref": {
+   "from": "首尔",
+   "method": "巴士/自驾",
+   "hours": 1.5,
+   "cost_cny": [
+    60,
+    120
+   ]
+  },
+  "hotel_range_cny": [
+   400,
+   1000
+  ]
+ },
+ "伊利希安江村（Elysian Gangchon）": {
+  "region": "韩国",
+  "province": "江原道",
+  "country": "KR",
+  "lat": 37.815,
+  "lon": 127.628,
+  "elevation_top": 261,
+  "elevation_base": 90,
+  "trails": {
+   "green": 6,
+   "blue": 3,
+   "black": 1,
+   "double_black": 0
+  },
+  "vertical_drop": 171,
+  "area_km2": 0.2,
+  "features": [
+   "夜滑",
+   "首尔近郊",
+   "ITX列车可达",
+   "初学者友好"
+  ],
+  "suited_for": [
+   "初学者"
+  ],
+  "board_friendly": true,
+  "park": false,
+  "ticket_range_cny": [
+   260,
+   400
+  ],
+  "season": "12月上旬~3月上旬",
+  "nearby_city": "首尔/春川",
+  "transport_ref": {
+   "from": "首尔(龙山站)",
+   "method": "ITX青春列车+接驳",
+   "hours": 1.2,
+   "cost_cny": [
+    40,
+    80
+   ]
+  },
+  "hotel_range_cny": [
+   300,
+   700
+  ]
+ },
+ "昆池岩（Konjiam Resort）": {
+  "region": "韩国",
+  "province": "京畿道",
+  "country": "KR",
+  "lat": 37.298,
+  "lon": 127.323,
+  "elevation_top": 460,
+  "elevation_base": 210,
+  "trails": {
+   "green": 4,
+   "blue": 3,
+   "black": 2,
+   "double_black": 0
+  },
+  "vertical_drop": 250,
+  "area_km2": 0.2,
+  "features": [
+   "夜滑",
+   "距首尔最近",
+   "人工造雪",
+   "灯光设施优秀"
+  ],
+  "suited_for": [
+   "初学者",
+   "中级"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   330,
+   480
+  ],
+  "season": "12月上旬~3月上旬",
+  "nearby_city": "首尔",
+  "transport_ref": {
+   "from": "首尔(江南)",
+   "method": "自驾/巴士",
+   "hours": 0.7,
+   "cost_cny": [
+    30,
+    60
+   ]
+  },
+  "hotel_range_cny": [
+   400,
+   1000
+  ]
+ },
+ "伊泽尔谷/蒂涅（Espace Killy）": {
+  "region": "欧洲",
+  "province": "萨瓦省",
+  "country": "FR",
+  "lat": 45.4481,
+  "lon": 6.9769,
+  "elevation_top": 3456,
+  "elevation_base": 1550,
+  "trails": {
+   "green": 22,
+   "blue": 61,
+   "black": 46,
+   "double_black": 22
+  },
+  "vertical_drop": 1906,
+  "area_km2": 300,
+  "features": [
+   "冰川",
+   "高海拔保雪",
+   "越野滑雪",
+   "自由式公园",
+   "直升机滑雪"
+  ],
+  "suited_for": [
+   "intermediate",
+   "advanced",
+   "expert"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   460,
+   585
+  ],
+  "season": "11月下旬-5月初",
+  "nearby_city": "尚贝里 Chambéry",
+  "transport_ref": {
+   "from": "日内瓦机场",
+   "method": "巴士/租车",
+   "hours": 3.5,
+   "cost_cny": [
+    250,
+    550
+   ]
+  },
+  "hotel_range_cny": [
+   800,
+   4000
+  ]
+ },
+ "两阿尔卑斯（Les Deux Alpes）": {
+  "region": "欧洲",
+  "province": "伊泽尔省",
+  "country": "FR",
+  "lat": 45.0167,
+  "lon": 6.1222,
+  "elevation_top": 3600,
+  "elevation_base": 1300,
+  "trails": {
+   "green": 17,
+   "blue": 42,
+   "black": 20,
+   "double_black": 10
+  },
+  "vertical_drop": 2300,
+  "area_km2": 200,
+  "features": [
+   "冰川",
+   "夏季滑雪",
+   "自由式公园",
+   "粉雪",
+   "夜滑"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   390,
+   490
+  ],
+  "season": "12月初-4月底（夏季冰川6-8月）",
+  "nearby_city": "格勒诺布尔 Grenoble",
+  "transport_ref": {
+   "from": "格勒诺布尔",
+   "method": "巴士/租车",
+   "hours": 1.5,
+   "cost_cny": [
+    100,
+    350
+   ]
+  },
+  "hotel_range_cny": [
+   600,
+   3000
+  ]
+ },
+ "阿普杜埃兹（Alpe d'Huez）": {
+  "region": "欧洲",
+  "province": "伊泽尔省",
+  "country": "FR",
+  "lat": 45.092,
+  "lon": 6.068,
+  "elevation_top": 3330,
+  "elevation_base": 1135,
+  "trails": {
+   "green": 17,
+   "blue": 34,
+   "black": 28,
+   "double_black": 16
+  },
+  "vertical_drop": 2195,
+  "area_km2": 235,
+  "features": [
+   "阳光充沛",
+   "长雪道",
+   "自由式公园",
+   "冰川"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced",
+   "expert"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   410,
+   515
+  ],
+  "season": "12月初-4月底",
+  "nearby_city": "格勒诺布尔 Grenoble",
+  "transport_ref": {
+   "from": "格勒诺布尔",
+   "method": "巴士/租车",
+   "hours": 1.5,
+   "cost_cny": [
+    100,
+    350
+   ]
+  },
+  "hotel_range_cny": [
+   600,
+   3200
+  ]
+ },
+ "拉普拉涅（Paradiski）": {
+  "region": "欧洲",
+  "province": "萨瓦省",
+  "country": "FR",
+  "lat": 45.507,
+  "lon": 6.677,
+  "elevation_top": 3250,
+  "elevation_base": 1250,
+  "trails": {
+   "green": 30,
+   "blue": 72,
+   "black": 35,
+   "double_black": 15
+  },
+  "vertical_drop": 2000,
+  "area_km2": 425,
+  "features": [
+   "超大雪区",
+   "冰川",
+   "家庭友好",
+   "越野滑雪",
+   "自由式公园"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced",
+   "expert"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   470,
+   595
+  ],
+  "season": "12月中旬-4月底",
+  "nearby_city": "阿尔贝维尔 Albertville",
+  "transport_ref": {
+   "from": "日内瓦机场",
+   "method": "巴士/租车",
+   "hours": 3.0,
+   "cost_cny": [
+    250,
+    550
+   ]
+  },
+  "hotel_range_cny": [
+   600,
+   3500
+  ]
+ },
+ "韦比尔（Verbier）": {
+  "region": "欧洲",
+  "province": "瓦莱州",
+  "country": "CH",
+  "lat": 46.0967,
+  "lon": 7.2283,
+  "elevation_top": 3330,
+  "elevation_base": 821,
+  "trails": {
+   "green": 20,
+   "blue": 45,
+   "black": 30,
+   "double_black": 15
+  },
+  "vertical_drop": 2509,
+  "area_km2": 410,
+  "features": [
+   "极限越野",
+   "粉雪",
+   "高山风光",
+   "直升机滑雪",
+   "长雪道"
+  ],
+  "suited_for": [
+   "intermediate",
+   "advanced",
+   "expert"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   625,
+   760
+  ],
+  "season": "11月下旬-4月下旬",
+  "nearby_city": "马蒂尼 Martigny",
+  "transport_ref": {
+   "from": "日内瓦机场",
+   "method": "火车+巴士",
+   "hours": 2.5,
+   "cost_cny": [
+    300,
+    500
+   ]
+  },
+  "hotel_range_cny": [
+   1200,
+   6000
+  ]
+ },
+ "达沃斯（Davos/Klosters）": {
+  "region": "欧洲",
+  "province": "格劳宾登州",
+  "country": "CH",
+  "lat": 46.8003,
+  "lon": 9.8361,
+  "elevation_top": 2844,
+  "elevation_base": 810,
+  "trails": {
+   "green": 15,
+   "blue": 40,
+   "black": 20,
+   "double_black": 5
+  },
+  "vertical_drop": 2034,
+  "area_km2": 253,
+  "features": [
+   "越野滑雪",
+   "六大雪区",
+   "粉雪",
+   "冰球",
+   "温泉"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   540,
+   680
+  ],
+  "season": "11月中旬-4月中旬",
+  "nearby_city": "苏黎世 Zürich",
+  "transport_ref": {
+   "from": "苏黎世机场",
+   "method": "火车",
+   "hours": 2.5,
+   "cost_cny": [
+    350,
+    550
+   ]
+  },
+  "hotel_range_cny": [
+   1000,
+   5000
+  ]
+ },
+ "圣莫里茨（St. Moritz）": {
+  "region": "欧洲",
+  "province": "格劳宾登州",
+  "country": "CH",
+  "lat": 46.4908,
+  "lon": 9.8355,
+  "elevation_top": 3303,
+  "elevation_base": 1822,
+  "trails": {
+   "green": 10,
+   "blue": 25,
+   "black": 18,
+   "double_black": 5
+  },
+  "vertical_drop": 1481,
+  "area_km2": 155,
+  "features": [
+   "奢华度假",
+   "冰川",
+   "阳光充沛",
+   "雪橇",
+   "温泉"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   530,
+   700
+  ],
+  "season": "11月下旬-4月中旬",
+  "nearby_city": "苏黎世 Zürich",
+  "transport_ref": {
+   "from": "苏黎世机场",
+   "method": "火车",
+   "hours": 3.5,
+   "cost_cny": [
+    400,
+    600
+   ]
+  },
+  "hotel_range_cny": [
+   1500,
+   8000
+  ]
+ },
+ "拉克斯（Laax）": {
+  "region": "欧洲",
+  "province": "格劳宾登州",
+  "country": "CH",
+  "lat": 46.8418,
+  "lon": 9.2588,
+  "elevation_top": 3018,
+  "elevation_base": 1100,
+  "trails": {
+   "green": 14,
+   "blue": 35,
+   "black": 15,
+   "double_black": 6
+  },
+  "vertical_drop": 1918,
+  "area_km2": 214,
+  "features": [
+   "自由式公园",
+   "半管",
+   "粉雪",
+   "雪板圣地",
+   "夜滑"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced",
+   "expert"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   530,
+   680
+  ],
+  "season": "11月中旬-4月下旬",
+  "nearby_city": "库尔 Chur",
+  "transport_ref": {
+   "from": "苏黎世机场",
+   "method": "火车+巴士",
+   "hours": 2.0,
+   "cost_cny": [
+    250,
+    450
+   ]
+  },
+  "hotel_range_cny": [
+   800,
+   4000
+  ]
+ },
+ "少女峰地区（Jungfrau）": {
+  "region": "欧洲",
+  "province": "伯尔尼州",
+  "country": "CH",
+  "lat": 46.587,
+  "lon": 7.964,
+  "elevation_top": 2970,
+  "elevation_base": 944,
+  "trails": {
+   "green": 12,
+   "blue": 30,
+   "black": 14,
+   "double_black": 4
+  },
+  "vertical_drop": 2026,
+  "area_km2": 206,
+  "features": [
+   "世界遗产风光",
+   "艾格峰景观",
+   "越野滑雪",
+   "雪橇"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   530,
+   640
+  ],
+  "season": "12月初-4月中旬",
+  "nearby_city": "因特拉肯 Interlaken",
+  "transport_ref": {
+   "from": "苏黎世机场",
+   "method": "火车",
+   "hours": 2.5,
+   "cost_cny": [
+    350,
+    550
+   ]
+  },
+  "hotel_range_cny": [
+   900,
+   5000
+  ]
+ },
+ "伊施格尔（Ischgl）": {
+  "region": "欧洲",
+  "province": "蒂罗尔州",
+  "country": "AT",
+  "lat": 46.9667,
+  "lon": 10.2833,
+  "elevation_top": 2872,
+  "elevation_base": 1377,
+  "trails": {
+   "green": 15,
+   "blue": 47,
+   "black": 32,
+   "double_black": 11
+  },
+  "vertical_drop": 1495,
+  "area_km2": 239,
+  "features": [
+   "跨境滑雪",
+   "免税购物",
+   "夜生活",
+   "音乐节",
+   "粉雪"
+  ],
+  "suited_for": [
+   "intermediate",
+   "advanced",
+   "expert"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   510,
+   620
+  ],
+  "season": "11月下旬-5月初",
+  "nearby_city": "因斯布鲁克 Innsbruck",
+  "transport_ref": {
+   "from": "因斯布鲁克机场",
+   "method": "巴士/租车",
+   "hours": 1.5,
+   "cost_cny": [
+    150,
+    350
+   ]
+  },
+  "hotel_range_cny": [
+   900,
+   4500
+  ]
+ },
+ "索尔登（Sölden）": {
+  "region": "欧洲",
+  "province": "蒂罗尔州",
+  "country": "AT",
+  "lat": 46.9655,
+  "lon": 10.8665,
+  "elevation_top": 3340,
+  "elevation_base": 1350,
+  "trails": {
+   "green": 14,
+   "blue": 36,
+   "black": 22,
+   "double_black": 12
+  },
+  "vertical_drop": 1990,
+  "area_km2": 144,
+  "features": [
+   "冰川",
+   "三千米级山峰",
+   "温泉",
+   "夜生活",
+   "早季开放"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced",
+   "expert"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   490,
+   610
+  ],
+  "season": "10月中旬-5月初",
+  "nearby_city": "因斯布鲁克 Innsbruck",
+  "transport_ref": {
+   "from": "因斯布鲁克机场",
+   "method": "巴士/租车",
+   "hours": 1.5,
+   "cost_cny": [
+    150,
+    350
+   ]
+  },
+  "hotel_range_cny": [
+   700,
+   3500
+  ]
+ },
+ "莱赫-楚尔斯（Lech-Zürs）": {
+  "region": "欧洲",
+  "province": "福拉尔贝格州",
+  "country": "AT",
+  "lat": 47.2078,
+  "lon": 10.1414,
+  "elevation_top": 2811,
+  "elevation_base": 1300,
+  "trails": {
+   "green": 30,
+   "blue": 72,
+   "black": 36,
+   "double_black": 10
+  },
+  "vertical_drop": 1511,
+  "area_km2": 305,
+  "features": [
+   "奢华度假",
+   "粉雪",
+   "越野滑雪",
+   "滑雪传奇线路"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced",
+   "expert"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   530,
+   640
+  ],
+  "season": "12月初-4月下旬",
+  "nearby_city": "因斯布鲁克 Innsbruck",
+  "transport_ref": {
+   "from": "因斯布鲁克机场",
+   "method": "巴士/租车",
+   "hours": 1.5,
+   "cost_cny": [
+    150,
+    400
+   ]
+  },
+  "hotel_range_cny": [
+   1200,
+   6000
+  ]
+ },
+ "迈尔霍芬（Mayrhofen）": {
+  "region": "欧洲",
+  "province": "蒂罗尔州",
+  "country": "AT",
+  "lat": 47.1592,
+  "lon": 11.8592,
+  "elevation_top": 2500,
+  "elevation_base": 630,
+  "trails": {
+   "green": 13,
+   "blue": 38,
+   "black": 25,
+   "double_black": 12
+  },
+  "vertical_drop": 1870,
+  "area_km2": 142,
+  "features": [
+   "Harakiri陡坡",
+   "自由式公园",
+   "夜生活",
+   "粉雪"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced",
+   "expert"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   420,
+   530
+  ],
+  "season": "12月初-4月中旬",
+  "nearby_city": "因斯布鲁克 Innsbruck",
+  "transport_ref": {
+   "from": "因斯布鲁克机场",
+   "method": "火车+巴士",
+   "hours": 1.5,
+   "cost_cny": [
+    120,
+    300
+   ]
+  },
+  "hotel_range_cny": [
+   600,
+   3000
+  ]
+ },
+ "萨尔巴赫（Saalbach）": {
+  "region": "欧洲",
+  "province": "萨尔茨堡州",
+  "country": "AT",
+  "lat": 47.3925,
+  "lon": 12.6361,
+  "elevation_top": 2096,
+  "elevation_base": 830,
+  "trails": {
+   "green": 20,
+   "blue": 55,
+   "black": 24,
+   "double_black": 7
+  },
+  "vertical_drop": 1266,
+  "area_km2": 270,
+  "features": [
+   "滑雪马戏团",
+   "家庭友好",
+   "夜生活",
+   "越野滑雪"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   430,
+   550
+  ],
+  "season": "12月初-4月中旬",
+  "nearby_city": "萨尔茨堡 Salzburg",
+  "transport_ref": {
+   "from": "萨尔茨堡机场",
+   "method": "巴士/租车",
+   "hours": 1.5,
+   "cost_cny": [
+    120,
+    300
+   ]
+  },
+  "hotel_range_cny": [
+   600,
+   3000
+  ]
+ },
+ "科尔蒂纳（Cortina）": {
+  "region": "欧洲",
+  "province": "威尼托大区",
+  "country": "IT",
+  "lat": 46.5369,
+  "lon": 12.1356,
+  "elevation_top": 2939,
+  "elevation_base": 1224,
+  "trails": {
+   "green": 15,
+   "blue": 36,
+   "black": 25,
+   "double_black": 8
+  },
+  "vertical_drop": 1715,
+  "area_km2": 120,
+  "features": [
+   "白云岩风光",
+   "2026冬奥举办地",
+   "奢华度假",
+   "美食"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   470,
+   600
+  ],
+  "season": "11月下旬-4月中旬",
+  "nearby_city": "威尼斯 Venice",
+  "transport_ref": {
+   "from": "威尼斯机场",
+   "method": "巴士/租车",
+   "hours": 2.5,
+   "cost_cny": [
+    150,
+    400
+   ]
+  },
+  "hotel_range_cny": [
+   1000,
+   6000
+  ]
+ },
+ "利维尼奥（Livigno）": {
+  "region": "欧洲",
+  "province": "伦巴第大区",
+  "country": "IT",
+  "lat": 46.533,
+  "lon": 10.135,
+  "elevation_top": 2900,
+  "elevation_base": 1816,
+  "trails": {
+   "green": 15,
+   "blue": 37,
+   "black": 20,
+   "double_black": 6
+  },
+  "vertical_drop": 1084,
+  "area_km2": 115,
+  "features": [
+   "免税购物",
+   "自由式公园",
+   "高海拔保雪",
+   "2026冬奥自由式场地"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   430,
+   560
+  ],
+  "season": "11月下旬-5月初",
+  "nearby_city": "米兰 Milan",
+  "transport_ref": {
+   "from": "米兰机场",
+   "method": "巴士/租车",
+   "hours": 3.5,
+   "cost_cny": [
+    200,
+    450
+   ]
+  },
+  "hotel_range_cny": [
+   500,
+   3000
+  ]
+ },
+ "切尔维尼亚（Cervinia）": {
+  "region": "欧洲",
+  "province": "瓦莱达奥斯塔大区",
+  "country": "IT",
+  "lat": 45.9367,
+  "lon": 7.63,
+  "elevation_top": 3488,
+  "elevation_base": 2050,
+  "trails": {
+   "green": 12,
+   "blue": 28,
+   "black": 15,
+   "double_black": 5
+  },
+  "vertical_drop": 1438,
+  "area_km2": 160,
+  "features": [
+   "马特洪峰景观",
+   "冰川",
+   "跨境滑雪至采尔马特",
+   "高海拔保雪"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   400,
+   530
+  ],
+  "season": "10月下旬-5月初",
+  "nearby_city": "都灵 Turin",
+  "transport_ref": {
+   "from": "都灵机场",
+   "method": "巴士/租车",
+   "hours": 2.0,
+   "cost_cny": [
+    150,
+    400
+   ]
+  },
+  "hotel_range_cny": [
+   600,
+   3500
+  ]
+ },
+ "克龙普拉茨（Kronplatz）": {
+  "region": "欧洲",
+  "province": "南蒂罗尔",
+  "country": "IT",
+  "lat": 46.7383,
+  "lon": 11.9583,
+  "elevation_top": 2275,
+  "elevation_base": 973,
+  "trails": {
+   "green": 11,
+   "blue": 30,
+   "black": 15,
+   "double_black": 5
+  },
+  "vertical_drop": 1302,
+  "area_km2": 119,
+  "features": [
+   "白云岩风光",
+   "高速缆车",
+   "家庭友好",
+   "美食"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   430,
+   560
+  ],
+  "season": "11月下旬-4月中旬",
+  "nearby_city": "因斯布鲁克 Innsbruck",
+  "transport_ref": {
+   "from": "因斯布鲁克机场",
+   "method": "火车+巴士",
+   "hours": 2.0,
+   "cost_cny": [
+    150,
+    350
+   ]
+  },
+  "hotel_range_cny": [
+   600,
+   3500
+  ]
+ },
+ "奥勒（Åre）": {
+  "region": "欧洲",
+  "province": "耶姆特兰省",
+  "country": "SE",
+  "lat": 63.3981,
+  "lon": 13.0806,
+  "elevation_top": 1274,
+  "elevation_base": 384,
+  "trails": {
+   "green": 10,
+   "blue": 35,
+   "black": 25,
+   "double_black": 19
+  },
+  "vertical_drop": 890,
+  "area_km2": 91,
+  "features": [
+   "北欧最大雪场",
+   "越野滑雪",
+   "夜滑",
+   "极光"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced",
+   "expert"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   350,
+   480
+  ],
+  "season": "11月中旬-5月初",
+  "nearby_city": "厄斯特松德 Östersund",
+  "transport_ref": {
+   "from": "厄斯特松德机场",
+   "method": "巴士/火车",
+   "hours": 1.5,
+   "cost_cny": [
+    100,
+    250
+   ]
+  },
+  "hotel_range_cny": [
+   600,
+   3000
+  ]
+ },
+ "海姆瑟达尔（Hemsedal）": {
+  "region": "欧洲",
+  "province": "维肯郡",
+  "country": "NO",
+  "lat": 60.8603,
+  "lon": 8.3961,
+  "elevation_top": 1450,
+  "elevation_base": 640,
+  "trails": {
+   "green": 8,
+   "blue": 18,
+   "black": 13,
+   "double_black": 8
+  },
+  "vertical_drop": 810,
+  "area_km2": 44,
+  "features": [
+   "斯堪的纳维亚阿尔卑斯",
+   "粉雪",
+   "越野滑雪",
+   "家庭友好",
+   "夜滑"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced",
+   "expert"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   370,
+   490
+  ],
+  "season": "11月中旬-5月初",
+  "nearby_city": "奥斯陆 Oslo",
+  "transport_ref": {
+   "from": "奥斯陆",
+   "method": "巴士/租车",
+   "hours": 3.5,
+   "cost_cny": [
+    200,
+    400
+   ]
+  },
+  "hotel_range_cny": [
+   700,
+   3000
+  ]
+ },
+ "列维（Levi）": {
+  "region": "欧洲",
+  "province": "拉普兰",
+  "country": "FI",
+  "lat": 67.7944,
+  "lon": 24.8147,
+  "elevation_top": 531,
+  "elevation_base": 206,
+  "trails": {
+   "green": 10,
+   "blue": 18,
+   "black": 10,
+   "double_black": 5
+  },
+  "vertical_drop": 325,
+  "area_km2": 39,
+  "features": [
+   "极光",
+   "夜滑",
+   "越野滑雪",
+   "驯鹿雪橇",
+   "圣诞老人村"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   310,
+   420
+  ],
+  "season": "10月下旬-5月中旬",
+  "nearby_city": "基蒂莱 Kittilä",
+  "transport_ref": {
+   "from": "基蒂莱机场",
+   "method": "巴士/出租车",
+   "hours": 0.3,
+   "cost_cny": [
+    50,
+    150
+   ]
+  },
+  "hotel_range_cny": [
+   500,
+   3000
+  ]
+ },
+ "巴盖拉-贝雷特（Baqueira-Beret）": {
+  "region": "欧洲",
+  "province": "莱里达省",
+  "country": "ES",
+  "lat": 42.6978,
+  "lon": 0.9508,
+  "elevation_top": 2510,
+  "elevation_base": 1500,
+  "trails": {
+   "green": 7,
+   "blue": 44,
+   "black": 33,
+   "double_black": 20
+  },
+  "vertical_drop": 1010,
+  "area_km2": 167,
+  "features": [
+   "西班牙最大雪场",
+   "粉雪",
+   "越野滑雪",
+   "美食"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced",
+   "expert"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   400,
+   510
+  ],
+  "season": "12月初-4月中旬",
+  "nearby_city": "莱里达 Lleida",
+  "transport_ref": {
+   "from": "巴塞罗那",
+   "method": "租车",
+   "hours": 4.0,
+   "cost_cny": [
+    250,
+    500
+   ]
+  },
+  "hotel_range_cny": [
+   600,
+   3500
+  ]
+ },
+ "内华达山（Sierra Nevada）": {
+  "region": "欧洲",
+  "province": "格拉纳达省",
+  "country": "ES",
+  "lat": 37.0956,
+  "lon": -3.3953,
+  "elevation_top": 3300,
+  "elevation_base": 2100,
+  "trails": {
+   "green": 16,
+   "blue": 41,
+   "black": 27,
+   "double_black": 7
+  },
+  "vertical_drop": 1200,
+  "area_km2": 110,
+  "features": [
+   "欧洲最南雪场",
+   "阳光充沛",
+   "夜滑",
+   "地中海景观"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   350,
+   470
+  ],
+  "season": "11月下旬-4月底",
+  "nearby_city": "格拉纳达 Granada",
+  "transport_ref": {
+   "from": "格拉纳达",
+   "method": "巴士/租车",
+   "hours": 0.75,
+   "cost_cny": [
+    50,
+    150
+   ]
+  },
+  "hotel_range_cny": [
+   400,
+   2500
+  ]
+ },
+ "格兰瓦利拉（Grandvalira）": {
+  "region": "欧洲",
+  "province": "安道尔",
+  "country": "AD",
+  "lat": 42.5556,
+  "lon": 1.675,
+  "elevation_top": 2640,
+  "elevation_base": 1710,
+  "trails": {
+   "green": 21,
+   "blue": 43,
+   "black": 31,
+   "double_black": 13
+  },
+  "vertical_drop": 930,
+  "area_km2": 210,
+  "features": [
+   "免税购物",
+   "家庭友好",
+   "温泉",
+   "夜滑",
+   "比利牛斯最大雪区"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   370,
+   470
+  ],
+  "season": "12月初-4月中旬",
+  "nearby_city": "安道尔城 Andorra la Vella",
+  "transport_ref": {
+   "from": "巴塞罗那机场",
+   "method": "巴士/租车",
+   "hours": 3.0,
+   "cost_cny": [
+    200,
+    400
+   ]
+  },
+  "hotel_range_cny": [
+   400,
+   2500
+  ]
+ },
+ "猛犸山（Mammoth Mountain）": {
+  "region": "北美洲",
+  "province": "加利福尼亚州",
+  "country": "US",
+  "lat": 37.6308,
+  "lon": -119.0326,
+  "elevation_top": 3369,
+  "elevation_base": 2424,
+  "trails": {
+   "green": 25,
+   "blue": 40,
+   "black": 60,
+   "double_black": 28
+  },
+  "vertical_drop": 945,
+  "area_km2": 14.2,
+  "features": [
+   "粉雪",
+   "长雪季",
+   "自由式公园",
+   "火山地形"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced",
+   "expert"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   680,
+   1170
+  ],
+  "season": "11月初-6月（视降雪）",
+  "nearby_city": "毕晓普 Bishop",
+  "transport_ref": {
+   "from": "洛杉矶",
+   "method": "租车",
+   "hours": 5.0,
+   "cost_cny": [
+    500,
+    900
+   ]
+  },
+  "hotel_range_cny": [
+   700,
+   4000
+  ]
+ },
+ "太浩湖帕利塞兹（Palisades Tahoe）": {
+  "region": "北美洲",
+  "province": "加利福尼亚州",
+  "country": "US",
+  "lat": 39.1968,
+  "lon": -120.2354,
+  "elevation_top": 2760,
+  "elevation_base": 1893,
+  "trails": {
+   "green": 25,
+   "blue": 43,
+   "black": 60,
+   "double_black": 42
+  },
+  "vertical_drop": 869,
+  "area_km2": 24.3,
+  "features": [
+   "奥运会遗产",
+   "极限地形",
+   "粉雪",
+   "太浩湖景观"
+  ],
+  "suited_for": [
+   "intermediate",
+   "advanced",
+   "expert"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   900,
+   1350
+  ],
+  "season": "11月下旬-5月",
+  "nearby_city": "里诺 Reno",
+  "transport_ref": {
+   "from": "里诺机场",
+   "method": "租车",
+   "hours": 1.0,
+   "cost_cny": [
+    200,
+    400
+   ]
+  },
+  "hotel_range_cny": [
+   800,
+   5000
+  ]
+ },
+ "斯廷博特（Steamboat）": {
+  "region": "北美洲",
+  "province": "科罗拉多州",
+  "country": "US",
+  "lat": 40.4572,
+  "lon": -106.8045,
+  "elevation_top": 3221,
+  "elevation_base": 2103,
+  "trails": {
+   "green": 42,
+   "blue": 56,
+   "black": 38,
+   "double_black": 29
+  },
+  "vertical_drop": 1118,
+  "area_km2": 12.0,
+  "features": [
+   "香槟粉雪",
+   "树林滑雪",
+   "温泉",
+   "西部小镇风情"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced",
+   "expert"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   850,
+   1300
+  ],
+  "season": "11月下旬-4月中旬",
+  "nearby_city": "丹佛 Denver",
+  "transport_ref": {
+   "from": "丹佛机场",
+   "method": "租车",
+   "hours": 3.0,
+   "cost_cny": [
+    400,
+    700
+   ]
+  },
+  "hotel_range_cny": [
+   800,
+   5000
+  ]
+ },
+ "特柳赖德（Telluride）": {
+  "region": "北美洲",
+  "province": "科罗拉多州",
+  "country": "US",
+  "lat": 37.9375,
+  "lon": -107.8123,
+  "elevation_top": 3831,
+  "elevation_base": 2659,
+  "trails": {
+   "green": 28,
+   "blue": 36,
+   "black": 41,
+   "double_black": 43
+  },
+  "vertical_drop": 1349,
+  "area_km2": 8.1,
+  "features": [
+   "历史矿业小镇",
+   "粉雪",
+   "极限地形",
+   "免费缆车"
+  ],
+  "suited_for": [
+   "intermediate",
+   "advanced",
+   "expert"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   950,
+   1400
+  ],
+  "season": "11月下旬-4月初",
+  "nearby_city": "蒙特罗斯 Montrose",
+  "transport_ref": {
+   "from": "蒙特罗斯机场",
+   "method": "租车/穿梭巴士",
+   "hours": 1.5,
+   "cost_cny": [
+    200,
+    400
+   ]
+  },
+  "hotel_range_cny": [
+   1000,
+   6000
+  ]
+ },
+ "太阳谷（Sun Valley）": {
+  "region": "北美洲",
+  "province": "爱达荷州",
+  "country": "US",
+  "lat": 43.6975,
+  "lon": -114.3514,
+  "elevation_top": 2789,
+  "elevation_base": 1752,
+  "trails": {
+   "green": 36,
+   "blue": 42,
+   "black": 25,
+   "double_black": 12
+  },
+  "vertical_drop": 1036,
+  "area_km2": 10.1,
+  "features": [
+   "世界首座缆车索道",
+   "粉雪",
+   "无排队",
+   "压雪道"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced",
+   "expert"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   800,
+   1200
+  ],
+  "season": "11月下旬-4月中旬",
+  "nearby_city": "博伊西 Boise",
+  "transport_ref": {
+   "from": "海利机场 SUN",
+   "method": "穿梭巴士",
+   "hours": 0.3,
+   "cost_cny": [
+    50,
+    150
+   ]
+  },
+  "hotel_range_cny": [
+   800,
+   5000
+  ]
+ },
+ "斯托（Stowe）": {
+  "region": "北美洲",
+  "province": "佛蒙特州",
+  "country": "US",
+  "lat": 44.5303,
+  "lon": -72.7814,
+  "elevation_top": 1339,
+  "elevation_base": 620,
+  "trails": {
+   "green": 29,
+   "blue": 28,
+   "black": 31,
+   "double_black": 28
+  },
+  "vertical_drop": 719,
+  "area_km2": 1.9,
+  "features": [
+   "新英格兰经典",
+   "树林滑雪",
+   "小镇风情",
+   "越野滑雪"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced",
+   "expert"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   800,
+   1250
+  ],
+  "season": "11月下旬-4月中旬",
+  "nearby_city": "伯灵顿 Burlington",
+  "transport_ref": {
+   "from": "伯灵顿机场",
+   "method": "租车",
+   "hours": 0.75,
+   "cost_cny": [
+    100,
+    250
+   ]
+  },
+  "hotel_range_cny": [
+   700,
+   4000
+  ]
+ },
+ "基灵顿（Killington）": {
+  "region": "北美洲",
+  "province": "佛蒙特州",
+  "country": "US",
+  "lat": 43.6045,
+  "lon": -72.7964,
+  "elevation_top": 1293,
+  "elevation_base": 355,
+  "trails": {
+   "green": 43,
+   "blue": 50,
+   "black": 38,
+   "double_black": 24
+  },
+  "vertical_drop": 938,
+  "area_km2": 6.1,
+  "features": [
+   "东部最大雪场",
+   "六座山峰",
+   "长雪季",
+   "夜滑"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced",
+   "expert"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   700,
+   1100
+  ],
+  "season": "10月下旬-5月",
+  "nearby_city": "伯灵顿 Burlington",
+  "transport_ref": {
+   "from": "伯灵顿机场",
+   "method": "租车",
+   "hours": 1.5,
+   "cost_cny": [
+    150,
+    300
+   ]
+  },
+  "hotel_range_cny": [
+   600,
+   3500
+  ]
+ },
+ "鹿谷（Deer Valley）": {
+  "region": "北美洲",
+  "province": "犹他州",
+  "country": "US",
+  "lat": 40.6374,
+  "lon": -111.4783,
+  "elevation_top": 2917,
+  "elevation_base": 2003,
+  "trails": {
+   "green": 27,
+   "blue": 41,
+   "black": 34,
+   "double_black": 21
+  },
+  "vertical_drop": 914,
+  "area_km2": 8.5,
+  "features": [
+   "限量售票",
+   "奢华度假",
+   "粉雪",
+   "压雪道",
+   "纯滑雪"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced",
+   "expert"
+  ],
+  "board_friendly": false,
+  "park": false,
+  "ticket_range_cny": [
+   1000,
+   1550
+  ],
+  "season": "12月初-4月中旬",
+  "nearby_city": "盐湖城 Salt Lake City",
+  "transport_ref": {
+   "from": "盐湖城机场",
+   "method": "租车/穿梭巴士",
+   "hours": 1.0,
+   "cost_cny": [
+    100,
+    300
+   ]
+  },
+  "hotel_range_cny": [
+   1200,
+   7000
+  ]
+ },
+ "雪鸟（Snowbird）": {
+  "region": "北美洲",
+  "province": "犹他州",
+  "country": "US",
+  "lat": 40.583,
+  "lon": -111.6508,
+  "elevation_top": 3353,
+  "elevation_base": 2365,
+  "trails": {
+   "green": 27,
+   "blue": 38,
+   "black": 35,
+   "double_black": 69
+  },
+  "vertical_drop": 988,
+  "area_km2": 10.1,
+  "features": [
+   "粉雪",
+   "极限地形",
+   "长雪季",
+   "缆车观光"
+  ],
+  "suited_for": [
+   "intermediate",
+   "advanced",
+   "expert"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   800,
+   1250
+  ],
+  "season": "11月中旬-5月下旬",
+  "nearby_city": "盐湖城 Salt Lake City",
+  "transport_ref": {
+   "from": "盐湖城机场",
+   "method": "租车/穿梭巴士",
+   "hours": 0.75,
+   "cost_cny": [
+    80,
+    250
+   ]
+  },
+  "hotel_range_cny": [
+   800,
+   5000
+  ]
+ },
+ "布雷肯里奇（Breckenridge）": {
+  "region": "北美洲",
+  "province": "科罗拉多州",
+  "country": "US",
+  "lat": 39.4817,
+  "lon": -106.0384,
+  "elevation_top": 3962,
+  "elevation_base": 2926,
+  "trails": {
+   "green": 31,
+   "blue": 42,
+   "black": 51,
+   "double_black": 63
+  },
+  "vertical_drop": 1036,
+  "area_km2": 11.8,
+  "features": [
+   "高海拔",
+   "历史矿业小镇",
+   "自由式公园",
+   "粉雪"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced",
+   "expert"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   900,
+   1540
+  ],
+  "season": "11月中旬-5月下旬",
+  "nearby_city": "丹佛 Denver",
+  "transport_ref": {
+   "from": "丹佛机场",
+   "method": "穿梭巴士/租车",
+   "hours": 2.0,
+   "cost_cny": [
+    250,
+    500
+   ]
+  },
+  "hotel_range_cny": [
+   800,
+   5000
+  ]
+ },
+ "基斯通（Keystone）": {
+  "region": "北美洲",
+  "province": "科罗拉多州",
+  "country": "US",
+  "lat": 39.6069,
+  "lon": -105.9497,
+  "elevation_top": 3782,
+  "elevation_base": 2835,
+  "trails": {
+   "green": 29,
+   "blue": 31,
+   "black": 31,
+   "double_black": 37
+  },
+  "vertical_drop": 953,
+  "area_km2": 12.7,
+  "features": [
+   "夜滑",
+   "家庭友好",
+   "三座山峰",
+   "自由式公园"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced",
+   "expert"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   750,
+   1250
+  ],
+  "season": "11月初-4月下旬",
+  "nearby_city": "丹佛 Denver",
+  "transport_ref": {
+   "from": "丹佛机场",
+   "method": "穿梭巴士/租车",
+   "hours": 1.75,
+   "cost_cny": [
+    250,
+    500
+   ]
+  },
+  "hotel_range_cny": [
+   700,
+   4500
+  ]
+ },
+ "班夫/路易斯湖（Banff Sunshine & Lake Louise）": {
+  "region": "北美洲",
+  "province": "艾伯塔省",
+  "country": "CA",
+  "lat": 51.4254,
+  "lon": -116.1773,
+  "elevation_top": 2730,
+  "elevation_base": 1646,
+  "trails": {
+   "green": 35,
+   "blue": 55,
+   "black": 45,
+   "double_black": 35
+  },
+  "vertical_drop": 1070,
+  "area_km2": 17.0,
+  "features": [
+   "国家公园",
+   "粉雪",
+   "野生动物",
+   "壮丽山景",
+   "长雪季"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced",
+   "expert"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   550,
+   820
+  ],
+  "season": "11月初-5月下旬",
+  "nearby_city": "卡尔加里 Calgary",
+  "transport_ref": {
+   "from": "卡尔加里机场",
+   "method": "穿梭巴士/租车",
+   "hours": 2.0,
+   "cost_cny": [
+    200,
+    400
+   ]
+  },
+  "hotel_range_cny": [
+   600,
+   4500
+  ]
+ },
+ "雷夫尔斯托克（Revelstoke）": {
+  "region": "北美洲",
+  "province": "不列颠哥伦比亚省",
+  "country": "CA",
+  "lat": 51.0275,
+  "lon": -118.1614,
+  "elevation_top": 2225,
+  "elevation_base": 512,
+  "trails": {
+   "green": 7,
+   "blue": 21,
+   "black": 27,
+   "double_black": 14
+  },
+  "vertical_drop": 1713,
+  "area_km2": 13.2,
+  "features": [
+   "北美最大垂直落差",
+   "粉雪",
+   "直升机滑雪",
+   "猫跳滑雪"
+  ],
+  "suited_for": [
+   "intermediate",
+   "advanced",
+   "expert"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   550,
+   800
+  ],
+  "season": "12月初-4月中旬",
+  "nearby_city": "基洛纳 Kelowna",
+  "transport_ref": {
+   "from": "基洛纳机场",
+   "method": "租车",
+   "hours": 2.5,
+   "cost_cny": [
+    200,
+    400
+   ]
+  },
+  "hotel_range_cny": [
+   500,
+   3000
+  ]
+ },
+ "太阳峰（Sun Peaks）": {
+  "region": "北美洲",
+  "province": "不列颠哥伦比亚省",
+  "country": "CA",
+  "lat": 50.8837,
+  "lon": -119.9003,
+  "elevation_top": 2152,
+  "elevation_base": 1255,
+  "trails": {
+   "green": 25,
+   "blue": 48,
+   "black": 38,
+   "double_black": 26
+  },
+  "vertical_drop": 882,
+  "area_km2": 16.6,
+  "features": [
+   "加拿大第二大雪场",
+   "粉雪",
+   "家庭友好",
+   "无排队"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced",
+   "expert"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   450,
+   650
+  ],
+  "season": "11月下旬-4月中旬",
+  "nearby_city": "坎卢普斯 Kamloops",
+  "transport_ref": {
+   "from": "坎卢普斯机场",
+   "method": "穿梭巴士/租车",
+   "hours": 0.75,
+   "cost_cny": [
+    80,
+    200
+   ]
+  },
+  "hotel_range_cny": [
+   500,
+   3000
+  ]
+ },
+ "蒙特朗布朗（Mont-Tremblant）": {
+  "region": "北美洲",
+  "province": "魁北克省",
+  "country": "CA",
+  "lat": 46.2145,
+  "lon": -74.5853,
+  "elevation_top": 875,
+  "elevation_base": 230,
+  "trails": {
+   "green": 18,
+   "blue": 32,
+   "black": 29,
+   "double_black": 23
+  },
+  "vertical_drop": 645,
+  "area_km2": 3.1,
+  "features": [
+   "欧式村庄",
+   "夜滑",
+   "家庭友好",
+   "越野滑雪"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   500,
+   720
+  ],
+  "season": "11月下旬-4月中旬",
+  "nearby_city": "蒙特利尔 Montreal",
+  "transport_ref": {
+   "from": "蒙特利尔机场",
+   "method": "租车/穿梭巴士",
+   "hours": 1.75,
+   "cost_cny": [
+    150,
+    350
+   ]
+  },
+  "hotel_range_cny": [
+   600,
+   3500
+  ]
+ },
+ "夏洛瓦（Le Massif）": {
+  "region": "北美洲",
+  "province": "魁北克省",
+  "country": "CA",
+  "lat": 47.2778,
+  "lon": -70.6136,
+  "elevation_top": 806,
+  "elevation_base": 36,
+  "trails": {
+   "green": 10,
+   "blue": 20,
+   "black": 15,
+   "double_black": 8
+  },
+  "vertical_drop": 770,
+  "area_km2": 1.6,
+  "features": [
+   "圣劳伦斯河景观",
+   "粉雪",
+   "海边滑雪",
+   "越野滑雪"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced",
+   "expert"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   420,
+   600
+  ],
+  "season": "12月初-4月中旬",
+  "nearby_city": "魁北克城 Quebec City",
+  "transport_ref": {
+   "from": "魁北克城",
+   "method": "租车/穿梭巴士",
+   "hours": 1.25,
+   "cost_cny": [
+    100,
+    250
+   ]
+  },
+  "hotel_range_cny": [
+   500,
+   3000
+  ]
+ },
+ "瓦列内瓦多（Valle Nevado）": {
+  "region": "南美洲",
+  "province": "圣地亚哥大区",
+  "country": "CL",
+  "lat": -33.356,
+  "lon": -70.2465,
+  "elevation_top": 3670,
+  "elevation_base": 2860,
+  "trails": {
+   "green": 14,
+   "blue": 19,
+   "black": 9,
+   "double_black": 5
+  },
+  "vertical_drop": 810,
+  "area_km2": 8.9,
+  "features": [
+   "南美最大雪场",
+   "直升机滑雪",
+   "粉雪",
+   "安第斯山景"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced",
+   "expert"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   350,
+   550
+  ],
+  "season": "6月中旬-10月初",
+  "nearby_city": "圣地亚哥 Santiago",
+  "transport_ref": {
+   "from": "圣地亚哥",
+   "method": "巴士/租车",
+   "hours": 1.5,
+   "cost_cny": [
+    80,
+    250
+   ]
+  },
+  "hotel_range_cny": [
+   600,
+   4000
+  ]
+ },
+ "波蒂略（Portillo）": {
+  "region": "南美洲",
+  "province": "瓦尔帕莱索大区",
+  "country": "CL",
+  "lat": -32.837,
+  "lon": -70.127,
+  "elevation_top": 3348,
+  "elevation_base": 2548,
+  "trails": {
+   "green": 6,
+   "blue": 12,
+   "black": 10,
+   "double_black": 7
+  },
+  "vertical_drop": 800,
+  "area_km2": 5.0,
+  "features": [
+   "传奇度假村",
+   "限量入住",
+   "湖景",
+   "粉雪",
+   "速度纪录"
+  ],
+  "suited_for": [
+   "intermediate",
+   "advanced",
+   "expert"
+  ],
+  "board_friendly": true,
+  "park": false,
+  "ticket_range_cny": [
+   500,
+   720
+  ],
+  "season": "6月中旬-10月初",
+  "nearby_city": "圣地亚哥 Santiago",
+  "transport_ref": {
+   "from": "圣地亚哥",
+   "method": "巴士/租车",
+   "hours": 2.5,
+   "cost_cny": [
+    100,
+    300
+   ]
+  },
+  "hotel_range_cny": [
+   1500,
+   6000
+  ]
+ },
+ "大教堂山（Cerro Catedral）": {
+  "region": "南美洲",
+  "province": "内格罗河省",
+  "country": "AR",
+  "lat": -41.165,
+  "lon": -71.443,
+  "elevation_top": 2180,
+  "elevation_base": 1030,
+  "trails": {
+   "green": 12,
+   "blue": 25,
+   "black": 15,
+   "double_black": 8
+  },
+  "vertical_drop": 1150,
+  "area_km2": 6.0,
+  "features": [
+   "巴塔哥尼亚风光",
+   "湖景",
+   "树林滑雪",
+   "南美最大雪场之一"
+  ],
+  "suited_for": [
+   "beginner",
+   "intermediate",
+   "advanced",
+   "expert"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   200,
+   400
+  ],
+  "season": "6月中旬-10月初",
+  "nearby_city": "巴里洛切 Bariloche",
+  "transport_ref": {
+   "from": "巴里洛切机场",
+   "method": "巴士/租车",
+   "hours": 0.5,
+   "cost_cny": [
+    30,
+    100
+   ]
+  },
+  "hotel_range_cny": [
+   300,
+   2500
+  ]
+ },
+ "拉斯莱尼亚斯（Las Leñas）": {
+  "region": "南美洲",
+  "province": "门多萨省",
+  "country": "AR",
+  "lat": -35.1623,
+  "lon": -70.0679,
+  "elevation_top": 3430,
+  "elevation_base": 2240,
+  "trails": {
+   "green": 5,
+   "blue": 11,
+   "black": 8,
+   "double_black": 5
+  },
+  "vertical_drop": 1190,
+  "area_km2": 4.0,
+  "features": [
+   "极限越野",
+   "粉雪",
+   "高海拔",
+   "安第斯山深处"
+  ],
+  "suited_for": [
+   "intermediate",
+   "advanced",
+   "expert"
+  ],
+  "board_friendly": true,
+  "park": true,
+  "ticket_range_cny": [
+   200,
+   380
+  ],
+  "season": "6月中旬-10月初",
+  "nearby_city": "门多萨 Mendoza",
+  "transport_ref": {
+   "from": "门多萨",
+   "method": "巴士/租车",
+   "hours": 5.0,
+   "cost_cny": [
+    100,
+    300
+   ]
+  },
+  "hotel_range_cny": [
+   400,
+   3000
   ]
  }
 }

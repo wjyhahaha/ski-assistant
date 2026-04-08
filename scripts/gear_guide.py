@@ -319,14 +319,40 @@ def generate_gear_guide(params: dict) -> str:
     is_indoor = resort_type == "indoor" or destination == "室内"
 
     # 获取气候信息
+    # 目的地→气候区域的模糊映射（支持子地区匹配到父区域）
+    _DEST_ALIAS = {
+        "北海道": "日本", "白马": "日本", "妙高": "日本", "二世谷": "日本", "长野": "日本",
+        "富良野": "日本", "留寿都": "日本", "志贺": "日本", "野泽": "日本",
+        "阿尔卑斯": "欧洲", "夏蒙尼": "欧洲", "采尔马特": "欧洲",
+        "惠斯勒": "北美", "范尔": "北美", "帕克城": "北美", "科罗拉多": "北美",
+        "皇后镇": "南半球", "新西兰": "南半球", "澳大利亚": "南半球",
+        "亚布力": "东北", "北大湖": "东北", "松花湖": "东北", "长白山": "东北",
+        "将军山": "新疆", "可可托海": "新疆", "阿勒泰": "新疆",
+        "南山": "北京周边", "军都山": "北京周边", "石京龙": "北京周边",
+        "万龙": "崇礼", "太舞": "崇礼", "云顶": "崇礼", "富龙": "崇礼",
+    }
     climate_key = "室内" if is_indoor else None
-    for ck, cv in _CLIMATE_GEAR.items():
-        if ck in destination:
-            climate_key = ck
-            break
-    if climate_key is None:
-        climate_key = destination if destination in _CLIMATE_GEAR else "崇礼"
+    if not climate_key:
+        # 优先精确匹配 _CLIMATE_GEAR key
+        for ck in _CLIMATE_GEAR:
+            if ck in destination:
+                climate_key = ck
+                break
+    if not climate_key:
+        # 模糊匹配：检查目的地是否包含某个别名关键词
+        for alias, region in _DEST_ALIAS.items():
+            if alias in destination:
+                climate_key = region
+                break
+    if not climate_key:
+        climate_key = "崇礼"
     climate = _CLIMATE_GEAR.get(climate_key, _CLIMATE_GEAR["崇礼"])
+
+    # 动态生成温度提示
+    climate_notes = climate.get("notes", "")
+    if destination and climate_key in _CLIMATE_GEAR and climate_key not in destination:
+        # 匹配到了父区域，用目的地名替换提示
+        climate_notes = f"{destination}（{climate_key}地区）{climate.get('temperature_range', '')}，{climate_notes.split('，', 1)[-1] if '，' in climate_notes else '注意保暖'}"
 
     # 筛选装备
     essential = []
@@ -377,7 +403,7 @@ def generate_gear_guide(params: dict) -> str:
     lines = [f"🎿 滑雪装备清单\n"]
     lines.append(f"📋 适用信息：{level_label(level)} | {sport_label(sport_type)} | {destination or '未指定'} | {days}天")
     lines.append(f"🌡️ 参考温度：{climate.get('temperature_range', '未知')}")
-    lines.append(f"📝 {climate.get('notes', '')}\n")
+    lines.append(f"📝 {climate_notes}\n")
 
     if already_have:
         lines.append("✅ 已有装备（无需重复购买）：")
@@ -414,7 +440,12 @@ def generate_gear_guide(params: dict) -> str:
         lines.append("### 💡 推荐装备（非必须但建议携带）\n")
         lines.append("| 物品 | 用途 | 参考价格 |")
         lines.append("|------|------|---------|")
+        # 去重：extra_gear 中已在 optional 里的不重复输出
+        seen_keys = set()
         for key, gear in optional + extra_gear:
+            if key in seen_keys:
+                continue
+            seen_keys.add(key)
             price = gear.get("price_range", {}).get(budget_tier, "¥-")
             usage = gear.get("notes", "")[:40]
             lines.append(f"| {gear['label']} | {usage} | {price} |")

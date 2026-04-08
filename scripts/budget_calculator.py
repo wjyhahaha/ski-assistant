@@ -158,7 +158,22 @@ def calculate_budget(params: dict) -> dict:
         }
 
     # 模式2：flat 参数，支持数据库自动填充
-    p = _auto_fill_from_db(dict(params))
+    # 别名映射：兼容用户直觉化参数名
+    _ALIASES = {
+        "transport_cost": "flight_per_person",
+        "transport_per_person": "flight_per_person",
+        "ticket_per_day": "lift_ticket_per_day",
+        "lift_per_day": "lift_ticket_per_day",
+        "gear_rental": "rental_per_day",
+        "gear_rental_per_day": "rental_per_day",
+        "hotel_cost": "hotel_per_night",
+        "food_cost": "food_per_day",
+    }
+    _params = dict(params)
+    for alias, canonical in _ALIASES.items():
+        if alias in _params and canonical not in _params:
+            _params[canonical] = _params.pop(alias)
+    p = _auto_fill_from_db(_params)
     people = p.get("people", 1)
     days = p.get("days", 1)
     ski_days = p.get("ski_days", days)

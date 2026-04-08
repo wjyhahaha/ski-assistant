@@ -162,6 +162,14 @@ def check(search_results: dict) -> str:
     now = datetime.now(CST).isoformat()
     wl["last_check"] = now
 
+    # 输入格式校验
+    if "results" not in search_results or not isinstance(search_results.get("results"), list):
+        return (
+            "⚠️ 输入格式错误，缺少 `results` 数组。\n"
+            "正确格式示例：\n"
+            '  check \'{"results":[{"resort":"万龙滑雪场","found_presale":true,"details":"..."}]}\''
+        )
+
     notifications = []
     resort_map = {r["name"]: r for r in wl["resorts"]}
 
