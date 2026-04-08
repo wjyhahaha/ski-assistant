@@ -1,9 +1,10 @@
 {
  "_meta": {
-  "version": "2.4.0",
+  "version": "3.1.0",
   "updated": "2026-04-08",
   "source": "resorts-reference.md (2024-25雪季) + 实地/官网校验",
-  "note": "transport_ref 仅为参考估算，实际费用应根据用户出发城市动态计算"
+  "note": "transport_ref 仅为参考估算，实际费用应根据用户出发城市动态计算",
+  "resort_count": 60
  },
  "万龙滑雪场": {
   "region": "中国",
@@ -2435,6 +2436,510 @@
   "hotel_range_cny": [
    500,
    3000
+  ]
+ },
+ "翠云山银河滑雪场": {
+  "lat": 40.97,
+  "lon": 115.28,
+  "elevation_base": 1650,
+  "elevation_top": 2100,
+  "vertical_drop": 450,
+  "runs_total": 18,
+  "runs_green": 5,
+  "runs_blue": 8,
+  "runs_black": 4,
+  "runs_double_black": 1,
+  "area_km2": 2.0,
+  "lifts": 7,
+  "ticket_range_cny": [
+   380,
+   520
+  ],
+  "season": "11月中-次年3月底",
+  "snow_making": true,
+  "night_skiing": false,
+  "features": [
+   "城区最近",
+   "家庭友好",
+   "夜景观光"
+  ],
+  "region": "崇礼",
+  "transport_ref": {
+   "from": "北京",
+   "time_hours": 3.5,
+   "cost_cny": [
+    150,
+    350
+   ]
+  },
+  "hotel_range_cny": [
+   300,
+   1000
+  ],
+  "snowboard_friendly": true,
+  "terrain_park": false,
+  "best_for": [
+   "初学者",
+   "中级",
+   "家庭"
+  ]
+ },
+ "多乐美地滑雪场": {
+  "lat": 40.95,
+  "lon": 115.35,
+  "elevation_base": 1500,
+  "elevation_top": 1950,
+  "vertical_drop": 450,
+  "runs_total": 15,
+  "runs_green": 6,
+  "runs_blue": 6,
+  "runs_black": 3,
+  "runs_double_black": 0,
+  "area_km2": 1.5,
+  "lifts": 5,
+  "ticket_range_cny": [
+   300,
+   450
+  ],
+  "season": "11月中-次年3月中",
+  "snow_making": true,
+  "night_skiing": false,
+  "features": [
+   "老牌雪场",
+   "性价比高",
+   "粉雪"
+  ],
+  "region": "崇礼",
+  "transport_ref": {
+   "from": "北京",
+   "time_hours": 3.5,
+   "cost_cny": [
+    150,
+    350
+   ]
+  },
+  "hotel_range_cny": [
+   200,
+   600
+  ],
+  "snowboard_friendly": true,
+  "terrain_park": false,
+  "best_for": [
+   "初学者",
+   "中级",
+   "预算"
+  ]
+ },
+ "长城岭滑雪场": {
+  "lat": 40.98,
+  "lon": 115.32,
+  "elevation_base": 1600,
+  "elevation_top": 2000,
+  "vertical_drop": 400,
+  "runs_total": 10,
+  "runs_green": 4,
+  "runs_blue": 4,
+  "runs_black": 2,
+  "runs_double_black": 0,
+  "area_km2": 1.0,
+  "lifts": 3,
+  "ticket_range_cny": [
+   200,
+   350
+  ],
+  "season": "11月底-次年3月初",
+  "snow_making": true,
+  "night_skiing": false,
+  "features": [
+   "省队训练基地",
+   "人少",
+   "性价比"
+  ],
+  "region": "崇礼",
+  "transport_ref": {
+   "from": "北京",
+   "time_hours": 3.5,
+   "cost_cny": [
+    150,
+    350
+   ]
+  },
+  "hotel_range_cny": [
+   150,
+   400
+  ],
+  "snowboard_friendly": true,
+  "terrain_park": false,
+  "best_for": [
+   "初学者",
+   "中级",
+   "预算"
+  ]
+ },
+ "长春莲花山滑雪场": {
+  "lat": 43.87,
+  "lon": 125.72,
+  "elevation_base": 280,
+  "elevation_top": 510,
+  "vertical_drop": 230,
+  "runs_total": 12,
+  "runs_green": 3,
+  "runs_blue": 6,
+  "runs_black": 3,
+  "runs_double_black": 0,
+  "area_km2": 1.2,
+  "lifts": 4,
+  "ticket_range_cny": [
+   200,
+   350
+  ],
+  "season": "11月中-次年3月初",
+  "snow_making": true,
+  "night_skiing": true,
+  "features": [
+   "国际标准U槽",
+   "距长春近",
+   "赛事级"
+  ],
+  "region": "东北",
+  "transport_ref": {
+   "from": "长春",
+   "time_hours": 0.8,
+   "cost_cny": [
+    50,
+    100
+   ]
+  },
+  "hotel_range_cny": [
+   200,
+   500
+  ],
+  "snowboard_friendly": true,
+  "terrain_park": true,
+  "best_for": [
+   "中级",
+   "高级",
+   "公园"
+  ]
+ },
+ "长春天定山滑雪场": {
+  "lat": 43.82,
+  "lon": 125.68,
+  "elevation_base": 260,
+  "elevation_top": 450,
+  "vertical_drop": 190,
+  "runs_total": 10,
+  "runs_green": 4,
+  "runs_blue": 4,
+  "runs_black": 2,
+  "runs_double_black": 0,
+  "area_km2": 1.0,
+  "lifts": 4,
+  "ticket_range_cny": [
+   180,
+   300
+  ],
+  "season": "11月中-次年3月初",
+  "snow_making": true,
+  "night_skiing": true,
+  "features": [
+   "距长春市区近",
+   "性价比高",
+   "适合家庭"
+  ],
+  "region": "东北",
+  "transport_ref": {
+   "from": "长春",
+   "time_hours": 0.5,
+   "cost_cny": [
+    30,
+    80
+   ]
+  },
+  "hotel_range_cny": [
+   150,
+   400
+  ],
+  "snowboard_friendly": true,
+  "terrain_park": false,
+  "best_for": [
+   "初学者",
+   "中级",
+   "家庭"
+  ]
+ },
+ "帽儿山滑雪场": {
+  "lat": 45.32,
+  "lon": 127.48,
+  "elevation_base": 300,
+  "elevation_top": 580,
+  "vertical_drop": 280,
+  "runs_total": 11,
+  "runs_green": 3,
+  "runs_blue": 5,
+  "runs_black": 3,
+  "runs_double_black": 0,
+  "area_km2": 1.1,
+  "lifts": 4,
+  "ticket_range_cny": [
+   180,
+   320
+  ],
+  "season": "11月中-次年3月中",
+  "snow_making": true,
+  "night_skiing": false,
+  "features": [
+   "大雪花赛场地",
+   "粉雪",
+   "哈尔滨周边"
+  ],
+  "region": "东北",
+  "transport_ref": {
+   "from": "哈尔滨",
+   "time_hours": 1.5,
+   "cost_cny": [
+    50,
+    120
+   ]
+  },
+  "hotel_range_cny": [
+   150,
+   400
+  ],
+  "snowboard_friendly": true,
+  "terrain_park": false,
+  "best_for": [
+   "中级",
+   "高级"
+  ]
+ },
+ "乌鲁木齐白云滑雪场": {
+  "lat": 43.45,
+  "lon": 87.65,
+  "elevation_base": 1800,
+  "elevation_top": 2300,
+  "vertical_drop": 500,
+  "runs_total": 10,
+  "runs_green": 3,
+  "runs_blue": 5,
+  "runs_black": 2,
+  "runs_double_black": 0,
+  "area_km2": 1.0,
+  "lifts": 4,
+  "ticket_range_cny": [
+   150,
+   280
+  ],
+  "season": "11月-次年3月",
+  "snow_making": true,
+  "night_skiing": true,
+  "features": [
+   "乌鲁木齐市区最近",
+   "性价比高",
+   "夜滑"
+  ],
+  "region": "新疆",
+  "transport_ref": {
+   "from": "乌鲁木齐",
+   "time_hours": 0.5,
+   "cost_cny": [
+    20,
+    50
+   ]
+  },
+  "hotel_range_cny": [
+   150,
+   400
+  ],
+  "snowboard_friendly": true,
+  "terrain_park": false,
+  "best_for": [
+   "初学者",
+   "中级",
+   "预算"
+  ]
+ },
+ "海陀山谷滑雪场": {
+  "lat": 40.58,
+  "lon": 115.85,
+  "elevation_base": 1200,
+  "elevation_top": 1800,
+  "vertical_drop": 600,
+  "runs_total": 15,
+  "runs_green": 4,
+  "runs_blue": 7,
+  "runs_black": 4,
+  "runs_double_black": 0,
+  "area_km2": 2.0,
+  "lifts": 5,
+  "ticket_range_cny": [
+   300,
+   480
+  ],
+  "season": "11月底-次年3月底",
+  "snow_making": true,
+  "night_skiing": false,
+  "features": [
+   "冬奥赛区",
+   "山谷地形",
+   "风景佳"
+  ],
+  "region": "北京周边",
+  "transport_ref": {
+   "from": "北京",
+   "time_hours": 2.5,
+   "cost_cny": [
+    100,
+    250
+   ]
+  },
+  "hotel_range_cny": [
+   300,
+   800
+  ],
+  "snowboard_friendly": true,
+  "terrain_park": false,
+  "best_for": [
+   "中级",
+   "高级",
+   "风景"
+  ]
+ },
+ "金象山滑雪场": {
+  "lat": 36.42,
+  "lon": 117.18,
+  "elevation_base": 300,
+  "elevation_top": 480,
+  "vertical_drop": 180,
+  "runs_total": 8,
+  "runs_green": 3,
+  "runs_blue": 4,
+  "runs_black": 1,
+  "runs_double_black": 0,
+  "area_km2": 0.6,
+  "lifts": 3,
+  "ticket_range_cny": [
+   150,
+   280
+  ],
+  "season": "12月-次年2月",
+  "snow_making": true,
+  "night_skiing": true,
+  "features": [
+   "济南周边",
+   "华东规模较大",
+   "家庭"
+  ],
+  "region": "其他国内",
+  "transport_ref": {
+   "from": "济南",
+   "time_hours": 0.5,
+   "cost_cny": [
+    30,
+    60
+   ]
+  },
+  "hotel_range_cny": [
+   150,
+   350
+  ],
+  "snowboard_friendly": true,
+  "terrain_park": false,
+  "best_for": [
+   "初学者",
+   "家庭"
+  ]
+ },
+ "鹧鸪山滑雪场": {
+  "lat": 31.85,
+  "lon": 102.35,
+  "elevation_base": 3200,
+  "elevation_top": 3600,
+  "vertical_drop": 400,
+  "runs_total": 8,
+  "runs_green": 3,
+  "runs_blue": 4,
+  "runs_black": 1,
+  "runs_double_black": 0,
+  "area_km2": 0.8,
+  "lifts": 3,
+  "ticket_range_cny": [
+   200,
+   380
+  ],
+  "season": "11月-次年4月",
+  "snow_making": false,
+  "night_skiing": false,
+  "features": [
+   "高海拔天然雪",
+   "川西风景",
+   "小众"
+  ],
+  "region": "其他国内",
+  "transport_ref": {
+   "from": "成都",
+   "time_hours": 4,
+   "cost_cny": [
+    100,
+    200
+   ]
+  },
+  "hotel_range_cny": [
+   150,
+   400
+  ],
+  "snowboard_friendly": true,
+  "terrain_park": false,
+  "best_for": [
+   "初学者",
+   "中级",
+   "风景"
+  ]
+ },
+ "神农架国际滑雪场": {
+  "lat": 31.55,
+  "lon": 110.35,
+  "elevation_base": 2200,
+  "elevation_top": 2800,
+  "vertical_drop": 600,
+  "runs_total": 12,
+  "runs_green": 3,
+  "runs_blue": 6,
+  "runs_black": 3,
+  "runs_double_black": 0,
+  "area_km2": 1.5,
+  "lifts": 5,
+  "ticket_range_cny": [
+   260,
+   420
+  ],
+  "season": "12月-次年3月",
+  "snow_making": true,
+  "night_skiing": false,
+  "features": [
+   "华中最大",
+   "原始森林",
+   "天然雪"
+  ],
+  "region": "其他国内",
+  "transport_ref": {
+   "from": "武汉",
+   "time_hours": 6,
+   "cost_cny": [
+    200,
+    400
+   ]
+  },
+  "hotel_range_cny": [
+   200,
+   500
+  ],
+  "snowboard_friendly": true,
+  "terrain_park": false,
+  "best_for": [
+   "初学者",
+   "中级",
+   "风景"
   ]
  }
 }
