@@ -1222,6 +1222,49 @@ def stats() -> str:
     return "\n".join(lines)
 
 
+def import_data(path: str) -> str:
+    """从导出文件恢复数据。"""
+    if not path or not os.path.exists(path):
+        return f"❌ 文件不存在：{path}\n请提供有效的导出文件路径。"
+
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except Exception as e:
+        return f"❌ 读取文件失败：{e}"
+
+    if not isinstance(data, dict) or "records" not in data:
+        return "❌ 文件格式不正确，不是有效的 Ski Assistant 导出文件。"
+
+    records = _load_records()
+    cfg = _load_config()
+
+    imported_records = data.get("records", [])
+    imported_config = data.get("config", {})
+
+    # 合并记录（去重 by id）
+    existing_ids = {r.get("id") for r in records}
+    new_count = 0
+    for r in imported_records:
+        if r.get("id") not in existing_ids:
+            records.append(r)
+            new_count += 1
+
+    _save_records(records)
+
+    # 合并配置（导入的配置优先，但不覆盖用户已修改的项）
+    if imported_config:
+        for k, v in imported_config.items():
+            if k not in cfg or isinstance(v, dict):
+                if isinstance(v, dict) and isinstance(cfg.get(k), dict):
+                    cfg[k].update(v)
+                else:
+                    cfg[k] = v
+        _save_config(cfg)
+
+    return f"📂 数据导入完成\n  · 新增记录：{new_count} 条\n  · 当前总记录：{len(records)} 条\n  · 导入时间：{datetime.now(CST).strftime('%Y-%m-%d %H:%M')}"
+
+
 def export_data(path: str = None) -> str:
     records = _load_records()
     cfg = _load_config()
@@ -1291,6 +1334,12 @@ if __name__ == "__main__":
         elif cmd == "export":
             path = sys.argv[2] if len(sys.argv) > 2 else None
             print(export_data(path))
+        elif cmd == "import":
+            if len(sys.argv) < 3:
+                print("❌ 请提供导入文件路径，例如：")
+                print("  python scripts/ski_coach.py import /path/to/export.json")
+                sys.exit(1)
+            print(import_data(sys.argv[2]))
         else:
             print(f"❌ 未知命令: {cmd}")
             print(__doc__)
