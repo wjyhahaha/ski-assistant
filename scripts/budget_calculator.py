@@ -88,13 +88,13 @@ def calculate_budget(params: dict) -> dict:
     user_items = params.get("items")
     if user_items is None:
         # 检查 params 顶层是否有已知 key
-        known_keys = {"transport", "hotel", "ticket", "food", "rental", "insurance", "other"}
+        known_keys = {"transport", "hotel", "ticket", "ski_pass", "food", "meals", "rental", "insurance", "other"}
         if any(k in known_keys for k in params.keys()):
             user_items = {k: v for k, v in params.items() if k in known_keys}
     # 兼容嵌套 dict 格式的 items（如 {"transport": {...}, "hotel": {...}, "ticket": {...}}）
     if user_items and isinstance(user_items, dict):
         # 检测是否是嵌套的配置对象（transport/hotel/ticket 等）
-        known_keys = {"transport", "hotel", "ticket", "food", "rental", "insurance", "other"}
+        known_keys = {"transport", "hotel", "ticket", "ski_pass", "food", "meals", "rental", "insurance", "other"}
         if any(k in known_keys for k in user_items.keys()):
             # 转换为标准 items 列表格式
             converted_items = []
@@ -102,15 +102,15 @@ def calculate_budget(params: dict) -> dict:
                 if not isinstance(val, dict):
                     continue
                 name_map = {
-                    "transport": "交通", "hotel": "住宿", "ticket": "雪票",
-                    "food": "餐饮", "rental": "装备租赁", "insurance": "保险", "other": "其他"
+                    "transport": "交通", "hotel": "住宿", "ticket": "雪票", "ski_pass": "雪票",
+                    "food": "餐饮", "meals": "餐饮", "rental": "装备租赁", "insurance": "保险", "other": "其他"
                 }
                 item_name = name_map.get(key, key)
                 # 支持多种字段
                 cost = (val.get("cost_per_person", 0) or val.get("per_person", 0)
                         or val.get("price", 0) or val.get("total", 0)
                         or val.get("per_night", 0) or val.get("per_day", 0)
-                        or val.get("per_day_per_person", 0))
+                        or val.get("per_day_per_person", 0) or val.get("cost", 0))
                 if cost > 0:
                     converted_items.append({"name": item_name, "price": cost})
             if converted_items:
