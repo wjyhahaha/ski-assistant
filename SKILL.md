@@ -6,16 +6,16 @@ description: |
 license: MIT
 metadata:
   author: wjyhahaha
-  version: 3.0.0
+  version: 4.0.0
   category: travel-lifestyle
   tags: [skiing, travel, budget, weather, recommendation]
 ---
 
-# Ski Assistant - 全球滑雪综合服务助手 v3.0.0
+# Ski Assistant - 全球滑雪综合服务助手 v4.0.0
 
 ## 目标
 
-一站式解决滑雪出行全链路需求：行程规划（推荐雪场 + 完整攻略 + 实时预算）、智能查价（实时价格 + 低价票 + 比价）、AI 电子教练（姿态分析 + 进步追踪）、早鸟预售（时间线 + 开售监听）。覆盖中国（崇礼/东北/新疆/北京周边）、日本、韩国、欧洲、北美、南半球、室内雪场。
+一站式解决滑雪出行全链路需求：行程规划（推荐雪场 + 完整攻略 + 实时预算）、智能查价（实时价格 + 低价票 + 比价）、AI 电子教练（姿态分析 + 进步追踪）、早鸟预售（时间线 + 开售监听）。覆盖中国（崇礼/东北/新疆/北京周边/西北/内蒙/云南/华中）、日本（北海道/东北/新潟/长野/群马）、韩国、欧洲（法国/瑞士/奥地利/意大利/挪威/西班牙）、北美（美国/加拿大）、南半球（新西兰/智利/阿根廷）、室内雪场，共 155 座雪场、19 个国家。
 
 ## 数据存储
 
@@ -26,7 +26,7 @@ metadata:
 - `watchlist.json` — 预售监听列表
 - `custom_resorts.json` — 用户自定义雪场数据
 
-内置雪场数据库：[scripts/resorts_db.json](scripts/resorts_db.json)（49+ 全球雪场），支持用户自定义扩展和 OSM 联网发现。
+内置雪场数据库：[scripts/resorts_db.json](scripts/resorts_db.json)（155 座全球雪场，覆盖 19 个国家），支持用户自定义扩展和 OSM 联网发现。
 
 ---
 
