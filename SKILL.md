@@ -3,15 +3,18 @@ name: ski-assistant
 description: |
   全球滑雪综合服务助手，提供行程规划、智能查价、AI 电子教练、早鸟预售。
   当用户提到滑雪、雪票、雪场、外滑、早鸟票、残票、低价票、滑雪攻略、滑雪动作分析、推荐雪场、雪场天气、查价、滑雪预算时使用。
+  也适用于口语化表达，如"去北海道滑雪要花多少钱""滑雪要带什么装备""帮我看看这个滑雪姿势对不对""明年的票什么时候买便宜""周末去哪滑雪好""崇礼雪票现在什么价"。
+  不适用于：非滑雪目的地的一般旅游规划、普通天气查询、非冰雪运动的装备咨询。
 license: MIT
+allowed-tools: "Bash(python:*) WebFetch WebSearch"
 metadata:
   author: wjyhahaha
-  version: 4.0.0
+  version: 4.1.0
   category: travel-lifestyle
   tags: [skiing, travel, budget, weather, recommendation]
 ---
 
-# Ski Assistant - 全球滑雪综合服务助手 v4.0.0
+# Ski Assistant - 全球滑雪综合服务助手 v4.1.0
 
 ## 目标
 
@@ -61,18 +64,18 @@ metadata:
 
 **流程**：
 1. 确认参数：雪场、出发地、日期、人数
-2. 优先调用 `python scripts/price_fetcher.py flyai-live '<json>'` 获取实时价格（机票/酒店/雪票）
-3. 无结果时自动降级为数据库参考价（标注"参考值（非实时）"）
-4. 同步搜索低价票/转让票：`"{雪场名} 残票 转让"` / `"{雪场名} 特价票 {年份}"`
-5. 调用 `ticket_comparator.py` 生成比价表，国际价格用 `currency_converter.py` 换算为人民币
-6. 输出：价格明细 + 低价票信息 + 可信度标注 + 预订建议
+2. **前置检查**：检测 `flyai` 是否可用（`which flyai`）；不可用则跳过步骤 3，直接走步骤 4 降级路径
+3. 调用 `python scripts/price_fetcher.py flyai-live '<json>'` 获取实时价格（机票/酒店/雪票）
+4. flyai 不可用或无结果时，改用 `price_fetcher.py live-costs` + WebSearch + 数据库参考价（标注"参考值（非实时）"）
+5. 同步搜索低价票/转让票：`"{雪场名} 残票 转让"` / `"{雪场名} 特价票 {年份}"`
+6. 调用 `ticket_comparator.py` 生成比价表，国际价格用 `currency_converter.py` 换算为人民币
+7. 输出：价格明细 + 低价票信息 + 可信度标注 + 预订建议
 
 **示例**：
 > 用户："帮我查下去北大湖滑雪要花多少钱，上海出发，1 月 15-18 号，2 个人"
 > AI 执行：调用 flyai-live → 查询机票 ¥1280 + 酒店 ¥680/晚 + 雪票 ¥480 → 生成完整预算 ¥3720/人
 
 **错误处理**：
-- **flyai 未安装**：提示安装 `npm install -g @fly-ai/flyai-cli`，或改用 live-costs + WebSearch
 - **某项查询无结果**：自动用数据库参考价兜底，标注"参考值（非实时）"
 - **搜索低价票无结果**：说明该雪场/日期无转让票，建议关注官方促销或调整日期
 - **网络超时**：重试后仍失败，输出搜索策略让用户自行搜索
@@ -168,6 +171,18 @@ python scripts/ski_coach.py import   <path>    # 导入数据
 - **监听列表为空**：提示用户先添加监听目标，或推荐当季热门早鸟票
 - **公告页面结构变化**：自动降级为关键词搜索，并提示用户手动确认
 - **通知渠道未配置**：输出到对话，建议配置 Webhook 实现自动推送
+
+---
+
+## MCP 集成（可选增强）
+
+当用户环境中连接了以下 MCP 服务时，本 Skill 可自动协调使用：
+
+- **日历 MCP**（Google Calendar / Outlook）：行程规划完成后，自动创建出行日历事件（含航班、酒店入住、雪场日程）；预售监听触发时，自动创建购票提醒。
+- **IM MCP**（钉钉 / 飞书 / Slack）：预售监听状态变化时，自动推送通知到指定群聊或个人会话；行程方案生成后，可一键分享到群组。
+- **文件存储 MCP**（Google Drive / Box）：将生成的行程攻略、预算报告自动保存到指定云端目录。
+
+无需额外配置，AI 会自动检测已连接的 MCP 服务并在合适时机调用。如需指定通知渠道，在对话中说明即可（如"通知发到钉钉 XX 群"）。
 
 ---
 
