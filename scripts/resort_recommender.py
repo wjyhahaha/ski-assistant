@@ -327,16 +327,32 @@ def recommend(params: dict = None) -> str:
         elif est_total <= budget * 1.3: score += 4
         else: score -= 8
 
-        # 雪场规模和落差加分（室内用面积，室外用落差+面积）
+        # 雪场规模和落差加分（室内用面积，室外用落差+面积+雪道总数）
         if is_indoor:
             indoor_sqm = r.get("indoor_area_sqm", 0)
             score += min(indoor_sqm / 15000, 5)
         else:
-            score += min(r.get("vertical_drop", 0) / 150, 6)
-            score += min(r.get("area_km2", 0) / 2, 5)
+            # 垂直落差权重（最大 8 分）
+            score += min(r.get("vertical_drop", 0) / 150, 8)
+            # 雪场面积权重（最大 6 分）
+            score += min(r.get("area_km2", 0) / 2, 6)
+            # 雪道总数权重（最大 4 分，鼓励选择雪道丰富的雪场）
+            total_trails = sum(r.get("trails", {}).values())
+            score += min(total_trails / 20, 4)
 
-        # 公园偏好
-        if sport_type == "snowboard" and r.get("park"): score += 8
+        # 地形公园/单板公园权重（最大 12 分）
+        if r.get("park"):
+            park_features = r.get("features", [])
+            # 根据公园等级加分
+            if "公园" in park_features or "park" in [f.lower() for f in park_features]:
+                score += 6
+            if "地形公园" in park_features or "pro park" in [f.lower() for f in park_features]:
+                score += 4
+            if "U型池" in park_features or "halfpipe" in [f.lower() for f in park_features]:
+                score += 2
+            # 单板用户额外加分
+            if sport_type == "snowboard":
+                score += 4
 
         # 非雪季：室内雪场加分，室外雪场如不在雪季则大幅扣分
         if off_season:
@@ -445,7 +461,51 @@ def recommend(params: dict = None) -> str:
 
         lines.append(f"\n🏂 单板友好：{'✅' if r.get('board_friendly') else '❌'}  |  公园/地形：{'✅' if r.get('park') else '❌'}")
         lines.append(f"📅 雪季：{r.get('season', '?')}")
-        lines.append(f"📊 推荐匹配度：{item['score']}/100\n")
+        lines.append(f"📊 推荐匹配度：{item['score']}/100")
+
+        # 适合人群说明
+        suited_for = r.get("suited_for", [])
+        if suited_for:
+            level_labels_map = {"beginner": "初学者", "intermediate": "中级", "advanced": "高级", "expert": "发烧友"}
+            suited_labels = [level_labels_map.get(s, s) for s in suited_for]
+            lines.append(f"👥 适合人群：{'、'.join(suited_labels)}")
+
+        # 出行建议
+        lines.append(f"\n💡 **出行建议**")
+        if is_indoor:
+            lines.append(f"  · 室内恒温雪场，全年可滑，不受天气影响")
+            if dist and dist < 50:
+                lines.append(f"  · 距离你很近（{dist}km），适合日常练习和周末短途")
+            elif dist and dist < 200:
+                lines.append(f"  · 距离适中（{dist}km），建议周末 2 天行程")
+        else:
+            if off_season:
+                is_southern = r.get("country", "") in ("新西兰", "澳大利亚") or "南半球" in r.get("region", "")
+                if is_southern:
+                    lines.append(f"  · 当前南半球正当季，是反滑的好时机")
+                else:
+                    lines.append(f"  · 当前非雪季，建议等到雪季开放后再前往")
+            else:
+                lines.append(f"  · 当前正值雪季或接近雪季，是出行好时机")
+
+            if dist:
+                if dist < 300:
+                    lines.append(f"  · 距离较近（{dist}km），适合自驾或短途旅行")
+                elif dist < 1000:
+                    lines.append(f"  · 距离适中（{dist}km），建议高铁/飞机+当地交通")
+                else:
+                    lines.append(f"  · 距离较远（{dist}km），建议规划 5 天以上行程，直飞或转机")
+
+            # 根据水平给出建议
+            if level == "beginner" and r.get("vertical_drop", 0) > 1000:
+                lines.append(f"  · 该雪场落差较大，初学者建议先在初级道练习，逐步挑战中高级道")
+            elif level in ("advanced", "expert") and r.get("vertical_drop", 0) > 800:
+                lines.append(f"  · 该雪场落差大、地形丰富，适合挑战高级道和野雪区域")
+
+            if r.get("park") and sport_type == "snowboard":
+                lines.append(f"  · 该雪场有地形公园，单板爱好者可以重点关注")
+
+        lines.append("")
 
     lines.append("---")
     lines.append("💡 可以说「对比这几个雪场的天气」或「帮我做 XX 的攻略」继续深入。")
