@@ -205,6 +205,23 @@ def show_profile() -> str:
     return "\n".join(lines)
 
 
+def _profile_guidance() -> str:
+    """当用户没有设置画像时，输出引导信息。"""
+    return """🎿 滑雪推荐 — 请先告诉我以下信息，我会为你智能匹配最适合的雪场：
+
+1. **出发城市**：你从哪个城市出发？（如北京、上海、广州）
+2. **滑雪水平**：初学者 / 中级 / 高级 / 发烧友
+3. **运动类型**：双板 / 单板 / 都可以
+4. **出行天数**：计划滑几天？（如 2 天、4 天、7 天）
+5. **人均预算**：大约多少元？（含交通住宿雪票，如 3000、5000、8000）
+6. **偏好**（可选）：粉雪、公园、夜滑、家庭友好、温泉 等
+
+示例：
+  "我从上海出发，中级水平，双板，想滑 4 天，人均预算 5000，喜欢粉雪"
+
+设置好后，每次推荐都会自动基于你的画像匹配最适合的雪场。"""
+
+
 def recommend(params: dict = None) -> str:
     """
     基于用户画像推荐雪场。可选参数覆盖画像字段。
@@ -212,6 +229,13 @@ def recommend(params: dict = None) -> str:
     """
     resorts_db = load_resorts_db()
     profile = _load_profile()
+
+    # 如果 profile 为空且没有传入任何参数，输出引导信息
+    has_profile = bool(profile)
+    has_params = bool(params and len(params) > 0)
+    if not has_profile and not has_params:
+        return _profile_guidance()
+
     if params:
         profile.update(params)
 
@@ -1201,29 +1225,38 @@ if __name__ == "__main__":
 
     cmd = sys.argv[1]
 
-    if cmd == "profile":
-        params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else json.load(sys.stdin)
-        print(set_profile(params))
-    elif cmd == "show-profile":
-        print(show_profile())
-    elif cmd == "recommend":
-        params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else {}
-        print(recommend(params))
-    elif cmd == "weather":
-        params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else json.load(sys.stdin)
-        print(get_weather(params))
-    elif cmd == "compare":
-        params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else json.load(sys.stdin)
-        print(compare_resorts(params))
-    elif cmd == "costs":
-        params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else json.load(sys.stdin)
-        print(estimate_costs(params))
-    elif cmd == "update-db":
-        print(update_db())
-    elif cmd == "discover":
-        params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else {}
-        print(discover_resorts(params))
-    else:
-        print(f"未知命令: {cmd}")
-        print(__doc__)
+    try:
+        if cmd == "profile":
+            params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else json.load(sys.stdin)
+            print(set_profile(params))
+        elif cmd == "show-profile":
+            print(show_profile())
+        elif cmd == "recommend":
+            params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else {}
+            print(recommend(params))
+        elif cmd == "weather":
+            params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else json.load(sys.stdin)
+            print(get_weather(params))
+        elif cmd == "compare":
+            params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else json.load(sys.stdin)
+            print(compare_resorts(params))
+        elif cmd == "costs":
+            params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else json.load(sys.stdin)
+            print(estimate_costs(params))
+        elif cmd == "update-db":
+            print(update_db())
+        elif cmd == "discover":
+            params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else {}
+            print(discover_resorts(params))
+        else:
+            print(f"❌ 未知命令: {cmd}")
+            print(__doc__)
+            sys.exit(1)
+    except json.JSONDecodeError as e:
+        print(f"❌ JSON 参数格式错误：{e}")
+        print(f"💡 请使用有效的 JSON 字符串，例如：")
+        print(f'   echo \'{{"resort":"万龙"}}\' | python scripts/resort_recommender.py {cmd}')
+        sys.exit(1)
+    except Exception as e:
+        print(f"❌ 执行出错：{type(e).__name__}: {e}")
         sys.exit(1)

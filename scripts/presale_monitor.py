@@ -4,13 +4,19 @@
 用法: python scripts/presale_monitor.py <command> [args]
 
 命令:
-  watch   '<json>'    添加/更新监听项
-  list                列出所有监听项
-  check               检查所有监听项的预售状态变化，输出通知内容
-  remove  '<json>'    移除监听项
-  status              输出当前监听状态摘要
+  watch    '<json>'    添加/更新监听项
+  list                 列出所有监听项
+  check                检查所有监听项的预售状态变化，输出通知内容
+  check-all            🆕 生成搜索关键词列表，供 Agent 批量搜索（无需外部定时任务）
+  remove   '<json>'    移除监听项
+  status               输出当前监听状态摘要
 
 监听数据存储：通过 utils.py 统一管理，默认 ~/.ski-assistant/watchlist.json
+
+工作流程（手动模式，无需外部定时任务）：
+1. 运行 check-all 获取所有待检查雪场的搜索关键词
+2. Agent 用 WebSearch 批量搜索
+3. 将搜索结果传入 check 命令，自动更新状态并生成通知
 """
 
 import json
@@ -273,6 +279,39 @@ def status() -> str:
     return "\n".join(lines)
 
 
+def check_all() -> str:
+    """
+    生成所有监听项的搜索关键词列表，供 Agent 批量搜索后调用 check。
+    这是一个手动触发命令，无需外部定时任务。
+
+    使用方式：
+    1. 运行 check-all 获取搜索关键词
+    2. Agent 用 WebSearch 批量搜索
+    3. 将搜索结果传入 check 命令
+    """
+    wl = _load_watchlist()
+    if not wl["resorts"]:
+        return "📡 当前没有监听任何雪场。使用 watch 命令添加。"
+
+    lines = ["🔍 预售监听搜索任务\n"]
+    lines.append("请按以下关键词依次搜索，并将结果传入 check 命令：\n")
+
+    for r in wl["resorts"]:
+        if r.get("last_status") == "已开售":
+            lines.append(f"  ✅ {r['name']} — 已开售，无需重复检查")
+            continue
+        keywords = r.get("keywords", [f"{r['name']} 早鸟票"])
+        lines.append(f"  🔴 {r['name']}")
+        for kw in keywords:
+            lines.append(f"     搜索：\"{kw} 2026\"")
+        lines.append("")
+
+    lines.append(f"\n共需检查 {sum(1 for r in wl['resorts'] if r.get('last_status') != '已开售')} 个雪场")
+    lines.append("搜索完成后，使用 check 命令传入结果。")
+
+    return "\n".join(lines)
+
+
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         print(__doc__)
@@ -280,20 +319,31 @@ if __name__ == "__main__":
 
     cmd = sys.argv[1]
 
-    if cmd == "watch":
-        params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else json.load(sys.stdin)
-        print(watch(params))
-    elif cmd == "list":
-        print(list_watchlist())
-    elif cmd == "check":
-        params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else {"results": []}
-        print(check(params))
-    elif cmd == "remove":
-        params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else {"resorts": []}
-        print(remove(params))
-    elif cmd == "status":
-        print(status())
-    else:
-        print(f"未知命令: {cmd}")
-        print(__doc__)
+    try:
+        if cmd == "watch":
+            params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else json.load(sys.stdin)
+            print(watch(params))
+        elif cmd == "list":
+            print(list_watchlist())
+        elif cmd == "check":
+            params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else {"results": []}
+            print(check(params))
+        elif cmd == "remove":
+            params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else {"resorts": []}
+            print(remove(params))
+        elif cmd == "status":
+            print(status())
+        elif cmd == "check-all":
+            print(check_all())
+        else:
+            print(f"❌ 未知命令: {cmd}")
+            print(__doc__)
+            sys.exit(1)
+    except json.JSONDecodeError as e:
+        print(f"❌ JSON 参数格式错误：{e}")
+        print(f"💡 请使用有效的 JSON 字符串，例如：")
+        print(f'   echo \'{{"resort":"万龙"}}\' | python scripts/presale_monitor.py {cmd}')
+        sys.exit(1)
+    except Exception as e:
+        print(f"❌ 执行出错：{type(e).__name__}: {e}")
         sys.exit(1)

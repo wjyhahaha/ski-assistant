@@ -1190,7 +1190,8 @@ def flyai_live_costs(params: dict) -> str:
                     ticket_price = sum(db_ticket) / 2
                     collected_prices["ticket_per_day"] = ticket_price
                     flyai_sources["ticket_source"] = "数据库参考"
-                    lines.append(f"\n  飞猪未查到确切票价，数据库参考：¥{db_ticket[0]}-{db_ticket[1]}/天")
+                    lines.append(f"\n  ⚠️ 飞猪未提供具体票价，以下使用数据库参考价（非实时价格）")
+                    lines.append(f"  数据库参考：¥{db_ticket[0]}-{db_ticket[1]}/天")
         else:
             db_ticket = resort.get("ticket_range_cny", [0, 0])
             if db_ticket[0] > 0:
@@ -1267,7 +1268,10 @@ def flyai_live_costs(params: dict) -> str:
     src_list = set(flyai_sources.values())
     real_count = sum(1 for s in src_list if s == "飞猪")
     total_items = 3  # 机票+酒店+雪票
-    lines.append(f"\n📊 **数据源统计**：{real_count}/{total_items} 项来自飞猪实时数据，其余为数据库参考价")
+    lines.append(f"\n📊 **数据源统计**：{real_count}/{total_items} 项来自飞猪实时数据")
+    if real_count < total_items:
+        lines.append(f"⚠️ 雪票价格均为数据库参考价（非实时），因飞猪不提供具体票价信息")
+    lines.append(f"💡 实时数据：机票、酒店 | 参考价格：雪票、餐饮、保险")
     lines.append(f"🕐 查询时间：{datetime.now(CST).strftime('%Y-%m-%d %H:%M')}")
 
     # 省钱建议
@@ -1311,19 +1315,31 @@ if __name__ == "__main__":
 
     cmd = sys.argv[1]
 
-    if cmd == "search-queries":
-        params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else json.load(sys.stdin)
-        print(generate_search_queries(params))
-    elif cmd == "parse-results":
-        params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else json.load(sys.stdin)
-        print(parse_results(params))
-    elif cmd == "live-costs":
-        params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else json.load(sys.stdin)
-        print(live_costs_guide(params))
-    elif cmd == "flyai-live":
-        params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else json.load(sys.stdin)
-        print(flyai_live_costs(params))
-    else:
-        print(f"未知命令: {cmd}")
-        print(__doc__)
+    try:
+        if cmd == "search-queries":
+            params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else json.load(sys.stdin)
+            print(generate_search_queries(params))
+        elif cmd == "parse-results":
+            params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else json.load(sys.stdin)
+            print(parse_results(params))
+        elif cmd == "live-costs":
+            params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else json.load(sys.stdin)
+            print(live_costs_guide(params))
+        elif cmd == "flyai-live":
+            params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else json.load(sys.stdin)
+            print(flyai_live_costs(params))
+        else:
+            print(f"❌ 未知命令: {cmd}")
+            print(__doc__)
+            sys.exit(1)
+    except json.JSONDecodeError as e:
+        print(f"❌ JSON 参数格式错误：{e}")
+        print(f"💡 请使用有效的 JSON 字符串，例如：")
+        print(f'   echo \'{{"resort":"南山","from_city":"北京"}}\' | python scripts/price_fetcher.py {cmd}')
+        sys.exit(1)
+    except FileNotFoundError as e:
+        print(f"❌ 文件不存在：{e}")
+        sys.exit(1)
+    except Exception as e:
+        print(f"❌ 执行出错：{type(e).__name__}: {e}")
         sys.exit(1)

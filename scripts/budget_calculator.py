@@ -220,12 +220,21 @@ def format_budget(result: dict) -> str:
 
 
 if __name__ == "__main__":
-    if len(sys.argv) > 1:
-        params = json.loads(sys.argv[1])
-    else:
-        params = json.load(sys.stdin)
+    try:
+        if len(sys.argv) > 1:
+            params = json.loads(sys.argv[1])
+        else:
+            params = json.load(sys.stdin)
 
-    result = calculate_budget(params)
-    print(format_budget(result))
-    print("\n<!-- RAW JSON -->")
-    print(json.dumps(result, ensure_ascii=False, indent=2))
+        result = calculate_budget(params)
+        print(format_budget(result))
+        print("\n<!-- RAW JSON -->")
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+    except json.JSONDecodeError as e:
+        print(f"❌ JSON 参数格式错误：{e}")
+        print(f"💡 请使用有效的 JSON 字符串，例如：")
+        print(f'   echo \'{{"people":2,"days":4}}\' | python scripts/budget_calculator.py')
+        sys.exit(1)
+    except Exception as e:
+        print(f"❌ 执行出错：{type(e).__name__}: {e}")
+        sys.exit(1)

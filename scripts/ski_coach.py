@@ -4,15 +4,16 @@
 用法: python scripts/ski_coach.py <command> [args]
 
 命令:
-  analyze  '<json>'    分析滑雪照片/视频截图（调用视觉模型 API）
-  record   '<json>'    记录一次滑雪分析结果
-  history  [json]      查看历史记录（可选过滤条件）
-  progress [json]      生成进步报告
-  season   [json]      生成雪季总结
-  config   '<json>'    配置分析模型和偏好
-  show-config          显示当前配置
-  stats                输出统计摘要
-  export   [path]      导出所有数据为 JSON
+  analyze  '<json>'      分析单张滑雪照片/视频截图（调用视觉模型 API）
+  analyze-batch '<json>' 批量分析多张图片（支持 images 列表或 dir 目录扫描）
+  record   '<json>'      记录一次滑雪分析结果
+  history  [json]        查看历史记录（可选过滤条件）
+  progress [json]        生成进步报告
+  season   [json]        生成雪季总结
+  config   '<json>'      配置分析模型和偏好
+  show-config            显示当前配置
+  stats                  输出统计摘要
+  export   [path]        导出所有数据为 JSON
 
 数据存储：通过 utils.py 统一管理，默认 ~/.ski-assistant/
 """
@@ -631,6 +632,133 @@ def record(params: dict) -> str:
     return "\n".join(lines)
 
 
+def analyze_batch(params: dict) -> str:
+    """
+    批量分析滑雪照片。
+    参数:
+    {
+        "images": ["/path/to/photo1.jpg", "/path/to/photo2.jpg"],  # 图片列表
+        "resort": "万龙滑雪场",    # 可选：统一雪场
+        "difficulty": "blue",       # 可选：统一难度
+        "skill": "parallel_turn"    # 可选：统一技巧类型
+    }
+    也支持传入 "dir" 参数扫描目录下所有图片：
+    {"dir": "/path/to/photos/", "resort": "万龙"}
+    """
+    images = params.get("images", [])
+
+    # 支持扫描目录
+    scan_dir = params.get("dir", "")
+    if scan_dir and os.path.isdir(scan_dir):
+        for fname in sorted(os.listdir(scan_dir)):
+            if fname.lower().endswith((".jpg", ".jpeg", ".png", ".webp")):
+                images.append(os.path.join(scan_dir, fname))
+
+    if not images:
+        return "❌ 未找到任何图片。请提供 images 列表或 dir 目录路径。"
+
+    cfg = _load_config()
+    results = []
+    errors = []
+
+    for i, img_path in enumerate(images):
+        if not os.path.exists(img_path):
+            errors.append(f"  ⚠️ 图片不存在：{img_path}")
+            continue
+
+        # 使用 analyze 的降级逻辑
+        image_path = img_path
+        model_cfg = cfg.get("model", {})
+        if isinstance(model_cfg, str):
+            model_cfg = {"provider": model_cfg}
+        provider = model_cfg.get("provider", "auto")
+
+        if provider == "auto":
+            for p, (env_key, _) in _VISION_CALLERS.items():
+                if os.environ.get(env_key):
+                    provider = p
+                    break
+            if provider == "auto":
+                errors.append(f"  ⚠️ 未配置任何视觉模型 API Key，跳过第 {i+1} 张图片")
+                continue
+
+        caller_info = _VISION_CALLERS.get(provider)
+        if not caller_info:
+            errors.append(f"  ⚠️ 不支持的模型提供商：{provider}，跳过第 {i+1} 张图片")
+            continue
+
+        try:
+            with open(image_path, "rb") as f:
+                raw = f.read()
+                image_b64 = base64.b64encode(raw).decode()
+            media_type = "image/png" if image_path.lower().endswith(".png") else "image/jpeg"
+
+            preset = cfg.get("analysis_preset", {})
+            level = preset.get("level", "intermediate")
+            sport = preset.get("sport_type", "alpine")
+            extra = params.get("context", "")
+            if params.get("resort"): extra += f"\n雪场：{params['resort']}"
+            if params.get("run"): extra += f"\n雪道：{params['run']}"
+            if params.get("difficulty"): extra += f"\n难度：{params['difficulty']}"
+            if params.get("skill"): extra += f"\n技巧类型：{params['skill']}"
+
+            prompt = _ANALYSIS_PROMPT.format(level=level_label(level), sport_type=sport,
+                                              extra_context=extra.strip() if extra else "无额外信息")
+
+            env_key, caller_fn = caller_info
+            api_key = os.environ.get(env_key, "")
+            result = caller_fn(api_key, model_cfg.get("name", ""), image_b64, media_type, prompt)
+
+            if isinstance(result, str):
+                result = json.loads(result)
+
+            # 自动记录
+            record_entry = {
+                "date": params.get("date", datetime.now(CST).strftime("%Y-%m-%d")),
+                "resort": params.get("resort", ""),
+                "run_name": params.get("run", ""),
+                "trail_difficulty": params.get("difficulty", ""),
+                "media_type": "photo",
+                "media_path": image_path,
+                "sport_type": sport,
+                "level": level,
+            }
+            record_entry.update(result)
+            record(record_entry)
+
+            score = result.get("scores", {})
+            total = 0
+            count = 0
+            for dim, sub in score.items():
+                if isinstance(sub, dict):
+                    for v in sub.values():
+                        if isinstance(v, (int, float)): total += v; count += 1
+                elif isinstance(sub, (int, float)): total += sub; count += 1
+            avg_score = round(total / count, 1) if count > 0 else 0
+
+            results.append((os.path.basename(image_path), avg_score, result.get("advice", [])[:1]))
+        except Exception as e:
+            errors.append(f"  ❌ 分析失败 {os.path.basename(image_path)}：{e}")
+
+    # 输出汇总
+    lines = [f"📸 批量分析完成（共 {len(images)} 张图片）\n"]
+    lines.append(f"✅ 成功：{len(results)} 张 | ⚠️ 失败：{len(errors)} 张\n")
+
+    if results:
+        lines.append("| 图片 | 综合评分 | 关键建议 |")
+        lines.append("|------|---------|---------|")
+        for name, score, advice in results:
+            advice_text = advice[0][:20] + "..." if advice else "-"
+            lines.append(f"| {name} | {score}/10 | {advice_text} |")
+
+    if errors:
+        lines.append("\n错误详情：")
+        for err in errors:
+            lines.append(err)
+
+    return "\n".join(lines)
+
+
 def history(params: dict = None) -> str:
     """查看历史记录。可选过滤: {"season": "2025-26", "resort": "万龙", "limit": 10}"""
     records = _load_records()
@@ -1122,41 +1250,59 @@ if __name__ == "__main__":
 
     cmd = sys.argv[1]
 
-    if cmd == "analyze":
-        if len(sys.argv) < 3:
-            print("❌ 请提供参数，例如：\n  python scripts/ski_coach.py analyze '{\"image\":\"/path/to/photo.jpg\",\"resort\":\"万龙\",\"run\":\"银龙道\",\"difficulty\":\"blue\"}'")
+    try:
+        if cmd == "analyze":
+            if len(sys.argv) < 3:
+                print("❌ 请提供参数，例如：")
+                print('  python scripts/ski_coach.py analyze \'{"image":"/path/to/photo.jpg","resort":"万龙","run":"银龙道","difficulty":"blue"}\'')
+                sys.exit(1)
+            params = json.loads(sys.argv[2])
+            print(analyze(params))
+        elif cmd == "analyze-batch":
+            params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else json.load(sys.stdin)
+            print(analyze_batch(params))
+        elif cmd == "record":
+            if len(sys.argv) < 3:
+                print("❌ 请提供记录参数 JSON，例如：")
+                print('  python scripts/ski_coach.py record \'{"date":"2026-01-15","resort":"万龙","scores":{...}}\'')
+                sys.exit(1)
+            params = json.loads(sys.argv[2])
+            print(record(params))
+        elif cmd == "history":
+            params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else {}
+            print(history(params))
+        elif cmd == "progress":
+            params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else {}
+            print(progress(params))
+        elif cmd == "season":
+            params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else {}
+            print(season_summary(params))
+        elif cmd == "config":
+            if len(sys.argv) < 3:
+                print("❌ 请提供配置参数 JSON，例如：")
+                print('  python scripts/ski_coach.py config \'{"model":{"provider":"openai"}}\'')
+                sys.exit(1)
+            params = json.loads(sys.argv[2])
+            print(config(params))
+        elif cmd == "show-config":
+            print(show_config())
+        elif cmd == "stats":
+            print(stats())
+        elif cmd == "export":
+            path = sys.argv[2] if len(sys.argv) > 2 else None
+            print(export_data(path))
+        else:
+            print(f"❌ 未知命令: {cmd}")
+            print(__doc__)
             sys.exit(1)
-        params = json.loads(sys.argv[2])
-        print(analyze(params))
-    elif cmd == "record":
-        if len(sys.argv) < 3:
-            print("❌ 请提供记录参数 JSON，例如：\n  python scripts/ski_coach.py record '{\"date\":\"2026-01-15\",\"resort\":\"万龙\",\"scores\":{...}}'")
-            sys.exit(1)
-        params = json.loads(sys.argv[2])
-        print(record(params))
-    elif cmd == "history":
-        params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else {}
-        print(history(params))
-    elif cmd == "progress":
-        params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else {}
-        print(progress(params))
-    elif cmd == "season":
-        params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else {}
-        print(season_summary(params))
-    elif cmd == "config":
-        if len(sys.argv) < 3:
-            print("❌ 请提供配置参数 JSON，例如：\n  python scripts/ski_coach.py config '{\"model\":{\"provider\":\"openai\"}}'")
-            sys.exit(1)
-        params = json.loads(sys.argv[2])
-        print(config(params))
-    elif cmd == "show-config":
-        print(show_config())
-    elif cmd == "stats":
-        print(stats())
-    elif cmd == "export":
-        path = sys.argv[2] if len(sys.argv) > 2 else None
-        print(export_data(path))
-    else:
-        print(f"未知命令: {cmd}")
-        print(__doc__)
+    except json.JSONDecodeError as e:
+        print(f"❌ JSON 参数格式错误：{e}")
+        print(f"💡 请使用有效的 JSON 字符串，例如：")
+        print(f'   python scripts/ski_coach.py {cmd} \'{{"key":"value"}}\'')
+        sys.exit(1)
+    except FileNotFoundError as e:
+        print(f"❌ 文件不存在：{e}")
+        sys.exit(1)
+    except Exception as e:
+        print(f"❌ 执行出错：{type(e).__name__}: {e}")
         sys.exit(1)
