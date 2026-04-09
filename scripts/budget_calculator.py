@@ -14,7 +14,7 @@ import sys
 # ─── 导入共享工具 ───
 _SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, _SCRIPT_DIR)
-from utils import load_resorts_db
+from utils import load_resorts_db, track_usage
 
 
 def _auto_fill_from_db(params: dict) -> dict:
@@ -250,6 +250,7 @@ if __name__ == "__main__":
         else:
             params = json.load(sys.stdin)
 
+        track_usage("budget_calculator.calculate")
         result = calculate_budget(params)
         print(format_budget(result))
         print("\n<!-- RAW JSON -->")

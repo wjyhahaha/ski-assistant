@@ -34,6 +34,7 @@ sys.path.insert(0, _SCRIPT_DIR)
 from utils import (
     DATA_DIR, RECORDS_PATH, CONFIG_PATH, CST,
     ensure_dir, load_json, save_json, level_label, sport_label,
+    track_usage,
 )
 
 # ─── 评分维度定义 ───
@@ -1421,6 +1422,7 @@ if __name__ == "__main__":
 
     try:
         if cmd == "analyze":
+            track_usage("ski_coach.analyze")
             if len(sys.argv) < 3:
                 print("❌ 请提供参数，例如：")
                 print('  python scripts/ski_coach.py analyze \'{"image":"/path/to/photo.jpg","resort":"万龙","run":"银龙道","difficulty":"blue"}\'')
@@ -1428,9 +1430,11 @@ if __name__ == "__main__":
             params = json.loads(sys.argv[2])
             print(analyze(params))
         elif cmd == "analyze-batch":
+            track_usage("ski_coach.analyze-batch")
             params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else json.load(sys.stdin)
             print(analyze_batch(params))
         elif cmd == "record":
+            track_usage("ski_coach.record")
             if len(sys.argv) < 3:
                 print("❌ 请提供记录参数 JSON，例如：")
                 print('  python scripts/ski_coach.py record \'{"date":"2026-01-15","resort":"万龙","scores":{...}}\'')
@@ -1438,15 +1442,19 @@ if __name__ == "__main__":
             params = json.loads(sys.argv[2])
             print(record(params))
         elif cmd == "history":
+            track_usage("ski_coach.history")
             params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else {}
             print(history(params))
         elif cmd == "progress":
+            track_usage("ski_coach.progress")
             params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else {}
             print(progress(params))
         elif cmd == "season":
+            track_usage("ski_coach.season")
             params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else {}
             print(season_summary(params))
         elif cmd == "config":
+            track_usage("ski_coach.config")
             if len(sys.argv) < 3:
                 print("❌ 请提供配置参数 JSON，例如：")
                 print('  python scripts/ski_coach.py config \'{"model":{"provider":"openai"}}\'')
@@ -1454,19 +1462,24 @@ if __name__ == "__main__":
             params = json.loads(sys.argv[2])
             print(config(params))
         elif cmd == "show-config":
+            track_usage("ski_coach.show-config")
             print(show_config())
         elif cmd == "stats":
+            track_usage("ski_coach.stats")
             print(stats())
         elif cmd == "export":
+            track_usage("ski_coach.export")
             path = sys.argv[2] if len(sys.argv) > 2 else None
             print(export_data(path))
         elif cmd == "import":
+            track_usage("ski_coach.import")
             if len(sys.argv) < 3:
                 print("❌ 请提供导入文件路径，例如：")
                 print("  python scripts/ski_coach.py import /path/to/export.json")
                 sys.exit(1)
             print(import_data(sys.argv[2]))
         elif cmd == "share-xhs":
+            track_usage("ski_coach.share-xhs")
             if len(sys.argv) < 3:
                 print("❌ 请提供参数，例如：")
                 print('  python scripts/ski_coach.py share-xhs \'{"record_id":"xxx","style":"casual"}\'')

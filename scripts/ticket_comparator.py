@@ -10,7 +10,12 @@
 """
 
 import json
+import os
 import sys
+
+_SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, _SCRIPT_DIR)
+from utils import track_usage
 
 
 def compare_tickets(params: dict) -> str:
@@ -211,13 +216,16 @@ if __name__ == "__main__":
 
     try:
         if cmd == "compare" or cmd == "ticket_comparator":
+            track_usage("ticket_comparator.compare")
             params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else json.load(sys.stdin)
             print(compare_tickets(params))
         elif cmd == "search":
+            track_usage("ticket_comparator.search")
             params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else json.load(sys.stdin)
             print(generate_search_keywords(params))
         else:
             # 默认行为：直接传入 JSON 视为 compare
+            track_usage("ticket_comparator.compare")
             params = json.loads(cmd)
             print(compare_tickets(params))
     except json.JSONDecodeError as e:

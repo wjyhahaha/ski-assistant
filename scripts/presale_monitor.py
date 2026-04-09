@@ -32,7 +32,7 @@ from typing import List, Dict, Optional
 # ─── 导入共享工具 ───
 _SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, _SCRIPT_DIR)
-from utils import WATCHLIST_PATH, DATA_DIR, CST, ensure_dir, load_json, save_json
+from utils import WATCHLIST_PATH, DATA_DIR, CST, ensure_dir, load_json, save_json, track_usage
 
 # 价格历史存储路径
 _PRICE_HISTORY_PATH = os.path.join(DATA_DIR, "price_history.json")
@@ -532,27 +532,36 @@ if __name__ == "__main__":
 
     try:
         if cmd == "watch":
+            track_usage("presale_monitor.watch")
             params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else json.load(sys.stdin)
             print(watch(params))
         elif cmd == "list":
+            track_usage("presale_monitor.list")
             print(list_watchlist())
         elif cmd == "check":
+            track_usage("presale_monitor.check")
             params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else {"results": []}
             print(check(params))
         elif cmd == "remove":
+            track_usage("presale_monitor.remove")
             params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else {"resorts": []}
             print(remove(params))
         elif cmd == "status":
+            track_usage("presale_monitor.status")
             print(status())
         elif cmd == "check-all":
+            track_usage("presale_monitor.check-all")
             print(check_all())
         elif cmd == "record-price":
+            track_usage("presale_monitor.record-price")
             params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else {}
             print(record_price(params))
         elif cmd == "price-trend":
+            track_usage("presale_monitor.price-trend")
             params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else {}
             print(price_trend(params))
         elif cmd == "buying-advice":
+            track_usage("presale_monitor.buying-advice")
             params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else {}
             print(buying_advice(params))
         else:

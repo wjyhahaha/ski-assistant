@@ -34,7 +34,7 @@ from utils import (
     DATA_DIR, PROFILE_PATH, CST,
     ensure_dir, load_json, save_json,
     level_label, sport_label, haversine, load_resorts_db,
-    CITY_COORDS,
+    CITY_COORDS, track_usage,
 )
 
 # ─── WMO 天气代码映射 ───
@@ -1294,25 +1294,33 @@ if __name__ == "__main__":
 
     try:
         if cmd == "profile":
+            track_usage("resort_recommender.profile")
             params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else json.load(sys.stdin)
             print(set_profile(params))
         elif cmd == "show-profile":
+            track_usage("resort_recommender.show-profile")
             print(show_profile())
         elif cmd == "recommend":
+            track_usage("resort_recommender.recommend")
             params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else {}
             print(recommend(params))
         elif cmd == "weather":
+            track_usage("resort_recommender.weather")
             params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else json.load(sys.stdin)
             print(get_weather(params))
         elif cmd == "compare":
+            track_usage("resort_recommender.compare")
             params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else json.load(sys.stdin)
             print(compare_resorts(params))
         elif cmd == "costs":
+            track_usage("resort_recommender.costs")
             params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else json.load(sys.stdin)
             print(estimate_costs(params))
         elif cmd == "update-db":
+            track_usage("resort_recommender.update-db")
             print(update_db())
         elif cmd == "discover":
+            track_usage("resort_recommender.discover")
             params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else {}
             print(discover_resorts(params))
         else:

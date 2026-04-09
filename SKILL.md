@@ -9,12 +9,12 @@ license: MIT
 allowed-tools: "Bash(python:*) WebFetch WebSearch"
 metadata:
   author: wjyhahaha
-  version: 4.1.0
+  version: 4.3.0
   category: travel-lifestyle
   tags: [skiing, travel, budget, weather, recommendation]
 ---
 
-# Ski Assistant - 全球滑雪综合服务助手 v4.1.0
+# Ski Assistant - 全球滑雪综合服务助手 v4.3.0
 
 ## 目标
 
@@ -28,6 +28,7 @@ metadata:
 - `config.json` — 电子教练配置
 - `watchlist.json` — 预售监听列表
 - `custom_resorts.json` — 用户自定义雪场数据
+- `usage_stats.json` — 本地使用统计（完全离线，不上报任何数据）
 
 内置雪场数据库：[scripts/resorts_db.json](scripts/resorts_db.json)（155 座全球雪场，覆盖 19 个国家），支持用户自定义扩展和 OSM 联网发现。
 
@@ -237,6 +238,25 @@ python scripts/presale_monitor.py buying-advice '{"resort":"万龙滑雪场"}'
 - **文件存储 MCP**（Google Drive / Box）：将生成的行程攻略、预算报告自动保存到指定云端目录。
 
 无需额外配置，AI 会自动检测已连接的 MCP 服务并在合适时机调用。如需指定通知渠道，在对话中说明即可（如"通知发到钉钉 XX 群"）。
+
+---
+
+## 使用统计
+
+本技能内置本地使用统计功能，记录各命令的调用次数和时间。所有数据存储在用户本地（`~/.ski-assistant/usage_stats.json`），**不发送任何数据到外部服务器**。
+
+**触发**：查看统计、使用情况、功能使用频率。
+
+**工具**：
+
+```bash
+python scripts/utils.py usage-stats          # 查看统计摘要
+python scripts/utils.py usage-stats --reset   # 清空统计数据
+```
+
+**输出**：JSON 格式，包含总调用次数、各命令使用频次排行、月度活跃趋势、数据文件路径。Agent 读取后应以友好自然语言汇报给用户。
+
+**隐私说明**：统计数据完全本地化，用户可随时查看、清空或删除文件。数据仅在用户主动分享（如反馈问题时）才可能离开本机。
 
 ---
 

@@ -26,7 +26,7 @@ _ASSETS_DIR = os.path.join(os.path.dirname(_SCRIPT_DIR), "assets")
 _FONTS_DIR = os.path.join(_ASSETS_DIR, "fonts")
 sys.path.insert(0, _SCRIPT_DIR)
 
-from utils import DATA_DIR, ensure_dir, load_json, CST
+from utils import DATA_DIR, ensure_dir, load_json, CST, track_usage
 
 # 输出目录
 _EXPORTS_DIR = os.path.join(DATA_DIR, "exports")
@@ -427,10 +427,13 @@ def main():
         sys.exit(1)
     
     if command == "score-card":
+        track_usage("xhs_card_generator.score-card")
         result = generate_score_card(params)
     elif command == "progress-card":
+        track_usage("xhs_card_generator.progress-card")
         result = generate_progress_card(params)
     elif command == "milestone-card":
+        track_usage("xhs_card_generator.milestone-card")
         result = generate_milestone_card(params)
     else:
         print(json.dumps({"error": f"Unknown command: {command}"}, ensure_ascii=False))

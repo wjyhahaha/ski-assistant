@@ -1,12 +1,17 @@
 #!/usr/bin/env python3
 """
 ski-assistant 共享工具模块
-提供：统一存储路径、雪场数据库加载、通用工具函数
+提供：统一存储路径、雪场数据库加载、通用工具函数、使用统计
+
+用法（统计命令）:
+  python scripts/utils.py usage-stats          查看使用统计
+  python scripts/utils.py usage-stats --reset   清空统计数据
 """
 
 import json
 import os
-from datetime import timezone, timedelta
+import sys
+from datetime import datetime, timezone, timedelta
 from math import radians, sin, cos, sqrt, atan2
 
 # ─── 统一存储路径 ───
@@ -33,8 +38,12 @@ RECORDS_PATH = os.path.join(DATA_DIR, "records.json")
 CONFIG_PATH = os.path.join(DATA_DIR, "config.json")
 WATCHLIST_PATH = os.path.join(DATA_DIR, "watchlist.json")
 CUSTOM_RESORTS_PATH = os.path.join(DATA_DIR, "custom_resorts.json")
+STATS_PATH = os.path.join(DATA_DIR, "usage_stats.json")
 
 CST = timezone(timedelta(hours=8))
+
+# 当前技能版本（集中管理，供统计和各脚本引用）
+_SKILL_VERSION = "4.3.0"
 
 
 def ensure_dir():
@@ -138,3 +147,117 @@ CITY_COORDS = {
     "南昌": (28.68, 115.86), "桂林": (25.27, 110.29), "南宁": (22.82, 108.33),
     "札幌": (43.06, 141.35), "新千岁": (42.78, 141.68),
 }
+
+
+# ─── 使用统计 ───
+
+def _empty_stats() -> dict:
+    """返回空的统计数据结构"""
+    return {
+        "schema_version": 1,
+        "skill_version": _SKILL_VERSION,
+        "first_used": None,
+        "last_used": None,
+        "total_calls": 0,
+        "commands": {},
+        "sessions": {"total": 0, "by_month": {}}
+    }
+
+
+def track_usage(command: str):
+    """
+    记录一次命令调用。轻量级、无副作用、无网络请求。
+    统计失败不会影响主功能。
+    
+    Args:
+        command: 格式为 "脚本名.命令名"，如 "ski_coach.analyze"
+    """
+    try:
+        stats = load_json(STATS_PATH, _empty_stats())
+        # 兼容旧文件：确保必要字段存在
+        if "schema_version" not in stats:
+            stats = {**_empty_stats(), **stats}
+
+        now = datetime.now(CST).isoformat()
+        month_key = datetime.now(CST).strftime("%Y-%m")
+
+        # 全局计数
+        if not stats.get("first_used"):
+            stats["first_used"] = now
+        stats["last_used"] = now
+        stats["skill_version"] = _SKILL_VERSION
+        stats["total_calls"] = stats.get("total_calls", 0) + 1
+
+        # 命令维度
+        cmds = stats.setdefault("commands", {})
+        if command not in cmds:
+            cmds[command] = {"count": 0, "first_used": now, "last_used": now}
+        cmds[command]["count"] += 1
+        cmds[command]["last_used"] = now
+
+        # 月度活跃维度
+        sessions = stats.setdefault("sessions", {"total": 0, "by_month": {}})
+        by_month = sessions.setdefault("by_month", {})
+        by_month[month_key] = by_month.get(month_key, 0) + 1
+
+        save_json(STATS_PATH, stats)
+    except Exception:
+        pass  # 统计失败静默忽略，绝不影响主功能
+
+
+def format_usage_stats() -> str:
+    """
+    格式化输出使用统计，返回 JSON 字符串。
+    供 Agent 读取后生成友好的用户汇报。
+    """
+    stats = load_json(STATS_PATH, {})
+    if not stats or not stats.get("commands"):
+        return json.dumps({"message": "暂无使用记录", "total_calls": 0}, ensure_ascii=False)
+
+    # 按使用次数降序排列
+    sorted_cmds = sorted(
+        stats.get("commands", {}).items(),
+        key=lambda x: x[1]["count"],
+        reverse=True
+    )
+
+    result = {
+        "skill_version": stats.get("skill_version", "unknown"),
+        "total_calls": stats.get("total_calls", 0),
+        "first_used": stats.get("first_used"),
+        "last_used": stats.get("last_used"),
+        "unique_commands_used": len(stats.get("commands", {})),
+        "top_commands": [
+            {
+                "command": cmd,
+                "count": info["count"],
+                "first_used": info.get("first_used"),
+                "last_used": info["last_used"]
+            }
+            for cmd, info in sorted_cmds[:10]
+        ],
+        "monthly_activity": stats.get("sessions", {}).get("by_month", {}),
+        "data_path": STATS_PATH
+    }
+    return json.dumps(result, ensure_ascii=False, indent=2)
+
+
+def reset_usage_stats() -> str:
+    """清空使用统计数据"""
+    save_json(STATS_PATH, _empty_stats())
+    return json.dumps({"message": "使用统计已清空"}, ensure_ascii=False)
+
+
+# ─── CLI 入口 ───
+
+if __name__ == "__main__":
+    if len(sys.argv) >= 2 and sys.argv[1] == "usage-stats":
+        if len(sys.argv) >= 3 and sys.argv[2] == "--reset":
+            print(reset_usage_stats())
+        else:
+            print(format_usage_stats())
+    else:
+        print(json.dumps({
+            "error": "未知命令",
+            "usage": "python scripts/utils.py usage-stats [--reset]"
+        }, ensure_ascii=False))

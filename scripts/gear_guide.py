@@ -28,7 +28,7 @@ import sys
 # ─── 导入共享工具 ───
 _SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, _SCRIPT_DIR)
-from utils import level_label, sport_label
+from utils import level_label, sport_label, track_usage
 
 # ─── 装备数据库 ───
 
@@ -520,6 +520,7 @@ if __name__ == "__main__":
             params = json.loads(sys.argv[1])
         else:
             params = json.load(sys.stdin)
+        track_usage("gear_guide.generate")
         print(generate_gear_guide(params))
     except json.JSONDecodeError as e:
         print(f"❌ JSON 参数格式错误：{e}")

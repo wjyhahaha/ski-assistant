@@ -34,7 +34,7 @@ _SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, _SCRIPT_DIR)
 from utils import (
     DATA_DIR, CST, ensure_dir, load_json, save_json,
-    load_resorts_db, haversine, CITY_COORDS,
+    load_resorts_db, haversine, CITY_COORDS, track_usage,
 )
 
 _CACHE_PATH = os.path.join(DATA_DIR, "price_cache.json")
@@ -1489,18 +1489,23 @@ if __name__ == "__main__":
 
     try:
         if cmd == "search-queries":
+            track_usage("price_fetcher.search-queries")
             params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else json.load(sys.stdin)
             print(generate_search_queries(params))
         elif cmd == "parse-results":
+            track_usage("price_fetcher.parse-results")
             params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else json.load(sys.stdin)
             print(parse_results(params))
         elif cmd == "live-costs":
+            track_usage("price_fetcher.live-costs")
             params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else json.load(sys.stdin)
             print(live_costs_guide(params))
         elif cmd == "flyai-live":
+            track_usage("price_fetcher.flyai-live")
             params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else json.load(sys.stdin)
             print(flyai_live_costs(params))
         elif cmd == "flyai-package":
+            track_usage("price_fetcher.flyai-package")
             params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else json.load(sys.stdin)
             print(flyai_package(params))
         else:

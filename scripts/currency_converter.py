@@ -8,8 +8,13 @@
 """
 
 import json
+import os
 import sys
 import urllib.request
+
+_SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, _SCRIPT_DIR)
+from utils import track_usage
 
 # 备用静态汇率（基于 2024-25 雪季参考值，当无法联网时使用）
 FALLBACK_RATES_TO_CNY = {
@@ -101,4 +106,5 @@ if __name__ == "__main__":
         sys.exit(1)
 
     result = convert(amount, from_cur, to_cur)
+    track_usage("currency_converter.convert")
     print(format_result(result))
