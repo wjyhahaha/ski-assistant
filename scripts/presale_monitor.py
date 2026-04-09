@@ -4,14 +4,18 @@
 用法: python scripts/presale_monitor.py <command> [args]
 
 命令:
-  watch    '<json>'    添加/更新监听项
-  list                 列出所有监听项
-  check                检查所有监听项的预售状态变化，输出通知内容
-  check-all            🆕 生成搜索关键词列表，供 Agent 批量搜索（无需外部定时任务）
-  remove   '<json>'    移除监听项
-  status               输出当前监听状态摘要
+  watch         '<json>'    添加/更新监听项
+  list                      列出所有监听项
+  check                     检查所有监听项的预售状态变化，输出通知内容
+  check-all                 生成搜索关键词列表，供 Agent 批量搜索（无需外部定时任务）
+  remove        '<json>'    移除监听项
+  status                    输出当前监听状态摘要
+  record-price  '<json>'    🆕 记录价格数据（用于历史对比）
+  price-trend   '<json>'    🆕 查询价格趋势和历史对比
+  buying-advice '<json>'    🆕 购买时机建议
 
 监听数据存储：通过 utils.py 统一管理，默认 ~/.ski-assistant/watchlist.json
+价格历史存储：~/.ski-assistant/price_history.json
 
 工作流程（手动模式，无需外部定时任务）：
 1. 运行 check-all 获取所有待检查雪场的搜索关键词
@@ -22,12 +26,16 @@
 import json
 import os
 import sys
-from datetime import datetime
+from datetime import datetime, timedelta
+from typing import List, Dict, Optional
 
 # ─── 导入共享工具 ───
 _SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, _SCRIPT_DIR)
-from utils import WATCHLIST_PATH, CST, ensure_dir, load_json, save_json
+from utils import WATCHLIST_PATH, DATA_DIR, CST, ensure_dir, load_json, save_json
+
+# 价格历史存储路径
+_PRICE_HISTORY_PATH = os.path.join(DATA_DIR, "price_history.json")
 
 
 def _load_watchlist() -> dict:
@@ -287,6 +295,201 @@ def status() -> str:
     return "\n".join(lines)
 
 
+def _load_price_history() -> dict:
+    """加载价格历史数据"""
+    return load_json(_PRICE_HISTORY_PATH, {"records": [], "meta": {"version": "1.0"}})
+
+
+def _save_price_history(data: dict):
+    """保存价格历史数据"""
+    save_json(_PRICE_HISTORY_PATH, data)
+
+
+def record_price(params: dict) -> str:
+    """
+    记录价格数据，用于历史对比。
+    
+    参数:
+    {
+        "resort": "万龙滑雪场",
+        "product": "早鸟季卡",
+        "price": 4999,
+        "original_price": 6800,  // 原价（可选）
+        "source": "微信公众号",
+        "date": "2026-04-01"     // 可选，默认今天
+    }
+    """
+    resort = params.get("resort", "").strip()
+    product = params.get("product", "").strip()
+    price = params.get("price", 0)
+    
+    if not resort or not product or price <= 0:
+        return "⚠️ 请提供有效的雪场名称、产品名称和价格。"
+    
+    history = _load_price_history()
+    
+    record = {
+        "id": f"{resort}_{product}_{datetime.now().strftime('%Y%m%d%H%M%S')}",
+        "resort": resort,
+        "product": product,
+        "price": price,
+        "original_price": params.get("original_price", 0),
+        "source": params.get("source", "未知"),
+        "date": params.get("date", datetime.now().strftime("%Y-%m-%d")),
+        "recorded_at": datetime.now(CST).isoformat(),
+    }
+    
+    history["records"].append(record)
+    
+    # 只保留最近 500 条记录
+    if len(history["records"]) > 500:
+        history["records"] = history["records"][-500:]
+    
+    _save_price_history(history)
+    
+    return f"✅ 已记录价格：{resort} {product} = ¥{price}（{record['date']}）"
+
+
+def price_trend(params: dict) -> str:
+    """
+    查询某雪场/产品的价格趋势和历史对比。
+    
+    参数:
+    {
+        "resort": "万龙滑雪场",
+        "product": "早鸟季卡"  // 可选，不传则显示该雪场所有产品
+    }
+    """
+    resort = params.get("resort", "").strip()
+    product = params.get("product", "").strip()
+    
+    if not resort:
+        return "⚠️ 请提供雪场名称。"
+    
+    history = _load_price_history()
+    records = history.get("records", [])
+    
+    # 筛选记录
+    filtered = [r for r in records if r["resort"] == resort]
+    if product:
+        filtered = [r for r in filtered if r["product"] == product]
+    
+    if not filtered:
+        return f"📊 {resort} 暂无价格历史记录。使用 record-price 添加记录。"
+    
+    # 按产品分组
+    products = {}
+    for r in filtered:
+        p = r["product"]
+        if p not in products:
+            products[p] = []
+        products[p].append(r)
+    
+    lines = [f"📊 {resort} 价格趋势分析\n"]
+    
+    for p_name, p_records in products.items():
+        # 按日期排序
+        p_records.sort(key=lambda x: x["date"])
+        
+        prices = [r["price"] for r in p_records]
+        min_price = min(prices)
+        max_price = max(prices)
+        avg_price = sum(prices) / len(prices)
+        latest = p_records[-1]
+        
+        lines.append(f"\n### {p_name}")
+        lines.append(f"| 统计项 | 数值 |")
+        lines.append(f"|--------|------|")
+        lines.append(f"| 历史最低 | ¥{min_price:.0f} |")
+        lines.append(f"| 历史最高 | ¥{max_price:.0f} |")
+        lines.append(f"| 历史平均 | ¥{avg_price:.0f} |")
+        lines.append(f"| 当前/最新 | ¥{latest['price']:.0f} |")
+        lines.append(f"| 数据点数 | {len(prices)} |")
+        
+        # 与历史最低对比
+        if latest["price"] <= min_price * 1.05:
+            lines.append(f"\n💚 **当前价格接近历史最低，建议购买**")
+        elif latest["price"] >= max_price * 0.95:
+            lines.append(f"\n💛 **当前价格接近历史最高，可观望或等待促销**")
+        else:
+            ratio = (latest["price"] - min_price) / (max_price - min_price) if max_price > min_price else 0
+            if ratio < 0.3:
+                lines.append(f"\n💚 **当前价格处于低位（低于历史区间30%）**")
+            elif ratio > 0.7:
+                lines.append(f"\n💛 **当前价格处于高位（高于历史区间70%）**")
+            else:
+                lines.append(f"\n💙 **当前价格处于中等水平**")
+        
+        # 显示最近 5 条记录
+        lines.append(f"\n最近记录：")
+        for r in p_records[-5:]:
+            marker = " ← 最新" if r == latest else ""
+            lines.append(f"  - {r['date']}: ¥{r['price']}{marker}")
+    
+    return "\n".join(lines)
+
+
+def buying_advice(params: dict) -> str:
+    """
+    基于当前日期和历史数据，给出购买时机建议。
+    
+    参数:
+    {
+        "resort": "万龙滑雪场",
+        "product": "早鸟季卡"  // 可选
+    }
+    """
+    resort = params.get("resort", "").strip()
+    product = params.get("product", "").strip()
+    
+    if not resort:
+        return "⚠️ 请提供雪场名称。"
+    
+    now = datetime.now(CST)
+    month = now.month
+    
+    lines = [f"💡 {resort} 购买时机建议\n"]
+    lines.append(f"当前时间：{now.strftime('%Y年%m月%d日')}\n")
+    
+    # 基于月份的一般性建议
+    lines.append("### 📅 一般性规律")
+    if 4 <= month <= 6:
+        lines.append("- **早鸟票窗口期**：崇礼/东北雪场通常在 4-6 月放早鸟票")
+        lines.append("- **建议动作**：关注雪场官方公众号，加入预售监听")
+    elif 7 <= month <= 9:
+        lines.append("- **早鸟票中后期**：部分雪场可能仍有早鸟价，但选择减少")
+        lines.append("- **建议动作**：对比早鸟剩余 vs 正价，计算差价是否值得等待")
+    elif 10 <= month <= 11:
+        lines.append("- **雪季前最后窗口**：可能有限时促销或尾单")
+        lines.append("- **建议动作**：关注 OTA 平台促销，考虑住滑套餐")
+    elif 12 <= month <= 2:
+        lines.append("- **雪季中**：早鸟已结束，价格通常为正价")
+        lines.append("- **建议动作**：关注次卡/季卡转让，或预订下季早鸟")
+    else:  # 3月
+        lines.append("- **雪季尾声**：可能有本季末促销或下季早鸟预告")
+        lines.append("- **建议动作**：总结本季消费，规划下季早鸟策略")
+    
+    # 如果有历史数据，加上个性化建议
+    history = _load_price_history()
+    records = [r for r in history.get("records", []) if r["resort"] == resort]
+    if product:
+        records = [r for r in records if r["product"] == product]
+    
+    if records:
+        lines.append("\n### 📊 基于历史数据的建议")
+        trend_result = price_trend(params)
+        # 提取关键结论
+        if "建议购买" in trend_result:
+            lines.append("- **价格判断**：当前价格接近历史低位，可考虑入手")
+        elif "可观望" in trend_result:
+            lines.append("- **价格判断**：当前价格偏高，建议等待或寻找替代方案")
+    
+    lines.append("\n### ⚠️ 免责声明")
+    lines.append("以上建议基于历史规律和有限数据，实际价格受市场供需影响，请以官方渠道为准。")
+    
+    return "\n".join(lines)
+
+
 def check_all() -> str:
     """
     生成所有监听项的搜索关键词列表，供 Agent 批量搜索后调用 check。
@@ -343,6 +546,15 @@ if __name__ == "__main__":
             print(status())
         elif cmd == "check-all":
             print(check_all())
+        elif cmd == "record-price":
+            params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else {}
+            print(record_price(params))
+        elif cmd == "price-trend":
+            params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else {}
+            print(price_trend(params))
+        elif cmd == "buying-advice":
+            params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else {}
+            print(buying_advice(params))
         else:
             print(f"❌ 未知命令: {cmd}")
             print(__doc__)

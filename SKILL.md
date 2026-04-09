@@ -71,6 +71,22 @@ metadata:
 6. 调用 `ticket_comparator.py` 生成比价表，国际价格用 `currency_converter.py` 换算为人民币
 7. 输出：价格明细 + 低价票信息 + 可信度标注 + 预订建议
 
+### 外滑套餐（结构化打包方案）
+
+**触发**：外滑套餐、去XX滑雪要多少钱、二世谷/北海道/欧洲滑雪预算、滑雪自由行套餐。
+
+针对国际外滑场景，提供经济/标准/豪华三档打包方案：
+
+```bash
+python scripts/price_fetcher.py flyai-package '{"resort":"二世谷","from_city":"上海","date_start":"2026-01-15","date_end":"2026-01-20","people":2}'
+```
+
+**输出**：
+- 交通方案（航班/火车/当地接驳）
+- 三档套餐对比（经济/标准/豪华）
+- 国际外滑提醒（签证/汇率/保险/装备）
+- 省钱攻略
+
 **示例**：
 > 用户："帮我查下去北大湖滑雪要花多少钱，上海出发，1 月 15-18 号，2 个人"
 > AI 执行：调用 flyai-live → 查询机票 ¥1280 + 酒店 ¥680/晚 + 雪票 ¥480 → 生成完整预算 ¥3720/人
@@ -124,6 +140,22 @@ metadata:
 - **未配置 API Key**：使用 Agent 自身视觉能力，按脚本输出的 instruction 指引完成
 - **记录失败**：检查数据目录权限，或调用 `export` 备份后重新导入
 
+### 小红书分享
+
+**触发**：分享小红书、发小红书、生成分享图、晒滑雪成绩。
+
+分析完成后一键生成小红书图文卡片，包含评分雷达图、AI点评、推荐文案。
+
+```bash
+# 从最近记录生成
+python scripts/ski_coach.py share-xhs '{"style":"casual"}'
+
+# 指定记录生成
+python scripts/ski_coach.py share-xhs '{"record_id":"xxx","style":"professional"}'
+```
+
+**输出**：生成 1080×1440 像素图片到 `~/.ski-assistant/exports/`，附带推荐发布文案和标签。
+
 ### 命令参考
 
 ```bash
@@ -137,6 +169,7 @@ python scripts/ski_coach.py stats               # 统计摘要
 python scripts/ski_coach.py show-config         # 查看配置
 python scripts/ski_coach.py export   [path]    # 导出数据
 python scripts/ski_coach.py import   <path>    # 导入数据
+python scripts/ski_coach.py share-xhs '<json>' # 生成小红书分享卡片
 ```
 
 ---
@@ -167,10 +200,31 @@ python scripts/ski_coach.py import   <path>    # 导入数据
 > 用户："帮我盯着二世谷的早鸟票，开售了告诉我"
 > AI 执行：调用 watch 注册监听 → 创建每日检查任务 → 状态变化时通过 IM 通知
 
+### 价格趋势与购买建议
+
+**触发**：这价格贵吗、现在买划算吗、历史价格对比、什么时候买最划算。
+
+**功能**：
+- `record-price`：记录价格数据，积累历史数据库
+- `price-trend`：查看某雪场/产品的价格趋势（最低/最高/平均/当前）
+- `buying-advice`：基于当前时间和历史数据，给出购买时机建议
+
+```bash
+# 记录价格
+python scripts/presale_monitor.py record-price '{"resort":"万龙滑雪场","product":"早鸟季卡","price":4999}'
+
+# 查看趋势
+python scripts/presale_monitor.py price-trend '{"resort":"万龙滑雪场","product":"早鸟季卡"}'
+
+# 购买建议
+python scripts/presale_monitor.py buying-advice '{"resort":"万龙滑雪场"}'
+```
+
 **错误处理**：
 - **监听列表为空**：提示用户先添加监听目标，或推荐当季热门早鸟票
 - **公告页面结构变化**：自动降级为关键词搜索，并提示用户手动确认
 - **通知渠道未配置**：输出到对话，建议配置 Webhook 实现自动推送
+- **无历史数据**：提示使用 record-price 积累数据，或基于一般规律给出建议
 
 ---
 

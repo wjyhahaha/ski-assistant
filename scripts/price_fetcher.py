@@ -7,6 +7,7 @@
   python scripts/price_fetcher.py parse-results  '<json>'   解析搜索结果，生成结构化报价
   python scripts/price_fetcher.py live-costs      '<json>'   一步到位：返回搜索策略 + 预算模板
   python scripts/price_fetcher.py flyai-live      '<json>'   🆕 调用 flyai 直接获取实时报价
+  python scripts/price_fetcher.py flyai-package   '<json>'   🆕 外滑套餐：结构化展示打包方案
 
 设计理念：
   脚本负责 "搜什么 + 怎么算"，Agent 负责 "怎么搜"。
@@ -1306,6 +1307,177 @@ def flyai_live_costs(params: dict) -> str:
     return "\n".join(lines)
 
 
+def flyai_package(params: dict) -> str:
+    """
+    外滑套餐结构化展示。
+    将机票+酒店+雪票打包成易读的套餐形式，适合国际外滑场景。
+
+    参数与 flyai-live 相同:
+      resort, from_city, date_start, date_end, people, hotel_type
+
+    输出: 结构化套餐方案（经济/标准/豪华三档）
+    """
+    if not _flyai_available():
+        return ("⚠️ flyai CLI 未安装，无法使用外滑套餐查询。\n\n"
+                "安装方法：`npm install -g @fly-ai/flyai-cli`\n\n"
+                "降级方案：请改用 `live-costs` 命令通过 WebSearch 查价。")
+
+    resort_name = params.get("resort", "")
+    from_city = params.get("from_city", "")
+    date_start = params.get("date_start", "")
+    date_end = params.get("date_end", "")
+    people = params.get("people", 1)
+
+    matched_name = _fuzzy_match_resort(resort_name)
+    if matched_name:
+        resort_name = matched_name
+
+    resort, arrival = _get_resort_info(resort_name)
+    if not resort:
+        db = load_resorts_db()
+        available = [k for k in db if k != "_meta"]
+        return json.dumps({"error": f"未找到雪场「{resort_name}」", "available": available}, ensure_ascii=False)
+
+    country = resort.get("country", "CN")
+    is_domestic = country == "CN"
+    nearby_city = resort.get("nearby_city", "")
+
+    # 计算天数
+    if date_start and date_end:
+        try:
+            d1 = datetime.strptime(date_start, "%Y-%m-%d")
+            d2 = datetime.strptime(date_end, "%Y-%m-%d")
+            days = max((d2 - d1).days, 1)
+        except ValueError:
+            days = 4
+    else:
+        days = params.get("days", 4)
+        now = datetime.now(CST)
+        date_start = (now + timedelta(days=30)).strftime("%Y-%m-%d")
+        date_end = (now + timedelta(days=30 + days)).strftime("%Y-%m-%d")
+
+    ski_days = max(days - 1, 1)
+    hotel_nights = max(days - 1, 1)
+
+    transport_type = _determine_transport_type(from_city, resort, arrival)
+    arrive_city = arrival.get("arrive_city", nearby_city) if arrival else nearby_city
+
+    # 获取基础价格数据
+    base_result = flyai_live_costs(params)
+    
+    # 解析基础价格
+    base_prices = {}
+    if "<!-- FLYAI_LIVE_JSON -->" in base_result:
+        try:
+            json_str = base_result.split("<!-- FLYAI_LIVE_JSON -->")[1].strip()
+            base_data = json.loads(json_str)
+            base_prices = base_data.get("collected_prices", {})
+        except:
+            pass
+
+    # 构建三档套餐
+    lines = [f"🎿 **{resort_name}** 外滑套餐方案\n"]
+    lines.append(f"📍 {from_city} → {resort_name}  |  {days}天{people}人  |  {date_start} ~ {date_end}\n")
+
+    # 交通信息
+    lines.append("---\n### ✈️ 交通方案")
+    if transport_type == "flight":
+        lines.append(f"**推荐航班**：{from_city} ↔ {arrive_city}")
+        if arrival and arrival.get("transfer"):
+            lines.append(f"**当地接驳**：{arrival['transfer']}")
+    elif transport_type == "flight_then_train":
+        lines.append(f"**推荐路线**：{from_city} ✈️ 北京 🚄 太子城")
+        lines.append(f"**当地接驳**：崇礼站 → 雪场 shuttle/打车")
+    elif transport_type == "train":
+        lines.append(f"**推荐路线**：{from_city} 🚄 {arrival.get('arrive_station', arrive_city) if arrival else arrive_city}")
+
+    # 三档套餐
+    lines.append("\n---\n### 📦 套餐方案\n")
+
+    # 基础价格
+    flight_pp = base_prices.get("flight_per_person", 0)
+    hotel_pn = base_prices.get("hotel_per_night", 0)
+    ticket_pd = base_prices.get("ticket_per_day", 0)
+
+    # 数据库兜底
+    if flight_pp == 0:
+        db_t = resort.get("transport_ref", {}).get("cost_cny", [0, 0])
+        flight_pp = sum(db_t) / 2
+    if hotel_pn == 0:
+        db_h = resort.get("hotel_range_cny", [0, 0])
+        hotel_pn = sum(db_h) / 2
+    if ticket_pd == 0:
+        db_tk = resort.get("ticket_range_cny", [0, 0])
+        ticket_pd = sum(db_tk) / 2
+
+    # 三档配置
+    packages = [
+        {
+            "name": "经济套餐",
+            "icon": "💚",
+            "hotel_factor": 0.6,
+            "food_pd": 100,
+            "desc": "经济型酒店/青旅床位 + 基础雪票",
+        },
+        {
+            "name": "标准套餐",
+            "icon": "💙",
+            "hotel_factor": 1.0,
+            "food_pd": 150,
+            "desc": "舒适型酒店/雪场公寓 + 全区域雪票",
+        },
+        {
+            "name": "豪华套餐",
+            "icon": "💛",
+            "hotel_factor": 1.8,
+            "food_pd": 250,
+            "desc": "高档酒店/滑进滑出 + VIP雪票 + 私教",
+        },
+    ]
+
+    for pkg in packages:
+        hotel_price = hotel_pn * pkg["hotel_factor"]
+        transport_total = flight_pp * people
+        hotel_total = hotel_price * hotel_nights
+        ticket_total = ticket_pd * ski_days * people
+        food_total = pkg["food_pd"] * days * people
+        local_total = 100 * people * 2  # 估算当地交通
+        insurance_total = 50 * people
+
+        total = transport_total + hotel_total + ticket_total + food_total + local_total + insurance_total
+        per_person = total / people
+
+        lines.append(f"\n#### {pkg['icon']} {pkg['name']}")
+        lines.append(f"*{pkg['desc']}*\n")
+        lines.append(f"| 项目 | 配置 | 费用 |")
+        lines.append(f"|------|------|------|")
+        lines.append(f"| 往返交通 | {from_city}↔{arrive_city} | ¥{transport_total:.0f} |")
+        lines.append(f"| 住宿 | {hotel_nights}晚 × ¥{hotel_price:.0f}/晚 | ¥{hotel_total:.0f} |")
+        lines.append(f"| 雪票 | {ski_days}天 × {people}人 | ¥{ticket_total:.0f} |")
+        lines.append(f"| 餐饮 | {days}天 × ¥{pkg['food_pd']}/天/人 | ¥{food_total:.0f} |")
+        lines.append(f"| 当地接驳 | 往返机场/车站 | ¥{local_total:.0f} |")
+        lines.append(f"| 保险 | {people}人 | ¥{insurance_total:.0f} |")
+        lines.append(f"| **合计** | | **¥{total:.0f}** |")
+        lines.append(f"| **人均** | | **¥{per_person:.0f}** |")
+
+    # 国际外滑提醒
+    if not is_domestic:
+        lines.append("\n---\n### 🌍 国际外滑提醒")
+        lines.append("- **签证**：请提前确认签证要求，建议预留 1 个月办理时间")
+        lines.append("- **汇率**：以上价格为人民币估算，实际以当地货币结算")
+        lines.append("- **保险**：建议购买含滑雪救援的境外旅行险")
+        lines.append("- **装备**：国际航班注意雪板托运规定")
+
+    # 省钱建议
+    lines.append("\n---\n### 💡 省钱攻略")
+    lines.append("1. **早鸟优惠**：雪季前 3-6 个月关注早鸟票")
+    lines.append("2. **住滑套餐**：雪场官方套餐通常比单订便宜 10-20%")
+    lines.append("3. **多人出行**：4 人以上可考虑包车/租车，平摊更划算")
+    lines.append("4. **错峰出行**：避开圣诞/春节，价格可降 30-50%")
+
+    return "\n".join(lines)
+
+
 # ─── 主入口 ───
 
 if __name__ == "__main__":
@@ -1328,6 +1500,9 @@ if __name__ == "__main__":
         elif cmd == "flyai-live":
             params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else json.load(sys.stdin)
             print(flyai_live_costs(params))
+        elif cmd == "flyai-package":
+            params = json.loads(sys.argv[2]) if len(sys.argv) > 2 else json.load(sys.stdin)
+            print(flyai_package(params))
         else:
             print(f"❌ 未知命令: {cmd}")
             print(__doc__)

@@ -14,6 +14,7 @@
   show-config            显示当前配置
   stats                  输出统计摘要
   export   [path]        导出所有数据为 JSON
+  share-xhs '<json>'     生成小红书分享卡片（评分展示/进步对比/里程碑）
 
 数据存储：通过 utils.py 统一管理，默认 ~/.ski-assistant/
 """
@@ -1287,6 +1288,128 @@ def export_data(path: str = None) -> str:
         return json.dumps(data, ensure_ascii=False, indent=2)
 
 
+def share_xhs(params: dict) -> str:
+    """
+    生成小红书分享卡片。
+
+    参数:
+    {
+        "record_id": "记录ID（可选，不传则使用最近一次）",
+        "style": "casual|professional|humorous",
+        "template": "score|progress|milestone",
+        "image_path": "/path/to/photo.jpg"  // 可选，覆盖记录中的图片
+    }
+    """
+    import subprocess
+    import os
+
+    record_id = params.get("record_id")
+    style = params.get("style", "casual")
+    template = params.get("template", "score")
+    custom_image = params.get("image_path")
+
+    # 获取记录数据
+    records = _load_records()
+    if not records:
+        return "⚠️ 暂无滑雪记录。请先使用 analyze 或 record 创建记录。"
+
+    # 找到目标记录
+    target_record = None
+    if record_id:
+        for r in records:
+            if r.get("id") == record_id or r.get("record_id") == record_id:
+                target_record = r
+                break
+        if not target_record:
+            return f"⚠️ 未找到记录 ID: {record_id}。使用 history 查看可用记录。"
+    else:
+        # 使用最近一次记录
+        target_record = records[-1]
+
+    # 准备卡片生成参数
+    card_params = {
+        "resort": target_record.get("resort", "未知雪场"),
+        "run_name": target_record.get("run_name", ""),
+        "date": target_record.get("date", ""),
+        "scores": target_record.get("scores", {}),
+        "highlights": target_record.get("highlights", []),
+        "issues": target_record.get("issues", []),
+        "style": style,
+    }
+
+    if custom_image:
+        card_params["image_path"] = custom_image
+    elif target_record.get("image_path"):
+        card_params["image_path"] = target_record["image_path"]
+
+    # 调用 xhs_card_generator 生成卡片
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    generator_path = os.path.join(script_dir, "xhs_card_generator.py")
+
+    try:
+        result = subprocess.run(
+            ["python3", generator_path, f"{template}-card", json.dumps(card_params, ensure_ascii=False)],
+            capture_output=True,
+            text=True,
+            timeout=30
+        )
+
+        if result.returncode != 0:
+            return f"❌ 生成卡片失败：{result.stderr}"
+
+        # 解析生成结果
+        try:
+            gen_result = json.loads(result.stdout)
+        except json.JSONDecodeError:
+            return f"⚠️ 生成结果解析失败：{result.stdout[:200]}"
+
+        if gen_result.get("error"):
+            return f"❌ 生成失败：{gen_result['error']}"
+
+        # 生成文案
+        output_path = gen_result.get("output_path", "")
+        total_score = gen_result.get("total_score", 0)
+
+        lines = ["🎿 小红书分享卡片已生成！\n"]
+        lines.append(f"📸 图片路径：{output_path}")
+        lines.append(f"⭐ 综合评分：{total_score}/10\n")
+
+        # 根据分数生成推荐文案
+        lines.append("---")
+        lines.append("💡 推荐发布文案：\n")
+
+        resort = card_params["resort"]
+        run_name = card_params["run_name"]
+
+        if total_score >= 8:
+            lines.append(f"🏂 {resort}打卡！AI教练给我打了{total_score}分！")
+            lines.append("动作被夸了，开心～ 下次挑战更高难度 💪")
+        elif total_score >= 6:
+            lines.append(f"🏂 {resort}练习日")
+            lines.append(f"AI教练评分：{total_score}/10，还有进步空间！")
+            lines.append("记录下现在的样子，看看下次能不能更好 📈")
+        else:
+            lines.append(f"🏂 {resort}初体验")
+            lines.append("滑雪太难了，但摔得开心 😂")
+            lines.append(f"AI教练评分{total_score}，下次一定进步！")
+
+        lines.append(f"\n#{resort.replace('滑雪场', '').replace('滑雪', '')} #滑雪日记 #单板滑雪" if "单板" in str(target_record.get("sport_type", "")) else f"\n#{resort.replace('滑雪场', '').replace('滑雪', '')} #滑雪日记 #双板滑雪")
+
+        lines.append("\n---")
+        lines.append("📤 发布步骤：")
+        lines.append("1. 保存上方图片到手机相册")
+        lines.append("2. 打开小红书 App → 点击底部'+' → 选择该图片")
+        lines.append("3. 复制推荐文案粘贴到正文（可修改）")
+        lines.append("4. 添加位置标签，点击发布")
+
+        return "\n".join(lines)
+
+    except subprocess.TimeoutExpired:
+        return "❌ 生成卡片超时，请重试。"
+    except Exception as e:
+        return f"❌ 生成卡片出错：{type(e).__name__}: {e}"
+
+
 # ─── 主入口 ───
 
 if __name__ == "__main__":
@@ -1343,6 +1466,15 @@ if __name__ == "__main__":
                 print("  python scripts/ski_coach.py import /path/to/export.json")
                 sys.exit(1)
             print(import_data(sys.argv[2]))
+        elif cmd == "share-xhs":
+            if len(sys.argv) < 3:
+                print("❌ 请提供参数，例如：")
+                print('  python scripts/ski_coach.py share-xhs \'{"record_id":"xxx","style":"casual"}\'')
+                print('  或从最近记录生成：')
+                print('  python scripts/ski_coach.py share-xhs \'{"style":"casual"}\'')
+                sys.exit(1)
+            params = json.loads(sys.argv[2])
+            print(share_xhs(params))
         else:
             print(f"❌ 未知命令: {cmd}")
             print(__doc__)
