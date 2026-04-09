@@ -10,26 +10,65 @@ license: MIT
 allowed-tools: "Bash(python:*) WebFetch WebSearch"
 metadata:
   author: wjyhahaha
-  version: 4.3.0
+  version: 4.4.0
   category: travel-lifestyle
   tags: [skiing, travel, budget, weather, recommendation]
 ---
 
-# Ski Assistant - 全球滑雪综合服务助手 v4.3.0
+# Ski Assistant - 全球滑雪综合服务助手 v4.4.0
 
 ## 目标
 
 一站式解决滑雪出行全链路需求：行程规划（推荐雪场 + 完整攻略 + 实时预算）、智能查价（实时价格 + 低价票 + 比价）、AI 电子教练（姿态分析 + 进步追踪）、早鸟预售（时间线 + 开售监听）。覆盖中国（崇礼/东北/新疆/北京周边/西北/内蒙/云南/华中）、日本（北海道/东北/新潟/长野/群马）、韩国、欧洲（法国/瑞士/奥地利/意大利/挪威/西班牙）、北美（美国/加拿大）、南半球（新西兰/智利/阿根廷）、室内雪场，共 155 座雪场、19 个国家。
 
-## 数据存储
+## 环境要求与可选依赖
 
-用户数据存储在 `~/.ski-assistant/`（可通过 `SKI_ASSISTANT_DATA_DIR` 自定义），包括：
-- `user_profile.json` — 用户画像（跨会话持久化）
-- `records.json` — 电子教练滑雪记录
-- `config.json` — 电子教练配置
-- `watchlist.json` — 预售监听列表
-- `custom_resorts.json` — 用户自定义雪场数据
-- `usage_stats.json` — 本地使用统计（完全离线，不上报任何数据）
+**必须**：Python 3.9+（所有脚本均基于 Python 标准库，零必装第三方依赖）。
+
+**可选依赖（缺失时自动降级，不影响核心功能）**：
+
+| 依赖 | 用途 | 缺失时行为 |
+|------|------|-----------|
+| `flyai` CLI 工具（用户自行安装） | 模块二实时查询机票/酒店/雪票价格 | 自动降级为 WebSearch + 数据库参考价（标注"参考值"） |
+| 视觉模型 API Key（OpenAI / Claude / Gemini / 通义千问等，用户自行配置环境变量） | 模块三 AI 电子教练直接调用视觉 API 分析照片 | 自动降级为 `agent_vision` 模式，由 Agent 自身视觉能力完成分析 |
+| Pillow + matplotlib（`pip install Pillow matplotlib`） | 模块三生成小红书分享卡片图片 | 提示安装命令，该子功能暂不可用，其他功能不受影响 |
+
+**本技能不会自动安装任何软件、创建后台服务或定时任务。** 所有外部工具需用户主动安装后才会被调用。
+
+## 数据与隐私
+
+### 本地数据存储
+
+本技能在用户本地 `~/.ski-assistant/` 目录（可通过环境变量 `SKI_ASSISTANT_DATA_DIR` 自定义）存储以下文件。**所有数据仅存储在用户本机，不会上传到任何远程服务器**：
+
+| 文件 | 内容 | 何时创建 |
+|------|------|---------|
+| `user_profile.json` | 用户画像（水平、出发城市、偏好） | 用户首次设置画像时 |
+| `records.json` | 电子教练滑雪记录（评分、日期、雪场） | 用户保存分析记录时 |
+| `config.json` | 电子教练模型配置 | 用户配置视觉模型时 |
+| `watchlist.json` | 预售监听列表 | 用户添加监听项时 |
+| `price_history.json` | 用户主动记录的价格数据 | 用户使用 record-price 时 |
+| `custom_resorts.json` | 用户自定义雪场数据 | 用户手动创建时 |
+| `usage_stats.json` | 命令调用计数统计 | 任意命令首次执行时 |
+| `exports/` | 小红书分享卡片图片 | 用户生成分享卡片时 |
+
+用户可随时查看、编辑或删除上述任何文件。
+
+### 网络请求说明
+
+本技能**仅在用户主动触发相关功能时**发起网络请求，不会后台自动联网：
+
+| 场景 | 请求目标 | 触发条件 |
+|------|---------|---------|
+| 天气查询 | api.open-meteo.com（开源免费天气 API） | 用户查询雪场天气或推荐时 |
+| 汇率换算 | api.exchangerate-api.com（免费汇率 API） | 涉及国际价格换算时 |
+| 雪场发现 | overpass-api.de / nominatim.openstreetmap.org（OpenStreetMap） | 用户运行 `discover` 命令时 |
+| 数据库更新 | raw.githubusercontent.com（本项目 GitHub 仓库） | 用户运行 `update-db` 命令时 |
+| 视觉分析 | 用户配置的视觉模型 API 端点（如 api.openai.com） | 用户使用 AI 教练且已配置 API Key 时 |
+| 实时查价 | 通过 `flyai` CLI（用户自行安装的外部工具） | 用户请求实时价格且 flyai 可用时 |
+| 联网搜索 | 通过 Agent 的 WebSearch/WebFetch 能力 | 用户查价、查攻略、搜索低价票时 |
+
+**未配置外部 API Key 或未安装 flyai 时，不会向任何第三方 API 发送请求。**
 
 内置雪场数据库：[scripts/resorts_db.json](scripts/resorts_db.json)（155 座全球雪场，覆盖 19 个国家），支持用户自定义扩展和 OSM 联网发现。
 
@@ -192,15 +231,22 @@ python scripts/ski_coach.py share-xhs '<json>' # 生成小红书分享卡片
 
 **触发**：帮我盯着、监听预售、自动通知、开售提醒。
 
-**流程**：
-1. 确认监听雪场、产品类型、通知渠道
-2. 调用 `python scripts/presale_monitor.py watch '<json>'` 注册监听
-3. 通过定时任务创建每日检查，调用 `presale_monitor.py check` 判断状态变化
+**工作原理**：预售监听是**被动检查机制**，不会自动创建后台定时任务或 cron job。具体流程：
+
+1. 用户说"帮我盯着XX"→ 调用 `presale_monitor.py watch` 将目标保存到本地 `watchlist.json`
+2. **检查方式**（二选一，由用户或 Agent 决定）：
+   - **手动检查**：用户在对话中说"检查一下预售状态"→ Agent 调用 `check-all` + WebSearch
+   - **定时检查**：Agent 通过平台的定时任务功能（如 QoderWork 的 cron 调度器）创建每日检查任务，**需用户在对话中明确同意**
+3. 检查结果有变化时，通知方式取决于触发方式：
+   - 手动检查 → 直接在当前对话中输出结果
+   - 定时检查 → 通过用户指定的 IM 会话推送（需用户已连接 IM MCP 并指定通知渠道）
 4. 管理：`list` 查看、`status` 摘要、`remove` 移除、`check-all` 手动全量检查
+
+**注意**：本技能脚本本身**不会创建任何系统级定时任务**（如 crontab、launchd）。定时检查依赖 Agent 平台的调度能力，且必须经用户确认。
 
 **示例**：
 > 用户："帮我盯着二世谷的早鸟票，开售了告诉我"
-> AI 执行：调用 watch 注册监听 → 创建每日检查任务 → 状态变化时通过 IM 通知
+> AI 执行：调用 watch 注册监听 → 询问用户是否创建每日定时检查 → 用户同意后通过平台调度器创建任务 → 每日检查后通过用户指定的 IM 通知
 
 ### 价格趋势与购买建议
 
@@ -230,15 +276,15 @@ python scripts/presale_monitor.py buying-advice '{"resort":"万龙滑雪场"}'
 
 ---
 
-## MCP 集成（可选增强）
+## MCP 集成（可选增强，需用户已连接对应服务）
 
-当用户环境中连接了以下 MCP 服务时，本 Skill 可自动协调使用：
+当用户环境中**已主动连接**以下 MCP 服务时，Agent 可在用户确认后协调使用。**本技能脚本本身不直接调用任何 MCP 服务**，所有 MCP 调用由 Agent 在对话上下文中完成：
 
-- **日历 MCP**（Google Calendar / Outlook）：行程规划完成后，自动创建出行日历事件（含航班、酒店入住、雪场日程）；预售监听触发时，自动创建购票提醒。
-- **IM MCP**（钉钉 / 飞书 / Slack）：预售监听状态变化时，自动推送通知到指定群聊或个人会话；行程方案生成后，可一键分享到群组。
-- **文件存储 MCP**（Google Drive / Box）：将生成的行程攻略、预算报告自动保存到指定云端目录。
+- **日历 MCP**（Google Calendar / Outlook）：行程规划完成后，Agent 可提议创建出行日历事件；预售监听触发时，可提议创建购票提醒。
+- **IM MCP**（钉钉 / 飞书 / Slack）：预售定时检查发现状态变化时，Agent 可通过用户指定的 IM 会话推送通知。
+- **文件存储 MCP**（Google Drive / Box）：Agent 可将生成的攻略/报告保存到用户指定的云端目录。
 
-无需额外配置，AI 会自动检测已连接的 MCP 服务并在合适时机调用。如需指定通知渠道，在对话中说明即可（如"通知发到钉钉 XX 群"）。
+未连接 MCP 服务时，所有输出默认在当前对话中展示，功能不受影响。如需指定通知渠道，在对话中说明即可（如"通知发到钉钉 XX 群"）。
 
 ---
 

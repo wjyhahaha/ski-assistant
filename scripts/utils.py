@@ -43,7 +43,7 @@ STATS_PATH = os.path.join(DATA_DIR, "usage_stats.json")
 CST = timezone(timedelta(hours=8))
 
 # 当前技能版本（集中管理，供统计和各脚本引用）
-_SKILL_VERSION = "4.3.0"
+_SKILL_VERSION = "4.4.0"
 
 
 def ensure_dir():
