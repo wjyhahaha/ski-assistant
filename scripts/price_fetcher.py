@@ -30,8 +30,6 @@ from datetime import datetime, timedelta
 from typing import Optional, Tuple
 
 # ─── 导入共享工具 ───
-_SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, _SCRIPT_DIR)
 from utils import (
     DATA_DIR, CST, ensure_dir, load_json, save_json,
     load_resorts_db, haversine, CITY_COORDS, track_usage,

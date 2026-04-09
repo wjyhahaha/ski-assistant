@@ -30,8 +30,6 @@ from datetime import datetime, timedelta
 from typing import List, Dict, Optional
 
 # ─── 导入共享工具 ───
-_SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, _SCRIPT_DIR)
 from utils import WATCHLIST_PATH, DATA_DIR, CST, ensure_dir, load_json, save_json, track_usage
 
 # 价格历史存储路径

@@ -24,7 +24,6 @@ from typing import Optional, Tuple, List, Dict
 _SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 _ASSETS_DIR = os.path.join(os.path.dirname(_SCRIPT_DIR), "assets")
 _FONTS_DIR = os.path.join(_ASSETS_DIR, "fonts")
-sys.path.insert(0, _SCRIPT_DIR)
 
 from utils import DATA_DIR, ensure_dir, load_json, CST, track_usage
 

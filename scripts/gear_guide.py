@@ -26,8 +26,6 @@ import re
 import sys
 
 # ─── 导入共享工具 ───
-_SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, _SCRIPT_DIR)
 from utils import level_label, sport_label, track_usage
 
 # ─── 装备数据库 ───

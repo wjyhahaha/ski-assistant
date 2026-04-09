@@ -29,8 +29,6 @@ from datetime import datetime
 from collections import defaultdict
 
 # ─── 导入共享工具 ───
-_SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, _SCRIPT_DIR)
 from utils import (
     DATA_DIR, RECORDS_PATH, CONFIG_PATH, CST,
     ensure_dir, load_json, save_json, level_label, sport_label,
@@ -206,9 +204,10 @@ def _encode_image(image_path: str) -> tuple:
         return base64.b64encode(f.read()).decode("utf-8"), media_type
 
 
-def _call_openai_vision(api_key: str, model: str, image_b64: str, media_type: str, prompt: str) -> str:
-    """调用 OpenAI 兼容的视觉 API"""
-    url = os.environ.get("OPENAI_API_BASE", "https://api.openai.com") + "/v1/chat/completions"
+def _call_openai_vision(api_key: str, model: str, image_b64: str, media_type: str, prompt: str, base_url: str = None) -> str:
+    """调用 OpenAI 兼容的视觉 API，base_url 可指定其他兼容端点"""
+    api_base = base_url or os.environ.get("OPENAI_API_BASE", "https://api.openai.com")
+    url = api_base.rstrip("/") + "/v1/chat/completions"
     payload = {
         "model": model or "gpt-4o",
         "messages": [{"role": "user", "content": [
@@ -262,57 +261,29 @@ def _call_google_vision(api_key: str, model: str, image_b64: str, media_type: st
 
 def _call_qwen_vision(api_key: str, model: str, image_b64: str, media_type: str, prompt: str) -> str:
     """调用通义千问 VL API（OpenAI 兼容格式，使用 dashscope 端点）"""
-    old_base = os.environ.get("OPENAI_API_BASE")
-    os.environ["OPENAI_API_BASE"] = "https://dashscope.aliyuncs.com/compatible-mode"
-    try:
-        return _call_openai_vision(api_key, model or "qwen-vl-max", image_b64, media_type, prompt)
-    finally:
-        if old_base is not None:
-            os.environ["OPENAI_API_BASE"] = old_base
-        else:
-            os.environ.pop("OPENAI_API_BASE", None)
+    return _call_openai_vision(api_key, model or "qwen-vl-max", image_b64, media_type, prompt,
+                               base_url="https://dashscope.aliyuncs.com/compatible-mode")
 
 
 def _call_doubao_vision(api_key: str, model: str, image_b64: str, media_type: str, prompt: str) -> str:
     """调用豆包视觉模型（火山引擎 ARK，OpenAI 兼容格式）"""
-    old_base = os.environ.get("OPENAI_API_BASE")
     base = os.environ.get("DOUBAO_API_BASE", "https://ark.cn-beijing.volces.com/api/v3")
     if base.endswith("/v1/chat/completions"):
         base = base[:-len("/v1/chat/completions")]
-    os.environ["OPENAI_API_BASE"] = base
-    try:
-        return _call_openai_vision(api_key, model or "doubao-vision-pro", image_b64, media_type, prompt)
-    finally:
-        if old_base is not None:
-            os.environ["OPENAI_API_BASE"] = old_base
-        else:
-            os.environ.pop("OPENAI_API_BASE", None)
+    return _call_openai_vision(api_key, model or "doubao-vision-pro", image_b64, media_type, prompt,
+                               base_url=base)
 
 
 def _call_stepfun_vision(api_key: str, model: str, image_b64: str, media_type: str, prompt: str) -> str:
     """调用阶跃星辰视觉模型（OpenAI 兼容格式）"""
-    old_base = os.environ.get("OPENAI_API_BASE")
-    os.environ["OPENAI_API_BASE"] = "https://api.stepfun.com"
-    try:
-        return _call_openai_vision(api_key, model or "step-1v", image_b64, media_type, prompt)
-    finally:
-        if old_base is not None:
-            os.environ["OPENAI_API_BASE"] = old_base
-        else:
-            os.environ.pop("OPENAI_API_BASE", None)
+    return _call_openai_vision(api_key, model or "step-1v", image_b64, media_type, prompt,
+                               base_url="https://api.stepfun.com")
 
 
 def _call_zhipu_vision(api_key: str, model: str, image_b64: str, media_type: str, prompt: str) -> str:
     """调用智谱 GLM-4V 视觉模型（OpenAI 兼容格式）"""
-    old_base = os.environ.get("OPENAI_API_BASE")
-    os.environ["OPENAI_API_BASE"] = "https://open.bigmodel.cn/api/paas"
-    try:
-        return _call_openai_vision(api_key, model or "glm-4v-plus", image_b64, media_type, prompt)
-    finally:
-        if old_base is not None:
-            os.environ["OPENAI_API_BASE"] = old_base
-        else:
-            os.environ.pop("OPENAI_API_BASE", None)
+    return _call_openai_vision(api_key, model or "glm-4v-plus", image_b64, media_type, prompt,
+                               base_url="https://open.bigmodel.cn/api/paas")
 
 
 _VISION_CALLERS = {
@@ -1301,8 +1272,6 @@ def share_xhs(params: dict) -> str:
         "image_path": "/path/to/photo.jpg"  // 可选，覆盖记录中的图片
     }
     """
-    import subprocess
-    import os
 
     record_id = params.get("record_id")
     style = params.get("style", "casual")
@@ -1343,26 +1312,26 @@ def share_xhs(params: dict) -> str:
     elif target_record.get("image_path"):
         card_params["image_path"] = target_record["image_path"]
 
-    # 调用 xhs_card_generator 生成卡片
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    generator_path = os.path.join(script_dir, "xhs_card_generator.py")
-
+    # 调用 xhs_card_generator 生成卡片（直接函数调用，无需 subprocess）
     try:
-        result = subprocess.run(
-            ["python3", generator_path, f"{template}-card", json.dumps(card_params, ensure_ascii=False)],
-            capture_output=True,
-            text=True,
-            timeout=30
-        )
+        from xhs_card_generator import generate_score_card, generate_progress_card, generate_milestone_card
 
-        if result.returncode != 0:
-            return f"❌ 生成卡片失败：{result.stderr}"
+        _card_funcs = {
+            "score": generate_score_card,
+            "progress": generate_progress_card,
+            "milestone": generate_milestone_card,
+        }
+        card_func = _card_funcs.get(template)
+        if not card_func:
+            return f"❌ 未知模板类型: {template}，支持 score/progress/milestone"
+
+        raw_output = card_func(card_params)
 
         # 解析生成结果
         try:
-            gen_result = json.loads(result.stdout)
+            gen_result = json.loads(raw_output)
         except json.JSONDecodeError:
-            return f"⚠️ 生成结果解析失败：{result.stdout[:200]}"
+            return f"⚠️ 生成结果解析失败：{raw_output[:200]}"
 
         if gen_result.get("error"):
             return f"❌ 生成失败：{gen_result['error']}"
@@ -1405,8 +1374,6 @@ def share_xhs(params: dict) -> str:
 
         return "\n".join(lines)
 
-    except subprocess.TimeoutExpired:
-        return "❌ 生成卡片超时，请重试。"
     except Exception as e:
         return f"❌ 生成卡片出错：{type(e).__name__}: {e}"
 
