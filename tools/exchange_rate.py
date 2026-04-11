@@ -26,7 +26,7 @@ def get_live_rate(from_cur: str, to_cur: str):
     url = f"https://api.exchangerate-api.com/v4/latest/{from_cur}"
     for attempt in range(3):
         try:
-            req = urllib.request.Request(url, headers={"User-Agent": "ski-assistant/5.0"})
+            req = urllib.request.Request(url, headers={"User-Agent": "ski-assistant/5.1"})
             with urllib.request.urlopen(req, timeout=5) as resp:
                 data = json.loads(resp.read().decode())
                 rate = data.get("rates", {}).get(to_cur)

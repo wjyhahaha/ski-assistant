@@ -13,6 +13,8 @@ update-db: 从 GitHub 拉取最新 resorts_db.json
   - Nominatim (nominatim.openstreetmap.org) — 降级搜索
   - Open-Meteo Elevation API — 海拔补充
   - GitHub Raw (raw.githubusercontent.com) — 数据库同步
+
+v5.1: 扩展 60+ 搜索区域，覆盖欧洲 17 国、东欧、南美、澳洲等
 """
 
 import json
@@ -33,7 +35,7 @@ _DB_PATH = os.path.join(_DATA_DIR, "resorts_db.json")
 
 # ─── 网络常量 ───
 
-_GITHUB_RAW_URL = "https://raw.githubusercontent.com/wjyhahaha/ski-assistant/main/scripts/resorts_db.json"
+_GITHUB_RAW_URL = "https://raw.githubusercontent.com/wjyhahaha/ski-assistant/main/data/resorts_db.json"
 
 _OVERPASS_MIRRORS = [
     "https://overpass-api.de/api/interpreter",
@@ -42,11 +44,12 @@ _OVERPASS_MIRRORS = [
 
 _NOMINATIM_URL = "https://nominatim.openstreetmap.org/search"
 
-_UA = "ski-assistant/5.0"
+_UA = "ski-assistant/5.1"
 
 # ─── 预定义搜索区域 ───
 
 _DISCOVERY_REGIONS = {
+    # 中国
     "中国-崇礼": {"bbox": (40.5, 115.0, 41.2, 116.0), "country": "CN", "region_hint": "河北·崇礼"},
     "中国-北京延庆": {"bbox": (40.3, 115.7, 40.8, 116.8), "country": "CN", "region_hint": "北京"},
     "中国-张家口北": {"bbox": (41.0, 114.5, 42.0, 116.0), "country": "CN", "region_hint": "河北"},
@@ -56,26 +59,76 @@ _DISCOVERY_REGIONS = {
     "中国-新疆阿勒泰": {"bbox": (47.0, 86.5, 48.5, 89.0), "country": "CN", "region_hint": "新疆"},
     "中国-四川": {"bbox": (28.0, 101.0, 32.0, 104.5), "country": "CN", "region_hint": "四川"},
     "中国-云南": {"bbox": (26.0, 100.0, 28.5, 103.0), "country": "CN", "region_hint": "云南"},
+    # 日本
     "日本-北海道西": {"bbox": (42.5, 139.5, 44.0, 142.0), "country": "JP", "region_hint": "北海道"},
     "日本-北海道东": {"bbox": (42.5, 142.0, 44.0, 145.0), "country": "JP", "region_hint": "北海道"},
     "日本-东北": {"bbox": (38.5, 139.0, 40.5, 141.0), "country": "JP", "region_hint": "本州东北"},
     "日本-中部北": {"bbox": (36.0, 137.5, 38.0, 140.0), "country": "JP", "region_hint": "本州中部"},
     "日本-中部南": {"bbox": (35.5, 136.0, 37.0, 138.5), "country": "JP", "region_hint": "本州中部"},
-    "韩国": {"bbox": (36.5, 127.5, 38.0, 129.0), "country": "KR", "region_hint": "韩国"},
+    "日本-关东": {"bbox": (35.8, 138.0, 37.0, 139.5), "country": "JP", "region_hint": "关东"},
+    # 韩国
+    "韩国-江原道": {"bbox": (37.3, 127.8, 38.3, 129.0), "country": "KR", "region_hint": "江原道"},
+    # 法国
     "法国-萨瓦": {"bbox": (45.0, 6.0, 46.0, 7.2), "country": "FR", "region_hint": "法国阿尔卑斯"},
     "法国-上萨瓦": {"bbox": (45.7, 6.2, 46.5, 7.0), "country": "FR", "region_hint": "法国阿尔卑斯"},
+    "法国-上阿尔卑斯": {"bbox": (44.5, 6.0, 45.2, 6.8), "country": "FR", "region_hint": "法国阿尔卑斯"},
+    "法国-比利牛斯": {"bbox": (42.5, 0.0, 43.0, 2.0), "country": "FR", "region_hint": "法国比利牛斯"},
+    # 瑞士
     "瑞士-瓦莱": {"bbox": (46.0, 7.0, 46.5, 8.5), "country": "CH", "region_hint": "瑞士"},
     "瑞士-格劳宾登": {"bbox": (46.5, 9.5, 47.0, 10.5), "country": "CH", "region_hint": "瑞士"},
+    "瑞士-伯尔尼": {"bbox": (46.5, 7.5, 46.8, 8.2), "country": "CH", "region_hint": "瑞士"},
+    "瑞士-中部": {"bbox": (46.8, 8.2, 47.2, 8.8), "country": "CH", "region_hint": "瑞士中部"},
+    # 奥地利
     "奥地利-蒂罗尔": {"bbox": (46.8, 10.5, 47.5, 12.5), "country": "AT", "region_hint": "奥地利"},
     "奥地利-萨尔茨堡": {"bbox": (47.0, 12.5, 47.8, 14.0), "country": "AT", "region_hint": "奥地利"},
+    "奥地利-福拉尔贝格": {"bbox": (47.0, 9.7, 47.5, 10.5), "country": "AT", "region_hint": "奥地利"},
+    "奥地利-施蒂利亚": {"bbox": (47.3, 13.5, 47.8, 14.5), "country": "AT", "region_hint": "奥地利"},
+    # 意大利
     "意大利-多洛米蒂": {"bbox": (46.2, 11.0, 47.0, 12.5), "country": "IT", "region_hint": "意大利北部"},
+    "意大利-瓦莱达奥斯塔": {"bbox": (45.5, 7.0, 46.0, 7.8), "country": "IT", "region_hint": "意大利西北部"},
+    "意大利-皮埃蒙特": {"bbox": (45.0, 7.5, 45.5, 8.5), "country": "IT", "region_hint": "意大利西北部"},
+    "意大利-伦巴第": {"bbox": (46.0, 9.8, 46.5, 10.5), "country": "IT", "region_hint": "意大利北部"},
+    "意大利-特伦蒂诺": {"bbox": (46.0, 10.8, 46.5, 11.5), "country": "IT", "region_hint": "意大利北部"},
+    "意大利-威尼托": {"bbox": (46.3, 11.5, 46.8, 12.2), "country": "IT", "region_hint": "意大利东北部"},
+    # 德国
+    "德国-巴伐利亚": {"bbox": (47.3, 10.0, 47.7, 11.5), "country": "DE", "region_hint": "德国"},
+    # 西班牙/安道尔
+    "西班牙-比利牛斯": {"bbox": (42.4, 0.8, 42.8, 1.8), "country": "ES", "region_hint": "西班牙"},
+    "安道尔": {"bbox": (42.5, 1.4, 42.7, 1.8), "country": "AD", "region_hint": "安道尔"},
+    # 北欧
+    "挪威-南部": {"bbox": (60.0, 7.5, 62.0, 10.5), "country": "NO", "region_hint": "挪威"},
+    "挪威-中部": {"bbox": (62.0, 6.0, 63.0, 8.0), "country": "NO", "region_hint": "挪威"},
+    "瑞典": {"bbox": (62.5, 12.5, 64.0, 14.0), "country": "SE", "region_hint": "瑞典"},
+    "芬兰": {"bbox": (67.5, 24.5, 68.5, 25.5), "country": "FI", "region_hint": "芬兰"},
+    # 东欧
+    "斯洛文尼亚": {"bbox": (46.2, 13.5, 46.5, 14.0), "country": "SI", "region_hint": "斯洛文尼亚"},
+    "斯洛伐克-塔特拉": {"bbox": (49.0, 19.3, 49.3, 20.2), "country": "SK", "region_hint": "斯洛伐克"},
+    "捷克-克尔科诺谢": {"bbox": (50.6, 15.4, 50.9, 15.9), "country": "CZ", "region_hint": "捷克"},
+    "波兰-塔特拉": {"bbox": (49.2, 19.7, 49.5, 20.2), "country": "PL", "region_hint": "波兰"},
+    "罗马尼亚-喀尔巴阡": {"bbox": (45.5, 25.3, 45.8, 25.7), "country": "RO", "region_hint": "罗马尼亚"},
+    "保加利亚-皮林": {"bbox": (41.6, 23.3, 41.8, 23.6), "country": "BG", "region_hint": "保加利亚"},
+    "俄罗斯-索契": {"bbox": (43.6, 40.0, 43.8, 40.5), "country": "RU", "region_hint": "俄罗斯"},
+    # 北美
     "美国-科罗拉多北": {"bbox": (39.3, -107.0, 40.0, -105.5), "country": "US", "region_hint": "科罗拉多"},
     "美国-科罗拉多南": {"bbox": (38.5, -107.0, 39.3, -105.5), "country": "US", "region_hint": "科罗拉多"},
     "美国-犹他": {"bbox": (40.2, -112.0, 41.2, -111.0), "country": "US", "region_hint": "犹他"},
     "美国-太浩湖": {"bbox": (38.7, -120.3, 39.4, -119.7), "country": "US", "region_hint": "加州"},
+    "美国-怀俄明": {"bbox": (43.3, -111.0, 43.8, -110.5), "country": "US", "region_hint": "怀俄明"},
+    "美国-蒙大拿": {"bbox": (45.0, -111.8, 45.5, -111.0), "country": "US", "region_hint": "蒙大拿"},
+    "美国-佛蒙特": {"bbox": (43.5, -73.0, 44.5, -72.5), "country": "US", "region_hint": "佛蒙特"},
     "加拿大-惠斯勒": {"bbox": (49.5, -123.5, 50.5, -121.5), "country": "CA", "region_hint": "BC省"},
-    "挪威": {"bbox": (60.0, 7.5, 62.0, 10.5), "country": "NO", "region_hint": "挪威"},
+    "加拿大-落基山": {"bbox": (51.0, -116.0, 51.5, -115.5), "country": "CA", "region_hint": "阿尔伯塔"},
+    "加拿大-魁北克": {"bbox": (47.5, -71.0, 48.0, -70.0), "country": "CA", "region_hint": "魁北克"},
+    # 南半球
     "新西兰-南岛": {"bbox": (-44.5, 168.5, -43.0, 171.5), "country": "NZ", "region_hint": "南岛"},
+    "新西兰-北岛": {"bbox": (-39.5, 175.5, -39.0, 176.5), "country": "NZ", "region_hint": "北岛"},
+    "澳大利亚-新南威尔士": {"bbox": (-36.5, 148.0, -35.5, 148.5), "country": "AU", "region_hint": "澳洲"},
+    "澳大利亚-维多利亚": {"bbox": (-37.0, 146.0, -36.5, 147.0), "country": "AU", "region_hint": "澳洲"},
+    # 南美
+    "智利-安第斯": {"bbox": (-33.0, -70.5, -32.5, -70.0), "country": "CL", "region_hint": "智利"},
+    "阿根廷-安第斯": {"bbox": (-35.5, -70.5, -35.0, -70.0), "country": "AR", "region_hint": "阿根廷"},
+    # 中东
+    "阿联酋": {"bbox": (25.5, 55.3, 26.0, 55.8), "country": "AE", "region_hint": "阿联酋"},
 }
 
 
