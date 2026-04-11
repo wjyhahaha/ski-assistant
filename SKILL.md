@@ -1,8 +1,8 @@
 ---
 name: ski-assistant
 description: |
-  Global ski resort assistant covering 680 resorts across 30+ countries. Plan trips, compare prices, analyze your form, and find early-bird deals.
-  全球滑雪助手，覆盖 680 座雪场（30+ 国，中国 471 座最全）。帮你挑雪场、查价格、看动作、盯早鸟、报天气。
+  Global ski resort assistant covering 899 resorts across 40+ countries. Plan trips, compare prices, analyze your form, and find early-bird deals.
+  全球滑雪助手，覆盖 899 座雪场（40+ 国，中国 481 座最全）。帮你挑雪场、查价格、看动作、盯早鸟、报天气。
   Triggers / 触发词: ski, snowboard, 滑雪, 雪票, 雪场, 去哪滑, 外滑, 早鸟票, 季卡, 滑雪攻略, 动作分析, weather, budget, coaching.
   Responds naturally to casual requests in Chinese or English — no special keywords needed.
   自然语言触发：周末去哪滑、雪票太贵了、帮我看看这个动作、万龙多少钱、早鸟票什么时候买。
@@ -12,46 +12,16 @@ license: MIT
 allowed-tools: "Bash(python3 tools/price_api.py *) Bash(python3 tools/exchange_rate.py *) Bash(python3 tools/card_generator.py *) Bash(python3 tools/resort_discovery.py *) Bash(python3 -c *) WebFetch WebSearch"
 metadata:
   author: wjyhahaha
-  version: 5.2.1
+  version: 5.2.2
   category: travel-lifestyle
   tags: [skiing, travel, budget, weather, recommendation]
 ---
 
-# Ski Assistant v5.2.1 — 全球滑雪综合服务助手
+# Ski Assistant v5.2.2 — 全球滑雪综合服务助手
 
-## 设计理念 / Design Philosophy
+像一个懂滑雪的朋友——帮你挑雪场、比价捡漏、分析动作、盯早鸟、列清单、查山顶天气。
 
-从一个滑雪者的真实痛点出发：不知道去哪滑、雪票太贵舍不得、动作不好看没人教、错过早鸟票拍大腿、外滑一趟像搬家、天气永远报的是山脚不是山顶。
-
-这个技能就是为了解决这些问题——像一个懂滑雪的朋友，帮你挑雪场、比价捡漏、分析动作、盯开售时间、列装备清单、查山顶天气。
-
-Born from a skier's real frustrations: not knowing where to go, tickets too expensive to pull the trigger, no one to look at your form and say what's wrong, missing early-bird deals, packing like you're moving abroad, and weather forecasts that always show the town below instead of the summit above.
-
-Think of this skill as a ski-savvy friend who helps you pick resorts, hunt for deals, analyze your runs, watch for presale dates, pack smart, and check the actual mountain-top weather.
-
-> **架构说明 / Architecture**：业务规则和决策流程全部写在这个文件里，由 Agent 直接执行；4 个 Python 工具只干一件事——联网（查实时价格、换算汇率、生成分享卡片、发现新雪场）。
-
-文件架构：
-
-```
-ski-assistant/
-├── SKILL.md                        ← 你正在读的文件（知识中枢）
-├── data/
-│   └── resorts_db.json             ← 680 座全球雪场结构化数据（30+ 国，中国 471 座）
-├── references/
-│   ├── travel-guide.md             ← 攻略输出模板
-│   ├── resorts-reference.md        ← 各雪场软信息（早鸟、美食、文化）
-│   ├── gear-guide.md               ← 装备知识库
-│   ├── coaching-rubric.md          ← AI 教练评分标准（四维度）
-│   └── budget-templates.md         ← 预算参考价模板
-└── tools/
-    ├── price_api.py                ← flyai CLI 桥接（机票+酒店查询）
-    ├── exchange_rate.py            ← 实时汇率换算
-    ├── card_generator.py           ← 小红书分享卡片生成
-    └── resort_discovery.py         ← OpenStreetMap 雪场发现与 DB 更新
-└── assets/
-    └── fonts/                      ← 可选字体资源（跨平台卡片渲染）
-```
+> 数据：`data/resorts_db.json`（899 座雪场） | 参考：`references/`（攻略、装备、教练评分、预算模板） | 工具：`tools/`（仅用于联网查询）
 
 ---
 

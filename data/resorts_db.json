@@ -1,12 +1,12 @@
 {
   "_meta": {
-    "version": "5.2.1",
+    "version": "5.2.2",
     "updated": "2026-04-11",
     "source": "v5.2.1 - China expansion batch 1",
     "note": "Expanded to 247 resorts - bilingual v5.1.0",
     "resort_count": 247,
     "last_updated": "2026-04-11",
-    "total_resorts": 680
+    "total_resorts": 899
   },
   "万龙滑雪场": {
     "name": "万龙滑雪场",
@@ -498,7 +498,7 @@
     "name": "二世谷（Niseko）",
     "name_en": "日本",
     "region": "北海道",
-    "province": "北海道",
+    "province": "日本",
     "latitude": 42.86,
     "longitude": 140.7,
     "elevation_base": 260,
@@ -535,7 +535,7 @@
     "name": "白马（Hakuba）",
     "name_en": "日本",
     "region": "长野",
-    "province": "长野",
+    "province": "日本",
     "latitude": 36.7,
     "longitude": 137.83,
     "elevation_base": 760,
@@ -572,7 +572,7 @@
     "name": "志贺高原（Shiga Kogen）",
     "name_en": "日本",
     "region": "长野",
-    "province": "长野",
+    "province": "日本",
     "latitude": 36.79,
     "longitude": 138.53,
     "elevation_base": 1340,
@@ -607,7 +607,7 @@
     "name": "妙高高原（Myoko Kogen）",
     "name_en": "日本",
     "region": "新潟",
-    "province": "新潟",
+    "province": "日本",
     "latitude": 36.87,
     "longitude": 138.18,
     "elevation_base": 740,
@@ -642,7 +642,7 @@
     "name": "留寿都（Rusutsu）",
     "name_en": "日本",
     "region": "北海道",
-    "province": "北海道",
+    "province": "日本",
     "latitude": 42.74,
     "longitude": 140.55,
     "elevation_base": 400,
@@ -678,7 +678,7 @@
     "name": "富良野（Furano）",
     "name_en": "日本",
     "region": "北海道",
-    "province": "北海道",
+    "province": "日本",
     "latitude": 43.34,
     "longitude": 142.35,
     "elevation_base": 245,
@@ -2833,7 +2833,7 @@
     "name": "星野トマム（Hoshino Resorts Tomamu）",
     "name_en": "日本",
     "region": "北海道",
-    "province": "北海道",
+    "province": "日本",
     "latitude": 43.065,
     "longitude": 142.61,
     "elevation_base": 699,
@@ -2870,7 +2870,7 @@
     "name": "佐幌（Sahoro Resort）",
     "name_en": "日本",
     "region": "北海道",
-    "province": "北海道",
+    "province": "日本",
     "latitude": 43.103,
     "longitude": 142.748,
     "elevation_base": 420,
@@ -2905,7 +2905,7 @@
     "name": "旭岳（Asahidake Ropeway）",
     "name_en": "日本",
     "region": "北海道",
-    "province": "北海道",
+    "province": "日本",
     "latitude": 43.66,
     "longitude": 142.85,
     "elevation_base": 1100,
@@ -2941,7 +2941,7 @@
     "name": "札幌手稻（Sapporo Teine）",
     "name_en": "日本",
     "region": "北海道",
-    "province": "北海道",
+    "province": "日本",
     "latitude": 43.098,
     "longitude": 141.187,
     "elevation_base": 340,
@@ -2976,7 +2976,7 @@
     "name": "蔵王温泉（Zao Onsen）",
     "name_en": "日本",
     "region": "山形县",
-    "province": "山形县",
+    "province": "日本",
     "latitude": 38.168,
     "longitude": 140.398,
     "elevation_base": 780,
@@ -3013,7 +3013,7 @@
     "name": "田泽湖（Tazawako Ski Resort）",
     "name_en": "日本",
     "region": "秋田县",
-    "province": "秋田县",
+    "province": "日本",
     "latitude": 39.74,
     "longitude": 140.69,
     "elevation_base": 580,
@@ -3048,7 +3048,7 @@
     "name": "雫石（Shizukuishi Ski Resort）",
     "name_en": "日本",
     "region": "岩手县",
-    "province": "岩手县",
+    "province": "日本",
     "latitude": 39.768,
     "longitude": 140.87,
     "elevation_base": 426,
@@ -3083,7 +3083,7 @@
     "name": "八甲田（Hakkoda）",
     "name_en": "日本",
     "region": "青森县",
-    "province": "青森县",
+    "province": "日本",
     "latitude": 40.66,
     "longitude": 140.853,
     "elevation_base": 660,
@@ -3120,7 +3120,7 @@
     "name": "夏油高原（Geto Kogen）",
     "name_en": "日本",
     "region": "岩手县",
-    "province": "岩手县",
+    "province": "日本",
     "latitude": 39.17,
     "longitude": 140.63,
     "elevation_base": 443,
@@ -3156,7 +3156,7 @@
     "name": "苗场（Naeba Ski Resort）",
     "name_en": "日本",
     "region": "新潟县",
-    "province": "新潟县",
+    "province": "日本",
     "latitude": 36.855,
     "longitude": 138.762,
     "elevation_base": 900,
@@ -3191,7 +3191,7 @@
     "name": "GALA汤泽（GALA Yuzawa Snow Resort）",
     "name_en": "日本",
     "region": "新潟县",
-    "province": "新潟县",
+    "province": "日本",
     "latitude": 36.933,
     "longitude": 138.818,
     "elevation_base": 358,
@@ -3226,7 +3226,7 @@
     "name": "野泽温泉（Nozawa Onsen Snow Resort）",
     "name_en": "日本",
     "region": "长野县",
-    "province": "长野县",
+    "province": "日本",
     "latitude": 36.928,
     "longitude": 138.62,
     "elevation_base": 565,
@@ -3263,7 +3263,7 @@
     "name": "斑尾高原（Madarao Kogen）",
     "name_en": "日本",
     "region": "长野县",
-    "province": "长野县",
+    "province": "日本",
     "latitude": 36.878,
     "longitude": 138.5,
     "elevation_base": 910,
@@ -3299,7 +3299,7 @@
     "name": "赤仓温泉（Akakura Onsen Ski Area）",
     "name_en": "日本",
     "region": "新潟县",
-    "province": "新潟县",
+    "province": "日本",
     "latitude": 36.88,
     "longitude": 138.19,
     "elevation_base": 650,
@@ -3335,7 +3335,7 @@
     "name": "八方尾根（Hakuba Happo-one）",
     "name_en": "日本",
     "region": "长野县",
-    "province": "长野县",
+    "province": "日本",
     "latitude": 36.7,
     "longitude": 137.8,
     "elevation_base": 760,
@@ -3371,7 +3371,7 @@
     "name": "栂池高原（Tsugaike Kogen）",
     "name_en": "日本",
     "region": "长野县",
-    "province": "长野县",
+    "province": "日本",
     "latitude": 36.783,
     "longitude": 137.84,
     "elevation_base": 800,
@@ -3406,7 +3406,7 @@
     "name": "白马乗鞍（Hakuba Norikura Onsen）",
     "name_en": "日本",
     "region": "长野县",
-    "province": "长野县",
+    "province": "日本",
     "latitude": 36.773,
     "longitude": 137.833,
     "elevation_base": 750,
@@ -3441,7 +3441,7 @@
     "name": "草津温泉（Kusatsu Onsen Ski Resort）",
     "name_en": "日本",
     "region": "群马县",
-    "province": "群马县",
+    "province": "日本",
     "latitude": 36.63,
     "longitude": 138.6,
     "elevation_base": 1245,
@@ -3476,7 +3476,7 @@
     "name": "丸沼高原（Marunuma Kogen）",
     "name_en": "日本",
     "region": "群马县",
-    "province": "群马县",
+    "province": "日本",
     "latitude": 36.84,
     "longitude": 139.345,
     "elevation_base": 1400,
@@ -3512,7 +3512,7 @@
     "name": "茂朱德裕山（Muju Deogyusan Resort）",
     "name_en": "韩国",
     "region": "全罗北道",
-    "province": "全罗北道",
+    "province": "韩国",
     "latitude": 35.875,
     "longitude": 127.748,
     "elevation_base": 640,
@@ -3548,7 +3548,7 @@
     "name": "维瓦尔第公园（Vivaldi Park Ski World）",
     "name_en": "韩国",
     "region": "江原道",
-    "province": "江原道",
+    "province": "韩国",
     "latitude": 37.755,
     "longitude": 127.693,
     "elevation_base": 340,
@@ -3583,7 +3583,7 @@
     "name": "伊利希安江村（Elysian Gangchon）",
     "name_en": "韩国",
     "region": "江原道",
-    "province": "江原道",
+    "province": "韩国",
     "latitude": 37.815,
     "longitude": 127.628,
     "elevation_base": 90,
@@ -3618,7 +3618,7 @@
     "name": "昆池岩（Konjiam Resort）",
     "name_en": "韩国",
     "region": "京畿道",
-    "province": "京畿道",
+    "province": "韩国",
     "latitude": 37.298,
     "longitude": 127.323,
     "elevation_base": 210,
@@ -3653,7 +3653,7 @@
     "name": "伊泽尔谷/蒂涅（Espace Killy）",
     "name_en": "欧洲",
     "region": "萨瓦省",
-    "province": "萨瓦省",
+    "province": "法国",
     "latitude": 45.4481,
     "longitude": 6.9769,
     "elevation_base": 1550,
@@ -3689,7 +3689,7 @@
     "name": "两阿尔卑斯（Les Deux Alpes）",
     "name_en": "欧洲",
     "region": "伊泽尔省",
-    "province": "伊泽尔省",
+    "province": "法国",
     "latitude": 45.0167,
     "longitude": 6.1222,
     "elevation_base": 1300,
@@ -3725,7 +3725,7 @@
     "name": "阿普杜埃兹（Alpe d'Huez）",
     "name_en": "欧洲",
     "region": "伊泽尔省",
-    "province": "伊泽尔省",
+    "province": "法国",
     "latitude": 45.092,
     "longitude": 6.068,
     "elevation_base": 1135,
@@ -3760,7 +3760,7 @@
     "name": "拉普拉涅（Paradiski）",
     "name_en": "欧洲",
     "region": "萨瓦省",
-    "province": "萨瓦省",
+    "province": "法国",
     "latitude": 45.507,
     "longitude": 6.677,
     "elevation_base": 1250,
@@ -3796,7 +3796,7 @@
     "name": "韦比尔（Verbier）",
     "name_en": "欧洲",
     "region": "瓦莱州",
-    "province": "瓦莱州",
+    "province": "瑞士",
     "latitude": 46.0967,
     "longitude": 7.2283,
     "elevation_base": 821,
@@ -3832,7 +3832,7 @@
     "name": "达沃斯（Davos/Klosters）",
     "name_en": "欧洲",
     "region": "格劳宾登州",
-    "province": "格劳宾登州",
+    "province": "瑞士",
     "latitude": 46.8003,
     "longitude": 9.8361,
     "elevation_base": 810,
@@ -3868,7 +3868,7 @@
     "name": "圣莫里茨（St. Moritz）",
     "name_en": "欧洲",
     "region": "格劳宾登州",
-    "province": "格劳宾登州",
+    "province": "瑞士",
     "latitude": 46.4908,
     "longitude": 9.8355,
     "elevation_base": 1822,
@@ -3904,7 +3904,7 @@
     "name": "拉克斯（Laax）",
     "name_en": "欧洲",
     "region": "格劳宾登州",
-    "province": "格劳宾登州",
+    "province": "瑞士",
     "latitude": 46.8418,
     "longitude": 9.2588,
     "elevation_base": 1100,
@@ -3940,7 +3940,7 @@
     "name": "少女峰地区（Jungfrau）",
     "name_en": "欧洲",
     "region": "伯尔尼州",
-    "province": "伯尔尼州",
+    "province": "瑞士",
     "latitude": 46.587,
     "longitude": 7.964,
     "elevation_base": 944,
@@ -3975,7 +3975,7 @@
     "name": "伊施格尔（Ischgl）",
     "name_en": "欧洲",
     "region": "蒂罗尔州",
-    "province": "蒂罗尔州",
+    "province": "奥地利",
     "latitude": 46.9667,
     "longitude": 10.2833,
     "elevation_base": 1377,
@@ -4011,7 +4011,7 @@
     "name": "索尔登（Sölden）",
     "name_en": "欧洲",
     "region": "蒂罗尔州",
-    "province": "蒂罗尔州",
+    "province": "奥地利",
     "latitude": 46.9655,
     "longitude": 10.8665,
     "elevation_base": 1350,
@@ -4047,7 +4047,7 @@
     "name": "莱赫-楚尔斯（Lech-Zürs）",
     "name_en": "欧洲",
     "region": "福拉尔贝格州",
-    "province": "福拉尔贝格州",
+    "province": "奥地利",
     "latitude": 47.2078,
     "longitude": 10.1414,
     "elevation_base": 1300,
@@ -4082,7 +4082,7 @@
     "name": "迈尔霍芬（Mayrhofen）",
     "name_en": "欧洲",
     "region": "蒂罗尔州",
-    "province": "蒂罗尔州",
+    "province": "奥地利",
     "latitude": 47.1592,
     "longitude": 11.8592,
     "elevation_base": 630,
@@ -4117,7 +4117,7 @@
     "name": "萨尔巴赫（Saalbach）",
     "name_en": "欧洲",
     "region": "萨尔茨堡州",
-    "province": "萨尔茨堡州",
+    "province": "奥地利",
     "latitude": 47.3925,
     "longitude": 12.6361,
     "elevation_base": 830,
@@ -4152,7 +4152,7 @@
     "name": "科尔蒂纳（Cortina）",
     "name_en": "欧洲",
     "region": "威尼托大区",
-    "province": "威尼托大区",
+    "province": "意大利",
     "latitude": 46.5369,
     "longitude": 12.1356,
     "elevation_base": 1224,
@@ -4187,7 +4187,7 @@
     "name": "利维尼奥（Livigno）",
     "name_en": "欧洲",
     "region": "伦巴第大区",
-    "province": "伦巴第大区",
+    "province": "意大利",
     "latitude": 46.533,
     "longitude": 10.135,
     "elevation_base": 1816,
@@ -4222,7 +4222,7 @@
     "name": "切尔维尼亚（Cervinia）",
     "name_en": "欧洲",
     "region": "瓦莱达奥斯塔大区",
-    "province": "瓦莱达奥斯塔大区",
+    "province": "意大利",
     "latitude": 45.9367,
     "longitude": 7.63,
     "elevation_base": 2050,
@@ -4257,7 +4257,7 @@
     "name": "克龙普拉茨（Kronplatz）",
     "name_en": "欧洲",
     "region": "南蒂罗尔",
-    "province": "南蒂罗尔",
+    "province": "意大利",
     "latitude": 46.7383,
     "longitude": 11.9583,
     "elevation_base": 973,
@@ -4292,7 +4292,7 @@
     "name": "奥勒（Åre）",
     "name_en": "欧洲",
     "region": "耶姆特兰省",
-    "province": "耶姆特兰省",
+    "province": "瑞典",
     "latitude": 63.3981,
     "longitude": 13.0806,
     "elevation_base": 384,
@@ -4327,7 +4327,7 @@
     "name": "海姆瑟达尔（Hemsedal）",
     "name_en": "欧洲",
     "region": "维肯郡",
-    "province": "维肯郡",
+    "province": "挪威",
     "latitude": 60.8603,
     "longitude": 8.3961,
     "elevation_base": 640,
@@ -4363,7 +4363,7 @@
     "name": "列维（Levi）",
     "name_en": "欧洲",
     "region": "拉普兰",
-    "province": "拉普兰",
+    "province": "芬兰",
     "latitude": 67.7944,
     "longitude": 24.8147,
     "elevation_base": 206,
@@ -4399,7 +4399,7 @@
     "name": "巴盖拉-贝雷特（Baqueira-Beret）",
     "name_en": "欧洲",
     "region": "莱里达省",
-    "province": "莱里达省",
+    "province": "西班牙",
     "latitude": 42.6978,
     "longitude": 0.9508,
     "elevation_base": 1500,
@@ -4434,7 +4434,7 @@
     "name": "内华达山（Sierra Nevada）",
     "name_en": "欧洲",
     "region": "格拉纳达省",
-    "province": "格拉纳达省",
+    "province": "西班牙",
     "latitude": 37.0956,
     "longitude": -3.3953,
     "elevation_base": 2100,
@@ -4505,7 +4505,7 @@
     "name": "猛犸山（Mammoth Mountain）",
     "name_en": "北美",
     "region": "加利福尼亚州",
-    "province": "加利福尼亚州",
+    "province": "美国",
     "latitude": 37.6308,
     "longitude": -119.0326,
     "elevation_base": 2424,
@@ -4540,7 +4540,7 @@
     "name": "太浩湖帕利塞兹（Palisades Tahoe）",
     "name_en": "北美",
     "region": "加利福尼亚州",
-    "province": "加利福尼亚州",
+    "province": "美国",
     "latitude": 39.1968,
     "longitude": -120.2354,
     "elevation_base": 1893,
@@ -4575,7 +4575,7 @@
     "name": "斯廷博特（Steamboat）",
     "name_en": "北美",
     "region": "科罗拉多州",
-    "province": "科罗拉多州",
+    "province": "美国",
     "latitude": 40.4572,
     "longitude": -106.8045,
     "elevation_base": 2103,
@@ -4610,7 +4610,7 @@
     "name": "特柳赖德（Telluride）",
     "name_en": "北美",
     "region": "科罗拉多州",
-    "province": "科罗拉多州",
+    "province": "美国",
     "latitude": 37.9375,
     "longitude": -107.8123,
     "elevation_base": 2659,
@@ -4645,7 +4645,7 @@
     "name": "太阳谷（Sun Valley）",
     "name_en": "北美",
     "region": "爱达荷州",
-    "province": "爱达荷州",
+    "province": "美国",
     "latitude": 43.6975,
     "longitude": -114.3514,
     "elevation_base": 1752,
@@ -4680,7 +4680,7 @@
     "name": "斯托（Stowe）",
     "name_en": "北美",
     "region": "佛蒙特州",
-    "province": "佛蒙特州",
+    "province": "美国",
     "latitude": 44.5303,
     "longitude": -72.7814,
     "elevation_base": 620,
@@ -4715,7 +4715,7 @@
     "name": "基灵顿（Killington）",
     "name_en": "北美",
     "region": "佛蒙特州",
-    "province": "佛蒙特州",
+    "province": "美国",
     "latitude": 43.6045,
     "longitude": -72.7964,
     "elevation_base": 355,
@@ -4750,7 +4750,7 @@
     "name": "鹿谷（Deer Valley）",
     "name_en": "北美",
     "region": "犹他州",
-    "province": "犹他州",
+    "province": "美国",
     "latitude": 40.6374,
     "longitude": -111.4783,
     "elevation_base": 2003,
@@ -4786,7 +4786,7 @@
     "name": "雪鸟（Snowbird）",
     "name_en": "北美",
     "region": "犹他州",
-    "province": "犹他州",
+    "province": "美国",
     "latitude": 40.583,
     "longitude": -111.6508,
     "elevation_base": 2365,
@@ -4821,7 +4821,7 @@
     "name": "布雷肯里奇（Breckenridge）",
     "name_en": "北美",
     "region": "科罗拉多州",
-    "province": "科罗拉多州",
+    "province": "美国",
     "latitude": 39.4817,
     "longitude": -106.0384,
     "elevation_base": 2926,
@@ -4856,7 +4856,7 @@
     "name": "基斯通（Keystone）",
     "name_en": "北美",
     "region": "科罗拉多州",
-    "province": "科罗拉多州",
+    "province": "美国",
     "latitude": 39.6069,
     "longitude": -105.9497,
     "elevation_base": 2835,
@@ -4891,7 +4891,7 @@
     "name": "班夫/路易斯湖（Banff Sunshine & Lake Louise）",
     "name_en": "北美",
     "region": "艾伯塔省",
-    "province": "艾伯塔省",
+    "province": "加拿大",
     "latitude": 51.4254,
     "longitude": -116.1773,
     "elevation_base": 1646,
@@ -4927,7 +4927,7 @@
     "name": "雷夫尔斯托克（Revelstoke）",
     "name_en": "北美",
     "region": "不列颠哥伦比亚省",
-    "province": "不列颠哥伦比亚省",
+    "province": "加拿大",
     "latitude": 51.0275,
     "longitude": -118.1614,
     "elevation_base": 512,
@@ -4962,7 +4962,7 @@
     "name": "太阳峰（Sun Peaks）",
     "name_en": "北美",
     "region": "不列颠哥伦比亚省",
-    "province": "不列颠哥伦比亚省",
+    "province": "加拿大",
     "latitude": 50.8837,
     "longitude": -119.9003,
     "elevation_base": 1255,
@@ -4997,7 +4997,7 @@
     "name": "蒙特朗布朗（Mont-Tremblant）",
     "name_en": "北美",
     "region": "魁北克省",
-    "province": "魁北克省",
+    "province": "加拿大",
     "latitude": 46.2145,
     "longitude": -74.5853,
     "elevation_base": 230,
@@ -5032,7 +5032,7 @@
     "name": "夏洛瓦（Le Massif）",
     "name_en": "北美",
     "region": "魁北克省",
-    "province": "魁北克省",
+    "province": "加拿大",
     "latitude": 47.2778,
     "longitude": -70.6136,
     "elevation_base": 36,
@@ -5067,7 +5067,7 @@
     "name": "瓦列内瓦多（Valle Nevado）",
     "name_en": "南半球",
     "region": "圣地亚哥大区",
-    "province": "圣地亚哥大区",
+    "province": "智利",
     "latitude": -33.356,
     "longitude": -70.2465,
     "elevation_base": 2860,
@@ -5102,7 +5102,7 @@
     "name": "波蒂略（Portillo）",
     "name_en": "南半球",
     "region": "瓦尔帕莱索大区",
-    "province": "瓦尔帕莱索大区",
+    "province": "智利",
     "latitude": -32.837,
     "longitude": -70.127,
     "elevation_base": 2548,
@@ -5138,7 +5138,7 @@
     "name": "大教堂山（Cerro Catedral）",
     "name_en": "南半球",
     "region": "内格罗河省",
-    "province": "内格罗河省",
+    "province": "阿根廷",
     "latitude": -41.165,
     "longitude": -71.443,
     "elevation_base": 1030,
@@ -5173,7 +5173,7 @@
     "name": "拉斯莱尼亚斯（Las Leñas）",
     "name_en": "南半球",
     "region": "门多萨省",
-    "province": "门多萨省",
+    "province": "阿根廷",
     "latitude": -35.1623,
     "longitude": -70.0679,
     "elevation_base": 2240,
@@ -6049,7 +6049,7 @@
     "name": "Kiroro Snow World",
     "name_en": "日本",
     "region": "北海道",
-    "province": "北海道",
+    "province": "日本",
     "latitude": 42.92,
     "longitude": 140.77,
     "elevation_base": 396,
@@ -6084,7 +6084,7 @@
     "name": "野泽温泉（Nozawa Onsen）",
     "name_en": "日本",
     "region": "长野",
-    "province": "长野",
+    "province": "日本",
     "latitude": 36.92,
     "longitude": 138.44,
     "elevation_base": 565,
@@ -6785,7 +6785,7 @@
     "name": "斑尾高原（Madarao）",
     "name_en": "日本",
     "region": "长野",
-    "province": "长野",
+    "province": "日本",
     "latitude": 36.87,
     "longitude": 138.12,
     "elevation_base": 1080,
@@ -6820,7 +6820,7 @@
     "name": "藏王温泉（Zao Onsen）",
     "name_en": "日本",
     "region": "山形",
-    "province": "山形",
+    "province": "日本",
     "latitude": 38.15,
     "longitude": 140.42,
     "elevation_base": 740,
@@ -9552,7 +9552,7 @@
     "name": "神立高原",
     "name_en": "日本",
     "region": "新潟县",
-    "province": "新潟县",
+    "province": "日本",
     "latitude": 37.13,
     "longitude": 138.85,
     "elevation_base": 400,
@@ -9586,7 +9586,7 @@
     "name": "岩井岳",
     "name_en": "日本",
     "region": "青森县",
-    "province": "青森县",
+    "province": "日本",
     "latitude": 40.57,
     "longitude": 140.45,
     "elevation_base": 200,
@@ -9620,7 +9620,7 @@
     "name": "八甲田",
     "name_en": "日本",
     "region": "青森县",
-    "province": "青森县",
+    "province": "日本",
     "latitude": 40.65,
     "longitude": 140.85,
     "elevation_base": 300,
@@ -9654,7 +9654,7 @@
     "name": "安比高原",
     "name_en": "日本",
     "region": "岩手县",
-    "province": "岩手县",
+    "province": "日本",
     "latitude": 39.98,
     "longitude": 140.95,
     "elevation_base": 400,
@@ -9688,7 +9688,7 @@
     "name": "雫石",
     "name_en": "日本",
     "region": "岩手县",
-    "province": "岩手县",
+    "province": "日本",
     "latitude": 39.7,
     "longitude": 140.98,
     "elevation_base": 400,
@@ -9721,7 +9721,7 @@
     "name": "万座温泉",
     "name_en": "日本",
     "region": "群马县",
-    "province": "群马县",
+    "province": "日本",
     "latitude": 36.62,
     "longitude": 138.5,
     "elevation_base": 1400,
@@ -9755,7 +9755,7 @@
     "name": "草津国际",
     "name_en": "日本",
     "region": "群马县",
-    "province": "群马县",
+    "province": "日本",
     "latitude": 36.63,
     "longitude": 138.58,
     "elevation_base": 1200,
@@ -9788,7 +9788,7 @@
     "name": "白马栂池",
     "name_en": "日本",
     "region": "长野县",
-    "province": "长野县",
+    "province": "日本",
     "latitude": 36.72,
     "longitude": 137.85,
     "elevation_base": 1100,
@@ -9822,7 +9822,7 @@
     "name": "白马五龙",
     "name_en": "日本",
     "region": "长野县",
-    "province": "长野县",
+    "province": "日本",
     "latitude": 36.7,
     "longitude": 137.83,
     "elevation_base": 900,
@@ -9855,7 +9855,7 @@
     "name": "木岛平",
     "name_en": "日本",
     "region": "长野县",
-    "province": "长野县",
+    "province": "日本",
     "latitude": 36.78,
     "longitude": 138.35,
     "elevation_base": 600,
@@ -9889,7 +9889,7 @@
     "name": "黑姬高原",
     "name_en": "日本",
     "region": "长野县",
-    "province": "长野县",
+    "province": "日本",
     "latitude": 36.85,
     "longitude": 138.25,
     "elevation_base": 650,
@@ -9922,7 +9922,7 @@
     "name": "轻井泽王子",
     "name_en": "日本",
     "region": "长野县",
-    "province": "长野县",
+    "province": "日本",
     "latitude": 36.33,
     "longitude": 138.62,
     "elevation_base": 900,
@@ -9956,7 +9956,7 @@
     "name": "富士见全景",
     "name_en": "日本",
     "region": "长野县",
-    "province": "长野县",
+    "province": "日本",
     "latitude": 36.0,
     "longitude": 138.37,
     "elevation_base": 1000,
@@ -10428,7 +10428,7 @@
     "name": "留寿都",
     "name_en": "日本",
     "region": "北海道",
-    "province": "北海道",
+    "province": "日本",
     "latitude": 42.7,
     "longitude": 140.7,
     "elevation_base": 500,
@@ -10462,7 +10462,7 @@
     "name": "新雪谷Hanakura",
     "name_en": "日本",
     "region": "北海道",
-    "province": "北海道",
+    "province": "日本",
     "latitude": 42.82,
     "longitude": 140.73,
     "elevation_base": 300,
@@ -16019,7 +16019,7 @@
     "name": "张掖大湖湾滑雪场",
     "name_en": "Dahuwan Ski Resort",
     "region": "甘肃",
-    "province": "张掖",
+    "province": "甘肃",
     "latitude": 38.92,
     "longitude": 100.45,
     "elevation_base": 1400,
@@ -16083,7 +16083,7 @@
     "name": "平凉崆峒山滑雪场",
     "name_en": "Kongtong Mountain Ski Resort",
     "region": "甘肃",
-    "province": "平凉",
+    "province": "甘肃",
     "latitude": 35.55,
     "longitude": 106.52,
     "elevation_base": 1500,
@@ -16115,7 +16115,7 @@
     "name": "甘南当周草原滑雪场",
     "name_en": "Dangzhou Grassland Ski Resort",
     "region": "甘肃",
-    "province": "甘南",
+    "province": "甘肃",
     "latitude": 34.98,
     "longitude": 102.92,
     "elevation_base": 2800,
@@ -16711,7 +16711,7 @@
     "name": "长治太行山大峡谷滑雪场",
     "name_en": "Taihang Grand Canyon Ski Resort",
     "region": "山西",
-    "province": "长治",
+    "province": "山西",
     "latitude": 36.12,
     "longitude": 113.05,
     "elevation_base": 1200,
@@ -16775,7 +16775,7 @@
     "name": "临汾壶口瀑布滑雪场",
     "name_en": "Hukou Waterfall Ski Resort",
     "region": "山西",
-    "province": "临汾",
+    "province": "山西",
     "latitude": 36.25,
     "longitude": 110.72,
     "elevation_base": 600,
@@ -17400,7 +17400,7 @@
     "name": "常州冰雪世界",
     "name_en": "Changzhou Ice Snow World",
     "region": "江苏",
-    "province": "常州",
+    "province": "江苏",
     "latitude": 31.82,
     "longitude": 119.98,
     "elevation_base": 0,
@@ -17523,7 +17523,7 @@
     "name": "温州冰雪乐园",
     "name_en": "Wenzhou Ice Snow Paradise",
     "region": "浙江",
-    "province": "温州",
+    "province": "浙江",
     "latitude": 28.02,
     "longitude": 120.72,
     "elevation_base": 0,
@@ -17728,7 +17728,7 @@
     "name": "中山冰雪乐园",
     "name_en": "Zhongshan Ice Snow Paradise",
     "region": "广东",
-    "province": "中山",
+    "province": "广东",
     "latitude": 22.52,
     "longitude": 113.38,
     "elevation_base": 0,
@@ -18470,7 +18470,7 @@
     "name": "白城查干湖滑雪场",
     "name_en": "Chagan Lake Ski Resort",
     "region": "吉林",
-    "province": "白城",
+    "province": "吉林",
     "latitude": 45.12,
     "longitude": 124.35,
     "elevation_base": 150,
@@ -18502,7 +18502,7 @@
     "name": "松原查干湖冰雪乐园",
     "name_en": "Chagan Lake Ice Snow Paradise",
     "region": "吉林",
-    "province": "松原",
+    "province": "吉林",
     "latitude": 45.18,
     "longitude": 124.85,
     "elevation_base": 150,
@@ -23102,5 +23102,7393 @@
     ],
     "snow_type": "人工造雪+天然",
     "is_indoor": false
+  },
+  "北海道留寿都滑雪场": {
+    "name": "北海道留寿都滑雪场",
+    "name_en": "Rusutsu Ski Resort",
+    "region": "日本",
+    "province": "日本",
+    "latitude": 42.72,
+    "longitude": 140.85,
+    "elevation_base": 500,
+    "elevation_top": 940,
+    "vertical_drop": 440,
+    "area_skiable": 55,
+    "trails_total": 35,
+    "ticket_price": [
+      3500,
+      6500
+    ],
+    "hotel_nearby": "留寿都度假区",
+    "transport": "新千岁机场巴士约2h",
+    "food": "拉面、居酒屋、酒店餐厅",
+    "features": [
+      "粉雪天堂",
+      "三个相连雪场",
+      "树雪景观"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然粉雪",
+    "is_indoor": false
+  },
+  "北海道新雪谷Annupuri": {
+    "name": "北海道新雪谷Annupuri",
+    "name_en": "Niseko Annupuri",
+    "region": "日本",
+    "province": "日本",
+    "latitude": 42.82,
+    "longitude": 140.72,
+    "elevation_base": 260,
+    "elevation_top": 980,
+    "vertical_drop": 720,
+    "area_skiable": 80,
+    "trails_total": 30,
+    "ticket_price": [
+      4000,
+      7500
+    ],
+    "hotel_nearby": "新雪谷村",
+    "transport": "新千岁机场巴士约2.5h",
+    "food": "汤咖喱、拉面、居酒屋",
+    "features": [
+      "粉雪",
+      "Backcountry",
+      "温泉"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然粉雪",
+    "is_indoor": false
+  },
+  "北海道新雪谷Grand Hirafu": {
+    "name": "北海道新雪谷Grand Hirafu",
+    "name_en": "Niseko Grand Hirafu",
+    "region": "日本",
+    "province": "日本",
+    "latitude": 42.8,
+    "longitude": 140.68,
+    "elevation_base": 300,
+    "elevation_top": 950,
+    "vertical_drop": 650,
+    "area_skiable": 90,
+    "trails_total": 40,
+    "ticket_price": [
+      4500,
+      8000
+    ],
+    "hotel_nearby": "新雪谷村",
+    "transport": "新千岁机场巴士约2.5h",
+    "food": "汤咖喱、拉面、居酒屋",
+    "features": [
+      "最大雪场",
+      "夜滑",
+      "粉雪"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然粉雪",
+    "is_indoor": false
+  },
+  "北海道新雪谷Village": {
+    "name": "北海道新雪谷Village",
+    "name_en": "Niseko Village",
+    "region": "日本",
+    "province": "日本",
+    "latitude": 42.78,
+    "longitude": 140.7,
+    "elevation_base": 280,
+    "elevation_top": 900,
+    "vertical_drop": 620,
+    "area_skiable": 60,
+    "trails_total": 25,
+    "ticket_price": [
+      3500,
+      7000
+    ],
+    "hotel_nearby": "新雪谷村",
+    "transport": "新千岁机场巴士约2.5h",
+    "food": "汤咖喱、拉面、居酒屋",
+    "features": [
+      "家庭友好",
+      "粉雪",
+      "温泉"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然粉雪",
+    "is_indoor": false
+  },
+  "北海道新雪谷Hanonoki": {
+    "name": "北海道新雪谷Hanonoki",
+    "name_en": "Niseko Hanazono",
+    "region": "日本",
+    "province": "日本",
+    "latitude": 42.77,
+    "longitude": 140.65,
+    "elevation_base": 350,
+    "elevation_top": 920,
+    "vertical_drop": 570,
+    "area_skiable": 40,
+    "trails_total": 15,
+    "ticket_price": [
+      3000,
+      6000
+    ],
+    "hotel_nearby": "新雪谷村",
+    "transport": "新千岁机场巴士约2.5h",
+    "food": "拉面、居酒屋",
+    "features": [
+      "新雪场",
+      "粉雪",
+      "人少"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然粉雪",
+    "is_indoor": false
+  },
+  "北海道富良野滑雪场": {
+    "name": "北海道富良野滑雪场",
+    "name_en": "Furano Ski Resort",
+    "region": "日本",
+    "province": "日本",
+    "latitude": 43.35,
+    "longitude": 142.38,
+    "elevation_base": 250,
+    "elevation_top": 950,
+    "vertical_drop": 700,
+    "area_skiable": 65,
+    "trails_total": 28,
+    "ticket_price": [
+      3500,
+      6500
+    ],
+    "hotel_nearby": "富良野市",
+    "transport": "新千岁机场火车约2.5h",
+    "food": "咖喱、拉面、成吉思汗烤肉",
+    "features": [
+      "粉雪",
+      "奥运场地",
+      "全景"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然粉雪",
+    "is_indoor": false
+  },
+  "北海道札幌国际滑雪场": {
+    "name": "北海道札幌国际滑雪场",
+    "name_en": "Sapporo Kokusai Ski Resort",
+    "region": "日本",
+    "province": "日本",
+    "latitude": 42.95,
+    "longitude": 141.12,
+    "elevation_base": 400,
+    "elevation_top": 1000,
+    "vertical_drop": 600,
+    "area_skiable": 50,
+    "trails_total": 22,
+    "ticket_price": [
+      3000,
+      5500
+    ],
+    "hotel_nearby": "札幌市",
+    "transport": "札幌市区巴士约1h",
+    "food": "拉面、居酒屋、寿司",
+    "features": [
+      "札幌最近",
+      "夜滑",
+      "粉雪"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然粉雪",
+    "is_indoor": false
+  },
+  "北海道札幌藻岩山滑雪场": {
+    "name": "北海道札幌藻岩山滑雪场",
+    "name_en": "Sapporo Moiwa Ski Resort",
+    "region": "日本",
+    "province": "日本",
+    "latitude": 43.02,
+    "longitude": 141.32,
+    "elevation_base": 100,
+    "elevation_top": 530,
+    "vertical_drop": 430,
+    "area_skiable": 20,
+    "trails_total": 10,
+    "ticket_price": [
+      2500,
+      4500
+    ],
+    "hotel_nearby": "札幌市",
+    "transport": "札幌市区缆车约20min",
+    "food": "拉面、居酒屋",
+    "features": [
+      "城市滑雪",
+      "夜景",
+      "交通便利"
+    ],
+    "best_months": [
+      12,
+      1,
+      2
+    ],
+    "snow_type": "天然粉雪",
+    "is_indoor": false
+  },
+  "北海道Kiroro滑雪场": {
+    "name": "北海道Kiroro滑雪场",
+    "name_en": "Kiroro Snow World",
+    "region": "日本",
+    "province": "日本",
+    "latitude": 42.92,
+    "longitude": 140.92,
+    "elevation_base": 200,
+    "elevation_top": 800,
+    "vertical_drop": 600,
+    "area_skiable": 60,
+    "trails_total": 24,
+    "ticket_price": [
+      4000,
+      7000
+    ],
+    "hotel_nearby": "余市郡",
+    "transport": "新千岁机场巴士约2h",
+    "food": "拉面、居酒屋、酒店餐厅",
+    "features": [
+      "最多降雪量",
+      "粉雪",
+      "Club Med"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然粉雪",
+    "is_indoor": false
+  },
+  "北海道Teine滑雪场": {
+    "name": "北海道Teine滑雪场",
+    "name_en": "Sapporo Teine Ski Resort",
+    "region": "日本",
+    "province": "日本",
+    "latitude": 43.08,
+    "longitude": 141.18,
+    "elevation_base": 300,
+    "elevation_top": 1020,
+    "vertical_drop": 720,
+    "area_skiable": 45,
+    "trails_total": 20,
+    "ticket_price": [
+      3000,
+      5500
+    ],
+    "hotel_nearby": "札幌市",
+    "transport": "札幌市区巴士约40min",
+    "food": "拉面、居酒屋",
+    "features": [
+      "地形公园",
+      "陡坡",
+      "奥运场地"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然粉雪",
+    "is_indoor": false
+  },
+  "北海道Ezo滑雪场": {
+    "name": "北海道Ezo滑雪场",
+    "name_en": "Ezo Ski Resort",
+    "region": "日本",
+    "province": "日本",
+    "latitude": 43.55,
+    "longitude": 142.15,
+    "elevation_base": 200,
+    "elevation_top": 600,
+    "vertical_drop": 400,
+    "area_skiable": 30,
+    "trails_total": 12,
+    "ticket_price": [
+      2500,
+      4500
+    ],
+    "hotel_nearby": "旭川市",
+    "transport": "旭川巴士约40min",
+    "food": "拉面、成吉思汗烤肉",
+    "features": [
+      "家庭友好",
+      "粉雪",
+      "人少"
+    ],
+    "best_months": [
+      12,
+      1,
+      2
+    ],
+    "snow_type": "天然粉雪",
+    "is_indoor": false
+  },
+  "北海道Tomamu滑雪场": {
+    "name": "北海道Tomamu滑雪场",
+    "name_en": "Tomamu Ski Resort",
+    "region": "日本",
+    "province": "日本",
+    "latitude": 43.12,
+    "longitude": 142.25,
+    "elevation_base": 300,
+    "elevation_top": 750,
+    "vertical_drop": 450,
+    "area_skiable": 50,
+    "trails_total": 20,
+    "ticket_price": [
+      3500,
+      6500
+    ],
+    "hotel_nearby": "占冠村",
+    "transport": "新千岁机场火车约1.5h",
+    "food": "酒店餐厅、拉面、居酒屋",
+    "features": [
+      "Club Med",
+      "冰之教堂",
+      "雾冰"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然粉雪",
+    "is_indoor": false
+  },
+  "北海道Sahoro滑雪场": {
+    "name": "北海道Sahoro滑雪场",
+    "name_en": "Sahoro Ski Resort",
+    "region": "日本",
+    "province": "日本",
+    "latitude": 43.18,
+    "longitude": 142.85,
+    "elevation_base": 300,
+    "elevation_top": 650,
+    "vertical_drop": 350,
+    "area_skiable": 40,
+    "trails_total": 15,
+    "ticket_price": [
+      2500,
+      4500
+    ],
+    "hotel_nearby": "新得町",
+    "transport": "带广巴士约40min",
+    "food": "拉面、居酒屋、酒店餐厅",
+    "features": [
+      "家庭友好",
+      "粉雪",
+      "温泉"
+    ],
+    "best_months": [
+      12,
+      1,
+      2
+    ],
+    "snow_type": "天然粉雪",
+    "is_indoor": false
+  },
+  "北海道Kamui滑雪场": {
+    "name": "北海道Kamui滑雪场",
+    "name_en": "Kamui Ski Resort",
+    "region": "日本",
+    "province": "日本",
+    "latitude": 44.05,
+    "longitude": 142.52,
+    "elevation_base": 200,
+    "elevation_top": 500,
+    "vertical_drop": 300,
+    "area_skiable": 25,
+    "trails_total": 10,
+    "ticket_price": [
+      2000,
+      3500
+    ],
+    "hotel_nearby": "旭川市",
+    "transport": "旭川巴士约30min",
+    "food": "拉面、居酒屋",
+    "features": [
+      "家庭友好",
+      "夜滑",
+      "人少"
+    ],
+    "best_months": [
+      12,
+      1,
+      2
+    ],
+    "snow_type": "天然粉雪",
+    "is_indoor": false
+  },
+  "北海道Pokeetto滑雪场": {
+    "name": "北海道Pokeetto滑雪场",
+    "name_en": "Pokeetto Ski Resort",
+    "region": "日本",
+    "province": "日本",
+    "latitude": 43.65,
+    "longitude": 142.18,
+    "elevation_base": 200,
+    "elevation_top": 450,
+    "vertical_drop": 250,
+    "area_skiable": 20,
+    "trails_total": 8,
+    "ticket_price": [
+      2000,
+      3500
+    ],
+    "hotel_nearby": "士别市",
+    "transport": "旭川巴士约1h",
+    "food": "拉面、居酒屋",
+    "features": [
+      "小型雪场",
+      "家庭",
+      "人少"
+    ],
+    "best_months": [
+      12,
+      1,
+      2
+    ],
+    "snow_type": "天然粉雪",
+    "is_indoor": false
+  },
+  "长野白马Cortina滑雪场": {
+    "name": "长野白马Cortina滑雪场",
+    "name_en": "Hakuba Cortina Snow Resort",
+    "region": "日本",
+    "province": "日本",
+    "latitude": 36.72,
+    "longitude": 137.85,
+    "elevation_base": 760,
+    "elevation_top": 1304,
+    "vertical_drop": 544,
+    "area_skiable": 55,
+    "trails_total": 25,
+    "ticket_price": [
+      4000,
+      7000
+    ],
+    "hotel_nearby": "白马村",
+    "transport": "长野站巴士约1h",
+    "food": "拉面、居酒屋、荞麦面",
+    "features": [
+      "陡坡",
+      "粉雪",
+      "奥运场地"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "长野白马47滑雪场": {
+    "name": "长野白马47滑雪场",
+    "name_en": "Hakuba 47 Winter Park",
+    "region": "日本",
+    "province": "日本",
+    "latitude": 36.7,
+    "longitude": 137.82,
+    "elevation_base": 800,
+    "elevation_top": 1350,
+    "vertical_drop": 550,
+    "area_skiable": 45,
+    "trails_total": 20,
+    "ticket_price": [
+      3500,
+      6500
+    ],
+    "hotel_nearby": "白马村",
+    "transport": "长野站巴士约1h",
+    "food": "拉面、居酒屋",
+    "features": [
+      "地形公园",
+      "粉雪",
+      "Backcountry"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "长野白马栂池滑雪场": {
+    "name": "长野白马栂池滑雪场",
+    "name_en": "Hakuba Tsugaike Ski Resort",
+    "region": "日本",
+    "province": "日本",
+    "latitude": 36.75,
+    "longitude": 137.88,
+    "elevation_base": 830,
+    "elevation_top": 1500,
+    "vertical_drop": 670,
+    "area_skiable": 60,
+    "trails_total": 28,
+    "ticket_price": [
+      4000,
+      7500
+    ],
+    "hotel_nearby": "白马村",
+    "transport": "长野站巴士约1h",
+    "food": "拉面、居酒屋、荞麦面",
+    "features": [
+      "最高海拔",
+      "Backcountry",
+      "全景"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "长野白马岩岳滑雪场": {
+    "name": "长野白马岩岳滑雪场",
+    "name_en": "Hakuba Iwatake Ski Resort",
+    "region": "日本",
+    "province": "日本",
+    "latitude": 36.68,
+    "longitude": 137.8,
+    "elevation_base": 760,
+    "elevation_top": 1200,
+    "vertical_drop": 440,
+    "area_skiable": 40,
+    "trails_total": 18,
+    "ticket_price": [
+      3000,
+      5500
+    ],
+    "hotel_nearby": "白马村",
+    "transport": "长野站巴士约1h",
+    "food": "拉面、居酒屋",
+    "features": [
+      "家庭友好",
+      "夜景",
+      "粉雪"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "长野白马五龙滑雪场": {
+    "name": "长野白马五龙滑雪场",
+    "name_en": "Hakuba Goryu Ski Resort",
+    "region": "日本",
+    "province": "日本",
+    "latitude": 36.72,
+    "longitude": 137.84,
+    "elevation_base": 760,
+    "elevation_top": 1300,
+    "vertical_drop": 540,
+    "area_skiable": 50,
+    "trails_total": 22,
+    "ticket_price": [
+      3500,
+      6500
+    ],
+    "hotel_nearby": "白马村",
+    "transport": "长野站巴士约1h",
+    "food": "拉面、居酒屋、荞麦面",
+    "features": [
+      "温泉",
+      "粉雪",
+      "家庭"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "长野白马八方尾根滑雪场": {
+    "name": "长野白马八方尾根滑雪场",
+    "name_en": "Hakuba Happo-one Ski Resort",
+    "region": "日本",
+    "province": "日本",
+    "latitude": 36.73,
+    "longitude": 137.86,
+    "elevation_base": 760,
+    "elevation_top": 1600,
+    "vertical_drop": 840,
+    "area_skiable": 70,
+    "trails_total": 32,
+    "ticket_price": [
+      4500,
+      8000
+    ],
+    "hotel_nearby": "白马村",
+    "transport": "长野站巴士约1h",
+    "food": "拉面、居酒屋、荞麦面",
+    "features": [
+      "白马最大",
+      "奥运场地",
+      "粉雪"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "长野志贺高原滑雪场": {
+    "name": "长野志贺高原滑雪场",
+    "name_en": "Shiga Kogen Ski Resort",
+    "region": "日本",
+    "province": "日本",
+    "latitude": 36.72,
+    "longitude": 138.52,
+    "elevation_base": 1400,
+    "elevation_top": 2307,
+    "vertical_drop": 907,
+    "area_skiable": 120,
+    "trails_total": 60,
+    "ticket_price": [
+      3500,
+      6500
+    ],
+    "hotel_nearby": "山之内町",
+    "transport": "长野站巴士约1.5h",
+    "food": "拉面、居酒屋、荞麦面",
+    "features": [
+      "日本最大连通雪场",
+      "粉雪",
+      "温泉乡"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "长野野泽温泉滑雪场": {
+    "name": "长野野泽温泉滑雪场",
+    "name_en": "Nozawa Onsen Ski Resort",
+    "region": "日本",
+    "province": "日本",
+    "latitude": 36.92,
+    "longitude": 138.45,
+    "elevation_base": 565,
+    "elevation_top": 1625,
+    "vertical_drop": 1060,
+    "area_skiable": 80,
+    "trails_total": 35,
+    "ticket_price": [
+      3500,
+      6500
+    ],
+    "hotel_nearby": "野泽温泉村",
+    "transport": "长野站巴士约1.5h",
+    "food": "拉面、居酒屋、温泉旅馆",
+    "features": [
+      "温泉滑雪",
+      "粉雪",
+      "传统村落"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "长野黑斑山滑雪场": {
+    "name": "长野黑斑山滑雪场",
+    "name_en": "Mt. Kurohime Ski Resort",
+    "region": "日本",
+    "province": "日本",
+    "latitude": 36.62,
+    "longitude": 138.55,
+    "elevation_base": 1100,
+    "elevation_top": 2000,
+    "vertical_drop": 900,
+    "area_skiable": 50,
+    "trails_total": 20,
+    "ticket_price": [
+      3000,
+      5500
+    ],
+    "hotel_nearby": "轻井泽",
+    "transport": "轻井泽巴士约1h",
+    "food": "拉面、居酒屋、荞麦面",
+    "features": [
+      "火山地貌",
+      "粉雪",
+      "轻井泽附近"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "长野斑尾高原滑雪场": {
+    "name": "长野斑尾高原滑雪场",
+    "name_en": "Madarao Kogen Ski Resort",
+    "region": "日本",
+    "province": "日本",
+    "latitude": 36.88,
+    "longitude": 138.22,
+    "elevation_base": 400,
+    "elevation_top": 1000,
+    "vertical_drop": 600,
+    "area_skiable": 40,
+    "trails_total": 18,
+    "ticket_price": [
+      2500,
+      4500
+    ],
+    "hotel_nearby": "饭山市",
+    "transport": "长野站巴士约1h",
+    "food": "拉面、居酒屋、荞麦面",
+    "features": [
+      "粉雪",
+      "Backcountry",
+      "人少"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "长野木岛平滑雪场": {
+    "name": "长野木岛平滑雪场",
+    "name_en": "Kijimadaira Ski Resort",
+    "region": "日本",
+    "province": "日本",
+    "latitude": 36.85,
+    "longitude": 138.35,
+    "elevation_base": 500,
+    "elevation_top": 1100,
+    "vertical_drop": 600,
+    "area_skiable": 35,
+    "trails_total": 15,
+    "ticket_price": [
+      2500,
+      4000
+    ],
+    "hotel_nearby": "木岛平村",
+    "transport": "长野站巴士约1.5h",
+    "food": "拉面、居酒屋",
+    "features": [
+      "家庭友好",
+      "粉雪",
+      "人少"
+    ],
+    "best_months": [
+      12,
+      1,
+      2
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "长野饭山滑雪场": {
+    "name": "长野饭山滑雪场",
+    "name_en": "Iiyama Ski Resort",
+    "region": "日本",
+    "province": "日本",
+    "latitude": 36.85,
+    "longitude": 138.42,
+    "elevation_base": 450,
+    "elevation_top": 900,
+    "vertical_drop": 450,
+    "area_skiable": 30,
+    "trails_total": 12,
+    "ticket_price": [
+      2000,
+      3500
+    ],
+    "hotel_nearby": "饭山市",
+    "transport": "长野站巴士约1h",
+    "food": "拉面、居酒屋、荞麦面",
+    "features": [
+      "家庭",
+      "夜滑",
+      "人少"
+    ],
+    "best_months": [
+      12,
+      1,
+      2
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "新潟汤泽高原滑雪场": {
+    "name": "新潟汤泽高原滑雪场",
+    "name_en": "Yuzawa Kogen Ski Resort",
+    "region": "日本",
+    "province": "日本",
+    "latitude": 36.92,
+    "longitude": 138.85,
+    "elevation_base": 400,
+    "elevation_top": 1000,
+    "vertical_drop": 600,
+    "area_skiable": 45,
+    "trails_total": 20,
+    "ticket_price": [
+      3000,
+      5500
+    ],
+    "hotel_nearby": "汤泽町",
+    "transport": "东京新干线约1h",
+    "food": "拉面、居酒屋、寿司",
+    "features": [
+      "东京最近",
+      "粉雪",
+      "温泉"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "新潟GALA汤泽滑雪场": {
+    "name": "新潟GALA汤泽滑雪场",
+    "name_en": "GALA Yuzawa Ski Resort",
+    "region": "日本",
+    "province": "日本",
+    "latitude": 36.95,
+    "longitude": 138.88,
+    "elevation_base": 400,
+    "elevation_top": 950,
+    "vertical_drop": 550,
+    "area_skiable": 40,
+    "trails_total": 18,
+    "ticket_price": [
+      3500,
+      6000
+    ],
+    "hotel_nearby": "汤泽町",
+    "transport": "东京新干线直达约1h",
+    "food": "拉面、居酒屋、酒店餐厅",
+    "features": [
+      "新干线直达",
+      "粉雪",
+      "温泉"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "新潟神乐滑雪场": {
+    "name": "新潟神乐滑雪场",
+    "name_en": "Kagura Ski Resort",
+    "region": "日本",
+    "province": "日本",
+    "latitude": 36.85,
+    "longitude": 138.92,
+    "elevation_base": 300,
+    "elevation_top": 1200,
+    "vertical_drop": 900,
+    "area_skiable": 60,
+    "trails_total": 25,
+    "ticket_price": [
+      3500,
+      6000
+    ],
+    "hotel_nearby": "汤泽町",
+    "transport": "东京新干线+巴士约1.5h",
+    "food": "拉面、居酒屋",
+    "features": [
+      "超长雪季",
+      "粉雪",
+      "冰川滑雪"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "新潟岩原滑雪场": {
+    "name": "新潟岩原滑雪场",
+    "name_en": "Iwappara Ski Resort",
+    "region": "日本",
+    "province": "日本",
+    "latitude": 36.9,
+    "longitude": 138.82,
+    "elevation_base": 350,
+    "elevation_top": 800,
+    "vertical_drop": 450,
+    "area_skiable": 35,
+    "trails_total": 15,
+    "ticket_price": [
+      2500,
+      4500
+    ],
+    "hotel_nearby": "汤泽町",
+    "transport": "东京新干线约1h",
+    "food": "拉面、居酒屋、温泉旅馆",
+    "features": [
+      "家庭友好",
+      "粉雪",
+      "温泉"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "新潟舞子滑雪场": {
+    "name": "新潟舞子滑雪场",
+    "name_en": "Maiko Ski Resort",
+    "region": "日本",
+    "province": "日本",
+    "latitude": 37.05,
+    "longitude": 138.78,
+    "elevation_base": 300,
+    "elevation_top": 700,
+    "vertical_drop": 400,
+    "area_skiable": 30,
+    "trails_total": 12,
+    "ticket_price": [
+      2500,
+      4500
+    ],
+    "hotel_nearby": "汤泽町",
+    "transport": "东京新干线约1h",
+    "food": "拉面、居酒屋",
+    "features": [
+      "家庭",
+      "夜滑",
+      "人少"
+    ],
+    "best_months": [
+      12,
+      1,
+      2
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "法国Courchevel滑雪场": {
+    "name": "法国Courchevel滑雪场",
+    "name_en": "Courchevel Ski Resort",
+    "region": "法国",
+    "province": "法国",
+    "latitude": 45.42,
+    "longitude": 6.63,
+    "elevation_base": 1300,
+    "elevation_top": 2738,
+    "vertical_drop": 1438,
+    "area_skiable": 150,
+    "trails_total": 110,
+    "ticket_price": [
+      5500,
+      8500
+    ],
+    "hotel_nearby": "库尔舍瓦勒",
+    "transport": "日内瓦/里昂巴士约2.5h",
+    "food": "法餐、奶酪火锅、可丽饼",
+    "features": [
+      "三山谷最大",
+      "奢华",
+      "奥运场地"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "法国Meribel滑雪场": {
+    "name": "法国Meribel滑雪场",
+    "name_en": "Meribel Ski Resort",
+    "region": "法国",
+    "province": "法国",
+    "latitude": 45.4,
+    "longitude": 6.57,
+    "elevation_base": 1450,
+    "elevation_top": 2950,
+    "vertical_drop": 1500,
+    "area_skiable": 140,
+    "trails_total": 95,
+    "ticket_price": [
+      5000,
+      8000
+    ],
+    "hotel_nearby": "梅里贝尔",
+    "transport": "日内瓦/里昂巴士约2.5h",
+    "food": "法餐、奶酪火锅、可丽饼",
+    "features": [
+      "三山谷中心",
+      "家庭友好",
+      "粉雪"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "法国Val Thorens滑雪场": {
+    "name": "法国Val Thorens滑雪场",
+    "name_en": "Val Thorens Ski Resort",
+    "region": "法国",
+    "province": "法国",
+    "latitude": 45.3,
+    "longitude": 6.58,
+    "elevation_base": 2300,
+    "elevation_top": 3230,
+    "vertical_drop": 930,
+    "area_skiable": 130,
+    "trails_total": 85,
+    "ticket_price": [
+      5000,
+      8000
+    ],
+    "hotel_nearby": "瓦尔托伦斯",
+    "transport": "日内瓦/里昂巴士约3h",
+    "food": "法餐、奶酪火锅、可丽饼",
+    "features": [
+      "欧洲最高",
+      "雪季最长",
+      "冰川滑雪"
+    ],
+    "best_months": [
+      11,
+      12,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "法国La Plagne滑雪场": {
+    "name": "法国La Plagne滑雪场",
+    "name_en": "La Plagne Ski Resort",
+    "region": "法国",
+    "province": "法国",
+    "latitude": 45.52,
+    "longitude": 6.68,
+    "elevation_base": 1250,
+    "elevation_top": 3250,
+    "vertical_drop": 2000,
+    "area_skiable": 160,
+    "trails_total": 130,
+    "ticket_price": [
+      4500,
+      7500
+    ],
+    "hotel_nearby": "拉普拉涅",
+    "transport": "日内瓦巴士约2.5h",
+    "food": "法餐、奶酪火锅、可丽饼",
+    "features": [
+      "Paradiski",
+      "冰川滑雪",
+      "多样地形"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "法国Les Arcs滑雪场": {
+    "name": "法国Les Arcs滑雪场",
+    "name_en": "Les Arcs Ski Resort",
+    "region": "法国",
+    "province": "法国",
+    "latitude": 45.57,
+    "longitude": 6.8,
+    "elevation_base": 1600,
+    "elevation_top": 3226,
+    "vertical_drop": 1626,
+    "area_skiable": 140,
+    "trails_total": 110,
+    "ticket_price": [
+      4500,
+      7500
+    ],
+    "hotel_nearby": "莱扎克",
+    "transport": "日内瓦巴士约2.5h",
+    "food": "法餐、奶酪火锅、可丽饼",
+    "features": [
+      "Paradiski",
+      "陡坡",
+      "全景"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "法国Tignes滑雪场": {
+    "name": "法国Tignes滑雪场",
+    "name_en": "Tignes Ski Resort",
+    "region": "法国",
+    "province": "法国",
+    "latitude": 45.47,
+    "longitude": 6.9,
+    "elevation_base": 1550,
+    "elevation_top": 3456,
+    "vertical_drop": 1906,
+    "area_skiable": 150,
+    "trails_total": 80,
+    "ticket_price": [
+      5000,
+      8000
+    ],
+    "hotel_nearby": "蒂涅",
+    "transport": "日内瓦巴士约3h",
+    "food": "法餐、奶酪火锅、可丽饼",
+    "features": [
+      "冰川滑雪",
+      "全年滑雪",
+      "高海拔"
+    ],
+    "best_months": [
+      11,
+      12,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "法国Val d'Isere滑雪场": {
+    "name": "法国Val d'Isere滑雪场",
+    "name_en": "Val d'Isere Ski Resort",
+    "region": "法国",
+    "province": "法国",
+    "latitude": 45.45,
+    "longitude": 6.98,
+    "elevation_base": 1550,
+    "elevation_top": 3456,
+    "vertical_drop": 1906,
+    "area_skiable": 150,
+    "trails_total": 90,
+    "ticket_price": [
+      5500,
+      8500
+    ],
+    "hotel_nearby": "瓦尔迪泽尔",
+    "transport": "日内瓦巴士约3h",
+    "food": "法餐、奶酪火锅、可丽饼",
+    "features": [
+      "Espace Killy",
+      "奢华",
+      "竞赛场地"
+    ],
+    "best_months": [
+      11,
+      12,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "法国Les Deux Alpes滑雪场": {
+    "name": "法国Les Deux Alpes滑雪场",
+    "name_en": "Les Deux Alpes Ski Resort",
+    "region": "法国",
+    "province": "法国",
+    "latitude": 45.02,
+    "longitude": 6.12,
+    "elevation_base": 1300,
+    "elevation_top": 3600,
+    "vertical_drop": 2300,
+    "area_skiable": 120,
+    "trails_total": 60,
+    "ticket_price": [
+      4000,
+      7000
+    ],
+    "hotel_nearby": "德乌阿尔普",
+    "transport": "格勒诺布尔巴士约2h",
+    "food": "法餐、奶酪火锅、可丽饼",
+    "features": [
+      "冰川滑雪",
+      "夏季滑雪",
+      "地形公园"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "法国Alpe d'Huez滑雪场": {
+    "name": "法国Alpe d'Huez滑雪场",
+    "name_en": "Alpe d'Huez Ski Resort",
+    "region": "法国",
+    "province": "法国",
+    "latitude": 45.08,
+    "longitude": 6.07,
+    "elevation_base": 1100,
+    "elevation_top": 3330,
+    "vertical_drop": 2230,
+    "area_skiable": 140,
+    "trails_total": 85,
+    "ticket_price": [
+      4500,
+      7500
+    ],
+    "hotel_nearby": "阿尔普迪埃",
+    "transport": "格勒诺布尔巴士约2h",
+    "food": "法餐、奶酪火锅、可丽饼",
+    "features": [
+      "阳光充足",
+      "全景",
+      "环法自行车赛段"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "法国Serre Chevalier滑雪场": {
+    "name": "法国Serre Chevalier滑雪场",
+    "name_en": "Serre Chevalier Ski Resort",
+    "region": "法国",
+    "province": "法国",
+    "latitude": 44.92,
+    "longitude": 6.55,
+    "elevation_base": 1200,
+    "elevation_top": 2800,
+    "vertical_drop": 1600,
+    "area_skiable": 100,
+    "trails_total": 60,
+    "ticket_price": [
+      3500,
+      6500
+    ],
+    "hotel_nearby": "塞尔舍瓦利耶",
+    "transport": "格勒诺布尔巴士约2.5h",
+    "food": "法餐、奶酪火锅、可丽饼",
+    "features": [
+      "阳光充足",
+      "森林滑雪",
+      "南法最大"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "法国La Rosiere滑雪场": {
+    "name": "法国La Rosiere滑雪场",
+    "name_en": "La Rosiere Ski Resort",
+    "region": "法国",
+    "province": "法国",
+    "latitude": 45.62,
+    "longitude": 6.85,
+    "elevation_base": 1700,
+    "elevation_top": 2800,
+    "vertical_drop": 1100,
+    "area_skiable": 80,
+    "trails_total": 45,
+    "ticket_price": [
+      4000,
+      7000
+    ],
+    "hotel_nearby": "拉罗西耶尔",
+    "transport": "日内瓦巴士约3h",
+    "food": "法餐、奶酪火锅、可丽饼",
+    "features": [
+      "阳光充足",
+      "意大利连通",
+      "家庭"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "法国Avoriaz滑雪场": {
+    "name": "法国Avoriaz滑雪场",
+    "name_en": "Avoriaz Ski Resort",
+    "region": "法国",
+    "province": "法国",
+    "latitude": 46.18,
+    "longitude": 6.77,
+    "elevation_base": 1800,
+    "elevation_top": 2466,
+    "vertical_drop": 666,
+    "area_skiable": 90,
+    "trails_total": 55,
+    "ticket_price": [
+      4000,
+      7000
+    ],
+    "hotel_nearby": "阿沃里亚兹",
+    "transport": "日内瓦巴士约2h",
+    "food": "法餐、奶酪火锅、可丽饼",
+    "features": [
+      "Portes du Soleil",
+      "无车村",
+      "Backcountry"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "法国Chamonix滑雪场": {
+    "name": "法国Chamonix滑雪场",
+    "name_en": "Chamonix Ski Resort",
+    "region": "法国",
+    "province": "法国",
+    "latitude": 45.92,
+    "longitude": 6.87,
+    "elevation_base": 1035,
+    "elevation_top": 3842,
+    "vertical_drop": 2807,
+    "area_skiable": 100,
+    "trails_total": 70,
+    "ticket_price": [
+      4500,
+      8000
+    ],
+    "hotel_nearby": "霞慕尼",
+    "transport": "日内瓦巴士约1.5h",
+    "food": "法餐、奶酪火锅、可丽饼",
+    "features": [
+      "勃朗峰",
+      "极限滑雪",
+      "登山"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "法国Pralognan-la-Vanoise滑雪场": {
+    "name": "法国Pralognan-la-Vanoise滑雪场",
+    "name_en": "Pralognan-la-Vanoise Ski Resort",
+    "region": "法国",
+    "province": "法国",
+    "latitude": 45.38,
+    "longitude": 6.72,
+    "elevation_base": 1400,
+    "elevation_top": 2200,
+    "vertical_drop": 800,
+    "area_skiable": 40,
+    "trails_total": 20,
+    "ticket_price": [
+      2500,
+      4500
+    ],
+    "hotel_nearby": "普拉洛尼亚",
+    "transport": "日内瓦巴士约3h",
+    "food": "法餐、奶酪火锅",
+    "features": [
+      "家庭友好",
+      "人少",
+      "传统村落"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "法国Les Gets滑雪场": {
+    "name": "法国Les Gets滑雪场",
+    "name_en": "Les Gets Ski Resort",
+    "region": "法国",
+    "province": "法国",
+    "latitude": 46.15,
+    "longitude": 6.67,
+    "elevation_base": 1172,
+    "elevation_top": 2000,
+    "vertical_drop": 828,
+    "area_skiable": 70,
+    "trails_total": 40,
+    "ticket_price": [
+      3500,
+      6000
+    ],
+    "hotel_nearby": "莱热",
+    "transport": "日内瓦巴士约2h",
+    "food": "法餐、奶酪火锅、可丽饼",
+    "features": [
+      "Portes du Soleil",
+      "家庭",
+      "山地自行车"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "法国Morzine滑雪场": {
+    "name": "法国Morzine滑雪场",
+    "name_en": "Morzine Ski Resort",
+    "region": "法国",
+    "province": "法国",
+    "latitude": 46.18,
+    "longitude": 6.7,
+    "elevation_base": 1000,
+    "elevation_top": 2200,
+    "vertical_drop": 1200,
+    "area_skiable": 80,
+    "trails_total": 50,
+    "ticket_price": [
+      3500,
+      6500
+    ],
+    "hotel_nearby": "莫尔济讷",
+    "transport": "日内瓦巴士约2h",
+    "food": "法餐、奶酪火锅、可丽饼",
+    "features": [
+      "Portes du Soleil",
+      "夜滑",
+      "活力村"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "法国Peisey-Vallandry滑雪场": {
+    "name": "法国Peisey-Vallandry滑雪场",
+    "name_en": "Peisey-Vallandry Ski Resort",
+    "region": "法国",
+    "province": "法国",
+    "latitude": 45.55,
+    "longitude": 6.75,
+    "elevation_base": 1650,
+    "elevation_top": 3250,
+    "vertical_drop": 1600,
+    "area_skiable": 100,
+    "trails_total": 60,
+    "ticket_price": [
+      4000,
+      7000
+    ],
+    "hotel_nearby": "佩塞",
+    "transport": "日内瓦巴士约2.5h",
+    "food": "法餐、奶酪火锅",
+    "features": [
+      "Paradiski",
+      "家庭",
+      "传统村落"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "法国Valloire滑雪场": {
+    "name": "法国Valloire滑雪场",
+    "name_en": "Valloire Ski Resort",
+    "region": "法国",
+    "province": "法国",
+    "latitude": 45.17,
+    "longitude": 6.43,
+    "elevation_base": 1430,
+    "elevation_top": 2750,
+    "vertical_drop": 1320,
+    "area_skiable": 70,
+    "trails_total": 40,
+    "ticket_price": [
+      3500,
+      6000
+    ],
+    "hotel_nearby": "瓦卢瓦尔",
+    "transport": "里昂巴士约3h",
+    "food": "法餐、奶酪火锅",
+    "features": [
+      "家庭",
+      "阳光充足",
+      "传统村落"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "法国Les Saisies滑雪场": {
+    "name": "法国Les Saisies滑雪场",
+    "name_en": "Les Saisies Ski Resort",
+    "region": "法国",
+    "province": "法国",
+    "latitude": 45.77,
+    "longitude": 6.62,
+    "elevation_base": 1650,
+    "elevation_top": 2069,
+    "vertical_drop": 419,
+    "area_skiable": 50,
+    "trails_total": 30,
+    "ticket_price": [
+      3000,
+      5500
+    ],
+    "hotel_nearby": "莱塞西",
+    "transport": "日内瓦巴士约2h",
+    "food": "法餐、奶酪火锅",
+    "features": [
+      "家庭",
+      "阳光",
+      "全景"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "瑞士Zermatt滑雪场": {
+    "name": "瑞士Zermatt滑雪场",
+    "name_en": "Zermatt Ski Resort",
+    "region": "瑞士",
+    "province": "瑞士",
+    "latitude": 46.02,
+    "longitude": 7.75,
+    "elevation_base": 1620,
+    "elevation_top": 3883,
+    "vertical_drop": 2263,
+    "area_skiable": 200,
+    "trails_total": 120,
+    "ticket_price": [
+      7000,
+      12000
+    ],
+    "hotel_nearby": "采尔马特",
+    "transport": "苏黎世火车约3.5h",
+    "food": "奶酪火锅、巧克力、瑞士餐",
+    "features": [
+      "马特洪峰",
+      "全年滑雪",
+      "奢华"
+    ],
+    "best_months": [
+      11,
+      12,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "瑞士St. Moritz滑雪场": {
+    "name": "瑞士St. Moritz滑雪场",
+    "name_en": "St. Moritz Ski Resort",
+    "region": "瑞士",
+    "province": "瑞士",
+    "latitude": 46.5,
+    "longitude": 9.84,
+    "elevation_base": 1856,
+    "elevation_top": 3303,
+    "vertical_drop": 1447,
+    "area_skiable": 180,
+    "trails_total": 100,
+    "ticket_price": [
+      7000,
+      12000
+    ],
+    "hotel_nearby": "圣莫里茨",
+    "transport": "苏黎世火车约3h",
+    "food": "奶酪火锅、巧克力、瑞士餐",
+    "features": [
+      "奢华",
+      "奥运场地",
+      "冰川"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "瑞士Verbier滑雪场": {
+    "name": "瑞士Verbier滑雪场",
+    "name_en": "Verbier Ski Resort",
+    "region": "瑞士",
+    "province": "瑞士",
+    "latitude": 46.1,
+    "longitude": 7.23,
+    "elevation_base": 1500,
+    "elevation_top": 3330,
+    "vertical_drop": 1830,
+    "area_skiable": 160,
+    "trails_total": 95,
+    "ticket_price": [
+      6000,
+      10000
+    ],
+    "hotel_nearby": "韦尔比耶",
+    "transport": "日内瓦巴士约2.5h",
+    "food": "奶酪火锅、巧克力、瑞士餐",
+    "features": [
+      "4 Vallées",
+      "奢华",
+      "Backcountry"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "瑞士Davos滑雪场": {
+    "name": "瑞士Davos滑雪场",
+    "name_en": "Davos Ski Resort",
+    "region": "瑞士",
+    "province": "瑞士",
+    "latitude": 46.8,
+    "longitude": 9.83,
+    "elevation_base": 1560,
+    "elevation_top": 2850,
+    "vertical_drop": 1290,
+    "area_skiable": 150,
+    "trails_total": 85,
+    "ticket_price": [
+      5500,
+      9500
+    ],
+    "hotel_nearby": "达沃斯",
+    "transport": "苏黎世火车约3h",
+    "food": "奶酪火锅、巧克力、瑞士餐",
+    "features": [
+      "最高城市",
+      "论坛",
+      "多样地形"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "瑞士Klosters滑雪场": {
+    "name": "瑞士Klosters滑雪场",
+    "name_en": "Klosters Ski Resort",
+    "region": "瑞士",
+    "province": "瑞士",
+    "latitude": 46.88,
+    "longitude": 9.88,
+    "elevation_base": 1200,
+    "elevation_top": 2800,
+    "vertical_drop": 1600,
+    "area_skiable": 130,
+    "trails_total": 75,
+    "ticket_price": [
+      5000,
+      9000
+    ],
+    "hotel_nearby": "克洛斯特斯",
+    "transport": "苏黎世火车约3h",
+    "food": "奶酪火锅、巧克力、瑞士餐",
+    "features": [
+      "家庭",
+      "传统",
+      "Backcountry"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "瑞士Wengen滑雪场": {
+    "name": "瑞士Wengen滑雪场",
+    "name_en": "Wengen Ski Resort",
+    "region": "瑞士",
+    "province": "瑞士",
+    "latitude": 46.6,
+    "longitude": 7.92,
+    "elevation_base": 1274,
+    "elevation_top": 2970,
+    "vertical_drop": 1696,
+    "area_skiable": 120,
+    "trails_total": 70,
+    "ticket_price": [
+      5500,
+      9500
+    ],
+    "hotel_nearby": "文根",
+    "transport": "苏黎世火车约3h",
+    "food": "奶酪火锅、巧克力、瑞士餐",
+    "features": [
+      "少女峰",
+      "无车村",
+      "经典滑降"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "瑞士Grindelwald滑雪场": {
+    "name": "瑞士Grindelwald滑雪场",
+    "name_en": "Grindelwald Ski Resort",
+    "region": "瑞士",
+    "province": "瑞士",
+    "latitude": 46.62,
+    "longitude": 8.04,
+    "elevation_base": 1034,
+    "elevation_top": 2970,
+    "vertical_drop": 1936,
+    "area_skiable": 130,
+    "trails_total": 75,
+    "ticket_price": [
+      5500,
+      9500
+    ],
+    "hotel_nearby": "格林德瓦",
+    "transport": "苏黎世火车约3h",
+    "food": "奶酪火锅、巧克力、瑞士餐",
+    "features": [
+      "少女峰",
+      "Eiger北壁",
+      "全景"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "瑞士Saas-Fee滑雪场": {
+    "name": "瑞士Saas-Fee滑雪场",
+    "name_en": "Saas-Fee Ski Resort",
+    "region": "瑞士",
+    "province": "瑞士",
+    "latitude": 46.1,
+    "longitude": 7.93,
+    "elevation_base": 1800,
+    "elevation_top": 3600,
+    "vertical_drop": 1800,
+    "area_skiable": 100,
+    "trails_total": 50,
+    "ticket_price": [
+      5000,
+      8500
+    ],
+    "hotel_nearby": "萨斯费",
+    "transport": "苏黎世火车约4h",
+    "food": "奶酪火锅、巧克力、瑞士餐",
+    "features": [
+      "冰川滑雪",
+      "全年滑雪",
+      "无车村"
+    ],
+    "best_months": [
+      11,
+      12,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "瑞士Andermatt滑雪场": {
+    "name": "瑞士Andermatt滑雪场",
+    "name_en": "Andermatt Ski Resort",
+    "region": "瑞士",
+    "province": "瑞士",
+    "latitude": 46.63,
+    "longitude": 8.6,
+    "elevation_base": 1444,
+    "elevation_top": 2961,
+    "vertical_drop": 1517,
+    "area_skiable": 120,
+    "trails_total": 70,
+    "ticket_price": [
+      5500,
+      9500
+    ],
+    "hotel_nearby": "安德马特",
+    "transport": "苏黎世火车约2.5h",
+    "food": "奶酪火锅、巧克力、瑞士餐",
+    "features": [
+      "Ski Arena",
+      "深雪",
+      "奢华"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "瑞士Crans-Montana滑雪场": {
+    "name": "瑞士Crans-Montana滑雪场",
+    "name_en": "Crans-Montana Ski Resort",
+    "region": "瑞士",
+    "province": "瑞士",
+    "latitude": 46.31,
+    "longitude": 7.48,
+    "elevation_base": 1500,
+    "elevation_top": 2927,
+    "vertical_drop": 1427,
+    "area_skiable": 100,
+    "trails_total": 60,
+    "ticket_price": [
+      4500,
+      8000
+    ],
+    "hotel_nearby": "克兰蒙塔纳",
+    "transport": "日内瓦巴士约2.5h",
+    "food": "奶酪火锅、巧克力、瑞士餐",
+    "features": [
+      "阳光充足",
+      "奢华",
+      "全景"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "瑞士Flims Laax Falera滑雪场": {
+    "name": "瑞士Flims Laax Falera滑雪场",
+    "name_en": "Flims Laax Falera Ski Resort",
+    "region": "瑞士",
+    "province": "瑞士",
+    "latitude": 46.83,
+    "longitude": 9.28,
+    "elevation_base": 1100,
+    "elevation_top": 3018,
+    "vertical_drop": 1918,
+    "area_skiable": 150,
+    "trails_total": 85,
+    "ticket_price": [
+      5000,
+      8500
+    ],
+    "hotel_nearby": "弗利姆斯",
+    "transport": "苏黎世火车约2.5h",
+    "food": "奶酪火锅、巧克力、瑞士餐",
+    "features": [
+      "地形公园",
+      "家庭",
+      "Backcountry"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "瑞士Lenzerheide滑雪场": {
+    "name": "瑞士Lenzerheide滑雪场",
+    "name_en": "Lenzerheide Ski Resort",
+    "region": "瑞士",
+    "province": "瑞士",
+    "latitude": 46.73,
+    "longitude": 9.55,
+    "elevation_base": 1260,
+    "elevation_top": 2865,
+    "vertical_drop": 1605,
+    "area_skiable": 100,
+    "trails_total": 60,
+    "ticket_price": [
+      4500,
+      8000
+    ],
+    "hotel_nearby": "伦策海德",
+    "transport": "苏黎世火车约2.5h",
+    "food": "奶酪火锅、巧克力、瑞士餐",
+    "features": [
+      "家庭",
+      "阳光",
+      "连通"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "瑞士Arosa Lenzerheide滑雪场": {
+    "name": "瑞士Arosa Lenzerheide滑雪场",
+    "name_en": "Arosa Lenzerheide Ski Resort",
+    "region": "瑞士",
+    "province": "瑞士",
+    "latitude": 46.78,
+    "longitude": 9.68,
+    "elevation_base": 1775,
+    "elevation_top": 2865,
+    "vertical_drop": 1090,
+    "area_skiable": 120,
+    "trails_total": 70,
+    "ticket_price": [
+      5000,
+      8500
+    ],
+    "hotel_nearby": "阿罗萨",
+    "transport": "苏黎世火车约3h",
+    "food": "奶酪火锅、巧克力、瑞士餐",
+    "features": [
+      "连通雪场",
+      "家庭",
+      "奢华"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "瑞士Engelberg滑雪场": {
+    "name": "瑞士Engelberg滑雪场",
+    "name_en": "Engelberg Ski Resort",
+    "region": "瑞士",
+    "province": "瑞士",
+    "latitude": 46.82,
+    "longitude": 8.42,
+    "elevation_base": 1050,
+    "elevation_top": 3200,
+    "vertical_drop": 2150,
+    "area_skiable": 80,
+    "trails_total": 50,
+    "ticket_price": [
+      4500,
+      8000
+    ],
+    "hotel_nearby": "英格堡",
+    "transport": "苏黎世火车约2h",
+    "food": "奶酪火锅、巧克力、瑞士餐",
+    "features": [
+      "陡坡",
+      "Backcountry",
+      "铁力士山"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "瑞士Villars滑雪场": {
+    "name": "瑞士Villars滑雪场",
+    "name_en": "Villars Ski Resort",
+    "region": "瑞士",
+    "province": "瑞士",
+    "latitude": 46.28,
+    "longitude": 7.05,
+    "elevation_base": 1300,
+    "elevation_top": 2200,
+    "vertical_drop": 900,
+    "area_skiable": 60,
+    "trails_total": 40,
+    "ticket_price": [
+      3500,
+      6500
+    ],
+    "hotel_nearby": "维拉尔",
+    "transport": "日内瓦巴士约2h",
+    "food": "奶酪火锅、巧克力、瑞士餐",
+    "features": [
+      "家庭",
+      "全景",
+      "传统"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "奥地利St. Anton滑雪场": {
+    "name": "奥地利St. Anton滑雪场",
+    "name_en": "St. Anton am Arlberg",
+    "region": "奥地利",
+    "province": "奥地利",
+    "latitude": 47.13,
+    "longitude": 10.27,
+    "elevation_base": 1304,
+    "elevation_top": 2811,
+    "vertical_drop": 1507,
+    "area_skiable": 120,
+    "trails_total": 88,
+    "ticket_price": [
+      5500,
+      9500
+    ],
+    "hotel_nearby": "圣安东",
+    "transport": "因斯布鲁克火车约1h",
+    "food": "维也纳炸肉排、奶酪面疙瘩、啤酒",
+    "features": [
+      "越野发源地",
+      "深雪",
+      "après-ski"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "奥地利Sölden滑雪场": {
+    "name": "奥地利Sölden滑雪场",
+    "name_en": "Sölden Ski Resort",
+    "region": "奥地利",
+    "province": "奥地利",
+    "latitude": 46.97,
+    "longitude": 11.0,
+    "elevation_base": 1350,
+    "elevation_top": 3340,
+    "vertical_drop": 1990,
+    "area_skiable": 150,
+    "trails_total": 85,
+    "ticket_price": [
+      5000,
+      8500
+    ],
+    "hotel_nearby": "瑟尔登",
+    "transport": "因斯布鲁克巴士约2h",
+    "food": "维也纳炸肉排、奶酪面疙瘩、啤酒",
+    "features": [
+      "冰川滑雪",
+      "007 filming",
+      "全年滑雪"
+    ],
+    "best_months": [
+      11,
+      12,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "奥地利Kitzbühel滑雪场": {
+    "name": "奥地利Kitzbühel滑雪场",
+    "name_en": "Kitzbühel Ski Resort",
+    "region": "奥地利",
+    "province": "奥地利",
+    "latitude": 47.45,
+    "longitude": 12.39,
+    "elevation_base": 800,
+    "elevation_top": 2000,
+    "vertical_drop": 1200,
+    "area_skiable": 100,
+    "trails_total": 65,
+    "ticket_price": [
+      4500,
+      8000
+    ],
+    "hotel_nearby": "基茨比厄尔",
+    "transport": "萨尔茨堡巴士约1.5h",
+    "food": "维也纳炸肉排、奶酪面疙瘩、啤酒",
+    "features": [
+      "Hahnenkamm速降",
+      "奢华",
+      "传统"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "奥地利Ischgl滑雪场": {
+    "name": "奥地利Ischgl滑雪场",
+    "name_en": "Ischgl Ski Resort",
+    "region": "奥地利",
+    "province": "奥地利",
+    "latitude": 47.01,
+    "longitude": 10.3,
+    "elevation_base": 1377,
+    "elevation_top": 2872,
+    "vertical_drop": 1495,
+    "area_skiable": 130,
+    "trails_total": 80,
+    "ticket_price": [
+      5000,
+      8500
+    ],
+    "hotel_nearby": "伊施格",
+    "transport": "因斯布鲁克巴士约2h",
+    "food": "维也纳炸肉排、奶酪面疙瘩、啤酒",
+    "features": [
+      "Silvretta",
+      "apres-ski",
+      "顶尖"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "奥地利Mayrhofen滑雪场": {
+    "name": "奥地利Mayrhofen滑雪场",
+    "name_en": "Mayrhofen Ski Resort",
+    "region": "奥地利",
+    "province": "奥地利",
+    "latitude": 47.17,
+    "longitude": 11.87,
+    "elevation_base": 630,
+    "elevation_top": 2500,
+    "vertical_drop": 1870,
+    "area_skiable": 110,
+    "trails_total": 70,
+    "ticket_price": [
+      4500,
+      7500
+    ],
+    "hotel_nearby": "迈尔霍芬",
+    "transport": "因斯布鲁克巴士约1.5h",
+    "food": "维也纳炸肉排、奶酪面疙瘩、啤酒",
+    "features": [
+      "Zillertal",
+      "陡坡",
+      "apres-ski"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "奥地利Saalbach-Hinterglemm滑雪场": {
+    "name": "奥地利Saalbach-Hinterglemm滑雪场",
+    "name_en": "Saalbach-Hinterglemm Ski Resort",
+    "region": "奥地利",
+    "province": "奥地利",
+    "latitude": 47.38,
+    "longitude": 12.63,
+    "elevation_base": 1003,
+    "elevation_top": 2096,
+    "vertical_drop": 1093,
+    "area_skiable": 140,
+    "trails_total": 85,
+    "ticket_price": [
+      4500,
+      7500
+    ],
+    "hotel_nearby": "萨尔巴赫",
+    "transport": "萨尔茨堡巴士约2h",
+    "food": "维也纳炸肉排、奶酪面疙瘩、啤酒",
+    "features": [
+      "Skicircus",
+      "夜滑",
+      "apres-ski"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "奥地利Obertauern滑雪场": {
+    "name": "奥地利Obertauern滑雪场",
+    "name_en": "Obertauern Ski Resort",
+    "region": "奥地利",
+    "province": "奥地利",
+    "latitude": 47.25,
+    "longitude": 13.57,
+    "elevation_base": 1630,
+    "elevation_top": 2500,
+    "vertical_drop": 870,
+    "area_skiable": 100,
+    "trails_total": 60,
+    "ticket_price": [
+      4000,
+      7000
+    ],
+    "hotel_nearby": "奥伯陶恩",
+    "transport": "萨尔茨堡巴士约2h",
+    "food": "维也纳炸肉排、奶酪面疙瘩、啤酒",
+    "features": [
+      "雪季最长",
+      "家庭",
+      "高海拔"
+    ],
+    "best_months": [
+      11,
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "奥地利Zell am See滑雪场": {
+    "name": "奥地利Zell am See滑雪场",
+    "name_en": "Zell am See-Kaprun",
+    "region": "奥地利",
+    "province": "奥地利",
+    "latitude": 47.33,
+    "longitude": 12.8,
+    "elevation_base": 750,
+    "elevation_top": 3029,
+    "vertical_drop": 2279,
+    "area_skiable": 90,
+    "trails_total": 55,
+    "ticket_price": [
+      4000,
+      7000
+    ],
+    "hotel_nearby": "采尔阿姆湖",
+    "transport": "萨尔茨堡巴士约1.5h",
+    "food": "维也纳炸肉排、奶酪面疙瘩、啤酒",
+    "features": [
+      "湖景",
+      "冰川",
+      "家庭"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "奥地利Schladming滑雪场": {
+    "name": "奥地利Schladming滑雪场",
+    "name_en": "Schladming Ski Resort",
+    "region": "奥地利",
+    "province": "奥地利",
+    "latitude": 47.39,
+    "longitude": 13.69,
+    "elevation_base": 745,
+    "elevation_top": 2000,
+    "vertical_drop": 1255,
+    "area_skiable": 80,
+    "trails_total": 50,
+    "ticket_price": [
+      3500,
+      6500
+    ],
+    "hotel_nearby": "施拉德明",
+    "transport": "萨尔茨堡巴士约2h",
+    "food": "维也纳炸肉排、奶酪面疙瘩、啤酒",
+    "features": [
+      "夜滑",
+      "4 Berg",
+      "传统"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "奥地利Serfaus-Fiss-Ladis滑雪场": {
+    "name": "奥地利Serfaus-Fiss-Ladis滑雪场",
+    "name_en": "Serfaus-Fiss-Ladis",
+    "region": "奥地利",
+    "province": "奥地利",
+    "latitude": 47.04,
+    "longitude": 10.6,
+    "elevation_base": 1400,
+    "elevation_top": 2820,
+    "vertical_drop": 1420,
+    "area_skiable": 120,
+    "trails_total": 75,
+    "ticket_price": [
+      4500,
+      7500
+    ],
+    "hotel_nearby": "塞尔法乌斯",
+    "transport": "因斯布鲁克巴士约1.5h",
+    "food": "维也纳炸肉排、奶酪面疙瘩、啤酒",
+    "features": [
+      "家庭",
+      "阳光",
+      "奢华"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "奥地利Obergurgl-Hochgurgl滑雪场": {
+    "name": "奥地利Obergurgl-Hochgurgl滑雪场",
+    "name_en": "Obergurgl-Hochgurgl",
+    "region": "奥地利",
+    "province": "奥地利",
+    "latitude": 46.87,
+    "longitude": 11.03,
+    "elevation_base": 1793,
+    "elevation_top": 3080,
+    "vertical_drop": 1287,
+    "area_skiable": 80,
+    "trails_total": 50,
+    "ticket_price": [
+      4500,
+      7500
+    ],
+    "hotel_nearby": "奥伯古尔格",
+    "transport": "因斯布鲁克巴士约2h",
+    "food": "维也纳炸肉排、奶酪面疙瘩、啤酒",
+    "features": [
+      "高海拔",
+      "雪可靠",
+      "家庭"
+    ],
+    "best_months": [
+      11,
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "奥地利Nassfeld滑雪场": {
+    "name": "奥地利Nassfeld滑雪场",
+    "name_en": "Nassfeld Ski Resort",
+    "region": "奥地利",
+    "province": "奥地利",
+    "latitude": 46.57,
+    "longitude": 12.87,
+    "elevation_base": 600,
+    "elevation_top": 2200,
+    "vertical_drop": 1600,
+    "area_skiable": 70,
+    "trails_total": 45,
+    "ticket_price": [
+      3000,
+      5500
+    ],
+    "hotel_nearby": "纳斯费尔德",
+    "transport": "克拉根福巴士约1.5h",
+    "food": "维也纳炸肉排、奶酪面疙瘩、啤酒",
+    "features": [
+      "意大利边境",
+      "阳光",
+      "家庭"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "奥地利Zell am Ziller滑雪场": {
+    "name": "奥地利Zell am Ziller滑雪场",
+    "name_en": "Zell am Ziller Ski Resort",
+    "region": "奥地利",
+    "province": "奥地利",
+    "latitude": 47.28,
+    "longitude": 11.88,
+    "elevation_base": 580,
+    "elevation_top": 1800,
+    "vertical_drop": 1220,
+    "area_skiable": 50,
+    "trails_total": 35,
+    "ticket_price": [
+      3000,
+      5000
+    ],
+    "hotel_nearby": "采尔阿姆齐勒",
+    "transport": "因斯布鲁克巴士约1.5h",
+    "food": "维也纳炸肉排、奶酪面疙瘩、啤酒",
+    "features": [
+      "家庭",
+      "夜滑",
+      "人少"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "意大利Cervinia滑雪场": {
+    "name": "意大利Cervinia滑雪场",
+    "name_en": "Cervinia Ski Resort",
+    "region": "意大利",
+    "province": "意大利",
+    "latitude": 45.93,
+    "longitude": 7.63,
+    "elevation_base": 2050,
+    "elevation_top": 3883,
+    "vertical_drop": 1833,
+    "area_skiable": 140,
+    "trails_total": 90,
+    "ticket_price": [
+      5000,
+      8500
+    ],
+    "hotel_nearby": "切尔维尼亚",
+    "transport": "都灵巴士约3h",
+    "food": "意大利面、披萨、意式浓缩",
+    "features": [
+      "马特洪峰",
+      "连通瑞士",
+      "高海拔"
+    ],
+    "best_months": [
+      11,
+      12,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "意大利Cortina d'Ampezzo滑雪场": {
+    "name": "意大利Cortina d'Ampezzo滑雪场",
+    "name_en": "Cortina d'Ampezzo Ski Resort",
+    "region": "意大利",
+    "province": "意大利",
+    "latitude": 46.54,
+    "longitude": 12.14,
+    "elevation_base": 1224,
+    "elevation_top": 2930,
+    "vertical_drop": 1706,
+    "area_skiable": 120,
+    "trails_total": 75,
+    "ticket_price": [
+      4500,
+      8000
+    ],
+    "hotel_nearby": "科尔蒂纳",
+    "transport": "威尼斯巴士约2.5h",
+    "food": "意大利面、披萨、意式浓缩",
+    "features": [
+      "白云石",
+      "2026冬奥",
+      "奢华"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "意大利Val Gardena滑雪场": {
+    "name": "意大利Val Gardena滑雪场",
+    "name_en": "Val Gardena Ski Resort",
+    "region": "意大利",
+    "province": "意大利",
+    "latitude": 46.57,
+    "longitude": 11.73,
+    "elevation_base": 1236,
+    "elevation_top": 2518,
+    "vertical_drop": 1282,
+    "area_skiable": 100,
+    "trails_total": 65,
+    "ticket_price": [
+      4500,
+      7500
+    ],
+    "hotel_nearby": "瓦尔加迪纳",
+    "transport": "博尔扎诺巴士约1h",
+    "food": "意大利面、披萨、意式浓缩",
+    "features": [
+      "Dolomiti Superski",
+      "Sellaronda",
+      "全景"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "意大利Alta Badia滑雪场": {
+    "name": "意大利Alta Badia滑雪场",
+    "name_en": "Alta Badia Ski Resort",
+    "region": "意大利",
+    "province": "意大利",
+    "latitude": 46.53,
+    "longitude": 11.88,
+    "elevation_base": 1324,
+    "elevation_top": 2750,
+    "vertical_drop": 1426,
+    "area_skiable": 90,
+    "trails_total": 60,
+    "ticket_price": [
+      4500,
+      7500
+    ],
+    "hotel_nearby": "阿尔塔巴迪亚",
+    "transport": "博尔扎诺巴士约1h",
+    "food": "意大利面、披萨、意式浓缩",
+    "features": [
+      "Dolomiti Superski",
+      "美食",
+      "Sellaronda"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "意大利Courmayeur滑雪场": {
+    "name": "意大利Courmayeur滑雪场",
+    "name_en": "Courmayeur Ski Resort",
+    "region": "意大利",
+    "province": "意大利",
+    "latitude": 45.8,
+    "longitude": 6.97,
+    "elevation_base": 1224,
+    "elevation_top": 2755,
+    "vertical_drop": 1531,
+    "area_skiable": 80,
+    "trails_total": 50,
+    "ticket_price": [
+      4000,
+      7000
+    ],
+    "hotel_nearby": "库马耶尔",
+    "transport": "都灵巴士约2.5h",
+    "food": "意大利面、披萨、意式浓缩",
+    "features": [
+      "勃朗峰",
+      "温泉",
+      "传统"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "意大利Madonna di Campiglio滑雪场": {
+    "name": "意大利Madonna di Campiglio滑雪场",
+    "name_en": "Madonna di Campiglio",
+    "region": "意大利",
+    "province": "意大利",
+    "latitude": 46.23,
+    "longitude": 10.83,
+    "elevation_base": 1550,
+    "elevation_top": 2504,
+    "vertical_drop": 954,
+    "area_skiable": 70,
+    "trails_total": 45,
+    "ticket_price": [
+      4000,
+      7000
+    ],
+    "hotel_nearby": "坎波里格",
+    "transport": "特伦托巴士约2h",
+    "food": "意大利面、披萨、意式浓缩",
+    "features": [
+      "奢华",
+      "传统",
+      "冰川"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "意大利Livigno滑雪场": {
+    "name": "意大利Livigno滑雪场",
+    "name_en": "Livigno Ski Resort",
+    "region": "意大利",
+    "province": "意大利",
+    "latitude": 46.53,
+    "longitude": 10.13,
+    "elevation_base": 1816,
+    "elevation_top": 2800,
+    "vertical_drop": 984,
+    "area_skiable": 90,
+    "trails_total": 55,
+    "ticket_price": [
+      3500,
+      6500
+    ],
+    "hotel_nearby": "利维尼奥",
+    "transport": "米兰巴士约4h",
+    "food": "意大利面、披萨、意式浓缩",
+    "features": [
+      "免税",
+      "高海拔",
+      "长雪季"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "意大利Sestriere滑雪场": {
+    "name": "意大利Sestriere滑雪场",
+    "name_en": "Sestriere Ski Resort",
+    "region": "意大利",
+    "province": "意大利",
+    "latitude": 44.96,
+    "longitude": 6.88,
+    "elevation_base": 2000,
+    "elevation_top": 2800,
+    "vertical_drop": 800,
+    "area_skiable": 70,
+    "trails_total": 45,
+    "ticket_price": [
+      3500,
+      6500
+    ],
+    "hotel_nearby": "塞斯特里耶雷",
+    "transport": "都灵巴士约2h",
+    "food": "意大利面、披萨、意式浓缩",
+    "features": [
+      "Via Lattea",
+      "2006冬奥",
+      "高海拔"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "意大利Bormio滑雪场": {
+    "name": "意大利Bormio滑雪场",
+    "name_en": "Bormio Ski Resort",
+    "region": "意大利",
+    "province": "意大利",
+    "latitude": 46.47,
+    "longitude": 10.37,
+    "elevation_base": 1225,
+    "elevation_top": 3012,
+    "vertical_drop": 1787,
+    "area_skiable": 80,
+    "trails_total": 50,
+    "ticket_price": [
+      4000,
+      7000
+    ],
+    "hotel_nearby": "博尔米奥",
+    "transport": "米兰巴士约3h",
+    "food": "意大利面、披萨、意式浓缩",
+    "features": [
+      "温泉",
+      "陡坡",
+      "Stelvio速降"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "意大利Val di Fassa滑雪场": {
+    "name": "意大利Val di Fassa滑雪场",
+    "name_en": "Val di Fassa Ski Resort",
+    "region": "意大利",
+    "province": "意大利",
+    "latitude": 46.45,
+    "longitude": 11.65,
+    "elevation_base": 1300,
+    "elevation_top": 2650,
+    "vertical_drop": 1350,
+    "area_skiable": 80,
+    "trails_total": 55,
+    "ticket_price": [
+      4000,
+      7000
+    ],
+    "hotel_nearby": "法萨谷",
+    "transport": "特伦托巴士约2h",
+    "food": "意大利面、披萨、意式浓缩",
+    "features": [
+      "Dolomiti",
+      "家庭",
+      "全景"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "意大利Plan de Corones滑雪场": {
+    "name": "意大利Plan de Corones滑雪场",
+    "name_en": "Plan de Corones Ski Resort",
+    "region": "意大利",
+    "province": "意大利",
+    "latitude": 46.77,
+    "longitude": 11.93,
+    "elevation_base": 960,
+    "elevation_top": 2275,
+    "vertical_drop": 1315,
+    "area_skiable": 60,
+    "trails_total": 40,
+    "ticket_price": [
+      3500,
+      6000
+    ],
+    "hotel_nearby": "普拉恩",
+    "transport": "博尔扎诺巴士约1.5h",
+    "food": "意大利面、披萨、意式浓缩",
+    "features": [
+      "Dolomiti",
+      "家庭",
+      "阳光"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "意大利Folgaria滑雪场": {
+    "name": "意大利Folgaria滑雪场",
+    "name_en": "Folgaria Ski Resort",
+    "region": "意大利",
+    "province": "意大利",
+    "latitude": 45.93,
+    "longitude": 11.23,
+    "elevation_base": 1100,
+    "elevation_top": 2000,
+    "vertical_drop": 900,
+    "area_skiable": 50,
+    "trails_total": 35,
+    "ticket_price": [
+      3000,
+      5000
+    ],
+    "hotel_nearby": "福尔加里亚",
+    "transport": "特伦托巴士约1h",
+    "food": "意大利面、披萨、意式浓缩",
+    "features": [
+      "家庭",
+      "夜滑",
+      "人少"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "美国Aspen Snowmass滑雪场": {
+    "name": "美国Aspen Snowmass滑雪场",
+    "name_en": "Aspen Snowmass",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 39.19,
+    "longitude": -106.82,
+    "elevation_base": 2450,
+    "elevation_top": 3813,
+    "vertical_drop": 1363,
+    "area_skiable": 200,
+    "trails_total": 120,
+    "ticket_price": [
+      12000,
+      20000
+    ],
+    "hotel_nearby": "阿斯彭",
+    "transport": "丹佛驾车约4h",
+    "food": "汉堡、披萨、精酿啤酒",
+    "features": [
+      "奢华",
+      "四座山",
+      "名人"
+    ],
+    "best_months": [
+      11,
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "美国Vail滑雪场": {
+    "name": "美国Vail滑雪场",
+    "name_en": "Vail Ski Resort",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 39.64,
+    "longitude": -106.37,
+    "elevation_base": 2500,
+    "elevation_top": 3527,
+    "vertical_drop": 1027,
+    "area_skiable": 210,
+    "trails_total": 150,
+    "ticket_price": [
+      12000,
+      20000
+    ],
+    "hotel_nearby": "韦尔",
+    "transport": "丹佛驾车约2h",
+    "food": "汉堡、披萨、精酿啤酒",
+    "features": [
+      "美国最大",
+      "Back Bowls",
+      "奢华"
+    ],
+    "best_months": [
+      11,
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "美国Breckenridge滑雪场": {
+    "name": "美国Breckenridge滑雪场",
+    "name_en": "Breckenridge Ski Resort",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 39.48,
+    "longitude": -106.04,
+    "elevation_base": 2926,
+    "elevation_top": 3914,
+    "vertical_drop": 988,
+    "area_skiable": 180,
+    "trails_total": 130,
+    "ticket_price": [
+      10000,
+      18000
+    ],
+    "hotel_nearby": "布雷肯里奇",
+    "transport": "丹佛驾车约1.5h",
+    "food": "汉堡、披萨、精酿啤酒",
+    "features": [
+      "最高缆车",
+      "地形公园",
+      "历史小镇"
+    ],
+    "best_months": [
+      11,
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "美国Keystone滑雪场": {
+    "name": "美国Keystone滑雪场",
+    "name_en": "Keystone Resort",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 39.61,
+    "longitude": -105.95,
+    "elevation_base": 2835,
+    "elevation_top": 3782,
+    "vertical_drop": 947,
+    "area_skiable": 150,
+    "trails_total": 100,
+    "ticket_price": [
+      9000,
+      16000
+    ],
+    "hotel_nearby": "基斯通",
+    "transport": "丹佛驾车约1.5h",
+    "food": "汉堡、披萨、精酿啤酒",
+    "features": [
+      "夜滑",
+      "家庭",
+      "地形公园"
+    ],
+    "best_months": [
+      11,
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "美国Copper Mountain滑雪场": {
+    "name": "美国Copper Mountain滑雪场",
+    "name_en": "Copper Mountain",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 39.5,
+    "longitude": -106.15,
+    "elevation_base": 2926,
+    "elevation_top": 3850,
+    "vertical_drop": 924,
+    "area_skiable": 150,
+    "trails_total": 90,
+    "ticket_price": [
+      8000,
+      15000
+    ],
+    "hotel_nearby": "库珀山",
+    "transport": "丹佛驾车约1.5h",
+    "food": "汉堡、披萨、精酿啤酒",
+    "features": [
+      "自然地形",
+      "家庭",
+      "高性价比"
+    ],
+    "best_months": [
+      11,
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "美国Beaver Creek滑雪场": {
+    "name": "美国Beaver Creek滑雪场",
+    "name_en": "Beaver Creek Resort",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 39.6,
+    "longitude": -106.52,
+    "elevation_base": 2500,
+    "elevation_top": 3478,
+    "vertical_drop": 978,
+    "area_skiable": 160,
+    "trails_total": 100,
+    "ticket_price": [
+      11000,
+      19000
+    ],
+    "hotel_nearby": "比弗克里克",
+    "transport": "丹佛驾车约2.5h",
+    "food": "汉堡、披萨、精酿啤酒",
+    "features": [
+      "奢华",
+      " grooming",
+      "家庭"
+    ],
+    "best_months": [
+      11,
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "美国Steamboat滑雪场": {
+    "name": "美国Steamboat滑雪场",
+    "name_en": "Steamboat Ski Resort",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 40.46,
+    "longitude": -106.8,
+    "elevation_base": 2103,
+    "elevation_top": 3221,
+    "vertical_drop": 1118,
+    "area_skiable": 120,
+    "trails_total": 80,
+    "ticket_price": [
+      8000,
+      15000
+    ],
+    "hotel_nearby": "斯廷博特",
+    "transport": "丹佛驾车约3h",
+    "food": "汉堡、披萨、精酿啤酒",
+    "features": [
+      "Champagne Powder",
+      "温泉",
+      "牛仔小镇"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "美国Winter Park滑雪场": {
+    "name": "美国Winter Park滑雪场",
+    "name_en": "Winter Park Resort",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 39.89,
+    "longitude": -105.76,
+    "elevation_base": 2743,
+    "elevation_top": 3676,
+    "vertical_drop": 933,
+    "area_skiable": 140,
+    "trails_total": 90,
+    "ticket_price": [
+      8000,
+      15000
+    ],
+    "hotel_nearby": "温特帕克",
+    "transport": "丹佛驾车约1.5h",
+    "food": "汉堡、披萨、精酿啤酒",
+    "features": [
+      "丹佛最近",
+      "地形多样",
+      "家庭"
+    ],
+    "best_months": [
+      11,
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "美国Arapahoe Basin滑雪场": {
+    "name": "美国Arapahoe Basin滑雪场",
+    "name_en": "Arapahoe Basin",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 39.64,
+    "longitude": -105.87,
+    "elevation_base": 3289,
+    "elevation_top": 4018,
+    "vertical_drop": 729,
+    "area_skiable": 80,
+    "trails_total": 50,
+    "ticket_price": [
+      7000,
+      13000
+    ],
+    "hotel_nearby": "阿拉帕霍盆地",
+    "transport": "丹佛驾车约1.5h",
+    "food": "汉堡、披萨、精酿啤酒",
+    "features": [
+      "最长雪季",
+      "高海拔",
+      "Backcountry"
+    ],
+    "best_months": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "美国Loveland滑雪场": {
+    "name": "美国Loveland滑雪场",
+    "name_en": "Loveland Ski Area",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 39.68,
+    "longitude": -105.9,
+    "elevation_base": 3200,
+    "elevation_top": 3900,
+    "vertical_drop": 700,
+    "area_skiable": 60,
+    "trails_total": 40,
+    "ticket_price": [
+      6000,
+      11000
+    ],
+    "hotel_nearby": "洛夫兰",
+    "transport": "丹佛驾车约1h",
+    "food": "汉堡、披萨",
+    "features": [
+      "高性价比",
+      "高海拔",
+      "早开"
+    ],
+    "best_months": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "美国Crested Butte滑雪场": {
+    "name": "美国Crested Butte滑雪场",
+    "name_en": "Crested Butte Mountain",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 38.9,
+    "longitude": -106.97,
+    "elevation_base": 2800,
+    "elevation_top": 3700,
+    "vertical_drop": 900,
+    "area_skiable": 100,
+    "trails_total": 65,
+    "ticket_price": [
+      8000,
+      15000
+    ],
+    "hotel_nearby": "克雷斯特德比特",
+    "transport": "丹佛驾车约5h",
+    "food": "汉堡、披萨、精酿啤酒",
+    "features": [
+      "陡坡",
+      "粉雪",
+      "极限"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "美国Telluride滑雪场": {
+    "name": "美国Telluride滑雪场",
+    "name_en": "Telluride Ski Resort",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 37.94,
+    "longitude": -107.81,
+    "elevation_base": 2659,
+    "elevation_top": 3831,
+    "vertical_drop": 1172,
+    "area_skiable": 120,
+    "trails_total": 75,
+    "ticket_price": [
+      9000,
+      16000
+    ],
+    "hotel_nearby": "特柳赖德",
+    "transport": "丹佛驾车约6h",
+    "food": "汉堡、披萨、精酿啤酒",
+    "features": [
+      "偏远",
+      "奢华",
+      "景观"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "美国Monarch Mountain滑雪场": {
+    "name": "美国Monarch Mountain滑雪场",
+    "name_en": "Monarch Mountain",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 38.5,
+    "longitude": -106.33,
+    "elevation_base": 3200,
+    "elevation_top": 3650,
+    "vertical_drop": 450,
+    "area_skiable": 60,
+    "trails_total": 40,
+    "ticket_price": [
+      5000,
+      9000
+    ],
+    "hotel_nearby": "莫纳克",
+    "transport": "丹佛驾车约3.5h",
+    "food": "汉堡、披萨",
+    "features": [
+      "家庭",
+      "高性价比",
+      "人少"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "美国Wolf Creek滑雪场": {
+    "name": "美国Wolf Creek滑雪场",
+    "name_en": "Wolf Creek Ski Area",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 37.47,
+    "longitude": -106.8,
+    "elevation_base": 3200,
+    "elevation_top": 3650,
+    "vertical_drop": 450,
+    "area_skiable": 80,
+    "trails_total": 50,
+    "ticket_price": [
+      5000,
+      9000
+    ],
+    "hotel_nearby": "沃尔夫克里克",
+    "transport": "丹佛驾车约6h",
+    "food": "汉堡、披萨",
+    "features": [
+      "最多降雪",
+      "粉雪",
+      "偏远"
+    ],
+    "best_months": [
+      11,
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "美国Sunlight Mountain滑雪场": {
+    "name": "美国Sunlight Mountain滑雪场",
+    "name_en": "Sunlight Mountain Resort",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 39.05,
+    "longitude": -107.32,
+    "elevation_base": 2400,
+    "elevation_top": 3100,
+    "vertical_drop": 700,
+    "area_skiable": 50,
+    "trails_total": 35,
+    "ticket_price": [
+      5000,
+      9000
+    ],
+    "hotel_nearby": "格伦伍德斯普林斯",
+    "transport": "丹佛驾车约4h",
+    "food": "汉堡、披萨",
+    "features": [
+      "家庭",
+      "高性价比",
+      "温泉"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "美国Eldora Mountain滑雪场": {
+    "name": "美国Eldora Mountain滑雪场",
+    "name_en": "Eldora Mountain Resort",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 39.93,
+    "longitude": -105.58,
+    "elevation_base": 2600,
+    "elevation_top": 3200,
+    "vertical_drop": 600,
+    "area_skiable": 40,
+    "trails_total": 30,
+    "ticket_price": [
+      5000,
+      9000
+    ],
+    "hotel_nearby": "博尔德",
+    "transport": "丹佛驾车约1h",
+    "food": "汉堡、披萨",
+    "features": [
+      "博尔德最近",
+      "夜滑",
+      "家庭"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "美国Powderhorn滑雪场": {
+    "name": "美国Powderhorn滑雪场",
+    "name_en": "Powderhorn Resort",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 38.85,
+    "longitude": -107.9,
+    "elevation_base": 2600,
+    "elevation_top": 3200,
+    "vertical_drop": 600,
+    "area_skiable": 40,
+    "trails_total": 30,
+    "ticket_price": [
+      4000,
+      8000
+    ],
+    "hotel_nearby": "梅萨",
+    "transport": "丹佛驾车约5h",
+    "food": "汉堡、披萨",
+    "features": [
+      "家庭",
+      "人少",
+      "高性价比"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "美国Hesperus滑雪场": {
+    "name": "美国Hesperus滑雪场",
+    "name_en": "Hesperus Ski Area",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 37.28,
+    "longitude": -107.92,
+    "elevation_base": 2600,
+    "elevation_top": 3100,
+    "vertical_drop": 500,
+    "area_skiable": 30,
+    "trails_total": 20,
+    "ticket_price": [
+      3000,
+      6000
+    ],
+    "hotel_nearby": "杜兰戈",
+    "transport": "丹佛驾车约6h",
+    "food": "汉堡、披萨",
+    "features": [
+      "家庭",
+      "本地",
+      "人少"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "美国Park City滑雪场": {
+    "name": "美国Park City滑雪场",
+    "name_en": "Park City Mountain",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 40.65,
+    "longitude": -111.51,
+    "elevation_base": 2100,
+    "elevation_top": 3050,
+    "vertical_drop": 950,
+    "area_skiable": 280,
+    "trails_total": 150,
+    "ticket_price": [
+      10000,
+      18000
+    ],
+    "hotel_nearby": "帕克城",
+    "transport": "盐湖城驾车约45min",
+    "food": "汉堡、披萨、精酿啤酒",
+    "features": [
+      "美国最大",
+      "奥运场地",
+      "主街"
+    ],
+    "best_months": [
+      11,
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "美国Deer Valley滑雪场": {
+    "name": "美国Deer Valley滑雪场",
+    "name_en": "Deer Valley Resort",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 40.64,
+    "longitude": -111.48,
+    "elevation_base": 2100,
+    "elevation_top": 2917,
+    "vertical_drop": 817,
+    "area_skiable": 160,
+    "trails_total": 90,
+    "ticket_price": [
+      11000,
+      19000
+    ],
+    "hotel_nearby": "鹿谷",
+    "transport": "盐湖城驾车约45min",
+    "food": "汉堡、披萨、精酿啤酒",
+    "features": [
+      "奢华",
+      "只限单板",
+      "grooming"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "美国Alta滑雪场": {
+    "name": "美国Alta滑雪场",
+    "name_en": "Alta Ski Area",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 40.59,
+    "longitude": -111.64,
+    "elevation_base": 2600,
+    "elevation_top": 3200,
+    "vertical_drop": 600,
+    "area_skiable": 120,
+    "trails_total": 70,
+    "ticket_price": [
+      8000,
+      14000
+    ],
+    "hotel_nearby": "阿尔塔",
+    "transport": "盐湖城驾车约40min",
+    "food": "汉堡、披萨",
+    "features": [
+      "粉雪",
+      "只限双板",
+      "深雪"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "美国Snowbird滑雪场": {
+    "name": "美国Snowbird滑雪场",
+    "name_en": "Snowbird Ski Resort",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 40.58,
+    "longitude": -111.66,
+    "elevation_base": 2360,
+    "elevation_top": 3350,
+    "vertical_drop": 990,
+    "area_skiable": 100,
+    "trails_total": 65,
+    "ticket_price": [
+      9000,
+      15000
+    ],
+    "hotel_nearby": "雪鸟",
+    "transport": "盐湖城驾车约40min",
+    "food": "汉堡、披萨、精酿啤酒",
+    "features": [
+      "陡坡",
+      "粉雪",
+      "夏季滑雪"
+    ],
+    "best_months": [
+      11,
+      12,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "美国Brighton滑雪场": {
+    "name": "美国Brighton滑雪场",
+    "name_en": "Brighton Resort",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 40.6,
+    "longitude": -111.58,
+    "elevation_base": 2650,
+    "elevation_top": 3200,
+    "vertical_drop": 550,
+    "area_skiable": 60,
+    "trails_total": 40,
+    "ticket_price": [
+      6000,
+      11000
+    ],
+    "hotel_nearby": "布赖顿",
+    "transport": "盐湖城驾车约40min",
+    "food": "汉堡、披萨",
+    "features": [
+      "夜滑",
+      "地形公园",
+      "高性价比"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "美国Solitude滑雪场": {
+    "name": "美国Solitude滑雪场",
+    "name_en": "Solitude Mountain Resort",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 40.62,
+    "longitude": -111.59,
+    "elevation_base": 2450,
+    "elevation_top": 3100,
+    "vertical_drop": 650,
+    "area_skiable": 50,
+    "trails_total": 35,
+    "ticket_price": [
+      6000,
+      11000
+    ],
+    "hotel_nearby": "索利蒂德",
+    "transport": "盐湖城驾车约40min",
+    "food": "汉堡、披萨",
+    "features": [
+      "人少",
+      "粉雪",
+      "家庭"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "美国Sundance滑雪场": {
+    "name": "美国Sundance滑雪场",
+    "name_en": "Sundance Mountain Resort",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 40.4,
+    "longitude": -111.58,
+    "elevation_base": 2000,
+    "elevation_top": 2600,
+    "vertical_drop": 600,
+    "area_skiable": 40,
+    "trails_total": 30,
+    "ticket_price": [
+      5000,
+      9000
+    ],
+    "hotel_nearby": "普罗沃",
+    "transport": "盐湖城驾车约1h",
+    "food": "汉堡、披萨",
+    "features": [
+      "圣丹斯电影节",
+      "家庭",
+      "人少"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "美国Stowe滑雪场": {
+    "name": "美国Stowe滑雪场",
+    "name_en": "Stowe Mountain Resort",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 44.53,
+    "longitude": -72.78,
+    "elevation_base": 500,
+    "elevation_top": 1164,
+    "vertical_drop": 664,
+    "area_skiable": 120,
+    "trails_total": 70,
+    "ticket_price": [
+      9000,
+      15000
+    ],
+    "hotel_nearby": "斯托",
+    "transport": "波士顿驾车约3h",
+    "food": "汉堡、披萨、新英格兰海鲜",
+    "features": [
+      "新英格兰最高",
+      "秋季",
+      "小镇"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "人工造雪+天然",
+    "is_indoor": false
+  },
+  "美国Killington滑雪场": {
+    "name": "美国Killington滑雪场",
+    "name_en": "Killington Resort",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 43.6,
+    "longitude": -72.82,
+    "elevation_base": 600,
+    "elevation_top": 1293,
+    "vertical_drop": 693,
+    "area_skiable": 150,
+    "trails_total": 85,
+    "ticket_price": [
+      8000,
+      14000
+    ],
+    "hotel_nearby": "基灵顿",
+    "transport": "波士顿驾车约3h",
+    "food": "汉堡、披萨、新英格兰海鲜",
+    "features": [
+      "东部最大",
+      "最长雪季",
+      "Beast"
+    ],
+    "best_months": [
+      11,
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "人工造雪+天然",
+    "is_indoor": false
+  },
+  "美国Okemo滑雪场": {
+    "name": "美国Okemo滑雪场",
+    "name_en": "Okemo Mountain Resort",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 43.4,
+    "longitude": -72.72,
+    "elevation_base": 400,
+    "elevation_top": 1020,
+    "vertical_drop": 620,
+    "area_skiable": 100,
+    "trails_total": 60,
+    "ticket_price": [
+      7000,
+      12000
+    ],
+    "hotel_nearby": "卢德洛",
+    "transport": "波士顿驾车约3h",
+    "food": "汉堡、披萨、新英格兰海鲜",
+    "features": [
+      "家庭",
+      "grooming",
+      "人少"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "人工造雪+天然",
+    "is_indoor": false
+  },
+  "美国Sugarbush滑雪场": {
+    "name": "美国Sugarbush滑雪场",
+    "name_en": "Sugarbush Resort",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 44.13,
+    "longitude": -72.9,
+    "elevation_base": 500,
+    "elevation_top": 1230,
+    "vertical_drop": 730,
+    "area_skiable": 120,
+    "trails_total": 70,
+    "ticket_price": [
+      7000,
+      12000
+    ],
+    "hotel_nearby": "糖 bush",
+    "transport": "波士顿驾车约3.5h",
+    "food": "汉堡、披萨、新英格兰海鲜",
+    "features": [
+      "陡坡",
+      "Backcountry",
+      "本地"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "人工造雪+天然",
+    "is_indoor": false
+  },
+  "美国Stratton滑雪场": {
+    "name": "美国Stratton滑雪场",
+    "name_en": "Stratton Mountain Resort",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 43.12,
+    "longitude": -72.9,
+    "elevation_base": 550,
+    "elevation_top": 1070,
+    "vertical_drop": 520,
+    "area_skiable": 90,
+    "trails_total": 55,
+    "ticket_price": [
+      6000,
+      11000
+    ],
+    "hotel_nearby": "斯特拉顿",
+    "transport": "波士顿驾车约3h",
+    "food": "汉堡、披萨、新英格兰海鲜",
+    "features": [
+      "家庭",
+      "村庄",
+      "grooming"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "人工造雪+天然",
+    "is_indoor": false
+  },
+  "美国Jay Peak滑雪场": {
+    "name": "美国Jay Peak滑雪场",
+    "name_en": "Jay Peak Resort",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 44.93,
+    "longitude": -72.5,
+    "elevation_base": 550,
+    "elevation_top": 1070,
+    "vertical_drop": 520,
+    "area_skiable": 80,
+    "trails_total": 50,
+    "ticket_price": [
+      6000,
+      11000
+    ],
+    "hotel_nearby": "杰伊",
+    "transport": "波士顿驾车约4h",
+    "food": "汉堡、披萨、新英格兰海鲜",
+    "features": [
+      "最多降雪",
+      "室内水上乐园",
+      "偏远"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "人工造雪+天然",
+    "is_indoor": false
+  },
+  "美国Palisades Tahoe滑雪场": {
+    "name": "美国Palisades Tahoe滑雪场",
+    "name_en": "Palisades Tahoe",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 39.2,
+    "longitude": -120.23,
+    "elevation_base": 1900,
+    "elevation_top": 2750,
+    "vertical_drop": 850,
+    "area_skiable": 150,
+    "trails_total": 85,
+    "ticket_price": [
+      9000,
+      16000
+    ],
+    "hotel_nearby": "帕利塞兹",
+    "transport": "旧金山驾车约3.5h",
+    "food": "汉堡、披萨、精酿啤酒",
+    "features": [
+      "奥运场地",
+      "Tahoe最大",
+      "地形多样"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "美国Northstar California滑雪场": {
+    "name": "美国Northstar California滑雪场",
+    "name_en": "Northstar California Resort",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 39.27,
+    "longitude": -120.13,
+    "elevation_base": 1900,
+    "elevation_top": 2600,
+    "vertical_drop": 700,
+    "area_skiable": 130,
+    "trails_total": 75,
+    "ticket_price": [
+      8000,
+      15000
+    ],
+    "hotel_nearby": "北星",
+    "transport": "旧金山驾车约3.5h",
+    "food": "汉堡、披萨、精酿啤酒",
+    "features": [
+      "家庭",
+      "村庄",
+      "地形公园"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "美国Heavenly滑雪场": {
+    "name": "美国Heavenly滑雪场",
+    "name_en": "Heavenly Mountain Resort",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 38.93,
+    "longitude": -119.94,
+    "elevation_base": 2000,
+    "elevation_top": 3060,
+    "vertical_drop": 1060,
+    "area_skiable": 160,
+    "trails_total": 95,
+    "ticket_price": [
+      9000,
+      16000
+    ],
+    "hotel_nearby": "海文利",
+    "transport": "旧金山驾车约4h",
+    "food": "汉堡、披萨、精酿啤酒",
+    "features": [
+      "Tahoe最大",
+      "湖景",
+      "加州/内华达"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "美国Kirkwood滑雪场": {
+    "name": "美国Kirkwood滑雪场",
+    "name_en": "Kirkwood Mountain Resort",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 38.68,
+    "longitude": -120.07,
+    "elevation_base": 2300,
+    "elevation_top": 3050,
+    "vertical_drop": 750,
+    "area_skiable": 100,
+    "trails_total": 60,
+    "ticket_price": [
+      6000,
+      11000
+    ],
+    "hotel_nearby": "柯克伍德",
+    "transport": "旧金山驾车约4h",
+    "food": "汉堡、披萨",
+    "features": [
+      "深雪",
+      "陡坡",
+      "偏远"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "美国Sierra-at-Tahoe滑雪场": {
+    "name": "美国Sierra-at-Tahoe滑雪场",
+    "name_en": "Sierra-at-Tahoe Resort",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 38.8,
+    "longitude": -120.08,
+    "elevation_base": 2000,
+    "elevation_top": 2700,
+    "vertical_drop": 700,
+    "area_skiable": 80,
+    "trails_total": 50,
+    "ticket_price": [
+      5000,
+      9000
+    ],
+    "hotel_nearby": "塞拉",
+    "transport": "旧金山驾车约3.5h",
+    "food": "汉堡、披萨",
+    "features": [
+      "家庭",
+      "高性价比",
+      "地形公园"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "美国Mammoth Mountain滑雪场": {
+    "name": "美国Mammoth Mountain滑雪场",
+    "name_en": "Mammoth Mountain",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 37.63,
+    "longitude": -119.03,
+    "elevation_base": 2400,
+    "elevation_top": 3369,
+    "vertical_drop": 969,
+    "area_skiable": 140,
+    "trails_total": 85,
+    "ticket_price": [
+      8000,
+      15000
+    ],
+    "hotel_nearby": "猛犸山",
+    "transport": "洛杉矶驾车约5h",
+    "food": "汉堡、披萨、精酿啤酒",
+    "features": [
+      "加州最长雪季",
+      "火山",
+      "夏季滑雪"
+    ],
+    "best_months": [
+      11,
+      12,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "美国June Mountain滑雪场": {
+    "name": "美国June Mountain滑雪场",
+    "name_en": "June Mountain",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 37.77,
+    "longitude": -118.93,
+    "elevation_base": 2600,
+    "elevation_top": 3200,
+    "vertical_drop": 600,
+    "area_skiable": 50,
+    "trails_total": 35,
+    "ticket_price": [
+      4000,
+      8000
+    ],
+    "hotel_nearby": "朱恩山",
+    "transport": "洛杉矶驾车约5.5h",
+    "food": "汉堡、披萨",
+    "features": [
+      "家庭",
+      "人少",
+      "高性价比"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "美国Sugar Bowl滑雪场": {
+    "name": "美国Sugar Bowl滑雪场",
+    "name_en": "Sugar Bowl Resort",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 39.3,
+    "longitude": -120.34,
+    "elevation_base": 2100,
+    "elevation_top": 2650,
+    "vertical_drop": 550,
+    "area_skiable": 80,
+    "trails_total": 50,
+    "ticket_price": [
+      6000,
+      11000
+    ],
+    "hotel_nearby": "糖碗",
+    "transport": "旧金山驾车约3h",
+    "food": "汉堡、披萨",
+    "features": [
+      "Tahoe最老",
+      "夜滑",
+      "传统"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "美国Dodge Ridge滑雪场": {
+    "name": "美国Dodge Ridge滑雪场",
+    "name_en": "Dodge Ridge Ski Area",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 38.05,
+    "longitude": -120.0,
+    "elevation_base": 2000,
+    "elevation_top": 2500,
+    "vertical_drop": 500,
+    "area_skiable": 50,
+    "trails_total": 35,
+    "ticket_price": [
+      4000,
+      8000
+    ],
+    "hotel_nearby": "道奇岭",
+    "transport": "旧金山驾车约4h",
+    "food": "汉堡、披萨",
+    "features": [
+      "家庭",
+      "人少",
+      "高性价比"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "美国Bear Mountain滑雪场": {
+    "name": "美国Bear Mountain滑雪场",
+    "name_en": "Bear Mountain",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 38.95,
+    "longitude": -120.0,
+    "elevation_base": 2100,
+    "elevation_top": 2600,
+    "vertical_drop": 500,
+    "area_skiable": 40,
+    "trails_total": 30,
+    "ticket_price": [
+      5000,
+      9000
+    ],
+    "hotel_nearby": "熊山",
+    "transport": "旧金山驾车约3.5h",
+    "food": "汉堡、披萨",
+    "features": [
+      "地形公园",
+      "夜滑",
+      "年轻人"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "美国Jackson Hole滑雪场": {
+    "name": "美国Jackson Hole滑雪场",
+    "name_en": "Jackson Hole Mountain Resort",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 43.59,
+    "longitude": -110.83,
+    "elevation_base": 1924,
+    "elevation_top": 3185,
+    "vertical_drop": 1261,
+    "area_skiable": 100,
+    "trails_total": 65,
+    "ticket_price": [
+      10000,
+      18000
+    ],
+    "hotel_nearby": "杰克逊",
+    "transport": "盐湖城驾车约5h",
+    "food": "汉堡、披萨、精酿啤酒",
+    "features": [
+      "陡坡",
+      "深雪",
+      "极限"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "美国Big Sky滑雪场": {
+    "name": "美国Big Sky滑雪场",
+    "name_en": "Big Sky Resort",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 45.28,
+    "longitude": -111.4,
+    "elevation_base": 2100,
+    "elevation_top": 3400,
+    "vertical_drop": 1300,
+    "area_skiable": 180,
+    "trails_total": 100,
+    "ticket_price": [
+      9000,
+      16000
+    ],
+    "hotel_nearby": "大天空",
+    "transport": "波兹曼驾车约1h",
+    "food": "汉堡、披萨、精酿啤酒",
+    "features": [
+      "美国最大",
+      "Lone Peak",
+      "偏远"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "美国Whitefish Mountain滑雪场": {
+    "name": "美国Whitefish Mountain滑雪场",
+    "name_en": "Whitefish Mountain Resort",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 48.49,
+    "longitude": -114.35,
+    "elevation_base": 1100,
+    "elevation_top": 2100,
+    "vertical_drop": 1000,
+    "area_skiable": 80,
+    "trails_total": 50,
+    "ticket_price": [
+      6000,
+      11000
+    ],
+    "hotel_nearby": "怀特菲什",
+    "transport": "卡利斯佩尔驾车约30min",
+    "food": "汉堡、披萨",
+    "features": [
+      "冰川国家公园",
+      "家庭",
+      "人少"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "美国Mount Bachelor滑雪场": {
+    "name": "美国Mount Bachelor滑雪场",
+    "name_en": "Mount Bachelor",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 43.98,
+    "longitude": -121.69,
+    "elevation_base": 1700,
+    "elevation_top": 2760,
+    "vertical_drop": 1060,
+    "area_skiable": 100,
+    "trails_total": 60,
+    "ticket_price": [
+      6000,
+      11000
+    ],
+    "hotel_nearby": "本德",
+    "transport": "本德驾车约30min",
+    "food": "汉堡、披萨、精酿啤酒",
+    "features": [
+      "火山",
+      "最长雪季",
+      "Backcountry"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "美国Crystal Mountain滑雪场": {
+    "name": "美国Crystal Mountain滑雪场",
+    "name_en": "Crystal Mountain Resort",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 46.94,
+    "longitude": -121.48,
+    "elevation_base": 1000,
+    "elevation_top": 2180,
+    "vertical_drop": 1180,
+    "area_skiable": 90,
+    "trails_total": 55,
+    "ticket_price": [
+      6000,
+      11000
+    ],
+    "hotel_nearby": "水晶山",
+    "transport": "西雅图驾车约2.5h",
+    "food": "汉堡、披萨",
+    "features": [
+      "雷尼尔山",
+      "tram",
+      "家庭"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "美国Stevens Pass滑雪场": {
+    "name": "美国Stevens Pass滑雪场",
+    "name_en": "Stevens Pass",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 47.74,
+    "longitude": -121.09,
+    "elevation_base": 1200,
+    "elevation_top": 1800,
+    "vertical_drop": 600,
+    "area_skiable": 60,
+    "trails_total": 40,
+    "ticket_price": [
+      5000,
+      9000
+    ],
+    "hotel_nearby": "史蒂文斯",
+    "transport": "西雅图驾车约2h",
+    "food": "汉堡、披萨",
+    "features": [
+      "夜滑",
+      "西雅图最近",
+      "Backcountry"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "美国Mount Hood Meadows滑雪场": {
+    "name": "美国Mount Hood Meadows滑雪场",
+    "name_en": "Mount Hood Meadows",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 45.33,
+    "longitude": -121.66,
+    "elevation_base": 1400,
+    "elevation_top": 2200,
+    "vertical_drop": 800,
+    "area_skiable": 80,
+    "trails_total": 50,
+    "ticket_price": [
+      5000,
+      9000
+    ],
+    "hotel_nearby": "胡德山",
+    "transport": "波特兰驾车约1.5h",
+    "food": "汉堡、披萨",
+    "features": [
+      "火山",
+      "全年滑雪",
+      "夏季"
+    ],
+    "best_months": [
+      11,
+      12,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "美国Taos Ski Valley滑雪场": {
+    "name": "美国Taos Ski Valley滑雪场",
+    "name_en": "Taos Ski Valley",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 36.6,
+    "longitude": -105.45,
+    "elevation_base": 2800,
+    "elevation_top": 3650,
+    "vertical_drop": 850,
+    "area_skiable": 60,
+    "trails_total": 40,
+    "ticket_price": [
+      6000,
+      11000
+    ],
+    "hotel_nearby": "陶斯",
+    "transport": "圣菲驾车约2h",
+    "food": "墨西哥餐、汉堡、披萨",
+    "features": [
+      "陡坡",
+      "文化",
+      "偏远"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "美国Snowshoe Mountain滑雪场": {
+    "name": "美国Snowshoe Mountain滑雪场",
+    "name_en": "Snowshoe Mountain",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 38.4,
+    "longitude": -79.99,
+    "elevation_base": 850,
+    "elevation_top": 1480,
+    "vertical_drop": 630,
+    "area_skiable": 80,
+    "trails_total": 50,
+    "ticket_price": [
+      6000,
+      11000
+    ],
+    "hotel_nearby": "雪鞋",
+    "transport": "华盛顿驾车约3.5h",
+    "food": "汉堡、披萨",
+    "features": [
+      "东部",
+      "家庭",
+      "村庄"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "人工造雪+天然",
+    "is_indoor": false
+  },
+  "美国Sunday River滑雪场": {
+    "name": "美国Sunday River滑雪场",
+    "name_en": "Sunday River",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 44.47,
+    "longitude": -70.85,
+    "elevation_base": 400,
+    "elevation_top": 970,
+    "vertical_drop": 570,
+    "area_skiable": 100,
+    "trails_total": 60,
+    "ticket_price": [
+      6000,
+      11000
+    ],
+    "hotel_nearby": "周日河",
+    "transport": "波特兰驾车约2h",
+    "food": "汉堡、披萨、新英格兰海鲜",
+    "features": [
+      "8座山",
+      "夜滑",
+      "家庭"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "人工造雪+天然",
+    "is_indoor": false
+  },
+  "美国Sugarloaf滑雪场": {
+    "name": "美国Sugarloaf滑雪场",
+    "name_en": "Sugarloaf Mountain",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 45.03,
+    "longitude": -70.32,
+    "elevation_base": 500,
+    "elevation_top": 1260,
+    "vertical_drop": 760,
+    "area_skiable": 80,
+    "trails_total": 50,
+    "ticket_price": [
+      6000,
+      11000
+    ],
+    "hotel_nearby": "糖面包",
+    "transport": "波特兰驾车约3h",
+    "food": "汉堡、披萨、新英格兰海鲜",
+    "features": [
+      "东部最高",
+      "Backcountry",
+      "偏远"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "人工造雪+天然",
+    "is_indoor": false
+  },
+  "美国Camelback滑雪场": {
+    "name": "美国Camelback滑雪场",
+    "name_en": "Camelback Resort",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 41.18,
+    "longitude": -75.35,
+    "elevation_base": 400,
+    "elevation_top": 660,
+    "vertical_drop": 260,
+    "area_skiable": 50,
+    "trails_total": 35,
+    "ticket_price": [
+      4000,
+      8000
+    ],
+    "hotel_nearby": "驼峰",
+    "transport": "纽约驾车约2h",
+    "food": "汉堡、披萨",
+    "features": [
+      "纽约最近",
+      "夜滑",
+      "家庭"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "人工造雪",
+    "is_indoor": false
+  },
+  "美国Blue Mountain滑雪场": {
+    "name": "美国Blue Mountain滑雪场",
+    "name_en": "Blue Mountain Resort",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 40.88,
+    "longitude": -75.32,
+    "elevation_base": 300,
+    "elevation_top": 550,
+    "vertical_drop": 250,
+    "area_skiable": 40,
+    "trails_total": 30,
+    "ticket_price": [
+      4000,
+      7000
+    ],
+    "hotel_nearby": "蓝山",
+    "transport": "费城驾车约2h",
+    "food": "汉堡、披萨",
+    "features": [
+      "费城最近",
+      "夜滑",
+      "家庭"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "人工造雪",
+    "is_indoor": false
+  },
+  "美国Hunter Mountain滑雪场": {
+    "name": "美国Hunter Mountain滑雪场",
+    "name_en": "Hunter Mountain",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 42.2,
+    "longitude": -74.22,
+    "elevation_base": 500,
+    "elevation_top": 1000,
+    "vertical_drop": 500,
+    "area_skiable": 60,
+    "trails_total": 40,
+    "ticket_price": [
+      5000,
+      9000
+    ],
+    "hotel_nearby": "亨特山",
+    "transport": "纽约驾车约2.5h",
+    "food": "汉堡、披萨",
+    "features": [
+      "卡茨基尔",
+      "夜滑",
+      "家庭"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "人工造雪+天然",
+    "is_indoor": false
+  },
+  "美国Windham Mountain滑雪场": {
+    "name": "美国Windham Mountain滑雪场",
+    "name_en": "Windham Mountain",
+    "region": "美国",
+    "province": "美国",
+    "latitude": 42.3,
+    "longitude": -74.26,
+    "elevation_base": 500,
+    "elevation_top": 950,
+    "vertical_drop": 450,
+    "area_skiable": 50,
+    "trails_total": 35,
+    "ticket_price": [
+      5000,
+      9000
+    ],
+    "hotel_nearby": "温德姆",
+    "transport": "纽约驾车约3h",
+    "food": "汉堡、披萨",
+    "features": [
+      "卡茨基尔",
+      "夜滑",
+      "grooming"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "人工造雪+天然",
+    "is_indoor": false
+  },
+  "加拿大Whistler Blackcomb滑雪场": {
+    "name": "加拿大Whistler Blackcomb滑雪场",
+    "name_en": "Whistler Blackcomb",
+    "region": "加拿大",
+    "province": "加拿大",
+    "latitude": 50.12,
+    "longitude": -122.95,
+    "elevation_base": 650,
+    "elevation_top": 2284,
+    "vertical_drop": 1634,
+    "area_skiable": 330,
+    "trails_total": 200,
+    "ticket_price": [
+      8000,
+      15000
+    ],
+    "hotel_nearby": "惠斯勒",
+    "transport": "温哥华驾车约2.5h",
+    "food": "汉堡、披萨、精酿啤酒",
+    "features": [
+      "北美最大",
+      "奥运场地",
+      "奢华"
+    ],
+    "best_months": [
+      11,
+      12,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "加拿大Banff Sunshine滑雪场": {
+    "name": "加拿大Banff Sunshine滑雪场",
+    "name_en": "Sunshine Village",
+    "region": "加拿大",
+    "province": "加拿大",
+    "latitude": 51.12,
+    "longitude": -115.75,
+    "elevation_base": 1660,
+    "elevation_top": 2730,
+    "vertical_drop": 1070,
+    "area_skiable": 140,
+    "trails_total": 85,
+    "ticket_price": [
+      7000,
+      12000
+    ],
+    "hotel_nearby": "班夫",
+    "transport": "卡尔加里驾车约1.5h",
+    "food": "汉堡、披萨、枫糖浆",
+    "features": [
+      "落基山",
+      "Banff",
+      "高海拔"
+    ],
+    "best_months": [
+      11,
+      12,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "加拿大Lake Louise滑雪场": {
+    "name": "加拿大Lake Louise滑雪场",
+    "name_en": "Lake Louise Ski Resort",
+    "region": "加拿大",
+    "province": "加拿大",
+    "latitude": 51.42,
+    "longitude": -116.17,
+    "elevation_base": 1645,
+    "elevation_top": 2637,
+    "vertical_drop": 992,
+    "area_skiable": 130,
+    "trails_total": 80,
+    "ticket_price": [
+      7000,
+      12000
+    ],
+    "hotel_nearby": "路易斯湖",
+    "transport": "卡尔加里驾车约2h",
+    "food": "汉堡、披萨、枫糖浆",
+    "features": [
+      "湖景",
+      "落基山",
+      "陡坡"
+    ],
+    "best_months": [
+      11,
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "加拿大Mt. Norquay滑雪场": {
+    "name": "加拿大Mt. Norquay滑雪场",
+    "name_en": "Mt. Norquay",
+    "region": "加拿大",
+    "province": "加拿大",
+    "latitude": 51.18,
+    "longitude": -115.58,
+    "elevation_base": 1600,
+    "elevation_top": 2133,
+    "vertical_drop": 533,
+    "area_skiable": 50,
+    "trails_total": 35,
+    "ticket_price": [
+      4000,
+      8000
+    ],
+    "hotel_nearby": "班夫",
+    "transport": "卡尔加里驾车约1.5h",
+    "food": "汉堡、披萨",
+    "features": [
+      "班夫最近",
+      "夜滑",
+      "家庭"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "加拿大Big White滑雪场": {
+    "name": "加拿大Big White滑雪场",
+    "name_en": "Big White Ski Resort",
+    "region": "加拿大",
+    "province": "加拿大",
+    "latitude": 49.73,
+    "longitude": -118.92,
+    "elevation_base": 1500,
+    "elevation_top": 2320,
+    "vertical_drop": 820,
+    "area_skiable": 110,
+    "trails_total": 70,
+    "ticket_price": [
+      5000,
+      9000
+    ],
+    "hotel_nearby": "大白山",
+    "transport": "基洛纳驾车约1h",
+    "food": "汉堡、披萨",
+    "features": [
+      "家庭",
+      "村庄",
+      "Champagne Powder"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "加拿大Silver Star滑雪场": {
+    "name": "加拿大Silver Star滑雪场",
+    "name_en": "Silver Star Mountain Resort",
+    "region": "加拿大",
+    "province": "加拿大",
+    "latitude": 50.38,
+    "longitude": -119.17,
+    "elevation_base": 1300,
+    "elevation_top": 1930,
+    "vertical_drop": 630,
+    "area_skiable": 80,
+    "trails_total": 50,
+    "ticket_price": [
+      4000,
+      8000
+    ],
+    "hotel_nearby": "银星",
+    "transport": "弗农驾车约45min",
+    "food": "汉堡、披萨",
+    "features": [
+      "家庭",
+      "村庄",
+      "人少"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "加拿大Red Mountain滑雪场": {
+    "name": "加拿大Red Mountain滑雪场",
+    "name_en": "Red Mountain Resort",
+    "region": "加拿大",
+    "province": "加拿大",
+    "latitude": 49.08,
+    "longitude": -117.67,
+    "elevation_base": 1200,
+    "elevation_top": 2050,
+    "vertical_drop": 850,
+    "area_skiable": 60,
+    "trails_total": 40,
+    "ticket_price": [
+      4000,
+      8000
+    ],
+    "hotel_nearby": "红山",
+    "transport": "罗斯兰驾车约15min",
+    "food": "汉堡、披萨",
+    "features": [
+      "深雪",
+      "Backcountry",
+      "极限"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "加拿大Revelstoke滑雪场": {
+    "name": "加拿大Revelstoke滑雪场",
+    "name_en": "Revelstoke Mountain Resort",
+    "region": "加拿大",
+    "province": "加拿大",
+    "latitude": 50.99,
+    "longitude": -118.2,
+    "elevation_base": 1700,
+    "elevation_top": 2225,
+    "vertical_drop": 525,
+    "area_skiable": 120,
+    "trails_total": 70,
+    "ticket_price": [
+      6000,
+      11000
+    ],
+    "hotel_nearby": "雷夫尔斯托克",
+    "transport": "卡尔加里驾车约4h",
+    "food": "汉堡、披萨",
+    "features": [
+      "最长垂直",
+      "深雪",
+      "极限"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "加拿大Kicking Horse滑雪场": {
+    "name": "加拿大Kicking Horse滑雪场",
+    "name_en": "Kicking Horse Mountain Resort",
+    "region": "加拿大",
+    "province": "加拿大",
+    "latitude": 51.3,
+    "longitude": -116.55,
+    "elevation_base": 1190,
+    "elevation_top": 2450,
+    "vertical_drop": 1260,
+    "area_skiable": 80,
+    "trails_total": 50,
+    "ticket_price": [
+      5000,
+      9000
+    ],
+    "hotel_nearby": "踢马",
+    "transport": "卡尔加里驾车约2h",
+    "food": "汉堡、披萨",
+    "features": [
+      "陡坡",
+      "Backcountry",
+      "偏远"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "加拿大Mont Tremblant滑雪场": {
+    "name": "加拿大Mont Tremblant滑雪场",
+    "name_en": "Mont Tremblant",
+    "region": "加拿大",
+    "province": "加拿大",
+    "latitude": 46.2,
+    "longitude": -74.58,
+    "elevation_base": 230,
+    "elevation_top": 875,
+    "vertical_drop": 645,
+    "area_skiable": 120,
+    "trails_total": 75,
+    "ticket_price": [
+      6000,
+      11000
+    ],
+    "hotel_nearby": "特朗布朗",
+    "transport": "蒙特利尔驾车约1.5h",
+    "food": "汉堡、披萨、枫糖浆",
+    "features": [
+      "东部最大",
+      "村庄",
+      "家庭"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "人工造雪+天然",
+    "is_indoor": false
+  },
+  "加拿大Blue Mountain滑雪场": {
+    "name": "加拿大Blue Mountain滑雪场",
+    "name_en": "Blue Mountain Resort (Ontario)",
+    "region": "加拿大",
+    "province": "加拿大",
+    "latitude": 44.5,
+    "longitude": -80.32,
+    "elevation_base": 220,
+    "elevation_top": 500,
+    "vertical_drop": 280,
+    "area_skiable": 60,
+    "trails_total": 40,
+    "ticket_price": [
+      4000,
+      8000
+    ],
+    "hotel_nearby": "蓝山",
+    "transport": "多伦多驾车约2h",
+    "food": "汉堡、披萨",
+    "features": [
+      "安大略最大",
+      "夜滑",
+      "家庭"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "人工造雪",
+    "is_indoor": false
+  },
+  "加拿大Panorama滑雪场": {
+    "name": "加拿大Panorama滑雪场",
+    "name_en": "Panorama Mountain Resort",
+    "region": "加拿大",
+    "province": "加拿大",
+    "latitude": 50.75,
+    "longitude": -116.05,
+    "elevation_base": 1300,
+    "elevation_top": 2450,
+    "vertical_drop": 1150,
+    "area_skiable": 70,
+    "trails_total": 45,
+    "ticket_price": [
+      4000,
+      8000
+    ],
+    "hotel_nearby": "全景",
+    "transport": "卡尔加里驾车约3h",
+    "food": "汉堡、披萨",
+    "features": [
+      "落基山",
+      "温泉",
+      "Backcountry"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "加拿大Fernie滑雪场": {
+    "name": "加拿大Fernie滑雪场",
+    "name_en": "Fernie Alpine Resort",
+    "region": "加拿大",
+    "province": "加拿大",
+    "latitude": 49.5,
+    "longitude": -115.07,
+    "elevation_base": 1100,
+    "elevation_top": 2130,
+    "vertical_drop": 1030,
+    "area_skiable": 70,
+    "trails_total": 45,
+    "ticket_price": [
+      4000,
+      8000
+    ],
+    "hotel_nearby": "弗尼",
+    "transport": "卡尔加里驾车约3.5h",
+    "food": "汉堡、披萨",
+    "features": [
+      "粉雪",
+      "Backcountry",
+      "偏远"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "加拿大Apex Mountain滑雪场": {
+    "name": "加拿大Apex Mountain滑雪场",
+    "name_en": "Apex Mountain Resort",
+    "region": "加拿大",
+    "province": "加拿大",
+    "latitude": 49.82,
+    "longitude": -119.52,
+    "elevation_base": 1200,
+    "elevation_top": 2000,
+    "vertical_drop": 800,
+    "area_skiable": 50,
+    "trails_total": 35,
+    "ticket_price": [
+      3000,
+      6000
+    ],
+    "hotel_nearby": "顶点山",
+    "transport": "基洛纳驾车约1h",
+    "food": "汉堡、披萨",
+    "features": [
+      "家庭",
+      "人少",
+      "高性价比"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "加拿大Kimberley滑雪场": {
+    "name": "加拿大Kimberley滑雪场",
+    "name_en": "Kimberley Alpine Resort",
+    "region": "加拿大",
+    "province": "加拿大",
+    "latitude": 49.67,
+    "longitude": -115.97,
+    "elevation_base": 1100,
+    "elevation_top": 1980,
+    "vertical_drop": 880,
+    "area_skiable": 50,
+    "trails_total": 35,
+    "ticket_price": [
+      3000,
+      6000
+    ],
+    "hotel_nearby": "金伯利",
+    "transport": "卡尔加里驾车约3h",
+    "food": "汉堡、披萨",
+    "features": [
+      "家庭",
+      "村庄",
+      "人少"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "韩国龙平度假村": {
+    "name": "韩国龙平度假村",
+    "name_en": "Yongpyong Resort",
+    "region": "韩国",
+    "province": "韩国",
+    "latitude": 37.65,
+    "longitude": 128.68,
+    "elevation_base": 700,
+    "elevation_top": 1458,
+    "vertical_drop": 758,
+    "area_skiable": 120,
+    "trails_total": 60,
+    "ticket_price": [
+      50000,
+      90000
+    ],
+    "hotel_nearby": "龙平",
+    "transport": "首尔KTX约2h",
+    "food": "韩式烤肉、石锅拌饭、泡菜",
+    "features": [
+      "韩国最大",
+      "冬季恋歌拍摄地",
+      "夜滑"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "韩国Alpensia度假村": {
+    "name": "韩国Alpensia度假村",
+    "name_en": "Alpensia Resort",
+    "region": "韩国",
+    "province": "韩国",
+    "latitude": 37.67,
+    "longitude": 128.65,
+    "elevation_base": 600,
+    "elevation_top": 1200,
+    "vertical_drop": 600,
+    "area_skiable": 80,
+    "trails_total": 45,
+    "ticket_price": [
+      40000,
+      80000
+    ],
+    "hotel_nearby": "阿尔卑斯亚",
+    "transport": "首尔KTX约2h",
+    "food": "韩式烤肉、石锅拌饭、泡菜",
+    "features": [
+      "2018冬奥",
+      "平昌",
+      "奥运场地"
+    ],
+    "best_months": [
+      12,
+      1,
+      2
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "韩国Welli Hilli Park": {
+    "name": "韩国Welli Hilli Park",
+    "name_en": "Welli Hilli Park",
+    "region": "韩国",
+    "province": "韩国",
+    "latitude": 37.55,
+    "longitude": 127.72,
+    "elevation_base": 400,
+    "elevation_top": 900,
+    "vertical_drop": 500,
+    "area_skiable": 60,
+    "trails_total": 35,
+    "ticket_price": [
+      30000,
+      60000
+    ],
+    "hotel_nearby": "韦利希利",
+    "transport": "首尔驾车约1.5h",
+    "food": "韩式烤肉、石锅拌饭",
+    "features": [
+      "夜滑",
+      "家庭",
+      "首尔最近"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "人工造雪",
+    "is_indoor": false
+  },
+  "韩国Vivaldi Park": {
+    "name": "韩国Vivaldi Park",
+    "name_en": "Vivaldi Park Ski World",
+    "region": "韩国",
+    "province": "韩国",
+    "latitude": 37.63,
+    "longitude": 127.68,
+    "elevation_base": 300,
+    "elevation_top": 700,
+    "vertical_drop": 400,
+    "area_skiable": 50,
+    "trails_total": 30,
+    "ticket_price": [
+      30000,
+      60000
+    ],
+    "hotel_nearby": "维瓦尔第",
+    "transport": "首尔驾车约1.5h",
+    "food": "韩式烤肉、石锅拌饭",
+    "features": [
+      "水上乐园",
+      "家庭",
+      "夜滑"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "人工造雪",
+    "is_indoor": false
+  },
+  "韩国Elysian Gangchon": {
+    "name": "韩国Elysian Gangchon",
+    "name_en": "Elysian Gangchon",
+    "region": "韩国",
+    "province": "韩国",
+    "latitude": 37.72,
+    "longitude": 127.52,
+    "elevation_base": 200,
+    "elevation_top": 500,
+    "vertical_drop": 300,
+    "area_skiable": 30,
+    "trails_total": 18,
+    "ticket_price": [
+      25000,
+      50000
+    ],
+    "hotel_nearby": "伊利西亚江村",
+    "transport": "首尔KTX约1h",
+    "food": "韩式烤肉、石锅拌饭",
+    "features": [
+      "首尔最近",
+      "夜滑",
+      "温泉"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "人工造雪",
+    "is_indoor": false
+  },
+  "韩国High One滑雪场": {
+    "name": "韩国High One滑雪场",
+    "name_en": "High One Ski Resort",
+    "region": "韩国",
+    "province": "韩国",
+    "latitude": 37.42,
+    "longitude": 128.82,
+    "elevation_base": 500,
+    "elevation_top": 1100,
+    "vertical_drop": 600,
+    "area_skiable": 50,
+    "trails_total": 30,
+    "ticket_price": [
+      30000,
+      60000
+    ],
+    "hotel_nearby": "旌善",
+    "transport": "首尔驾车约2.5h",
+    "food": "韩式烤肉、石锅拌饭",
+    "features": [
+      "最高海拔",
+      "陡坡",
+      "人少"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "人工造雪",
+    "is_indoor": false
+  },
+  "韩国Phoenix Park": {
+    "name": "韩国Phoenix Park",
+    "name_en": "Phoenix Park",
+    "region": "韩国",
+    "province": "韩国",
+    "latitude": 37.68,
+    "longitude": 128.42,
+    "elevation_base": 400,
+    "elevation_top": 900,
+    "vertical_drop": 500,
+    "area_skiable": 50,
+    "trails_total": 30,
+    "ticket_price": [
+      30000,
+      60000
+    ],
+    "hotel_nearby": "凤凰公园",
+    "transport": "首尔KTX约1.5h",
+    "food": "韩式烤肉、石锅拌饭",
+    "features": [
+      "夜滑",
+      "地形公园",
+      "家庭"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "人工造雪",
+    "is_indoor": false
+  },
+  "韩国Bears Town": {
+    "name": "韩国Bears Town",
+    "name_en": "Bears Town Resort",
+    "region": "韩国",
+    "province": "韩国",
+    "latitude": 37.85,
+    "longitude": 127.08,
+    "elevation_base": 300,
+    "elevation_top": 700,
+    "vertical_drop": 400,
+    "area_skiable": 40,
+    "trails_total": 25,
+    "ticket_price": [
+      25000,
+      50000
+    ],
+    "hotel_nearby": "熊镇",
+    "transport": "首尔驾车约1.5h",
+    "food": "韩式烤肉、石锅拌饭",
+    "features": [
+      "家庭",
+      "夜滑",
+      "高性价比"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "人工造雪",
+    "is_indoor": false
+  },
+  "韩国Jisan Forest": {
+    "name": "韩国Jisan Forest",
+    "name_en": "Jisan Forest Resort",
+    "region": "韩国",
+    "province": "韩国",
+    "latitude": 37.25,
+    "longitude": 127.32,
+    "elevation_base": 200,
+    "elevation_top": 500,
+    "vertical_drop": 300,
+    "area_skiable": 30,
+    "trails_total": 18,
+    "ticket_price": [
+      25000,
+      50000
+    ],
+    "hotel_nearby": "智山森林",
+    "transport": "首尔驾车约1.5h",
+    "food": "韩式烤肉、石锅拌饭",
+    "features": [
+      "森林",
+      "家庭",
+      "温泉"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "人工造雪",
+    "is_indoor": false
+  },
+  "韩国Muju Deogyusan": {
+    "name": "韩国Muju Deogyusan",
+    "name_en": "Muju Deogyusan Resort",
+    "region": "韩国",
+    "province": "韩国",
+    "latitude": 35.88,
+    "longitude": 127.75,
+    "elevation_base": 600,
+    "elevation_top": 1520,
+    "vertical_drop": 920,
+    "area_skiable": 60,
+    "trails_total": 35,
+    "ticket_price": [
+      30000,
+      60000
+    ],
+    "hotel_nearby": "茂朱",
+    "transport": "首尔驾车约3h",
+    "food": "韩式烤肉、石锅拌饭",
+    "features": [
+      "夜滑",
+      "最高韩国南部",
+      "人少"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "韩国Yangji Pine": {
+    "name": "韩国Yangji Pine",
+    "name_en": "Yangji Pine Resort",
+    "region": "韩国",
+    "province": "韩国",
+    "latitude": 37.32,
+    "longitude": 127.42,
+    "elevation_base": 300,
+    "elevation_top": 600,
+    "vertical_drop": 300,
+    "area_skiable": 30,
+    "trails_total": 18,
+    "ticket_price": [
+      20000,
+      40000
+    ],
+    "hotel_nearby": "阳智松林",
+    "transport": "首尔驾车约1.5h",
+    "food": "韩式烤肉、石锅拌饭",
+    "features": [
+      "松林",
+      "家庭",
+      "高性价比"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "人工造雪",
+    "is_indoor": false
+  },
+  "韩国Oak Valley": {
+    "name": "韩国Oak Valley",
+    "name_en": "Oak Valley Resort",
+    "region": "韩国",
+    "province": "韩国",
+    "latitude": 37.45,
+    "longitude": 127.92,
+    "elevation_base": 300,
+    "elevation_top": 700,
+    "vertical_drop": 400,
+    "area_skiable": 30,
+    "trails_total": 18,
+    "ticket_price": [
+      25000,
+      50000
+    ],
+    "hotel_nearby": "橡树谷",
+    "transport": "首尔驾车约2h",
+    "food": "韩式烤肉、石锅拌饭",
+    "features": [
+      "橡树",
+      "家庭",
+      "人少"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "人工造雪",
+    "is_indoor": false
+  },
+  "澳大利亚Perisher滑雪场": {
+    "name": "澳大利亚Perisher滑雪场",
+    "name_en": "Perisher Ski Resort",
+    "region": "澳大利亚",
+    "province": "澳大利亚",
+    "latitude": -36.4,
+    "longitude": 148.4,
+    "elevation_base": 1605,
+    "elevation_top": 2054,
+    "vertical_drop": 449,
+    "area_skiable": 120,
+    "trails_total": 70,
+    "ticket_price": [
+      100,
+      220
+    ],
+    "hotel_nearby": "佩里舍",
+    "transport": "悉尼驾车约5h",
+    "food": "澳洲餐、汉堡、咖啡",
+    "features": [
+      "南半球最大",
+      "4座山",
+      "冬季"
+    ],
+    "best_months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "snow_type": "人工造雪",
+    "is_indoor": false
+  },
+  "澳大利亚Thredbo滑雪场": {
+    "name": "澳大利亚Thredbo滑雪场",
+    "name_en": "Thredbo Ski Resort",
+    "region": "澳大利亚",
+    "province": "澳大利亚",
+    "latitude": -36.5,
+    "longitude": 148.3,
+    "elevation_base": 1365,
+    "elevation_top": 2037,
+    "vertical_drop": 672,
+    "area_skiable": 80,
+    "trails_total": 50,
+    "ticket_price": [
+      100,
+      220
+    ],
+    "hotel_nearby": "特雷德博",
+    "transport": "悉尼驾车约5.5h",
+    "food": "澳洲餐、汉堡、咖啡",
+    "features": [
+      "最长雪道",
+      "村庄",
+      "陡坡"
+    ],
+    "best_months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "snow_type": "人工造雪",
+    "is_indoor": false
+  },
+  "澳大利亚Falls Creek滑雪场": {
+    "name": "澳大利亚Falls Creek滑雪场",
+    "name_en": "Falls Creek Ski Resort",
+    "region": "澳大利亚",
+    "province": "澳大利亚",
+    "latitude": -36.87,
+    "longitude": 147.28,
+    "elevation_base": 1600,
+    "elevation_top": 1780,
+    "vertical_drop": 180,
+    "area_skiable": 90,
+    "trails_total": 55,
+    "ticket_price": [
+      90,
+      200
+    ],
+    "hotel_nearby": "瀑布溪",
+    "transport": "墨尔本驾车约4.5h",
+    "food": "澳洲餐、汉堡、咖啡",
+    "features": [
+      "家庭",
+      "村庄",
+      "越野"
+    ],
+    "best_months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "snow_type": "人工造雪",
+    "is_indoor": false
+  },
+  "澳大利亚Mount Hotham滑雪场": {
+    "name": "澳大利亚Mount Hotham滑雪场",
+    "name_en": "Mount Hotham Ski Resort",
+    "region": "澳大利亚",
+    "province": "澳大利亚",
+    "latitude": -36.98,
+    "longitude": 147.13,
+    "elevation_base": 1600,
+    "elevation_top": 1860,
+    "vertical_drop": 260,
+    "area_skiable": 70,
+    "trails_total": 45,
+    "ticket_price": [
+      90,
+      200
+    ],
+    "hotel_nearby": "霍瑟姆山",
+    "transport": "墨尔本驾车约4.5h",
+    "food": "澳洲餐、汉堡、咖啡",
+    "features": [
+      "粉雪",
+      "Backcountry",
+      "高海拔"
+    ],
+    "best_months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "snow_type": "人工造雪",
+    "is_indoor": false
+  },
+  "澳大利亚Mount Buller滑雪场": {
+    "name": "澳大利亚Mount Buller滑雪场",
+    "name_en": "Mount Buller Ski Resort",
+    "region": "澳大利亚",
+    "province": "澳大利亚",
+    "latitude": -37.1,
+    "longitude": 146.45,
+    "elevation_base": 1550,
+    "elevation_top": 1805,
+    "vertical_drop": 255,
+    "area_skiable": 60,
+    "trails_total": 40,
+    "ticket_price": [
+      80,
+      180
+    ],
+    "hotel_nearby": "布尔山",
+    "transport": "墨尔本驾车约3h",
+    "food": "澳洲餐、汉堡、咖啡",
+    "features": [
+      "墨尔本最近",
+      "家庭",
+      "村庄"
+    ],
+    "best_months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "snow_type": "人工造雪",
+    "is_indoor": false
+  },
+  "澳大利亚Charlotte Pass滑雪场": {
+    "name": "澳大利亚Charlotte Pass滑雪场",
+    "name_en": "Charlotte Pass Ski Resort",
+    "region": "澳大利亚",
+    "province": "澳大利亚",
+    "latitude": -36.42,
+    "longitude": 148.33,
+    "elevation_base": 1760,
+    "elevation_top": 2000,
+    "vertical_drop": 240,
+    "area_skiable": 30,
+    "trails_total": 20,
+    "ticket_price": [
+      80,
+      180
+    ],
+    "hotel_nearby": "夏洛特山口",
+    "transport": "悉尼驾车约5.5h",
+    "food": "澳洲餐、汉堡",
+    "features": [
+      "最高村",
+      "家庭",
+      "人少"
+    ],
+    "best_months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "snow_type": "人工造雪",
+    "is_indoor": false
+  },
+  "澳大利亚Mount Baw Baw滑雪场": {
+    "name": "澳大利亚Mount Baw Baw滑雪场",
+    "name_en": "Mount Baw Baw Ski Resort",
+    "region": "澳大利亚",
+    "province": "澳大利亚",
+    "latitude": -37.78,
+    "longitude": 146.32,
+    "elevation_base": 1400,
+    "elevation_top": 1564,
+    "vertical_drop": 164,
+    "area_skiable": 20,
+    "trails_total": 15,
+    "ticket_price": [
+      60,
+      150
+    ],
+    "hotel_nearby": "包包山",
+    "transport": "墨尔本驾车约3h",
+    "food": "澳洲餐、汉堡",
+    "features": [
+      "家庭",
+      "人少",
+      "高性价比"
+    ],
+    "best_months": [
+      7,
+      8,
+      9
+    ],
+    "snow_type": "人工造雪",
+    "is_indoor": false
+  },
+  "澳大利亚Selwyn Snowfields滑雪场": {
+    "name": "澳大利亚Selwyn Snowfields滑雪场",
+    "name_en": "Selwyn Snowfields",
+    "region": "澳大利亚",
+    "province": "澳大利亚",
+    "latitude": -36.38,
+    "longitude": 148.52,
+    "elevation_base": 1500,
+    "elevation_top": 1700,
+    "vertical_drop": 200,
+    "area_skiable": 20,
+    "trails_total": 15,
+    "ticket_price": [
+      60,
+      150
+    ],
+    "hotel_nearby": "塞尔温",
+    "transport": "堪培拉驾车约3h",
+    "food": "澳洲餐、汉堡",
+    "features": [
+      "家庭",
+      "人少",
+      "高性价比"
+    ],
+    "best_months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "snow_type": "人工造雪",
+    "is_indoor": false
+  },
+  "新西兰Whakapapa滑雪场": {
+    "name": "新西兰Whakapapa滑雪场",
+    "name_en": "Whakapapa Ski Resort",
+    "region": "新西兰",
+    "province": "新西兰",
+    "latitude": -39.28,
+    "longitude": 175.55,
+    "elevation_base": 1119,
+    "elevation_top": 2322,
+    "vertical_drop": 1203,
+    "area_skiable": 80,
+    "trails_total": 50,
+    "ticket_price": [
+      100,
+      200
+    ],
+    "hotel_nearby": "瓦卡帕帕",
+    "transport": "奥克兰驾车约4h",
+    "food": "新西兰餐、汉堡、咖啡",
+    "features": [
+      "鲁阿佩胡山",
+      "火山",
+      "景观"
+    ],
+    "best_months": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "新西兰Turoa滑雪场": {
+    "name": "新西兰Turoa滑雪场",
+    "name_en": "Turoa Ski Resort",
+    "region": "新西兰",
+    "province": "新西兰",
+    "latitude": -39.35,
+    "longitude": 175.5,
+    "elevation_base": 1300,
+    "elevation_top": 2322,
+    "vertical_drop": 1022,
+    "area_skiable": 70,
+    "trails_total": 45,
+    "ticket_price": [
+      100,
+      200
+    ],
+    "hotel_nearby": "图罗阿",
+    "transport": "奥克兰驾车约4.5h",
+    "food": "新西兰餐、汉堡、咖啡",
+    "features": [
+      "最长雪季",
+      "火山",
+      "陡坡"
+    ],
+    "best_months": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "新西兰Treble Cone滑雪场": {
+    "name": "新西兰Treble Cone滑雪场",
+    "name_en": "Treble Cone Ski Resort",
+    "region": "新西兰",
+    "province": "新西兰",
+    "latitude": -44.58,
+    "longitude": 169.15,
+    "elevation_base": 1260,
+    "elevation_top": 2088,
+    "vertical_drop": 828,
+    "area_skiable": 60,
+    "trails_total": 40,
+    "ticket_price": [
+      90,
+      180
+    ],
+    "hotel_nearby": "三重锥",
+    "transport": "皇后镇驾车约1h",
+    "food": "新西兰餐、汉堡、咖啡",
+    "features": [
+      "瓦纳卡",
+      "陡坡",
+      "景观"
+    ],
+    "best_months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "新西兰Cardrona滑雪场": {
+    "name": "新西兰Cardrona滑雪场",
+    "name_en": "Cardrona Alpine Resort",
+    "region": "新西兰",
+    "province": "新西兰",
+    "latitude": -44.88,
+    "longitude": 169.05,
+    "elevation_base": 1600,
+    "elevation_top": 1860,
+    "vertical_drop": 260,
+    "area_skiable": 50,
+    "trails_total": 35,
+    "ticket_price": [
+      90,
+      180
+    ],
+    "hotel_nearby": "卡德罗纳",
+    "transport": "皇后镇驾车约1.5h",
+    "food": "新西兰餐、汉堡、咖啡",
+    "features": [
+      "家庭",
+      "地形公园",
+      "景观"
+    ],
+    "best_months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "新西兰Coronet Peak滑雪场": {
+    "name": "新西兰Coronet Peak滑雪场",
+    "name_en": "Coronet Peak Ski Resort",
+    "region": "新西兰",
+    "province": "新西兰",
+    "latitude": -44.92,
+    "longitude": 168.75,
+    "elevation_base": 1100,
+    "elevation_top": 1649,
+    "vertical_drop": 549,
+    "area_skiable": 40,
+    "trails_total": 30,
+    "ticket_price": [
+      90,
+      180
+    ],
+    "hotel_nearby": "皇冠峰",
+    "transport": "皇后镇驾车约20min",
+    "food": "新西兰餐、汉堡、咖啡",
+    "features": [
+      "皇后镇最近",
+      "夜滑",
+      "家庭"
+    ],
+    "best_months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "新西兰The Remarkables滑雪场": {
+    "name": "新西兰The Remarkables滑雪场",
+    "name_en": "The Remarkables Ski Resort",
+    "region": "新西兰",
+    "province": "新西兰",
+    "latitude": -45.03,
+    "longitude": 168.82,
+    "elevation_base": 1100,
+    "elevation_top": 1943,
+    "vertical_drop": 843,
+    "area_skiable": 50,
+    "trails_total": 35,
+    "ticket_price": [
+      90,
+      180
+    ],
+    "hotel_nearby": "卓越山",
+    "transport": "皇后镇驾车约45min",
+    "food": "新西兰餐、汉堡、咖啡",
+    "features": [
+      "卓越山",
+      "地形公园",
+      "景观"
+    ],
+    "best_months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "新西兰Mount Dobson滑雪场": {
+    "name": "新西兰Mount Dobson滑雪场",
+    "name_en": "Mount Dobson Ski Resort",
+    "region": "新西兰",
+    "province": "新西兰",
+    "latitude": -44.25,
+    "longitude": 170.52,
+    "elevation_base": 900,
+    "elevation_top": 1500,
+    "vertical_drop": 600,
+    "area_skiable": 25,
+    "trails_total": 15,
+    "ticket_price": [
+      50,
+      120
+    ],
+    "hotel_nearby": "多布森山",
+    "transport": "蒂马鲁驾车约2h",
+    "food": "新西兰餐、汉堡",
+    "features": [
+      "家庭",
+      "人少",
+      "高性价比"
+    ],
+    "best_months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "新西兰Mount Olympus滑雪场": {
+    "name": "新西兰Mount Olympus滑雪场",
+    "name_en": "Mount Olympus Ski Resort",
+    "region": "新西兰",
+    "province": "新西兰",
+    "latitude": -43.18,
+    "longitude": 171.75,
+    "elevation_base": 800,
+    "elevation_top": 1400,
+    "vertical_drop": 600,
+    "area_skiable": 20,
+    "trails_total": 12,
+    "ticket_price": [
+      50,
+      120
+    ],
+    "hotel_nearby": "奥林匹斯山",
+    "transport": "基督城驾车约2.5h",
+    "food": "新西兰餐、汉堡",
+    "features": [
+      "家庭",
+      "人少",
+      "高性价比"
+    ],
+    "best_months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "新西兰Broken River滑雪场": {
+    "name": "新西兰Broken River滑雪场",
+    "name_en": "Broken River Ski Resort",
+    "region": "新西兰",
+    "province": "新西兰",
+    "latitude": -43.08,
+    "longitude": 171.82,
+    "elevation_base": 1000,
+    "elevation_top": 1600,
+    "vertical_drop": 600,
+    "area_skiable": 25,
+    "trails_total": 15,
+    "ticket_price": [
+      50,
+      120
+    ],
+    "hotel_nearby": "布罗肯河",
+    "transport": "基督城驾车约2.5h",
+    "food": "新西兰餐、汉堡",
+    "features": [
+      "Backcountry",
+      "人少",
+      "传统"
+    ],
+    "best_months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "新西兰Craigieburn滑雪场": {
+    "name": "新西兰Craigieburn滑雪场",
+    "name_en": "Craigieburn Valley Ski Resort",
+    "region": "新西兰",
+    "province": "新西兰",
+    "latitude": -43.15,
+    "longitude": 171.72,
+    "elevation_base": 1100,
+    "elevation_top": 1700,
+    "vertical_drop": 600,
+    "area_skiable": 20,
+    "trails_total": 12,
+    "ticket_price": [
+      50,
+      120
+    ],
+    "hotel_nearby": "克雷吉伯恩",
+    "transport": "基督城驾车约2h",
+    "food": "新西兰餐、汉堡",
+    "features": [
+      "家庭",
+      "人少",
+      "Backcountry"
+    ],
+    "best_months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "新西兰Fox Peak滑雪场": {
+    "name": "新西兰Fox Peak滑雪场",
+    "name_en": "Fox Peak Ski Resort",
+    "region": "新西兰",
+    "province": "新西兰",
+    "latitude": -44.12,
+    "longitude": 170.65,
+    "elevation_base": 1000,
+    "elevation_top": 1600,
+    "vertical_drop": 600,
+    "area_skiable": 20,
+    "trails_total": 12,
+    "ticket_price": [
+      50,
+      120
+    ],
+    "hotel_nearby": "福克斯峰",
+    "transport": "蒂马鲁驾车约2.5h",
+    "food": "新西兰餐、汉堡",
+    "features": [
+      "家庭",
+      "人少",
+      "高性价比"
+    ],
+    "best_months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "智利Valle Nevado滑雪场": {
+    "name": "智利Valle Nevado滑雪场",
+    "name_en": "Valle Nevado Ski Resort",
+    "region": "智利",
+    "province": "智利",
+    "latitude": -33.35,
+    "longitude": -70.25,
+    "elevation_base": 2860,
+    "elevation_top": 3670,
+    "vertical_drop": 810,
+    "area_skiable": 80,
+    "trails_total": 50,
+    "ticket_price": [
+      80,
+      180
+    ],
+    "hotel_nearby": "瓦列内瓦多",
+    "transport": "圣地亚哥驾车约1.5h",
+    "food": "智利餐、烤肉、葡萄酒",
+    "features": [
+      "南美最大",
+      "高海拔",
+      "夏季滑雪"
+    ],
+    "best_months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "智利Portillo滑雪场": {
+    "name": "智利Portillo滑雪场",
+    "name_en": "Portillo Ski Resort",
+    "region": "智利",
+    "province": "智利",
+    "latitude": -32.83,
+    "longitude": -70.13,
+    "elevation_base": 2870,
+    "elevation_top": 3310,
+    "vertical_drop": 440,
+    "area_skiable": 60,
+    "trails_total": 40,
+    "ticket_price": [
+      100,
+      220
+    ],
+    "hotel_nearby": "波尔蒂略",
+    "transport": "圣地亚哥驾车约2h",
+    "food": "智利餐、烤肉、葡萄酒",
+    "features": [
+      "历史最久",
+      "全包含",
+      "高海拔"
+    ],
+    "best_months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "智利La Parva滑雪场": {
+    "name": "智利La Parva滑雪场",
+    "name_en": "La Parva Ski Resort",
+    "region": "智利",
+    "province": "智利",
+    "latitude": -33.35,
+    "longitude": -70.3,
+    "elevation_base": 2700,
+    "elevation_top": 3600,
+    "vertical_drop": 900,
+    "area_skiable": 70,
+    "trails_total": 45,
+    "ticket_price": [
+      70,
+      160
+    ],
+    "hotel_nearby": "拉帕尔瓦",
+    "transport": "圣地亚哥驾车约1.5h",
+    "food": "智利餐、烤肉、葡萄酒",
+    "features": [
+      "高海拔",
+      "陡坡",
+      "Backcountry"
+    ],
+    "best_months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "智利El Colorado滑雪场": {
+    "name": "智利El Colorado滑雪场",
+    "name_en": "El Colorado Ski Resort",
+    "region": "智利",
+    "province": "智利",
+    "latitude": -33.33,
+    "longitude": -70.28,
+    "elevation_base": 2400,
+    "elevation_top": 3100,
+    "vertical_drop": 700,
+    "area_skiable": 50,
+    "trails_total": 35,
+    "ticket_price": [
+      60,
+      140
+    ],
+    "hotel_nearby": "埃尔科罗拉多",
+    "transport": "圣地亚哥驾车约1.5h",
+    "food": "智利餐、烤肉、葡萄酒",
+    "features": [
+      "家庭",
+      "夜滑",
+      "高性价比"
+    ],
+    "best_months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "智利Nevados de Chillan滑雪场": {
+    "name": "智利Nevados de Chillan滑雪场",
+    "name_en": "Nevados de Chillan",
+    "region": "智利",
+    "province": "智利",
+    "latitude": -36.92,
+    "longitude": -71.38,
+    "elevation_base": 1400,
+    "elevation_top": 2200,
+    "vertical_drop": 800,
+    "area_skiable": 60,
+    "trails_total": 40,
+    "ticket_price": [
+      60,
+      140
+    ],
+    "hotel_nearby": "奇兰",
+    "transport": "康塞普西翁驾车约3h",
+    "food": "智利餐、烤肉、葡萄酒",
+    "features": [
+      "温泉",
+      "火山",
+      "长雪季"
+    ],
+    "best_months": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "阿根廷Cerro Catedral滑雪场": {
+    "name": "阿根廷Cerro Catedral滑雪场",
+    "name_en": "Cerro Catedral Ski Resort",
+    "region": "阿根廷",
+    "province": "阿根廷",
+    "latitude": -41.15,
+    "longitude": -71.42,
+    "elevation_base": 1030,
+    "elevation_top": 2180,
+    "vertical_drop": 1150,
+    "area_skiable": 100,
+    "trails_total": 60,
+    "ticket_price": [
+      70,
+      160
+    ],
+    "hotel_nearby": "塞罗卡特拉尔",
+    "transport": "布宜诺斯艾利斯飞机+驾车约3h",
+    "food": "阿根廷烤肉、恩帕纳达斯、葡萄酒",
+    "features": [
+      "南美最大",
+      "巴里洛切",
+      "湖景"
+    ],
+    "best_months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "阿根廷Cerro Castor滑雪场": {
+    "name": "阿根廷Cerro Castor滑雪场",
+    "name_en": "Cerro Castor Ski Resort",
+    "region": "阿根廷",
+    "province": "阿根廷",
+    "latitude": -54.78,
+    "longitude": -68.32,
+    "elevation_base": 200,
+    "elevation_top": 800,
+    "vertical_drop": 600,
+    "area_skiable": 50,
+    "trails_total": 35,
+    "ticket_price": [
+      70,
+      160
+    ],
+    "hotel_nearby": "塞罗卡斯特",
+    "transport": "乌斯怀亚驾车约30min",
+    "food": "阿根廷烤肉、恩帕纳达斯、葡萄酒",
+    "features": [
+      "最南端",
+      "长雪季",
+      "风大"
+    ],
+    "best_months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "阿根廷Las Lenas滑雪场": {
+    "name": "阿根廷Las Lenas滑雪场",
+    "name_en": "Las Lenas Ski Resort",
+    "region": "阿根廷",
+    "province": "阿根廷",
+    "latitude": -35.35,
+    "longitude": -70.08,
+    "elevation_base": 2240,
+    "elevation_top": 3430,
+    "vertical_drop": 1190,
+    "area_skiable": 80,
+    "trails_total": 50,
+    "ticket_price": [
+      80,
+      180
+    ],
+    "hotel_nearby": "拉斯莱纳斯",
+    "transport": "门多萨驾车约5h",
+    "food": "阿根廷烤肉、恩帕纳达斯、葡萄酒",
+    "features": [
+      "陡坡",
+      "Backcountry",
+      "偏远"
+    ],
+    "best_months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "阿根廷Chapelco滑雪场": {
+    "name": "阿根廷Chapelco滑雪场",
+    "name_en": "Chapelco Ski Resort",
+    "region": "阿根廷",
+    "province": "阿根廷",
+    "latitude": -40.18,
+    "longitude": -71.28,
+    "elevation_base": 1000,
+    "elevation_top": 2040,
+    "vertical_drop": 1040,
+    "area_skiable": 50,
+    "trails_total": 35,
+    "ticket_price": [
+      60,
+      140
+    ],
+    "hotel_nearby": "查佩尔科",
+    "transport": "布宜诺斯艾利斯飞机约2h",
+    "food": "阿根廷烤肉、恩帕纳达斯、葡萄酒",
+    "features": [
+      "家庭",
+      "湖景",
+      "人少"
+    ],
+    "best_months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "阿根廷Cerro Bayo滑雪场": {
+    "name": "阿根廷Cerro Bayo滑雪场",
+    "name_en": "Cerro Bayo Ski Resort",
+    "region": "阿根廷",
+    "province": "阿根廷",
+    "latitude": -40.82,
+    "longitude": -71.65,
+    "elevation_base": 800,
+    "elevation_top": 1700,
+    "vertical_drop": 900,
+    "area_skiable": 40,
+    "trails_total": 25,
+    "ticket_price": [
+      50,
+      120
+    ],
+    "hotel_nearby": "塞罗巴约",
+    "transport": "巴里洛切驾车约1h",
+    "food": "阿根廷烤肉、恩帕纳达斯、葡萄酒",
+    "features": [
+      "家庭",
+      "湖景",
+      "人少"
+    ],
+    "best_months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "阿根廷La Hoya滑雪场": {
+    "name": "阿根廷La Hoya滑雪场",
+    "name_en": "La Hoya Ski Resort",
+    "region": "阿根廷",
+    "province": "阿根廷",
+    "latitude": -42.92,
+    "longitude": -71.32,
+    "elevation_base": 600,
+    "elevation_top": 1500,
+    "vertical_drop": 900,
+    "area_skiable": 30,
+    "trails_total": 20,
+    "ticket_price": [
+      50,
+      120
+    ],
+    "hotel_nearby": "拉霍亚",
+    "transport": "埃斯克尔驾车约30min",
+    "food": "阿根廷烤肉、恩帕纳达斯、葡萄酒",
+    "features": [
+      "家庭",
+      "人少",
+      "高性价比"
+    ],
+    "best_months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "瑞典Are滑雪场": {
+    "name": "瑞典Are滑雪场",
+    "name_en": "Are Ski Resort",
+    "region": "瑞典",
+    "province": "瑞典",
+    "latitude": 63.4,
+    "longitude": 13.08,
+    "elevation_base": 380,
+    "elevation_top": 1274,
+    "vertical_drop": 894,
+    "area_skiable": 80,
+    "trails_total": 50,
+    "ticket_price": [
+      3000,
+      6000
+    ],
+    "hotel_nearby": "奥勒",
+    "transport": "斯德哥尔摩火车约6h",
+    "food": "瑞典肉丸、三明治、咖啡",
+    "features": [
+      "北欧最大",
+      "极夜滑雪",
+      "家庭"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "挪威Hemsedal滑雪场": {
+    "name": "挪威Hemsedal滑雪场",
+    "name_en": "Hemsedal Ski Resort",
+    "region": "挪威",
+    "province": "挪威",
+    "latitude": 60.87,
+    "longitude": 8.55,
+    "elevation_base": 600,
+    "elevation_top": 1450,
+    "vertical_drop": 850,
+    "area_skiable": 60,
+    "trails_total": 40,
+    "ticket_price": [
+      3000,
+      6000
+    ],
+    "hotel_nearby": "海姆瑟达尔",
+    "transport": "奥斯陆驾车约3.5h",
+    "food": "挪威三文鱼、肉丸、咖啡",
+    "features": [
+      "北欧最大之一",
+      "夜滑",
+      "家庭"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "芬兰Levi滑雪场": {
+    "name": "芬兰Levi滑雪场",
+    "name_en": "Levi Ski Resort",
+    "region": "芬兰",
+    "province": "芬兰",
+    "latitude": 67.8,
+    "longitude": 24.8,
+    "elevation_base": 200,
+    "elevation_top": 531,
+    "vertical_drop": 331,
+    "area_skiable": 50,
+    "trails_total": 35,
+    "ticket_price": [
+      2500,
+      5000
+    ],
+    "hotel_nearby": "莱维",
+    "transport": "赫尔辛基飞机约1.5h",
+    "food": "驯鹿肉、三文鱼、咖啡",
+    "features": [
+      "北极圈内",
+      "极光滑雪",
+      "圣诞老人"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "芬兰Ruka滑雪场": {
+    "name": "芬兰Ruka滑雪场",
+    "name_en": "Ruka Ski Resort",
+    "region": "芬兰",
+    "province": "芬兰",
+    "latitude": 66.17,
+    "longitude": 29.13,
+    "elevation_base": 200,
+    "elevation_top": 492,
+    "vertical_drop": 292,
+    "area_skiable": 50,
+    "trails_total": 35,
+    "ticket_price": [
+      2500,
+      5000
+    ],
+    "hotel_nearby": "鲁卡",
+    "transport": "赫尔辛基飞机约1.5h",
+    "food": "驯鹿肉、三文鱼、咖啡",
+    "features": [
+      "极光",
+      "长雪季",
+      "家庭"
+    ],
+    "best_months": [
+      11,
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然雪",
+    "is_indoor": false
+  },
+  "波兰Zakopane滑雪场": {
+    "name": "波兰Zakopane滑雪场",
+    "name_en": "Zakopane Ski Resort",
+    "region": "波兰",
+    "province": "波兰",
+    "latitude": 49.3,
+    "longitude": 19.95,
+    "elevation_base": 800,
+    "elevation_top": 1500,
+    "vertical_drop": 700,
+    "area_skiable": 40,
+    "trails_total": 25,
+    "ticket_price": [
+      1500,
+      3500
+    ],
+    "hotel_nearby": "扎科帕内",
+    "transport": "克拉科夫巴士约2.5h",
+    "food": "波兰饺子、香肠、啤酒",
+    "features": [
+      "塔特拉山",
+      "高性价比",
+      "传统"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "捷克Spindleruv Mlyn滑雪场": {
+    "name": "捷克Spindleruv Mlyn滑雪场",
+    "name_en": "Spindleruv Mlyn Ski Resort",
+    "region": "捷克",
+    "province": "捷克",
+    "latitude": 50.73,
+    "longitude": 15.62,
+    "elevation_base": 700,
+    "elevation_top": 1310,
+    "vertical_drop": 610,
+    "area_skiable": 40,
+    "trails_total": 25,
+    "ticket_price": [
+      1500,
+      3500
+    ],
+    "hotel_nearby": "什平德勒鲁夫姆林",
+    "transport": "布拉格驾车约2h",
+    "food": "捷克饺子、啤酒、烤肉",
+    "features": [
+      "克尔科诺谢山",
+      "高性价比",
+      "夜滑"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "斯洛伐克Jasna滑雪场": {
+    "name": "斯洛伐克Jasna滑雪场",
+    "name_en": "Jasna Nizke Tatry",
+    "region": "斯洛伐克",
+    "province": "斯洛伐克",
+    "latitude": 48.93,
+    "longitude": 19.58,
+    "elevation_base": 943,
+    "elevation_top": 2024,
+    "vertical_drop": 1081,
+    "area_skiable": 50,
+    "trails_total": 35,
+    "ticket_price": [
+      1500,
+      3500
+    ],
+    "hotel_nearby": "雅斯纳",
+    "transport": "布拉迪斯拉发驾车约4h",
+    "food": "斯洛伐克饺子、啤酒、烤肉",
+    "features": [
+      "塔特拉山",
+      "高性价比",
+      "Backcountry"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "保加利亚Bansko滑雪场": {
+    "name": "保加利亚Bansko滑雪场",
+    "name_en": "Bansko Ski Resort",
+    "region": "保加利亚",
+    "province": "保加利亚",
+    "latitude": 41.83,
+    "longitude": 23.48,
+    "elevation_base": 990,
+    "elevation_top": 2560,
+    "vertical_drop": 1570,
+    "area_skiable": 70,
+    "trails_total": 45,
+    "ticket_price": [
+      1000,
+      2500
+    ],
+    "hotel_nearby": "班斯科",
+    "transport": "索菲亚驾车约2.5h",
+    "food": "保加利亚沙拉、烤肉、酸奶",
+    "features": [
+      "高性价比",
+      "温泉",
+      "长雪季"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "罗马尼亚Poiana Brasov滑雪场": {
+    "name": "罗马尼亚Poiana Brasov滑雪场",
+    "name_en": "Poiana Brasov Ski Resort",
+    "region": "罗马尼亚",
+    "province": "罗马尼亚",
+    "latitude": 45.58,
+    "longitude": 25.55,
+    "elevation_base": 1030,
+    "elevation_top": 1775,
+    "vertical_drop": 745,
+    "area_skiable": 40,
+    "trails_total": 25,
+    "ticket_price": [
+      1000,
+      2500
+    ],
+    "hotel_nearby": "波亚纳布拉索夫",
+    "transport": "布加勒斯特驾车约2.5h",
+    "food": "罗马尼亚菜、烤肉、玉米糊",
+    "features": [
+      "喀尔巴阡山",
+      "高性价比",
+      "古堡"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "斯洛文尼亚Kranjska Gora滑雪场": {
+    "name": "斯洛文尼亚Kranjska Gora滑雪场",
+    "name_en": "Kranjska Gora Ski Resort",
+    "region": "斯洛文尼亚",
+    "province": "斯洛文尼亚",
+    "latitude": 46.48,
+    "longitude": 13.78,
+    "elevation_base": 800,
+    "elevation_top": 1500,
+    "vertical_drop": 700,
+    "area_skiable": 30,
+    "trails_total": 20,
+    "ticket_price": [
+      1500,
+      3500
+    ],
+    "hotel_nearby": "克拉尼斯卡戈拉",
+    "transport": "卢布尔雅那驾车约1.5h",
+    "food": "斯洛文尼亚饺子、烤肉、葡萄酒",
+    "features": [
+      "阿尔卑斯",
+      "高性价比",
+      "家庭"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "西班牙Baqueira Beret滑雪场": {
+    "name": "西班牙Baqueira Beret滑雪场",
+    "name_en": "Baqueira Beret Ski Resort",
+    "region": "西班牙",
+    "province": "西班牙",
+    "latitude": 42.7,
+    "longitude": 0.95,
+    "elevation_base": 1500,
+    "elevation_top": 2510,
+    "vertical_drop": 1010,
+    "area_skiable": 100,
+    "trails_total": 60,
+    "ticket_price": [
+      3000,
+      6000
+    ],
+    "hotel_nearby": "巴凯拉",
+    "transport": "巴塞罗那驾车约4h",
+    "food": "西班牙海鲜饭、tapas、葡萄酒",
+    "features": [
+      "比利牛斯山",
+      "王室滑雪",
+      "奢华"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "西班牙Sierra Nevada滑雪场": {
+    "name": "西班牙Sierra Nevada滑雪场",
+    "name_en": "Sierra Nevada Ski Resort",
+    "region": "西班牙",
+    "province": "西班牙",
+    "latitude": 37.1,
+    "longitude": -3.4,
+    "elevation_base": 2100,
+    "elevation_top": 3300,
+    "vertical_drop": 1200,
+    "area_skiable": 80,
+    "trails_total": 50,
+    "ticket_price": [
+      2500,
+      5000
+    ],
+    "hotel_nearby": "内华达山",
+    "transport": "格拉纳达驾车约1.5h",
+    "food": "西班牙海鲜饭、tapas、葡萄酒",
+    "features": [
+      "欧洲最南",
+      "阳光",
+      "长雪季"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "安道尔Grandvalira滑雪场": {
+    "name": "安道尔Grandvalira滑雪场",
+    "name_en": "Grandvalira Ski Resort",
+    "region": "安道尔",
+    "province": "安道尔",
+    "latitude": 42.55,
+    "longitude": 1.65,
+    "elevation_base": 1710,
+    "elevation_top": 2640,
+    "vertical_drop": 930,
+    "area_skiable": 130,
+    "trails_total": 80,
+    "ticket_price": [
+      3000,
+      6000
+    ],
+    "hotel_nearby": "大瓦利拉",
+    "transport": "巴塞罗那巴士约3h",
+    "food": "安道尔餐、tapas、葡萄酒",
+    "features": [
+      "比利牛斯最大",
+      "免税",
+      "家庭"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "俄罗斯Krasnaya Polyana滑雪场": {
+    "name": "俄罗斯Krasnaya Polyana滑雪场",
+    "name_en": "Krasnaya Polyana Ski Resort",
+    "region": "俄罗斯",
+    "province": "俄罗斯",
+    "latitude": 43.68,
+    "longitude": 40.27,
+    "elevation_base": 540,
+    "elevation_top": 2320,
+    "vertical_drop": 1780,
+    "area_skiable": 100,
+    "trails_total": 60,
+    "ticket_price": [
+      3000,
+      7000
+    ],
+    "hotel_nearby": "红波利亚纳",
+    "transport": "索契驾车约1h",
+    "food": "俄罗斯饺子、罗宋汤、伏特加",
+    "features": [
+      "2014冬奥",
+      "黑海附近",
+      "高海拔"
+    ],
+    "best_months": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "snow_type": "天然+人工造雪",
+    "is_indoor": false
+  },
+  "阿联酋Ski Dubai": {
+    "name": "阿联酋Ski Dubai",
+    "name_en": "Ski Dubai",
+    "region": "阿联酋",
+    "province": "阿联酋",
+    "latitude": 25.12,
+    "longitude": 55.2,
+    "elevation_base": 0,
+    "elevation_top": 0,
+    "vertical_drop": 0,
+    "area_skiable": 22,
+    "trails_total": 5,
+    "ticket_price": [
+      200,
+      500
+    ],
+    "hotel_nearby": "迪拜购物中心",
+    "transport": "迪拜地铁直达",
+    "food": "阿拉伯餐、汉堡、咖啡",
+    "features": [
+      "室内滑雪",
+      "全年开放",
+      "热带滑雪"
+    ],
+    "best_months": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "snow_type": "人工造雪",
+    "is_indoor": true
   }
 }
