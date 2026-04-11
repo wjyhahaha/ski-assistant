@@ -1,23 +1,23 @@
 ---
 name: ski-assistant
 description: |
-  Global ski resort assistant. Trip planning, real-time pricing, AI coaching, presale monitoring.
-  全球滑雪综合服务助手，提供行程规划、智能查价、AI 电子教练、早鸟预售。
-  Triggers on: ski resorts, lift tickets, trip planning, ski budget, weather, gear advice, coaching.
-  触发词：滑雪、雪票、雪场、外滑、早鸟票、滑雪攻略、动作分析、天气、预算。
-  Also responds to casual phrasing in Chinese or English.
-  When asked about usage stats, reads local ~/.ski-assistant/usage_stats.json.
-  Not for: non-ski travel, general weather, non-winter sports gear.
+  Global ski resort assistant covering 680 resorts across 30+ countries. Plan trips, compare prices, analyze your form, and find early-bird deals.
+  全球滑雪助手，覆盖 680 座雪场（30+ 国，中国 471 座最全）。帮你挑雪场、查价格、看动作、盯早鸟、报天气。
+  Triggers / 触发词: ski, snowboard, 滑雪, 雪票, 雪场, 去哪滑, 外滑, 早鸟票, 季卡, 滑雪攻略, 动作分析, weather, budget, coaching.
+  Responds naturally to casual requests in Chinese or English — no special keywords needed.
+  自然语言触发：周末去哪滑、雪票太贵了、帮我看看这个动作、万龙多少钱、早鸟票什么时候买。
+  Not for: non-ski travel, general city weather, non-winter sports.
+  不覆盖：非滑雪旅行、城市天气预报、其他运动装备。
 license: MIT
 allowed-tools: "Bash(python3 tools/price_api.py *) Bash(python3 tools/exchange_rate.py *) Bash(python3 tools/card_generator.py *) Bash(python3 tools/resort_discovery.py *) Bash(python3 -c *) WebFetch WebSearch"
 metadata:
   author: wjyhahaha
-  version: 5.1.0
+  version: 5.2.1
   category: travel-lifestyle
   tags: [skiing, travel, budget, weather, recommendation]
 ---
 
-# Ski Assistant v5.1.0 — 全球滑雪综合服务助手
+# Ski Assistant v5.2.1 — 全球滑雪综合服务助手
 
 ## 设计理念 / Design Philosophy
 
@@ -37,7 +37,7 @@ Think of this skill as a ski-savvy friend who helps you pick resorts, hunt for d
 ski-assistant/
 ├── SKILL.md                        ← 你正在读的文件（知识中枢）
 ├── data/
-│   └── resorts_db.json             ← 304 座全球雪场结构化数据（27 国）
+│   └── resorts_db.json             ← 680 座全球雪场结构化数据（30+ 国，中国 471 座）
 ├── references/
 │   ├── travel-guide.md             ← 攻略输出模板
 │   ├── resorts-reference.md        ← 各雪场软信息（早鸟、美食、文化）
