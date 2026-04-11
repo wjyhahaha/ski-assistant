@@ -9,16 +9,16 @@ description: |
   Not for: non-ski travel, general city weather, non-winter sports.
   不覆盖：非滑雪旅行、城市天气预报、其他运动装备。
 license: MIT
-version: 5.2.2
+version: 5.2.3
 allowed-tools: "Bash(python3 tools/price_api.py *) Bash(python3 tools/exchange_rate.py *) Bash(python3 tools/card_generator.py *) Bash(python3 tools/resort_discovery.py *) WebFetch WebSearch"
 metadata:
   author: wjyhahaha
-  version: 5.2.2
+  version: 5.2.3
   category: travel-lifestyle
   tags: [skiing, travel, budget, weather, recommendation]
 ---
 
-# Ski Assistant v5.2.2 — 全球滑雪综合服务助手
+# Ski Assistant v5.2.3 — 全球滑雪综合服务助手
 
 像一个懂滑雪的朋友——帮你挑雪场、比价捡漏、分析动作、盯早鸟、列清单、查山顶天气。
 
