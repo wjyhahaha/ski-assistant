@@ -1,18 +1,24 @@
 #!/usr/bin/env python3
 """
-雪场发现与数据库更新工具
+雪场发现与数据库更新工具（只读查询 + 可选本地合并）
 用法:
   python tools/resort_discovery.py discover '<json>'
   python tools/resort_discovery.py update-db
 
 discover: 通过 OpenStreetMap Overpass API 搜索全球滑雪场，与本地数据库对比
-update-db: 从 GitHub 拉取最新 resorts_db.json
+update-db: 从 GitHub 拉取最新 resorts_db.json（仅用户显式触发）
 
-网络请求:
+网络请求（仅用户显式调用时触发，无后台自动联网）:
   - Overpass API (overpass-api.de, overpass.kumi.systems) — OSM 雪场查询
   - Nominatim (nominatim.openstreetmap.org) — 降级搜索
   - Open-Meteo Elevation API — 海拔补充
-  - GitHub Raw (raw.githubusercontent.com) — 数据库同步
+  - GitHub Raw (raw.githubusercontent.com) — 数据库同步（仅 update-db）
+
+安全说明:
+  - 所有网络请求仅在用户明确运行 discover 或 update-db 命令时触发
+  - 不发送用户个人信息，仅查询公开的地理数据
+  - 不执行任何外部脚本或二进制文件
+  - _save_db() 仅修改本 skill 自带的 data/resorts_db.json 文件
 
 v5.1: 扩展 60+ 搜索区域，覆盖欧洲 17 国、东欧、南美、澳洲等
 """

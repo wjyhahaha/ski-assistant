@@ -1,10 +1,16 @@
 #!/usr/bin/env python3
 """
-小红书分享卡片生成器
+小红书分享卡片生成器（纯本地操作，无任何网络请求）
 用法:
   python tools/card_generator.py score-card '<json>'
   python tools/card_generator.py progress-card '<json>'
   python tools/card_generator.py milestone-card '<json>'
+
+安全说明:
+  - 纯本地图片生成，不发起任何网络请求
+  - 仅在 ~/.ski-assistant/exports/ 目录写入图片文件
+  - 不读取用户隐私数据，仅使用用户提供的卡片参数
+  - 不执行 shell、subprocess 或访问外部 API
 
 依赖: pip install Pillow（可选，缺失时提示安装）
 """

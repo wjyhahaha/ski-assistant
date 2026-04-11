@@ -1,13 +1,18 @@
 #!/usr/bin/env python3
 """
-flyai CLI 桥接工具
+flyai CLI 桥接工具（仅调用预定义的 flyai 子命令，不执行任意 shell）
 用法:
   python tools/price_api.py search-flight '<json>'
   python tools/price_api.py search-hotel '<json>'
   python tools/price_api.py search-poi '<json>'
   python tools/price_api.py check
 
-仅负责调用 flyai CLI 并返回原始 JSON 结果，所有格式化和降级逻辑由 Agent 完成。
+安全说明:
+  - 仅通过 subprocess.run() 调用 'flyai' 可执行文件 + 固定参数
+  - 不执行 shell（shell=False），不拼接用户输入到命令字符串
+  - 所有参数通过独立的 argv 列表传递，无命令注入风险
+  - 不发送任何数据到外部服务器（仅 flyai CLI 自身联网查询）
+  - 仅用户显式运行命令时触发，无后台自动执行
 """
 
 import json

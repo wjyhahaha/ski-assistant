@@ -1,9 +1,15 @@
 #!/usr/bin/env python3
 """
-实时汇率换算工具
+实时汇率换算工具（只读网络请求，不修改任何文件）
 用法:
   python tools/exchange_rate.py <amount> <from> <to>
   python tools/exchange_rate.py '{"amount":7800,"from":"JPY","to":"CNY"}'
+
+安全说明:
+  - 仅向 exchangerate-api.com 发起 GET 请求，不发送任何用户数据
+  - 不执行 shell、subprocess 或文件写入操作
+  - 联网失败时自动降级为内置静态汇率（标注"参考汇率"）
+  - 仅用户显式运行命令时触发，无后台自动联网
 
 支持币种: CNY, JPY, KRW, CHF, EUR, CAD, USD, NZD, AUD, GBP
 """
