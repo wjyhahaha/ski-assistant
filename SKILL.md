@@ -9,7 +9,7 @@ description: |
   Not for: non-ski travel, general city weather, non-winter sports.
   不覆盖：非滑雪旅行、城市天气预报、其他运动装备。
 license: MIT
-allowed-tools: "Bash(python3 tools/price_api.py *) Bash(python3 tools/exchange_rate.py *) Bash(python3 tools/card_generator.py *) Bash(python3 tools/resort_discovery.py *) Bash(python3 -c *) WebFetch WebSearch"
+allowed-tools: "Bash(python3 tools/price_api.py *) Bash(python3 tools/exchange_rate.py *) Bash(python3 tools/card_generator.py *) Bash(python3 tools/resort_discovery.py *) WebFetch WebSearch"
 metadata:
   author: wjyhahaha
   version: 5.2.2
